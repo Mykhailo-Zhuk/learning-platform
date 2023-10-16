@@ -12,7 +12,7 @@ const References = () => {
           <AiFillMessage size={80} />
           <div className="flex flex-col space-y-3">
             <h1 className="font-semibold">Чат групи в телеграмі</h1>
-            <p>Зв'язок із викладачем та групою для швидкого вирішення питань</p>
+            <p>Зв&apos;язок із викладачем та групою для швидкого вирішення питань</p>
           </div>
         </div>
         <Button asChild className="w-full rounded-lg bg-blue-500">
