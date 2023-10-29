@@ -11,7 +11,7 @@ const spartan = League_Spartan({ subsets: ["latin"], weight: "400", variable: "-
 export const metadata: Metadata = {
   title: "Платформа для навчання",
   description:
-    "Дана аплікація створена з освітньому метою, на ній будуть розміщені навчальні матеріали, які необхідні для проходження курсу "Основи HTML, CSS та Javascript"",
+    'Дана аплікація створена з освітньому метою, на ній будуть розміщені навчальні матеріали, які необхідні для проходження курсу "Основи HTML, CSS та Javascript"',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
