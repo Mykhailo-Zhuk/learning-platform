@@ -1,0 +1,95 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { useStore } from "@/store/store";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import Spinner from "../ui/spinner";
+
+type Params = { params: string };
+
+const CustomTooltip = (trigger: React.ReactNode, content: React.ReactNode) => {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>{trigger}</TooltipTrigger>
+        <TooltipContent>
+          <p>{content}</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+};
+
+const Tests = ({ params }: Params) => {
+  const [loading, setLoading] = useState(true);
+  const practicalTests = useStore((state) => state.tests);
+  const setPracticalTests = useStore((state) => state.getTests);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await setPracticalTests(params);
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  let content;
+
+  if (practicalTests?.length === 0) {
+    content = <h1 className="text-2xl text-center">В цьому розділі немає жодних матеріалів</h1>;
+  }
+
+  if (loading) {
+    content = <Spinner />;
+  } else {
+    content = practicalTests?.map((practical) => {
+      return practical?.tests.map((test, index) => {
+        return (
+          <div
+            key={test?.id}
+            className="relative max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+            <div className="md:flex">
+              <div className="p-8">
+                <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+                  Тема: {practical?.subtitle}
+                </div>
+                <p className="mt-2 text-gray-500">
+                  <span className="bg-accent rounded-full py-2 px-3.5 mr-2 leading-10">
+                    {index + 1}
+                  </span>
+                  {test?.description}
+                </p>
+                {/* <div className="mt-4">
+                    <h4 className="text-gray-500">Options:</h4>
+                    <ul className="list-disc list-inside mt-2">
+                      {test?.options.map((option, index) => (
+                        <li key={index}>{option}</li>
+                      ))}
+                    </ul>
+                  </div> */}
+                <div className="absolute top-0 right-0 p-2">
+                  <p className="text-4xl text-center">{index % 2 === 0 ? "A" : "B"}</p>
+                </div>
+                <div className="mt-4">
+                  <h4 className="text-gray-500">Результат:</h4>
+                  {CustomTooltip(
+                    <p className="mt-2 text-black">{test?.result}</p>,
+                    <ul className="list-disc list-inside p-2 text-sm">
+                      {test?.tips.map((tip, index) => (
+                        <li key={index}>{tip}</li>
+                      ))}
+                    </ul>,
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      });
+    });
+  }
+
+  return <div className="max-w-full mx-auto min-md:p-6 flex flex-col space-y-3">{content}</div>;
+};
+
+export default Tests;

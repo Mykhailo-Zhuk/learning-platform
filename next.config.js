@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  images: {
+    domains: ['w3schoolsua.github.io'],
+  },
   webpack: (config, { dev }) => {
     // Add file loader for mp3 files
     config.module.rules.push({
@@ -18,8 +21,5 @@ module.exports = {
     });
 
     return config;
-  },
-  experimental: {
-    esmExternals: false,
   },
 };

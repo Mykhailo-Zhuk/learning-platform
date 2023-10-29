@@ -9,3 +9,21 @@ export { default as MusicList } from './AudioPlayer/MusicList';
 //// Textbook
 export { default as MainContent } from './TextBook/MainContent';
 export { default as AsideList } from './TextBook/AsideList';
+export { default as ThemesContent } from './TextBook/ThemesContent';
+
+///// Tasks
+export { default as TasksSurface } from './TasksWorkSpace/TasksSurface';
+export { default as AsideThemesOfTasks } from './TasksWorkSpace/AsideThemesOfTasks';
+export { default as CorrectAnswers } from './TasksWorkSpace/CorrectAnswers';
+export { default as Questions } from './TasksWorkSpace/Questions';
+export { default as Tests } from './TasksWorkSpace/Tests';
+
+///// ChooseProjects
+export { default as ChooseProject } from './ChooseProject/ChooseProject';
+
+///// Cabinet
+export { default as UserCard } from './Cabinet/UserCard';
+export { default as Login } from './Cabinet/Login';
+
+////// Admin panel
+export { default as AdminDashboard } from './AdminPanel/AdminDashboard';

@@ -1,0 +1,65 @@
+{
+  "html_css": {
+    "title": "HTML5 & CSS3",
+    "subtitles": [
+      {
+        "id": 1,
+        "subtitle": "Синтаксис HTML, структурованість",
+        "url": "html_syntax"
+      },
+      {
+        "id": 2,
+        "subtitle": "Семантика",
+        "url": "html_semantics"
+      },
+      {
+        "id": 3,
+        "subtitle": "Теги HTML",
+        "url": "html_tags"
+      },
+      { "id": 4, "subtitle": "Атрибути HTML", "url": "html_atributes" },
+      { "id": 6, "subtitle": "CSS, анімації і градієнти", "url": "css_animation" },
+      { "id": 5, "subtitle": "Методологія БЕМ:", "url": "css_bem" },
+      { "id": 7, "subtitle": "Класи", "url": "css_classes" },
+      { "id": 8, "subtitle": "Iдентифікатори", "url": "css_identifier" },
+      { "id": 9, "subtitle": "Селектори", "url": "css_selectors" },
+      { "id": 10, "subtitle": "Комбінатор", "url": "css_combinator" },
+      { "id": 11, "subtitle": "Псевдокласи", "url": "css_preudo_classes" },
+      { "id": 12, "subtitle": "Псевдоелементи", "url": "css_pseudo_elements" },
+      { "id": 13, "subtitle": "Flex та Grid CSS", "url": "css_flex_grid" },
+      { "id": 14, "subtitle": "Media queries та адаптивність", "url": "media_queries" },
+      { "id": 15, "subtitle": "Інше не менш важливе", "url": "css_others" },
+      { "id": 16, "subtitle": "Extra 1.1: Git & GitHub", "url": "git" },
+      {
+        "id": 17,
+        "subtitle": "Extra 1.2: Знання про веб-технології та мережу інтернет",
+        "url": "web_technology"
+      }
+    ]
+  },
+  "javascript": {
+    "title": "JavaScript",
+    "subtitles": [
+      {
+        "id": 1,
+        "subtitle": "Загальні поняття:",
+        "url": "js_general"
+      },
+      {
+        "id": 2,
+        "subtitle": "LocalStorage та SessionStorage",
+        "url": "js_storage"
+      },
+      {
+        "id": 3,
+        "subtitle": "Worker (Веб-робітник)",
+        "url": "js_worker"
+      },
+      {
+        "id": 4,
+        "subtitle": "DOM",
+        "url": "js_dom"
+      }
+    ]
+  }
+}

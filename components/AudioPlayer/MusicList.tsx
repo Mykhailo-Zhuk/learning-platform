@@ -1,34 +1,27 @@
-'use client';
+"use client";
 
-import React, { useRef, useState } from 'react';
+import React, { useState } from "react";
+import ReactPlayer from "react-player";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from "@/components/ui/dropdown-menu";
 
-import { tracks } from './audioData';
-import { Button } from '../ui/button';
+import { tracks } from "./audioData";
 
 const MusicList: React.FC = () => {
-  const [selectedTrack, setSelectedTrack] = useState({ title: '', url: '' });
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [selectedTrack, setSelectedTrack] = useState({ title: "", url: "" });
 
   const onSelectTrack = (track: { title: string; url: string }) => {
     setSelectedTrack(track);
-
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.load();
-      audioRef.current.play();
-    }
   };
   return (
-    <div className="flex items-center">
+    <div className="flex flex-col space-y-3 items-center md:flex-row md:space-x-3 md:space-y-0">
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <Button variant="ghost">Обери музику</Button>
+          <span className="hover:bg-accent rounded-lg py-2 text-center px-3">Обери музику</span>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           {tracks.map((track, index) => (
@@ -41,10 +34,8 @@ const MusicList: React.FC = () => {
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
-      <div className="px-4">
-        <audio ref={audioRef} autoPlay loop controls>
-          <source src={selectedTrack?.url} type="audio/mpeg" />
-        </audio>
+      <div className="audio-player-container">
+        <ReactPlayer url={selectedTrack.url} controls playing width="100%" height="40px" />
       </div>
     </div>
   );

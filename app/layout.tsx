@@ -1,6 +1,9 @@
+import { Header } from '@/components/index';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Montserrat, League_Spartan } from 'next/font/google';
+import { Toaster } from '@/components/ui/toaster';
+import AuthProvider from './context/AuthProvider';
 
 const monserat = Montserrat({ subsets: ['latin'], variable: '--font-monserat' });
 const spartan = League_Spartan({ subsets: ['latin'], weight: '400', variable: '--font-spartan' });
@@ -15,7 +18,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ua">
       <body className={`${monserat.variable} ${spartan.variable}`}>
-        {children}
+        <AuthProvider>
+          <Header />
+          {children}
+        </AuthProvider>
+        <Toaster />
       </body>
     </html>
   );
