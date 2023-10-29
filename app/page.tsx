@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Hello, TabsRow } from '@/components/index';
+import { Hello, TabsRow } from "@/components/index";
 
 export default function Home() {
   return (

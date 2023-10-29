@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import AdminDashboard from './AdminDashboard';
-import { useSession } from 'next-auth/react';
+import AdminDashboard from "./AdminDashboard";
+import { useSession } from "next-auth/react";
 
-type Role = 'admin' | 'student';
+type Role = "admin" | "student";
 
 type User = { id: number | string; name: string; password: string; role: Role };
 
@@ -11,8 +11,8 @@ const AdminDashboardWrapper = () => {
   const { data: session, status } = useSession();
 
   const users: User[] = [
-    { id: '27', name: 'Misha', password: 'nextauth', role: 'admin' },
-    { id: '28', name: 'Victor', password: 'nextauth', role: 'student' },
+    { id: "27", name: "Misha", password: "nextauth", role: "admin" },
+    { id: "28", name: "Victor", password: "nextauth", role: "student" },
   ];
 
   const filterUsers = users.find((user) => user.name === session?.user?.name);
@@ -24,11 +24,11 @@ const AdminDashboardWrapper = () => {
   console.log(filterUsers);
   console.log(session);
 
-  if (status === 'loading') {
+  if (status === "loading") {
     return <p>Loading...</p>;
   }
 
-  if (status === 'authenticated' && filterUsers?.role === 'admin') {
+  if (status === "authenticated" && filterUsers?.role === "admin") {
     return <AdminDashboard />;
   }
 

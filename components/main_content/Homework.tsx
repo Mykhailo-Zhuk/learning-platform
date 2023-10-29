@@ -30,7 +30,7 @@ const Homework = () => {
                   <a
                     href="https://w3schoolsua.github.io/html/html5_semantic_elements.html"
                     className="text-blue-500">
-                    "HTML Семантика"
+                    &quot;HTML Семантика&quot;
                   </a>
                   ;
                 </li>

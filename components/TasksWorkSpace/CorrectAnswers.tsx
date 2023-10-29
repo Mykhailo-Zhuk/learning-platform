@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 
 type Correct = { correct: { [key: string]: string } };
 
@@ -15,7 +15,7 @@ const CorrectAnswers = ({ correct }: Correct) => {
       className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
       onClick={() => {
         toast({
-          title: 'Правильні відповіді:',
+          title: "Правильні відповіді:",
           description: (
             <div className="flex flex-col">
               {content.length === 0 ? (

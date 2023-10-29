@@ -1,4 +1,4 @@
-import AdminDashboardWrapper from '@/components/AdminPanel/AdminDashboardWrapper';
+import AdminDashboardWrapper from "@/components/AdminPanel/AdminDashboardWrapper";
 
 const Admin = () => {
   return (
