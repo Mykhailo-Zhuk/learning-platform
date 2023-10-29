@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { baseURL } from "@/lib/utils";
 
 const Homework = () => {
   return (
@@ -45,17 +46,15 @@ const Homework = () => {
                 </li>
                 <li className="mt-2">
                   Ознайомитися із практичними завданнями та тестами по темах:{" "}
-                  <Link href={"http://localhost:3000/tasks/html_syntax"} className="text-blue-500">
+                  <Link href={`${baseURL}tasks/html_syntax`} className="text-blue-500">
                     Синтаксис та структурованість
                   </Link>
                   ,{" "}
-                  <Link
-                    href={"http://localhost:3000/tasks/html_semantics"}
-                    className="text-blue-500">
+                  <Link href={`${baseURL}tasks/html_semantics`} className="text-blue-500">
                     Семантика
                   </Link>
                   ,{" "}
-                  <Link href={"http://localhost:3000/tasks/html_tags"} className="text-blue-500">
+                  <Link href={`${baseURL}tasks/html_tags`} className="text-blue-500">
                     Теги HTML
                   </Link>
                   ;
