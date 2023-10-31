@@ -3,10 +3,6 @@ import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { fetchPartOfData } from "@/lib/utils";
 
-type Role = "admin" | "student";
-
-type User = { id: number | string; name: string; password: string; role: Role };
-
 export const options: NextAuthOptions = {
   providers: [
     // GitHub provider
@@ -47,4 +43,5 @@ export const options: NextAuthOptions = {
       },
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
 };

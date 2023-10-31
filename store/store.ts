@@ -13,6 +13,7 @@ type Store = {
       options: string[];
       tips: string[];
       result: string;
+      extra?: boolean;
     }[];
   }[];
   questions: {

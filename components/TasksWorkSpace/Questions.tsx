@@ -95,6 +95,8 @@ const Questions = ({ params }: Params) => {
     );
   }
 
+  // TODO: message about nothing if questions for particular theme are not found
+
   return content;
 };
 

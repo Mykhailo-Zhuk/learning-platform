@@ -69,6 +69,8 @@ const ThemesContent = ({ params }: Params) => {
     });
   }
 
+  // TODO: message about nothing if theme are not found
+
   return <div className="flex flex-col space-y-5 w-full">{materials}</div>;
 };
 

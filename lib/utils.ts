@@ -1,7 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-export const baseURL = "https://learning-platform-dusky.vercel.app/"; // "http://localhost:3000/";
+export const baseURL = "http://localhost:3000/"; // "https://learning-platform-dusky.vercel.app/";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
