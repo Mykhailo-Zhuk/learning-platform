@@ -41,12 +41,12 @@ const Tests = ({ params }: Params) => {
     if (practicalTests?.length !== 0) {
       content = practicalTests?.map((practical) => {
         return practical?.tests.map((test, index) => {
+          const testCardStyles = `relative max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl ${
+            test?.extra ? "bg-blue-200" : ""
+          }`;
+
           return (
-            <div
-              key={test?.id}
-              className={`relative max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl ${
-                test?.extra ? "bg-blue-200" : ""
-              }`}>
+            <div key={test?.id} className={testCardStyles}>
               <div className="md:flex">
                 <div className="p-8">
                   <div className="flex justify-between pr-7 uppercase tracking-wide text-sm text-indigo-500 font-semibold">

@@ -41,6 +41,16 @@ type Store = {
     definition: string[];
     image?: { url: string; caption: string[] };
     code?: string[];
+    table?: {
+      title: string;
+      headers: string[];
+      rows: {
+        id: number;
+        selector: string;
+        example: string;
+        description: string;
+      }[];
+    };
   }[];
   listOfThemes: {
     title: string;
@@ -80,7 +90,6 @@ export const useStore = create<Store>((set, get) => ({
     try {
       const response = await fetchPartOfData("listOfThemes");
       const data = await response.json();
-
       set({ listOfThemes: data });
     } catch (error) {
       console.log(error);

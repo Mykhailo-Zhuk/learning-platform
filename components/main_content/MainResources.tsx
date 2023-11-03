@@ -19,9 +19,9 @@ const MainResources = () => {
             <h2 className="text-center md:text-left">Наступний урок</h2>
             <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
               <BsFillCalendarCheckFill size={18} />
-              <p>Сб, 09.10</p>
+              <p>Сб, 04.11</p>
               <BsFillClockFill size={18} />
-              <p>17:00 - 19:00</p>
+              <p>10:00 - 12:00</p>
             </div>
           </div>
           <div className="flex flex-col space-y-3 md:flex-row md:space-x-5 md:space-y-0">

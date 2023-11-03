@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Платформа для навчання",
   description:
     "Дана аплікація створена з освітньому метою, на ній будуть розміщені навчальні матеріали, які необхідні для проходження курсу &quot;Основи HTML, CSS та Javascript&quot;",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -35,7 +35,7 @@ const AsideList = () => {
   }
 
   if (loading) {
-    content = Array.from({ length: 3 }, (_, i) => i + 1).map((_, id) => {
+    content = Array.from({ length: 8 }, (_, i) => i + 1).map((_, id) => {
       return <Skeleton key={id} className="w-full h-16 rounded-lg"></Skeleton>;
     });
   } else {
@@ -43,10 +43,8 @@ const AsideList = () => {
       <Accordion type="single" collapsible className="flex flex-col space-y-1">
         {listOfThemes?.map((theme, index) => {
           return (
-            <AccordionItem
-              key={`${transformTitle(theme?.title)}${index}`}
-              value={transformTitle(theme?.title)}>
-              <AccordionTrigger className="text-2xl px-4 hover:bg-accent rounded-lg">
+            <AccordionItem key={index} value={transformTitle(theme?.title)}>
+              <AccordionTrigger className="text-2xl text-left px-4 hover:bg-accent rounded-lg">
                 {theme.title}
               </AccordionTrigger>
               <AccordionContent>

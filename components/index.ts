@@ -10,6 +10,7 @@ export { default as MusicList } from "./AudioPlayer/MusicList";
 export { default as MainContent } from "./TextBook/MainContent";
 export { default as AsideList } from "./TextBook/AsideList";
 export { default as ThemesContent } from "./TextBook/ThemesContent";
+export { default as NotionStyleTable } from "./TextBook/NotionStyleTable";
 
 ///// Tasks
 export { default as TasksSurface } from "./TasksWorkSpace/TasksSurface";
