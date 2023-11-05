@@ -31,7 +31,7 @@ const Tests = ({ params }: Params) => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [setPracticalTests, params]);
 
   let content;
 

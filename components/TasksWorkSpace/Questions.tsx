@@ -27,7 +27,7 @@ const Questions = ({ params }: Params) => {
     if (storedAnswers) {
       setAnswers(JSON.parse(storedAnswers));
     }
-  }, []);
+  }, [setQuestions, params]);
 
   const handleAnswerSelection = (questionId: number, selectedAnswer: string) => {
     setAnswers((prevAnswers) => ({

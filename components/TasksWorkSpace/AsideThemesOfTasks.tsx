@@ -16,10 +16,6 @@ const AsideThemesOfTasks = () => {
   const listOfThemes = useStore((state) => state.listOfThemes);
   const setListOfThemes = useStore((state) => state.addListOfThemes);
 
-  useEffect(() => {
-    setListOfThemes();
-  }, []);
-
   const transformTitle = (title: string) => {
     return title.replaceAll(" ", "_");
   };
@@ -30,7 +26,7 @@ const AsideThemesOfTasks = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [setListOfThemes]);
 
   let content;
 

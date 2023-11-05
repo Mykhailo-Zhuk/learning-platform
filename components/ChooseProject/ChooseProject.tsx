@@ -94,7 +94,7 @@ const ChooseProject = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [setProjects]);
 
   const handleVote = async (
     id: number,

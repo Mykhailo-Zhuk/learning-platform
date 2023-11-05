@@ -26,7 +26,7 @@ const AsideList = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [setListOfThemes]);
 
   let content;
 

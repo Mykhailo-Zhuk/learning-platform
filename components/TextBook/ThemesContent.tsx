@@ -19,7 +19,7 @@ const ThemesContent = ({ params }: Params) => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [setDescriptions, params]);
 
   let materials;
 
@@ -40,7 +40,7 @@ const ThemesContent = ({ params }: Params) => {
               } else if (typeof subitem === "object") {
                 if ("image" in subitem) {
                   return (
-                    <div className="flex flex-col space-y-2">
+                    <div key={"image"} className="flex flex-col space-y-2">
                       <div className="flex justify-center items-center">
                         <Image
                           src={subitem?.image?.url!}
@@ -62,12 +62,12 @@ const ThemesContent = ({ params }: Params) => {
                 }
 
                 if ("table" in subitem) {
-                  return <NotionStyleTable data={subitem?.table} />;
+                  return <NotionStyleTable key={"table"} data={subitem?.table} />;
                 }
 
                 if ("list" in subitem) {
                   return (
-                    <ol className="list-decimal list-inside">
+                    <ol key={"list"} className="list-decimal list-inside">
                       {subitem?.list?.map((li) => {
                         return (
                           <li

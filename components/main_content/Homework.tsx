@@ -24,7 +24,7 @@ const Homework = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [getHomework]);
 
   const homeworkSlice = homework.slice(-3);
 
