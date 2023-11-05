@@ -1,6 +1,28 @@
 import { fetchDataFromNextServer, fetchPartOfData } from "@/lib/utils";
 import { create } from "zustand";
 
+type Image = { image?: { url: string; caption: string[] } };
+type Table = {
+  table?: {
+    title: string;
+    headers: string[];
+    rows: {
+      id: number;
+      selector: string;
+      example?: string;
+      description: string;
+    }[];
+  };
+};
+type List = {
+  list: [
+    {
+      id: number;
+      item: string;
+    },
+  ];
+};
+
 type Store = {
   // tracks: { title: string; url: string }[];
   users: { id: string | number; name: string; password: string; role: "admin" | "student" }[];
@@ -34,30 +56,53 @@ type Store = {
     votes: number;
     participants: string[];
   }[];
+
   descriptions: {
-    id: number | string;
     subtitle: string;
-    url: string;
-    definition: string[];
-    image?: { url: string; caption: string[] };
-    code?: string[];
-    table?: {
-      title: string;
-      headers: string[];
-      rows: {
-        id: number;
-        selector: string;
-        example: string;
-        description: string;
-      }[];
-    };
+    content: [
+      string,
+      { image?: { url: string; caption: string[] } },
+      {
+        table?: {
+          title: string;
+          headers: string[];
+          rows: {
+            id: number;
+            selector: string;
+            example?: string;
+            description: string;
+          }[];
+        };
+      },
+      {
+        list?: {
+          id: number;
+          item: string;
+        }[];
+      },
+    ];
   }[];
+
   listOfThemes: {
     title: string;
     subtitles: {
       id: number;
       subtitle: string;
       url: string;
+    }[];
+  }[];
+  homework: {
+    id: number;
+    date: string;
+    homework: {
+      id: number;
+      action: string;
+      listOfThemes?: {
+        id: number;
+        link: string;
+        title: string;
+      }[];
+      links?: { id: number; title: string; link: string }[];
     }[];
   }[];
   // addTracks: () => void;
@@ -67,6 +112,7 @@ type Store = {
   getProjects: () => void;
   getQuestions: (params: string) => void;
   getDescriptions: (params: string) => void;
+  getHomework: () => void;
 };
 
 export const useStore = create<Store>((set, get) => ({
@@ -77,6 +123,7 @@ export const useStore = create<Store>((set, get) => ({
   descriptions: [],
   projects: [],
   listOfThemes: [],
+  homework: [],
   // addTracks: async () => {
   //   try {
   //     const response = await fetchDataFromNextServer("tracks");
@@ -142,8 +189,19 @@ export const useStore = create<Store>((set, get) => ({
 
       const data = await response.json();
       console.log(data);
-
       set({ descriptions: data });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  getHomework: async () => {
+    try {
+      const response = await fetchPartOfData("homework");
+
+      const data = await response.json();
+      console.log(data);
+
+      set({ homework: data });
     } catch (error) {
       console.log(error);
     }

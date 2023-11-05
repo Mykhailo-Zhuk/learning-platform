@@ -1,18 +1,29 @@
 import React from "react";
 
+type Row = {
+  id: number;
+  selector: string;
+  example?: string;
+  description: string;
+};
+
 type Table = {
   title: string;
   headers: string[];
-  rows: {
-    id: number;
-    selector: string;
-    example: string;
-    description: string;
-  }[];
+  rows: Row[];
 };
-const NotionStyleTable = ({ data }: { data: Table }) => {
+
+type Props = {
+  data: Table | undefined;
+};
+
+const NotionStyleTable: React.FC<Props> = ({ data }) => {
+  if (!data) {
+    return <div>No data available</div>;
+  }
+
   return (
-    <div className="flex flex-col w-full ">
+    <div className="flex flex-col w-full">
       <div className="my-2 overflow-x-auto">
         <div className="py-2 align-middle inline-block px-1">
           <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -31,15 +42,13 @@ const NotionStyleTable = ({ data }: { data: Table }) => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {data?.rows.map(
-                  (row: { id: number; selector: string; example: string; description: string }) => (
-                    <tr key={row.id}>
-                      <td className="px-6 py-4">{row.selector}</td>
-                      <td className="px-6 py-4">{row.example}</td>
-                      <td className="px-6 py-4">{row.description}</td>
-                    </tr>
-                  ),
-                )}
+                {data?.rows.map((row) => (
+                  <tr key={row.id}>
+                    <td className="px-6 py-4">{row.selector}</td>
+                    <td className="px-6 py-4">{row.example}</td>
+                    <td className="px-6 py-4">{row.description}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

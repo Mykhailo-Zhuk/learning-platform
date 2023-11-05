@@ -1,69 +1,70 @@
 {
   "html_syntax": {
     "subtitle": "Синтаксис HTML, структурованість",
-    "definition": [
-      "HTML (від англ. HyperText Markup Language — \"мова гіпертекстової розмітки\") — стандартизована мова розмітки документів у Всесвітній павутині"
-    ],
-    "code": ["<назва тегу>Тут йде зміст...</назва тегу>", "<!-- Напишить свій коментар тут -->"],
-    "image": {
-      "url": "https://lh3.googleusercontent.com/pw/ADCreHcjH90sBs843kK9_XgyiQI_9NfA5Wba5sQqz7c3gHewK5fc9qJZBeiNxNkiAH4-4R18VStVMVTXnJU4VcY7_buGgtv7YfeMOopi5c5Fv5lleds9cVvYui4NY8RZpwT7N9RAYVDagkcBbHA9IvneySGF5e0Ghz9b7DI9HnHj6CgFJXwNNlIW326Lxq3kUmf1G6VCw7AavCLQyKUENFJXESeqx7DTAevdQDHwCkXhzO84M8LkSA23PvRsXFNNO3WNYyqML6v0-im_7cM4pqDSNX0qN21AIl2yG3smWqDfqsfJSgbO29HIi49M6lLzfHiOkPJpG42Yz9HAgp-2KFt6i444MNgUTHXYjWg-8NN0AiakqTq8NlG0wTmGt6JQhK6ONaJqgW6hSMVTjTjjQWwAiAE20OHc2s1gcA7UoTIlUOtpzmDuFQs8xOQxk0UvOKBTmGWwa03G_6sW15d9hht1tU0lyRKsTeAe1RDtBPQ5JXRING_9iMu85eQtRZWqwTI1Xicqo2d7zCOI97EU8JbeKga_r88ZFfYR1MPSCA5R0bJ2TcS-eq3guM0xDp7qpXd95BwHWhx34pzPWOBh00iZ9jSjP9m_cVOQHtVsbM4GWloRiPBtMxVZzzxiYpStUjLj9G0oAU9kWiG0UP-okOfwE_z2SgnR5X2G1Bvg8S8cx3rfxWDa37kSRxuujffX_-mK7CLqwab9qAnLqn50rdr4fH-6BS5tLPRF_NHQ0-tng4JIVtLcCtVx8tMKBJtbkux9mnGKrvQLDy8wEnrUYbGZcNcI7SlewmvXXVG4z1g6MoRAZb2cx8SpxOsgCXoROL9WZFxdjst0wn5LoVFs_JK3yARNcLLMxgirnt8yiL56fBXFPsmqwHc-MTlspZNoutwWkKIy9zMKyFMaQP5ifTDvZzINcqdQ-33YmVQuHIVjbrqMQu-7YIB8j4VcH82S=w836-h388-s-no-gm?authuser=0",
-      "caption": []
-    }
+    "content": [
+      "HTML (від англ. HyperText Markup Language — \"мова гіпертекстової розмітки\") — стандартизована мова розмітки документів у Всесвітній павутині",
+      {
+        "image": {
+          "url": "https://lh3.googleusercontent.com/pw/ADCreHcjH90sBs843kK9_XgyiQI_9NfA5Wba5sQqz7c3gHewK5fc9qJZBeiNxNkiAH4-4R18VStVMVTXnJU4VcY7_buGgtv7YfeMOopi5c5Fv5lleds9cVvYui4NY8RZpwT7N9RAYVDagkcBbHA9IvneySGF5e0Ghz9b7DI9HnHj6CgFJXwNNlIW326Lxq3kUmf1G6VCw7AavCLQyKUENFJXESeqx7DTAevdQDHwCkXhzO84M8LkSA23PvRsXFNNO3WNYyqML6v0-im_7cM4pqDSNX0qN21AIl2yG3smWqDfqsfJSgbO29HIi49M6lLzfHiOkPJpG42Yz9HAgp-2KFt6i444MNgUTHXYjWg-8NN0AiakqTq8NlG0wTmGt6JQhK6ONaJqgW6hSMVTjTjjQWwAiAE20OHc2s1gcA7UoTIlUOtpzmDuFQs8xOQxk0UvOKBTmGWwa03G_6sW15d9hht1tU0lyRKsTeAe1RDtBPQ5JXRING_9iMu85eQtRZWqwTI1Xicqo2d7zCOI97EU8JbeKga_r88ZFfYR1MPSCA5R0bJ2TcS-eq3guM0xDp7qpXd95BwHWhx34pzPWOBh00iZ9jSjP9m_cVOQHtVsbM4GWloRiPBtMxVZzzxiYpStUjLj9G0oAU9kWiG0UP-okOfwE_z2SgnR5X2G1Bvg8S8cx3rfxWDa37kSRxuujffX_-mK7CLqwab9qAnLqn50rdr4fH-6BS5tLPRF_NHQ0-tng4JIVtLcCtVx8tMKBJtbkux9mnGKrvQLDy8wEnrUYbGZcNcI7SlewmvXXVG4z1g6MoRAZb2cx8SpxOsgCXoROL9WZFxdjst0wn5LoVFs_JK3yARNcLLMxgirnt8yiL56fBXFPsmqwHc-MTlspZNoutwWkKIy9zMKyFMaQP5ifTDvZzINcqdQ-33YmVQuHIVjbrqMQu-7YIB8j4VcH82S=w836-h388-s-no-gm?authuser=0",
+          "caption": []
+        }
+      },
+      "<назва тегу>Тут йде зміст...</назва тегу>",
+      "<!-- Напишить свій коментар тут -->"
+    ]
   },
   "html_semantics": {
     "subtitle": "Семантика",
-    "definition": [
+    "content": [
       "Семантика - це вивчення значень слів і фраз в мові.",
       "Семантичні елементи = елементи зі смислом.",
       "Семантичний елемент чітко описує його значення як для браузера, так і для розробника.",
       "HTML елемент <head> - є контейнером для метаданих (дані про дані) і де розміщуються наступні елементи: <title>, <style>, <meta>, <link>, <script>, <base>, <noscript>, <template>.",
-      "Зарезервовані символи в HTML мають бути замінені символьними об’єктами (або сутностями)."
-    ],
-    "image": {
-      "url": "https://w3schoolsua.github.io/images/img_sem_elements.gif",
-      "caption": [
-        "HTML пропонує кілька семантичних елемента, які визначають різні частини вебсторінки",
-        "<header> - Визначає заголовок для документа або розділу",
-        "<nav> - Визначає контейнер для посилань навігації",
-        "<section> - Визначає розділ в документі",
-        "<article> - Визначає незалежну автономну статтю",
-        "<aside> - Визначає контент окрім основного контента (наприклад, бокову панель)",
-        "<footer> - Визначає нижній колонтитул (footer) для документа або розділу",
-        "<details> - Визначає додаткові деталі",
-        "<summary> - Визначає заголовок для елемента <details>",
-        "<time> - Визначає дату/час",
-        "<figcaption>, <figure> - Призначення підпису до малюнка - додати візуальне пояснення до зображення.",
-        "<main> - Визначає основний зміст документа",
-        "<mark> - Визначає помічений / виділений текст"
-      ]
-    }
+      "Зарезервовані символи в HTML мають бути замінені символьними об’єктами (або сутностями).",
+      {
+        "image": {
+          "url": "https://w3schoolsua.github.io/images/img_sem_elements.gif",
+          "caption": [
+            "HTML пропонує кілька семантичних елемента, які визначають різні частини вебсторінки",
+            "<header> - Визначає заголовок для документа або розділу",
+            "<nav> - Визначає контейнер для посилань навігації",
+            "<section> - Визначає розділ в документі",
+            "<article> - Визначає незалежну автономну статтю",
+            "<aside> - Визначає контент окрім основного контента (наприклад, бокову панель)",
+            "<footer> - Визначає нижній колонтитул (footer) для документа або розділу",
+            "<details> - Визначає додаткові деталі",
+            "<summary> - Визначає заголовок для елемента <details>",
+            "<time> - Визначає дату/час",
+            "<figcaption>, <figure> - Призначення підпису до малюнка - додати візуальне пояснення до зображення.",
+            "<main> - Визначає основний зміст документа",
+            "<mark> - Визначає помічений / виділений текст"
+          ]
+        }
+      }
+    ]
   },
   "html_tags": {
     "subtitle": "Теги HTML",
-    "definition": [
+    "content": [
       "Щоб показати відео в HTML, використовуйте елемент <video>. Атрибут controls додає елементи керування відео, такі як відтворення, призупинення та рівень звуку. Рекомендується завжди включати атрибути width та height. Якщо height (висота) та width (ширина) не задані, сторінка може мерехтіти при програванні відео. Елемент <source> дозволяє вказувати альтернативні відео, з яких браузер може вибирати. Браузер використовуватиме перший розпізнаний формат. Текст між тегами <video> та </video> буде відображатися лише у браузерах, які не підтримують елемент <video>",
-      "Щоб відтворити аудіофайл в HTML, використовуйте елемент <audio>. Атрибут controls додає елементи управління звуком, такі як програвання, пауза і гучність. Елемент <source> дозволяє вказати альтернативні аудіофайли, з яких браузер може обирати. Браузер буде використовувати перший розпізнаний формат. Текст між <audio> і </audio> тегами буде відображатися лише в браузерах, які не підтримують елемент <audio>."
-    ],
-    "code": [
+      "Щоб відтворити аудіофайл в HTML, використовуйте елемент <audio>. Атрибут controls додає елементи управління звуком, такі як програвання, пауза і гучність. Елемент <source> дозволяє вказати альтернативні аудіофайли, з яких браузер може обирати. Браузер буде використовувати перший розпізнаний формат. Текст між <audio> і </audio> тегами буде відображатися лише в браузерах, які не підтримують елемент <audio>.",
       "<h1>Це заголовок 1</h1>;",
       "<p>Це параграф.</p>;",
       "<a href=\"лінк\">Це посилання</a>;",
       "<img src=\"лінк на картинку\" alt=\"альтернативний текст\" width=\"104\" height=\"142\">;",
       "<button>Натисніть мене</button>;",
-      "<ul> (невпорядкований / маркований список)\n    <li>Кава</li>\n    <li>Чай</li>\n    <li>Молоко</li>\n </ul>;",
+      "<ul> (невпорядкований / маркований список)\n   <li>Кава</li>\n    <li>Чай</li>\n    <li>Молоко</li>\n </ul>;",
       "<ol> (упорядкований / нумерований список)\n    <li>Кава</li>\n    <li>Чай</li>\n    <li>Молоко</li>\n </ol>;"
     ]
   },
   "html_atributes": {
     "subtitle": "Атрибути HTML",
-    "definition": [
+    "content": [
       "Всі HTML елементи можуть мати атрибути;",
       "Атрибути надають додаткову інформацію про елемент;",
       "Атрибути завжди вказуються в початковому тезі;",
       "Атрибути зазвичай входять в пари ім\"я/значення, наприклад: ім\"я=\"значення\";",
-      "Найчастіше використовуються: alt (Визначає альтернативний текст для зображення, коли зображення не може бути відображене), disabled (Вказує, що вхідний елемент повинен бути відключений), href (Вказує URL-адресу (веб-адресу) для посилання), id (Вказує унікальний ідентифікатор елемента), src (Вказує URL-адресу (веб-адресу) зображення), style (Визначає вбудований CSS стиль для елемента, <tagname style=\"property:value;\">), title (Визначає додаткову інформацію про елемент (відображається як підказка));"
-    ],
-    "code": [
+      "Найчастіше використовуються: alt (Визначає альтернативний текст для зображення, коли зображення не може бути відображене), disabled (Вказує, що вхідний елемент повинен бути відключений), href (Вказує URL-адресу (веб-адресу) для посилання), id (Вказує унікальний ідентифікатор елемента), src (Вказує URL-адресу (веб-адресу) зображення), style (Визначає вбудований CSS стиль для елемента, <tagname style=\"property:value;\">), title (Визначає додаткову інформацію про елемент (відображається як підказка));",
       "Атрибут target (тега <a>) вказує, де відкрити пов\"язаний документ;",
       "Атрибут target може мати одне із наступних значень:",
       "_blank - Відкриває пов\"язаний документ в новому вікні або вкладці;",
@@ -84,13 +85,218 @@
       "<sup> - Надрядковий текст (верхній індекс);"
     ]
   },
+  "css": {
+    "subtitle": "CSS",
+    "content": [
+      "CSS розшифровується як Cascading Style Sheets - каскадні таблиці стилів. CSS - це мова, яка описує стиль HTML документа.  описує, як повинні відображатися  елементи. Синтаксис: p { color: red; text-align: center; }",
+      "Буде краще згрупувати селектори, щоб мінімізувати код. Щоб згрупувати селектори, розділяйте кожен селектор комою.",
+      {
+        "table": {
+          "title": "Таблиця селекторів: ",
+          "headers": ["Селектор", "Приклад", "Опис"],
+          "rows": [
+            {
+              "id": 1,
+              "selector": ".class",
+              "example": ".intro",
+              "description": "Обирає всі елементи з class=\"intro\""
+            },
+            {
+              "id": 2,
+              "selector": "#id",
+              "example": "#firstname",
+              "description": "Обирає елемент з id=\"firstname\""
+            },
+            {
+              "id": 3,
+              "selector": "*",
+              "example": "*",
+              "description": "Обирає всі елементи на сторінці"
+            },
+            {
+              "id": 4,
+              "selector": "element",
+              "example": "p",
+              "description": "Обирає всі елементи <p>"
+            },
+            {
+              "id": 5,
+              "selector": "element,element,..",
+              "example": "div, p",
+              "description": "Обирає всі елементи <div> та всі елементи <p>"
+            }
+          ]
+        }
+      },
+      "Як підключити: <link rel=\"stylesheet\" href=\"mystyle.css\"> в header html файлу",
+      "CSS можна додати до елементів HTML трьома способами:",
+      {
+        "list": [
+          {
+            "id": 1,
+            "item": "Inline (вбудований або рядковий) - використовуючи атрибут style в HTML елементах"
+          },
+          {
+            "id": 2,
+            "item": "Internal (внутрішній) - використовуючи елемент <style> в разділі <head>"
+          },
+          {
+            "id": 3,
+            "item": "External (зовнішній) - за допомогою зовнішнього файлу CSS"
+          }
+        ]
+      },
+      "Вбудований стиль має найвищий пріоритет та перевизначає зовнішні та внутрішні стилі й налаштування браузера за замовчуванням.",
+      {
+        "image": {
+          "url": "https://html-plus.in.ua/wp-content/uploads/2017/04/box-model.jpg",
+          "caption": []
+        }
+      },
+      "Часто використовувані сластивості CSS:",
+      {
+        "list": [
+          {
+            "id": 1,
+            "item": "color для установки кольору тексту"
+          },
+          {
+            "id": 2,
+            "item": "font-family для установки сімейства шрифтів тексту"
+          },
+          {
+            "id": 3,
+            "item": "font-size для установки розміру тексту"
+          },
+          {
+            "id": 4,
+            "item": "border для установки меж єлементів"
+          },
+          {
+            "id": 5,
+            "item": "padding для установки відступу всередині меж"
+          },
+          {
+            "id": 6,
+            "item": "margin для установки відступу поза межами (margin: 25px 50px 75px 100px; (верхнє поле 25px, праве поле 50px, нижнє поле 75px, ліве поле 100px))"
+          }
+        ]
+      },
+      "a { color: pink; }. Чотири стани посилань: a:link - звичайне, не відвідуване посилання, a:visited - посилання, яке вже відвідав користувач, a:hover - посилання, коли користувач наводить на нього курсор миші, a:active - посилання в той момент, коли воно натиснуте (активне). Властивість {text-decoration: none; }  в основному використовується для видалення підкреслень із посилань. ",
+      "Властивість list-style-type визначає тип маркера елемента списку. Властивість list-style-image визначає зображення як маркер елемента списку. Властивість list-style-position визначає положення маркерів елемента списку (марковані пункти).",
+      "Властивість display визначає, як елемент відображається. Кожен елемент HTML має значення, що відображається за замовчуванням в залежності від типу елемента. Значенням за замовчуванням для більшості елементів є block або inline. display: none; зазвичай використовується з JavaScript для приховування та відображення елементів без їх видалення та повторного створення.",
+      "Властивість position визначає тип метода позиціонування, що використовується для елемента. Є п’ять різних значень position (позиції): static - статичний (позиціонується відповідно до звичайного потоку сторінки), relative - відносний (позиціонується відносно свого нормального положення), fixed - фіксований (позиціонується відносно області перегляду, що означає, що він завжди залишається на тому самому місці), absolute - абсолютний (позиціонується відносно найближчого позиціонованого предка (замість позиціонування відносно вікна перегляду, як фіксований), \"позиціонований\" елемент - це той, чия позиція що завгодно, крім static), sticky - закріплений (позиціонується на основі позиції прокрутки користувача).",
+      "Властивість z-index визначає порядок стека елемента (який елемент має бути розташований попереду або позаду інших, тобто, який елемент перекриває інший).",
+      "bottom (визначає нижній край поля для позиціонованого блоку), clip (закріплює абсолютно позиціонований елемент), left (визначає край лівого поля для позиціонованого блоку), right (визначає правий край поля для позиціонованого блоку), top (визначає верхній край поля для позиціонованого блоку).",
+      "Властивість overflow вказує, чи слід обрізати зміст або додавати смуги прокрутки, якщо зміст елемента занадто великий, щоб поміститись у вказаній області. Наприклад, якщо текст не поміщається в блочний елемент <div>. Властивість overflow має наступні значення: visible - За замовчуванням. Переповнення не обрізується. Контент відображається поза полем елемента. hidden - Переповнення обрізається (приховується), а інша частина змісту буде невидимою. scroll - Переповнення обрізається, і додається смуга прокрутки, щоб побачити іншу частину змісту. auto - Аналогічно scroll, але додає смуги прокрутки лише при необхідності. Властивість overflow працює лише для блочних елементів зі вказаною висотою.",
+      "Властивість float використовується для позиціонування та форматування змісту, наприклад, коли зображення розташовується зліва від тексту в контейнері. Властивість float може мати одне із наступних значень: left - Елемент плаває зліва від свого контейнера. right - Елемент плаває справа від свого контейнера. none - Елемент не плаває (буде відображатися саме там, де він зустрічається в тексті). Це за замовчуванням. inherit - Елемент наслідує float-значення свого предка.",
+      "В HTML колір можна вказати як RGB значення, використовуючи цю формулу: \"rgb(red, green, blue)\" (Кожний параметр (red, green та blue) визначає інтенсивність кольору від 0 до 255.)",
+      "В HTML колір можна вказати, використовуючи шістнадцяткове (HEX) значення в формі: \"#rrggbb\" де rr (red), gg (green) та bb (blue) шістнадцяткові значення від 00 до ff (такі ж, як десяткові 0-255).",
+      "В HTML колір можна вказати за допомогою відтінку (hue), насиченості (saturation) і яскравості (lightness) - HSL значення в формі: \"hsl(hue, saturation, lightness)\". Відтінок (hue) - це градус колірного кола від 0 до 360. 0 - червоний, 120 - зелений, 240 - синій. Насиченість (saturation) - це процентне значення, 0% означає відтінок сірого, а 100% - це повний колір. Яскравість (lightness) також в процентах, 0% - чорний, 50% - ні світлий, ні темний, 100% - білий.",
+      "Кольорові значення RGBA є розширенням кольорових значень RGB з альфа-каналом, який визначає непрозорість для кольору. Значення кольору RGBA вказується за допомогою: \"rgba(red, green, blue, alpha)\". Альфа-параметр - це число від 0,0 (повністю прозоре) до 1,0 (зовсім не прозоре)",
+      "Кольорові значення HSLA є розширенням значень кольору HSL з альфа-каналом, який визначає непрозорість для кольору. Значення кольору HSLA задається за допомогою: \"hsla(hue, saturation, lightness, alpha)\". Альфа-параметр - це число від 0,0 (повністю прозоре) до 1,0 (зовсім не прозоре).",
+      "Властивість opacity може приймати значення від 0,0 до 1,0. Чим нижче значення, тим прозоріше.",
+      "Одиниці абсолютної довжини є фіксованими, і довжина, виражена в будь-якій із них, буде відображатися саме як фіксований розмір.",
+      "Абсолютні одиниці довжини не рекомендуються для використання виведення зображення на екрані, тому що розміри екранів різних пристроїв можуть сильно відрізнятися. Однак їх можна використовувати, якщо відомий вихідний носій, наприклад, для друкованого макета (сторінки для друку).",
+      {
+        "table": {
+          "title": "Таблиця абсолютних довжин: ",
+          "headers": ["Одиниця", "Опис"],
+          "rows": [
+            {
+              "id": 1,
+              "selector": "cm",
+              "description": "сантиметри"
+            },
+            {
+              "id": 2,
+              "selector": "mm",
+              "description": "міліметри"
+            },
+            {
+              "id": 3,
+              "selector": "in",
+              "description": "дюйми (1 дюйм = 96px = 2.54см)"
+            },
+            {
+              "id": 4,
+              "selector": "px *",
+              "description": "пікселі (1px = 1/96th в 1)"
+            },
+            {
+              "id": 5,
+              "selector": "pt",
+              "description": "точки (1pt = 1/72 в 1)"
+            },
+            {
+              "id": 6,
+              "selector": "pc",
+              "description": "picas (1pc = 12 pt)"
+            }
+          ]
+        }
+      },
+      "Одиниці відносної довжини визначають довжину відносного іншої властивості довжини. Відносні одиниці довжини краще масштабуються між різними середовищами рендерингу (виведення на екран).",
+      {
+        "table": {
+          "title": "Таблиця відносних довжин: ",
+          "headers": ["Одиниця", "Опис"],
+          "rows": [
+            {
+              "id": 1,
+              "selector": "em",
+              "description": "Відносно розміру шрифту елемента (2em означає 2-разовий розмір поточного шрифту)"
+            },
+            {
+              "id": 2,
+              "selector": "ex",
+              "description": "Відносно x-висоти поточного шрифту (рідко використовується)"
+            },
+            {
+              "id": 3,
+              "selector": "ch",
+              "description": "Відносно ширини \"0\" (нуля)"
+            },
+            {
+              "id": 4,
+              "selector": "rem",
+              "description": "Відносно розміру шрифту кореневого елементу"
+            },
+            {
+              "id": 5,
+              "selector": "vw",
+              "description": "Відносно 1% ширини області перегляду*"
+            },
+            {
+              "id": 6,
+              "selector": "vh",
+              "description": "Відносно 1% висоти області перегляду*"
+            },
+            {
+              "id": 7,
+              "selector": "vmin",
+              "description": "Відносно 1% меншого розміру області перегляду*"
+            },
+            {
+              "id": 8,
+              "selector": "vmax",
+              "description": "Відносно 1% більшого розміру області перегляду*"
+            },
+            {
+              "id": 9,
+              "selector": "%",
+              "description": "Відносно батьківського елемента"
+            }
+          ]
+        }
+      }
+    ]
+  },
   "css_identifier": {
     "subtitle": "Iдентифікатори",
-    "definition": [
+    "content": [
       "Атрибут id визначає унікальний ідентифікатор елемента HTML. Значення атрибута id має бути унікальним в HTML документі;",
-      "Синтаксис для id такий: напишіть хеш-символ (#), за яким слідує ім\"я id. Потім визначте властивості CSS у фігурних дужках {};"
-    ],
-    "code": [
+      "Синтаксис для id такий: напишіть хеш-символ (#), за яким слідує ім\"я id. Потім визначте властивості CSS у фігурних дужках {};",
       "Як створити закладку з атрибутом id:",
       "<h2 id=\"C4\">Розділ 4</h2>;",
       "Потім додайте посилання на закладку (\"Перейти до розділу 4\") на тій самій сторінці:",
@@ -99,7 +305,7 @@
   },
   "css_classes": {
     "subtitle": "Класи",
-    "definition": [
+    "content": [
       "HTML атрибут class використовується для визначення класу для HTML елемента;",
       "Кілька елементів HTML можуть спільно використовувати один і той же клас;",
       "Елементи HTML можуть належати більше ніж одному класу;",
@@ -108,7 +314,7 @@
   },
   "css_bem": {
     "subtitle": "Методологія \"BЕМ\"",
-    "definition": [
+    "content": [
       "BEM: BEM (Block-Element-Modifier) - це методологія іменування класів у HTML і CSS, яка допомагає створювати чіткий, зручний і прогнозований код для фронт-енд розробки.",
       "Блоки (Blocks): Блоки визначаються як самодостатні структурні одиниці на сторінці. Це може бути будь-який окремий елемент, такий як заголовок, меню або форма.",
       "Елементи (Elements): Елементи є частинами блоків, які не мають самостійного значення поза цим блоком. Вони пов\"язані з конкретним блоком і не повинні використовуватися самостійно",
@@ -117,16 +323,18 @@
       "Підхід до CSS: Використання методології БЕМ допомагає уникнути проблем зі спадкоємністю та конфліктами в CSS, оскільки кожен блок, елемент і модифікатор має свій власний унікальний клас.",
       "Читабельність коду: БЕМ сприяє поліпшенню читабельності коду та полегшенню розуміння структури сторінки для інших розробників, які можуть працювати над проектом у майбутньому.",
       "Підтримка масштабування: Методологія БЕМ сприяє легкому масштабуванню проектів, оскільки дозволяє створювати інтерфейси зі збалансованою структурою, що спрощує додавання та зміну функціональності.",
-      "Спільна робота: Використання методології БЕМ сприяє спільній роботі багатьох розробників над проектом, оскільки вона забезпечує стандартизовану систему іменування, що полегшує співпрацю."
-    ],
-    "image": {
-      "url": "https://lh3.googleusercontent.com/pw/ADCreHfoGuzjOt-MKSh1_y2GFwPbkl4DpKoNFH83QyKhWEoTOFo2z-LzBqFkiASdlVuhYpyiJCg7sSTgXo0AxsXZQ5znYpJin2kghMdzYdbtxd6WYqEqprQJ9fegyUxKgiNz7wha5xWMcDAOtjHEDtxbZS4PFhpPpDOPnOeWQ5O39HSVWnhOaChZgwXY-9z1MLSQjWENlP_tfIPMkAR8hO2tmHmmDSjidEE7t7PLC0516HLbq4TRlRhoiqLbro1jcmenhN0HmWrqKlXWLRadvlKulPlTrHm8fbrlk4dS2gpPLKkT97n947bux0iCs4leyr7hwHeHyxfbzzqzh7JPckS-2p4iR2UWVld8pSRaebxxO0EGnm1KaUk-hwwMu-XdzmMPjFokw7PelhyZy6I_BnEoa-T-JftDjEVdCQFcqQKmEnYDvWPG2R2O5g96j7sEYfMAdqsDe_E7_nDToEAHMf4lIHl0dbR-1xEH5QxypCx-OMSYTS9SKYepTIcwI9UIKhXNTHZfmHzdUbVWui9JogJHuNCam4M2WhwwmyxJByZHBNHP5i0BuFIhoy0kXvQJxyBaeomcqfirN1ZsZAIYF4jiIZJfClnCpb7H6l227cMy59FV7anytnZWNcNobJ39-_Coo2NRbpKtVBPTahFGEu-ZWbaH1PH9iyIUBEk5IQwxep64XpOxCNCRofK0mgl4pHXREBWKE5Ine_hsYW6STuWDrvpz2jnfAuUXpw51nI5ji5trmNFvUwjui5S7W7Xxroj19pACv6UyPePpNRwfZuAp93ZyNZC192S-LDssf-bMAepBZLEqdyiT7r9lWXL35SIVti-nwRakswyqyq5T_zaLuKXkVvYaOY--O80-yOCMYiRNNuYTIQIr90PmJKdOLMGJ5T3o4SwlNThfpqafiusdiTVTTWtbkpII9Hq--EpbG8ATxIhgyXUoh4w-1QrZ=w722-h216-s-no-gm?authuser=0",
-      "caption": []
-    }
+      "Спільна робота: Використання методології БЕМ сприяє спільній роботі багатьох розробників над проектом, оскільки вона забезпечує стандартизовану систему іменування, що полегшує співпрацю.",
+      {
+        "image": {
+          "url": "https://lh3.googleusercontent.com/pw/ADCreHfoGuzjOt-MKSh1_y2GFwPbkl4DpKoNFH83QyKhWEoTOFo2z-LzBqFkiASdlVuhYpyiJCg7sSTgXo0AxsXZQ5znYpJin2kghMdzYdbtxd6WYqEqprQJ9fegyUxKgiNz7wha5xWMcDAOtjHEDtxbZS4PFhpPpDOPnOeWQ5O39HSVWnhOaChZgwXY-9z1MLSQjWENlP_tfIPMkAR8hO2tmHmmDSjidEE7t7PLC0516HLbq4TRlRhoiqLbro1jcmenhN0HmWrqKlXWLRadvlKulPlTrHm8fbrlk4dS2gpPLKkT97n947bux0iCs4leyr7hwHeHyxfbzzqzh7JPckS-2p4iR2UWVld8pSRaebxxO0EGnm1KaUk-hwwMu-XdzmMPjFokw7PelhyZy6I_BnEoa-T-JftDjEVdCQFcqQKmEnYDvWPG2R2O5g96j7sEYfMAdqsDe_E7_nDToEAHMf4lIHl0dbR-1xEH5QxypCx-OMSYTS9SKYepTIcwI9UIKhXNTHZfmHzdUbVWui9JogJHuNCam4M2WhwwmyxJByZHBNHP5i0BuFIhoy0kXvQJxyBaeomcqfirN1ZsZAIYF4jiIZJfClnCpb7H6l227cMy59FV7anytnZWNcNobJ39-_Coo2NRbpKtVBPTahFGEu-ZWbaH1PH9iyIUBEk5IQwxep64XpOxCNCRofK0mgl4pHXREBWKE5Ine_hsYW6STuWDrvpz2jnfAuUXpw51nI5ji5trmNFvUwjui5S7W7Xxroj19pACv6UyPePpNRwfZuAp93ZyNZC192S-LDssf-bMAepBZLEqdyiT7r9lWXL35SIVti-nwRakswyqyq5T_zaLuKXkVvYaOY--O80-yOCMYiRNNuYTIQIr90PmJKdOLMGJ5T3o4SwlNThfpqafiusdiTVTTWtbkpII9Hq--EpbG8ATxIhgyXUoh4w-1QrZ=w722-h216-s-no-gm?authuser=0",
+          "caption": []
+        }
+      }
+    ]
   },
   "css_selectors": {
     "subtitle": "Селектори",
-    "definition": [
+    "content": [
       "CSS селектори використовуються для пошуку (або вибору) HTML-елементів, які ви хочете стилізувати;",
       "Можна розділити CSS селектори на п’ять категорій:",
       "- Прості селектори (вибір елементів на основі імені, ідентифікатору, класу);",
@@ -134,294 +342,299 @@
       "- Селектори псевдокласів (вибір елементів на основі визначеного стану);",
       "- Селектори псевдоелементів (вибір і стилізація частини елемента);",
       "- Селектори атрибутів (вибір елементів на основі атрибуту або значення атрибуту);",
-      "Якщо ви використовуєте правило !important, воно перевизначить ВСІ попередні правила стилізації для конкретної властивості даного елементу!"
-    ],
-    "code": [],
-    "table": {
-      "title": "Всі CSS селектори атрибутів",
-      "headers": ["Селектор", "Приклад", "Опис"],
-      "rows": [
-        {
-          "id": 1,
-          "selector": "[attribute]",
-          "example": "[target]",
-          "description": "Обирає всі елементи з атрибутом target"
-        },
-        {
-          "id": 2,
-          "selector": "[attribute=value]",
-          "example": "[target=_blank]",
-          "description": "Обирає всі елементи з target=\"_blank\""
-        },
-        {
-          "id": 3,
-          "selector": "[attribute~=value]",
-          "example": "[title~=flower]",
-          "description": "Обирає всі елементи з атрибутом title, що містить слово \"flower\""
-        },
-        {
-          "id": 4,
-          "selector": "[attribute|=value]",
-          "example": "[lang|=en]",
-          "description": "Обирає всі елементи зі значенням атрибута lang, що починається з \"en\""
-        },
-        {
-          "id": 5,
-          "selector": "[attribute^=value]",
-          "example": "a[href^=\"https\"]",
-          "description": "Обирає кожен елемент <a>, значення атрибута href якого починається з \"https\""
-        },
-        {
-          "id": 6,
-          "selector": "[attribute$=value]",
-          "example": "a[href$=\".pdf\"]",
-          "description": "Обирає кожен елемент <a>, значення атрибута href якого закінчується на \".pdf\""
-        },
-        {
-          "id": 7,
-          "selector": "[attribute*=value]",
-          "example": "a[href*=\"w3schools\"]",
-          "description": "Обирає кожен елемент <a>, значення атрибута href якого містить підрядок \"w3schools\""
+      "Якщо ви використовуєте правило !important, воно перевизначить ВСІ попередні правила стилізації для конкретної властивості даного елементу!",
+      {
+        "table": {
+          "title": "Всі CSS селектори атрибутів",
+          "headers": ["Селектор", "Приклад", "Опис"],
+          "rows": [
+            {
+              "id": 1,
+              "selector": "[attribute]",
+              "example": "[target]",
+              "description": "Обирає всі елементи з атрибутом target"
+            },
+            {
+              "id": 2,
+              "selector": "[attribute=value]",
+              "example": "[target=_blank]",
+              "description": "Обирає всі елементи з target=\"_blank\""
+            },
+            {
+              "id": 3,
+              "selector": "[attribute~=value]",
+              "example": "[title~=flower]",
+              "description": "Обирає всі елементи з атрибутом title, що містить слово \"flower\""
+            },
+            {
+              "id": 4,
+              "selector": "[attribute|=value]",
+              "example": "[lang|=en]",
+              "description": "Обирає всі елементи зі значенням атрибута lang, що починається з \"en\""
+            },
+            {
+              "id": 5,
+              "selector": "[attribute^=value]",
+              "example": "a[href^=\"https\"]",
+              "description": "Обирає кожен елемент <a>, значення атрибута href якого починається з \"https\""
+            },
+            {
+              "id": 6,
+              "selector": "[attribute$=value]",
+              "example": "a[href$=\".pdf\"]",
+              "description": "Обирає кожен елемент <a>, значення атрибута href якого закінчується на \".pdf\""
+            },
+            {
+              "id": 7,
+              "selector": "[attribute*=value]",
+              "example": "a[href*=\"w3schools\"]",
+              "description": "Обирає кожен елемент <a>, значення атрибута href якого містить підрядок \"w3schools\""
+            }
+          ]
         }
-      ]
-    }
+      }
+    ]
   },
   "css_combinator": {
     "subtitle": "Комбінатори",
-    "definition": ["Комбінатор - це те, що пояснює взаємозв’язок між селекторами."],
-    "code": [],
-    "table": {
-      "title": "В CSS є чотири різних комбінатора:",
-      "headers": ["Селектор", "Приклад", "Опис"],
-      "rows": [
-        {
-          "id": 1,
-          "selector": "елемент елемент",
-          "example": "div p",
-          "description": "Обирає всі елементи <p> всередині елемента <div>"
-        },
-        {
-          "id": 2,
-          "selector": "елемент>елемент",
-          "example": "div > p",
-          "description": "Обирає всі елементи <p> у яких батьківський елемент <div>"
-        },
-        {
-          "id": 3,
-          "selector": "елемент+елемент",
-          "example": "div + p",
-          "description": "Обирає перший елемент <p>, який розміщується відразу після елемента <div>"
-        },
-        {
-          "id": 4,
-          "selector": "елемент1~елемент2",
-          "example": "p ~ ul",
-          "description": "Обирає кожен елемент <ul>, якому передує елемент <p>"
+    "content": [
+      "Комбінатор - це те, що пояснює взаємозв’язок між селекторами.",
+      {
+        "table": {
+          "title": "В CSS є чотири різних комбінатора:",
+          "headers": ["Селектор", "Приклад", "Опис"],
+          "rows": [
+            {
+              "id": 1,
+              "selector": "елемент елемент",
+              "example": "div p",
+              "description": "Обирає всі елементи <p> всередині елемента <div>"
+            },
+            {
+              "id": 2,
+              "selector": "елемент>елемент",
+              "example": "div > p",
+              "description": "Обирає всі елементи <p> у яких батьківський елемент <div>"
+            },
+            {
+              "id": 3,
+              "selector": "елемент+елемент",
+              "example": "div + p",
+              "description": "Обирає перший елемент <p>, який розміщується відразу після елемента <div>"
+            },
+            {
+              "id": 4,
+              "selector": "елемент1~елемент2",
+              "example": "p ~ ul",
+              "description": "Обирає кожен елемент <ul>, якому передує елемент <p>"
+            }
+          ]
         }
-      ]
-    }
+      }
+    ]
   },
   "css_preudo_classes": {
-    "subtitle": "Комбінатори",
-    "definition": [
+    "subtitle": "Псевдокласи",
+    "content": [
       "Псевдо-клас використовується для визначення особливого стану елемента.",
       "Наприклад, його можна використовувати для:",
       "Стилізації елемента, коли користувач наводить на нього курсор",
       "Стилізації відвіданих та невідвіданих посилань по-різному",
-      "Стилізації елемента, коли він знаходиться в фокусі"
-    ],
-    "code": [],
-    "table": {
-      "title": "Типу псевдо-класів:",
-      "headers": ["Селектор", "Приклад", "Опис"],
-      "rows": [
-        {
-          "id": 1,
-          "selector": ":active",
-          "example": "a:active",
-          "description": "Обирає активне посилання"
-        },
-        {
-          "id": 2,
-          "selector": ":checked",
-          "example": "input:checked",
-          "description": "Обирає кожен перевірений елемент <input>"
-        },
-        {
-          "id": 3,
-          "selector": ":disabled",
-          "example": "input:disabled",
-          "description": "Обирає кожен відключений елемент <input>"
-        },
-        {
-          "id": 4,
-          "selector": ":enabled",
-          "example": "input:enabled",
-          "description": "Обирає кожен включений елемент <input>"
-        },
-        {
-          "id": 5,
-          "selector": ":first-child",
-          "example": "p:first-child",
-          "description": "Обирає всі елементи <p>, які є першим нащадком свого предка"
-        },
-        {
-          "id": 6,
-          "selector": ":first-of-type",
-          "example": "p:first-of-type",
-          "description": "Обирає кожен елемент <p> який є першим елементом <p> свого предка"
-        },
-        {
-          "id": 7,
-          "selector": ":focus",
-          "example": "input:focus",
-          "description": "Обирає елемент <input> який має фокус"
-        },
-        {
-          "id": 8,
-          "selector": ":hover",
-          "example": "a:hover",
-          "description": "Обирає посилання при наведенні миші"
-        },
-        {
-          "id": 9,
-          "selector": ":in-range",
-          "example": "input:in-range",
-          "description": "Обирає елементи <input> зі значенням у визначеному діапазоні"
-        },
-        {
-          "id": 10,
-          "selector": ":invalid",
-          "example": "input:invalid",
-          "description": "Обирає всі елементи <input> з неприпустимим значенням"
-        },
-        {
-          "id": 11,
-          "selector": ":lang(language)",
-          "example": "p:lang(it)",
-          "description": "Обирає кожен елемент <p> зі значенням атрибута lang, що починається з \"it\""
-        },
-        {
-          "id": 12,
-          "selector": ":last-child",
-          "example": "p:last-child",
-          "description": "Обирає всі елементи <p>, які є останнім дочірнім елементом свого предка"
-        },
-        {
-          "id": 13,
-          "selector": ":last-of-type",
-          "example": "p:last-of-type",
-          "description": "Обирає кожен елемент <p>, який є останнім елементом <p> свого предка"
-        },
-        {
-          "id": 14,
-          "selector": ":link",
-          "example": "a:link",
-          "description": "Обирає всі не відвідувані посилання"
-        },
-        {
-          "id": 15,
-          "selector": ":not(selector)",
-          "example": ":not(p)",
-          "description": "Обирає кожен елемент, який не є елементом <p>"
-        },
-        {
-          "id": 16,
-          "selector": ":nth-child(n)",
-          "example": "p:nth-child(2)",
-          "description": "Обирає кожен елемент <p>, який є другим дочірнім елементом свого предка"
-        },
-        {
-          "id": 17,
-          "selector": ":nth-last-child(n)",
-          "example": "p:nth-last-child(2)",
-          "description": "Обирає кожен елемент <p>, який є другим дочірнім елементом свого предка, рахуючи від останнього дочірнього елемента"
-        },
-        {
-          "id": 18,
-          "selector": ":nth-last-of-type(n)",
-          "example": "p:nth-last-of-type(2)",
-          "description": "Обирає кожен елемент <p>, який є другим елементом <p> свого предка, рахуючи від останнього нащадка"
-        },
-        {
-          "id": 19,
-          "selector": ":nth-of-type(n)",
-          "example": "p:nth-of-type(2)",
-          "description": "Обирає кожен елемент <p> який є другим елементом <p> свого предка"
-        },
-        {
-          "id": 20,
-          "selector": ":only-of-type",
-          "example": "p:only-of-type",
-          "description": "Обирає кожен елемент <p> який є єдиним елементом <p> свого предка"
-        },
-        {
-          "id": 21,
-          "selector": ":only-child",
-          "example": "p:only-child",
-          "description": "Обирає кожен елемент <p> який є єдиним потомком свого предка"
-        },
-        {
-          "id": 22,
-          "selector": ":optional",
-          "example": "input:optional",
-          "description": "Обирає елементи <input> без атрибута \"required\""
-        },
-        {
-          "id": 23,
-          "selector": ":out-of-range",
-          "example": "input:out-of-range",
-          "description": "Обирає елементи <input> зі значенням поза вказаного діапазону"
-        },
-        {
-          "id": 24,
-          "selector": ":read-only",
-          "example": "input:read-only",
-          "description": "Обирає елементи <input> зі вказаним атрибутом \"readonly\""
-        },
-        {
-          "id": 25,
-          "selector": ":read-write",
-          "example": "input:read-write",
-          "description": "Обирає елементи <input> без атрибута \"readonly\""
-        },
-        {
-          "id": 26,
-          "selector": ":required",
-          "example": "input:required",
-          "description": "Обирає елементи <input> зі вказаним атрибутом \"required\""
-        },
-        {
-          "id": 27,
-          "selector": ":root",
-          "example": "root",
-          "description": "Обирає кореневий елемент документа"
-        },
-        {
-          "id": 28,
-          "selector": ":target",
-          "example": "#news:target",
-          "description": "Обирає поточний активний елемент #news (при натисканні на URL, що містить це ім’я якоря)"
-        },
-        {
-          "id": 29,
-          "selector": ":valid",
-          "example": "input:valid",
-          "description": "Обирає всі елементи <input> с допустимим значенням"
-        },
-        {
-          "id": 30,
-          "selector": ":visited",
-          "example": "a:visited",
-          "description": "Обирає всі відвідані посилання"
+      "Стилізації елемента, коли він знаходиться в фокусі",
+      {
+        "table": {
+          "title": "Типу псевдо-класів:",
+          "headers": ["Селектор", "Приклад", "Опис"],
+          "rows": [
+            {
+              "id": 1,
+              "selector": ":active",
+              "example": "a:active",
+              "description": "Обирає активне посилання"
+            },
+            {
+              "id": 2,
+              "selector": ":checked",
+              "example": "input:checked",
+              "description": "Обирає кожен перевірений елемент <input>"
+            },
+            {
+              "id": 3,
+              "selector": ":disabled",
+              "example": "input:disabled",
+              "description": "Обирає кожен відключений елемент <input>"
+            },
+            {
+              "id": 4,
+              "selector": ":enabled",
+              "example": "input:enabled",
+              "description": "Обирає кожен включений елемент <input>"
+            },
+            {
+              "id": 5,
+              "selector": ":first-child",
+              "example": "p:first-child",
+              "description": "Обирає всі елементи <p>, які є першим нащадком свого предка"
+            },
+            {
+              "id": 6,
+              "selector": ":first-of-type",
+              "example": "p:first-of-type",
+              "description": "Обирає кожен елемент <p> який є першим елементом <p> свого предка"
+            },
+            {
+              "id": 7,
+              "selector": ":focus",
+              "example": "input:focus",
+              "description": "Обирає елемент <input> який має фокус"
+            },
+            {
+              "id": 8,
+              "selector": ":hover",
+              "example": "a:hover",
+              "description": "Обирає посилання при наведенні миші"
+            },
+            {
+              "id": 9,
+              "selector": ":in-range",
+              "example": "input:in-range",
+              "description": "Обирає елементи <input> зі значенням у визначеному діапазоні"
+            },
+            {
+              "id": 10,
+              "selector": ":invalid",
+              "example": "input:invalid",
+              "description": "Обирає всі елементи <input> з неприпустимим значенням"
+            },
+            {
+              "id": 11,
+              "selector": ":lang(language)",
+              "example": "p:lang(it)",
+              "description": "Обирає кожен елемент <p> зі значенням атрибута lang, що починається з \"it\""
+            },
+            {
+              "id": 12,
+              "selector": ":last-child",
+              "example": "p:last-child",
+              "description": "Обирає всі елементи <p>, які є останнім дочірнім елементом свого предка"
+            },
+            {
+              "id": 13,
+              "selector": ":last-of-type",
+              "example": "p:last-of-type",
+              "description": "Обирає кожен елемент <p>, який є останнім елементом <p> свого предка"
+            },
+            {
+              "id": 14,
+              "selector": ":link",
+              "example": "a:link",
+              "description": "Обирає всі не відвідувані посилання"
+            },
+            {
+              "id": 15,
+              "selector": ":not(selector)",
+              "example": ":not(p)",
+              "description": "Обирає кожен елемент, який не є елементом <p>"
+            },
+            {
+              "id": 16,
+              "selector": ":nth-child(n)",
+              "example": "p:nth-child(2)",
+              "description": "Обирає кожен елемент <p>, який є другим дочірнім елементом свого предка"
+            },
+            {
+              "id": 17,
+              "selector": ":nth-last-child(n)",
+              "example": "p:nth-last-child(2)",
+              "description": "Обирає кожен елемент <p>, який є другим дочірнім елементом свого предка, рахуючи від останнього дочірнього елемента"
+            },
+            {
+              "id": 18,
+              "selector": ":nth-last-of-type(n)",
+              "example": "p:nth-last-of-type(2)",
+              "description": "Обирає кожен елемент <p>, який є другим елементом <p> свого предка, рахуючи від останнього нащадка"
+            },
+            {
+              "id": 19,
+              "selector": ":nth-of-type(n)",
+              "example": "p:nth-of-type(2)",
+              "description": "Обирає кожен елемент <p> який є другим елементом <p> свого предка"
+            },
+            {
+              "id": 20,
+              "selector": ":only-of-type",
+              "example": "p:only-of-type",
+              "description": "Обирає кожен елемент <p> який є єдиним елементом <p> свого предка"
+            },
+            {
+              "id": 21,
+              "selector": ":only-child",
+              "example": "p:only-child",
+              "description": "Обирає кожен елемент <p> який є єдиним потомком свого предка"
+            },
+            {
+              "id": 22,
+              "selector": ":optional",
+              "example": "input:optional",
+              "description": "Обирає елементи <input> без атрибута \"required\""
+            },
+            {
+              "id": 23,
+              "selector": ":out-of-range",
+              "example": "input:out-of-range",
+              "description": "Обирає елементи <input> зі значенням поза вказаного діапазону"
+            },
+            {
+              "id": 24,
+              "selector": ":read-only",
+              "example": "input:read-only",
+              "description": "Обирає елементи <input> зі вказаним атрибутом \"readonly\""
+            },
+            {
+              "id": 25,
+              "selector": ":read-write",
+              "example": "input:read-write",
+              "description": "Обирає елементи <input> без атрибута \"readonly\""
+            },
+            {
+              "id": 26,
+              "selector": ":required",
+              "example": "input:required",
+              "description": "Обирає елементи <input> зі вказаним атрибутом \"required\""
+            },
+            {
+              "id": 27,
+              "selector": ":root",
+              "example": "root",
+              "description": "Обирає кореневий елемент документа"
+            },
+            {
+              "id": 28,
+              "selector": ":target",
+              "example": "#news:target",
+              "description": "Обирає поточний активний елемент #news (при натисканні на URL, що містить це ім’я якоря)"
+            },
+            {
+              "id": 29,
+              "selector": ":valid",
+              "example": "input:valid",
+              "description": "Обирає всі елементи <input> с допустимим значенням"
+            },
+            {
+              "id": 30,
+              "selector": ":visited",
+              "example": "a:visited",
+              "description": "Обирає всі відвідані посилання"
+            }
+          ]
         }
-      ]
-    }
+      }
+    ]
   },
-  "css_pseudo_elements": {},
-  "css_variables": {},
-  "css_flex_grid": {},
-  "media_queries": {},
-  "css_animation": {},
-  "sass": {}
+  "css_pseudo_elements": { "subtitle": "Псевдоелементи", "content": [] },
+  "css_variables": { "subtitle": "Змінні у CSS", "content": [] },
+  "css_flex_grid": { "subtitle": "Flex та Grid", "content": [] },
+  "media_queries": { "subtitle": "Media queries та адаптивність", "content": [] },
+  "css_animation": { "subtitle": "Анімації і градієнти", "content": [] },
+  "sass": { "subtitle": "SASS", "content": [] }
 }

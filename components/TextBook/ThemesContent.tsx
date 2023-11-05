@@ -27,45 +27,60 @@ const ThemesContent = ({ params }: Params) => {
     materials = <Spinner />;
   } else {
     if (descriptions?.length !== 0) {
-      materials = descriptions?.map((item) => {
+      materials = descriptions?.map((item, index) => {
         return (
-          <Fragment key={item.id}>
-            {item?.definition?.map((subitem, index) => {
-              return (
-                <p key={index} className="text-2xl leading-10 font-spartan">
-                  {subitem}
-                </p>
-              );
-            })}
-            {item?.image ? (
-              <div className="flex flex-col space-y-2">
-                <div className="flex justify-center items-center">
-                  <Image
-                    src={item?.image?.url}
-                    alt={item.url + "_image_" + item.id}
-                    width={600}
-                    height={400}
-                    className="h-full w-auto"
-                  />
-                </div>
-                {item?.image?.caption?.map((item, index) => {
+          <Fragment key={index}>
+            {item?.content?.map((subitem, index) => {
+              if (typeof subitem === "string") {
+                return (
+                  <p key={index} className="text-2xl leading-10 font-spartan">
+                    {subitem}
+                  </p>
+                );
+              } else if (typeof subitem === "object") {
+                if ("image" in subitem) {
                   return (
-                    <p key={index} className="text-2xl leading-10 font-spartan">
-                      {item}
-                    </p>
+                    <div className="flex flex-col space-y-2">
+                      <div className="flex justify-center items-center">
+                        <Image
+                          src={subitem?.image?.url!}
+                          alt={subitem?.image?.url! + "_image_"}
+                          width={600}
+                          height={400}
+                          className="h-full w-auto"
+                        />
+                      </div>
+                      {subitem?.image?.caption?.map((item, index) => {
+                        return (
+                          <p key={index} className="text-2xl leading-10 font-spartan">
+                            {item}
+                          </p>
+                        );
+                      })}
+                    </div>
                   );
-                })}
-              </div>
-            ) : null}
+                }
 
-            {item?.table ? <NotionStyleTable data={item?.table} /> : null}
+                if ("table" in subitem) {
+                  return <NotionStyleTable data={subitem?.table} />;
+                }
 
-            {item?.code?.map((subitem, index) => {
-              return (
-                <p key={index} className="text-2xl leading-10 font-spartan">
-                  {subitem}
-                </p>
-              );
+                if ("list" in subitem) {
+                  return (
+                    <ol className="list-decimal list-inside">
+                      {subitem?.list?.map((li) => {
+                        return (
+                          <li
+                            key={li?.id}
+                            className="text-2xl text-justify leading-10 font-spartan mt-1">
+                            {li?.item}
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  );
+                }
+              }
             })}
           </Fragment>
         );

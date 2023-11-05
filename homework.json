@@ -1,0 +1,173 @@
+[
+  {
+    "id": 1,
+    "date": "28.10.2023",
+    "homework": [
+      {
+        "id": 1,
+        "action": "Прочитати теми: ",
+        "listOfThemes": [
+          {
+            "id": 1,
+            "link": "https://w3schoolsua.github.io/html/html5_semantic_elements.html",
+            "title": "HTML Семантика"
+          },
+          {
+            "id": 2,
+            "link": "https://w3schoolsua.github.io/html/html_basic.html#gsc.tab=0",
+            "title": "HTML Основні приклади"
+          },
+          {
+            "id": 3,
+            "link": "https://w3schoolsua.github.io/html/html_elements.html",
+            "title": "HTML Елементи"
+          },
+          {
+            "id": 4,
+            "link": "https://w3schoolsua.github.io/html/html_attributes.html",
+            "title": "HTML Атрибути"
+          },
+          {
+            "id": 5,
+            "link": "https://w3schoolsua.github.io/html/html_headings.html#gsc.tab=0",
+            "title": "HTML Загаловки"
+          },
+          {
+            "id": 6,
+            "link": "https://w3schoolsua.github.io/html/html_paragraphs.html",
+            "title": "HTML Параграфи"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
+        "links": [
+          { "id": 1, "title": "HTML Синтаксис та структура", "link": "tasks/html_syntax" },
+          { "id": 2, "title": "HTML Семантика", "link": "tasks/html_semantics" },
+          { "id": 3, "title": "HTML Теги", "link": "tasks/html_tags" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "date": "04.11.2023",
+    "homework": [
+      {
+        "id": 1,
+        "action": "Прочитати теми: ",
+        "listOfThemes": [
+          {
+            "id": 1,
+            "link": "https://w3schoolsua.github.io/html/html_formatting.html",
+            "title": "HTML Форматування"
+          },
+          {
+            "id": 2,
+            "link": "https://w3schoolsua.github.io/html/html_quotation_elements.html",
+            "title": "HTML Цитати"
+          },
+          {
+            "id": 3,
+            "link": "https://w3schoolsua.github.io/html/html_colors.html",
+            "title": "HTML Кольори"
+          },
+          {
+            "id": 4,
+            "link": "https://w3schoolsua.github.io/html/html_links.html",
+            "title": "HTML Посилання"
+          },
+          {
+            "id": 5,
+            "link": "https://w3schoolsua.github.io/html/html_images.html",
+            "title": "HTML Зображення"
+          },
+          {
+            "id": 6,
+            "link": "https://w3schoolsua.github.io/html/html_favicon.html",
+            "title": "HTML Фавікон"
+          },
+          {
+            "id": 7,
+            "link": "https://w3schoolsua.github.io/html/html_tables.html#gsc.tab=0",
+            "title": "HTML Таблиці"
+          },
+          {
+            "id": 8,
+            "link": "https://w3schoolsua.github.io/html/html_lists.html",
+            "title": "HTML Списки"
+          },
+          {
+            "id": 9,
+            "link": "https://w3schoolsua.github.io/html/html_blocks.html",
+            "title": "HTML Block & Inline"
+          },
+          {
+            "id": 10,
+            "link": "https://w3schoolsua.github.io/html/html_classes.html",
+            "title": "HTML Класи"
+          },
+          {
+            "id": 11,
+            "link": "https://w3schoolsua.github.io/html/html_id.html",
+            "title": "HTML ІД"
+          },
+          {
+            "id": 12,
+            "link": "https://w3schoolsua.github.io/html/html_iframe.html",
+            "title": "HTML Фрейми"
+          },
+          {
+            "id": 13,
+            "link": "https://w3schoolsua.github.io/html/html5_semantic_elements.html",
+            "title": "HTML Семантика"
+          },
+          {
+            "id": 14,
+            "link": "https://w3schoolsua.github.io/html/html5_syntax.html",
+            "title": "HTML Гід по стилю"
+          },
+          {
+            "id": 15,
+            "link": "https://w3schoolsua.github.io/html/html_symbols.html",
+            "title": "HTML Символи"
+          },
+          {
+            "id": 16,
+            "link": "https://w3schoolsua.github.io/html/html_emojis.html",
+            "title": "HTML Емоуджі/Смайли"
+          },
+          {
+            "id": 17,
+            "link": "https://w3schoolsua.github.io/html/html_charset.html",
+            "title": "HTML Набір символів"
+          },
+          {
+            "id": 18,
+            "link": "https://w3schoolsua.github.io/html/html_urlencode.html",
+            "title": "HTML URL кодування"
+          },
+          {
+            "id": 19,
+            "link": "https://w3schoolsua.github.io/html/html_forms.html",
+            "title": "Розділ про HTML Форми"
+          },
+          {
+            "id": 20,
+            "link": "https://w3schoolsua.github.io/html/html_media.html",
+            "title": "Розділ про HTML Медіа"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
+        "links": [
+          { "id": 1, "title": "HTML Теги", "link": "tasks/html_tags" },
+          { "id": 2, "title": "HTML Атрибути", "link": "tasks/html_atributes" }
+        ]
+      }
+    ]
+  }
+]

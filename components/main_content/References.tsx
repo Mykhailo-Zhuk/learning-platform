@@ -16,7 +16,10 @@ const References = () => {
           </div>
         </div>
         <Button asChild className="w-full rounded-lg bg-blue-500">
-          <a href="#" className="flex space-x-3">
+          <a
+            href="https://web.telegram.org/a/#-4076222412"
+            target="_blank"
+            className="flex space-x-3">
             <BsTelegram size={18} /> <p>Приєднатись</p>
           </a>
         </Button>
