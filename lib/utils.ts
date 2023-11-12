@@ -1,59 +1,11 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-export const baseURL = "https://learning-platform-dusky.vercel.app/"; //"http://localhost:3000/";
+export const baseURL = "http://localhost:3000/"; //"https://learning-platform-dusky.vercel.app/"; //"http://localhost:3000/";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
-// type Markable = string[];
-
-// const codeMarkableWords: Markable = [
-//   '<title>',
-//   '<style>',
-//   '<meta>',
-//   '<link>',
-//   '<script>',
-//   '<base>',
-//   '<noscript>',
-//   '<template>',
-//   '<head>',
-//   '<header>',
-//   '<nav>',
-//   '<section>',
-//   '<acticle>',
-//   '<aside>',
-//   '<footer>',
-//   '<details>',
-//   '<summary>',
-//   '<time>',
-//   '<figcation>',
-//   '<figure>',
-//   '<main>',
-//   '<mark>',
-//   'height',
-//   'width',
-//   '<video>',
-//   '</video>',
-//   '<audio>',
-//   '</audio>',
-//   'controls',
-//   '<source>',
-// ];
-
-// const codeMarkableRows: Markable = [
-//   `<!DOCTYPE html>[\s\S]*</html>`,
-//   `<назва тегу>[\s\S]*</назва тегу>`,
-//   `<!-- [\s\S]* -->`,
-//   `<h1>[\s\S]*</h1>`,
-//   `<p>[\s\S]*</p>;`,
-//   `<a[\s\S]*</a>;`,
-//   `<img[\s\S]*>;`,
-//   `<button>[\s\S]*</button>;`,
-//   `<ul>[\s\S]*</ul>;`,
-//   `<ol>[\s\S]*</ol>;`,
-// ];
 
 export const fetchDataFromKV = (
   endpoint: string,

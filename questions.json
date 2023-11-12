@@ -783,5 +783,316 @@
         "correctAnswer": "br"
       }
     ]
+  },
+  "css": {
+    "subtitle": "CSS",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Яке властивість використовується для зміни кольору тексту в CSS?",
+        "options": ["text-color", "color", "font-color", "text-style"],
+        "correctAnswer": "color"
+      },
+      {
+        "id": 2,
+        "question": "Як зробити текст жирним у CSS?",
+        "options": [
+          "font-weight: bold;",
+          "text-style: bold;",
+          "font-bold: true;",
+          "text-bold: yes;"
+        ],
+        "correctAnswer": "font-weight: bold;"
+      },
+      {
+        "id": 3,
+        "question": "Що означає CSS?",
+        "options": [
+          "Counter Style Sheets",
+          "Computer Style Sheets",
+          "Creative Style Sheets",
+          "Cascading Style Sheets"
+        ],
+        "correctAnswer": "Cascading Style Sheets"
+      },
+      {
+        "id": 4,
+        "question": "Яка властивість використовується для встановлення кольору фону елемента?",
+        "options": ["background-color", "color-background", "bgcolor", "background-style"],
+        "correctAnswer": "background-color"
+      },
+      {
+        "id": 5,
+        "question": "Що робить властивість \"margin\" в CSS?",
+        "options": [
+          "Встановлює відстань між елементами всередині рамки",
+          "Встановлює відстань поза рамкою",
+          "Встановлює ширину рамки",
+          "Встановлює висоту рамки"
+        ],
+        "correctAnswer": "Встановлює відстань поза рамкою"
+      },
+      {
+        "id": 6,
+        "question": "Як вибрати всі елементи з певним класом \"example\" в CSS?",
+        "options": [".example", "#example", "*example", "element.example"],
+        "correctAnswer": ".example"
+      },
+      {
+        "id": 7,
+        "question": "Як в CSS встановити ширину блоку відсутньої вмісту?",
+        "options": ["width: auto;", "width: 100%;", "width: 0;", "width: inherit;"],
+        "correctAnswer": "width: 0;"
+      },
+      {
+        "id": 8,
+        "question": "Як в CSS вирівняти текст по центру всередині блоку?",
+        "options": [
+          "text-align: left;",
+          "text-align: center;",
+          "text-align: right;",
+          "text-align: justify;"
+        ],
+        "correctAnswer": "text-align: center;"
+      },
+      {
+        "id": 9,
+        "question": "Що робить властивість \"display: none;\" в CSS?",
+        "options": [
+          "Встановлює блок невидимим",
+          "Встановлює блок невидимим, але залишає його місце",
+          "Змінює тип блоку на \"none\"",
+          "Видаляє блок з DOM"
+        ],
+        "correctAnswer": "Встановлює блок невидимим, але залишає його місце"
+      },
+      {
+        "id": 10,
+        "question": "Як встановити рамку тільки для верхньої частини елемента в CSS?",
+        "options": [
+          "border: top;",
+          "border-top: 1px solid #000;",
+          "border-style: top;",
+          "border-top-width: 1px;"
+        ],
+        "correctAnswer": "border-top: 1px solid #000;"
+      },
+      {
+        "id": 12,
+        "question": "Як в CSS встановити текстовий декор \"підкреслення\" для гіперпосилань?",
+        "options": [
+          "text-decoration: underline;",
+          "text-underline: true;",
+          "underline: text;",
+          "text-style: underline;"
+        ],
+        "correctAnswer": "text-decoration: underline;"
+      },
+      {
+        "id": 13,
+        "question": "Що робить властивість \"position: absolute;\" в CSS?",
+        "options": [
+          "Встановлює абсолютне позиціонування відносно батьківського елемента",
+          "Встановлює абсолютне позиціонування відносно вікна",
+          "Вирівнює елемент по центру",
+          "Встановлює абсолютне позиціонування відносно першого з ненульовим позиціонуванням предка"
+        ],
+        "correctAnswer": "Встановлює абсолютне позиціонування відносно першого з ненульовим позиціонуванням предка"
+      },
+      {
+        "id": 15,
+        "question": "Як в CSS встановити шрифт для всього документа?",
+        "options": [
+          "font-family: Arial, sans-serif;",
+          "document-font: Arial, sans-serif;",
+          "body-font: Arial, sans-serif;",
+          "font: Arial, sans-serif;"
+        ],
+        "correctAnswer": "font-family: Arial, sans-serif;"
+      },
+      {
+        "id": 16,
+        "question": "Що робить властивість \"float\" в CSS?",
+        "options": [
+          "Зміщує блок вправо або вліво",
+          "Зміщує блок вгору або вниз",
+          "Робить блок полупрозорим",
+          "Розширює блок на весь екран"
+        ],
+        "correctAnswer": "Зміщує блок вправо або вліво"
+      },
+      {
+        "id": 17,
+        "question": "Як в CSS визначити кольоровий код RGB?",
+        "options": ["rgb(255, 0, 0);", "#FF0000;", "color: rgb(255, 0, 0);", "color: #FF0000;"],
+        "correctAnswer": "#FF0000;"
+      },
+      {
+        "id": 18,
+        "question": "Що таке \"box-sizing\" в CSS?",
+        "options": [
+          "Властивість, що визначає ширину і висоту блока",
+          "Властивість, що визначає видимість блока",
+          "Властивість, що визначає область змісту блока",
+          "Властивість, що визначає внутрішній відступ блока"
+        ],
+        "correctAnswer": "Властивість, що визначає область змісту блока"
+      },
+      {
+        "id": 19,
+        "question": "Як в CSS зробити зображення обтіканим текстом?",
+        "options": ["wrap: text;", "float: left;", "text-wrap: around;", "image-wrap: text;"],
+        "correctAnswer": "float: left;"
+      },
+      {
+        "id": 20,
+        "question": "Що робить властивість \"border-radius\" в CSS?",
+        "options": [
+          "Задає товщину рамки",
+          "Задає кутові скруглення рамки",
+          "Задає фон рамки",
+          "Задає колір рамки"
+        ],
+        "correctAnswer": "Задає кутові скруглення рамки"
+      },
+      {
+        "id": 21,
+        "question": "Як в CSS зробити текст напівпрозорим?",
+        "options": ["text-opacity: 0.5;", "opacity: 0.5;", "transparent: text;", "text-fade: 50%;"],
+        "correctAnswer": "opacity: 0.5;"
+      },
+      {
+        "id": 22,
+        "question": "Що означає властивість \"z-index\" в CSS?",
+        "options": [
+          "Задає товщину шару",
+          "Задає порядок шарів",
+          "Задає прозорість шару",
+          "Задає висоту шару"
+        ],
+        "correctAnswer": "Задає порядок шарів"
+      },
+      {
+        "id": 23,
+        "question": "Як в CSS зробити текст верхнього регістру?",
+        "options": [
+          "text-transform: uppercase;",
+          "uppercase: text;",
+          "text-style: uppercase;",
+          "transform: uppercase;"
+        ],
+        "correctAnswer": "text-transform: uppercase;"
+      },
+      {
+        "id": 24,
+        "question": "Що робить властивість \"overflow: hidden;\" в CSS?",
+        "options": [
+          "Задає висоту блоку",
+          "Задає видимість блоку",
+          "Приховує зміст, який не вміщується",
+          "Задає прокрутку блоку"
+        ],
+        "correctAnswer": "Приховує зміст, який не вміщується"
+      },
+      {
+        "id": 25,
+        "question": "Як в CSS встановити розташування елемента внизу вікна?",
+        "options": [
+          "position: bottom;",
+          "position: absolute; bottom: 0;",
+          "bottom: 0;",
+          "vertical-align: bottom;"
+        ],
+        "correctAnswer": "position: absolute; bottom: 0;"
+      },
+      {
+        "id": 26,
+        "question": "Що робить властивість \"text-shadow\" в CSS?",
+        "options": [
+          "Додає тінь тексту",
+          "Змінює колір тексту",
+          "Задає розмір тексту",
+          "Змінює фон тексту"
+        ],
+        "correctAnswer": "Додає тінь тексту"
+      },
+      {
+        "id": 28,
+        "question": "Що робить властивість \"cursor: pointer;\" в CSS?",
+        "options": [
+          "Змінює форму курсору при наведенні",
+          "Змінює колір курсору",
+          "Додає підказку до курсору",
+          "Задає область дії курсору"
+        ],
+        "correctAnswer": "Змінює форму курсору при наведенні"
+      },
+      {
+        "id": 29,
+        "question": "Як в CSS зробити перший букву тексту великою?",
+        "options": [
+          "uppercase: first-letter;",
+          "text-transform: capitalize;",
+          "text-style: capitalize;",
+          "capitalize: text;"
+        ],
+        "correctAnswer": "text-transform: capitalize;"
+      },
+      {
+        "id": 30,
+        "question": "Що таке \"box-shadow\" в CSS?",
+        "options": [
+          "Додає тінь до тексту",
+          "Додає тінь до блока",
+          "Додає тінь до зображення",
+          "Змінює колір тла"
+        ],
+        "correctAnswer": "Додає тінь до блока"
+      },
+      {
+        "id": 32,
+        "question": "Що таке \"line-height\" в CSS?",
+        "options": [
+          "Задає висоту лінії в тексті",
+          "Задає товщину лінії",
+          "Задає відстань між рядками",
+          "Задає тип лінії"
+        ],
+        "correctAnswer": "Задає висоту лінії в тексті"
+      },
+      {
+        "id": 33,
+        "question": "Як в CSS зробити текст курсивним?",
+        "options": [
+          "italic: text;",
+          "font-style: italic;",
+          "style: italic;",
+          "text-style: italic;"
+        ],
+        "correctAnswer": "font-style: italic;"
+      },
+      {
+        "id": 34,
+        "question": "Що робить властивість \"word-spacing\" в CSS?",
+        "options": [
+          "Задає відстань між словами",
+          "Задає розмір слова",
+          "Задає проміжок між рядками",
+          "Змінює розташування слова"
+        ],
+        "correctAnswer": "Задає відстань між словами"
+      },
+      {
+        "id": 35,
+        "question": "Як в CSS вирівняти блок по горизонталі по центру екрану?",
+        "options": [
+          "center: horizontal;",
+          "align: center;",
+          "margin: 0 auto;",
+          "horizontal-align: center;"
+        ],
+        "correctAnswer": "margin: 0 auto;"
+      }
+    ]
   }
 }

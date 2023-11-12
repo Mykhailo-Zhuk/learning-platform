@@ -169,5 +169,122 @@
         ]
       }
     ]
+  },
+  {
+    "id": 3,
+    "date": "11.11.2023",
+    "homework": [
+      {
+        "id": 1,
+        "action": "Прочитати теми: ",
+        "listOfThemes": [
+          {
+            "id": 1,
+            "link": "https://w3schoolsua.github.io/css/css_syntax.html",
+            "title": "CSS Синтаксис"
+          },
+          {
+            "id": 2,
+            "link": "https://w3schoolsua.github.io/css/css_selectors.html",
+            "title": "CSS Селектори"
+          },
+          {
+            "id": 3,
+            "link": "https://w3schoolsua.github.io/css/css_howto.html",
+            "title": "CSS Як підключити"
+          },
+          {
+            "id": 4,
+            "link": "https://w3schoolsua.github.io/css/css_comments.html",
+            "title": "CSS Коментарі"
+          },
+          {
+            "id": 5,
+            "link": "https://w3schoolsua.github.io/css/css_colors.html",
+            "title": "CSS Кольори"
+          },
+          {
+            "id": 6,
+            "link": "https://w3schoolsua.github.io/css/css_background.html",
+            "title": "CSS Фони"
+          },
+          {
+            "id": 7,
+            "link": "https://w3schoolsua.github.io/css/css_border.html",
+            "title": "CSS Межі"
+          },
+          {
+            "id": 8,
+            "link": "https://w3schoolsua.github.io/css/css_margin.html",
+            "title": "CSS Поля"
+          },
+          {
+            "id": 9,
+            "link": "https://w3schoolsua.github.io/css/css_padding.html",
+            "title": "CSS Внутрішній відступ"
+          },
+          {
+            "id": 10,
+            "link": "https://w3schoolsua.github.io/css/css_dimension.html#gsc.tab=0",
+            "title": "CSS Висота/Ширина"
+          },
+          {
+            "id": 11,
+            "link": "https://w3schoolsua.github.io/css/css_boxmodel.html#gsc.tab=0",
+            "title": "CSS Блочна модель"
+          },
+          {
+            "id": 12,
+            "link": "https://w3schoolsua.github.io/css/css_text.html#gsc.tab=0",
+            "title": "CSS Текст"
+          },
+          {
+            "id": 13,
+            "link": "https://w3schoolsua.github.io/css/css_font.html",
+            "title": "CSS Шрифти"
+          },
+          {
+            "id": 14,
+            "link": "https://w3schoolsua.github.io/css/css_icons.html#gsc.tab=0",
+            "title": "CSS Іконки"
+          },
+          {
+            "id": 15,
+            "link": "https://w3schoolsua.github.io/css/css_link.html#gsc.tab=0",
+            "title": "CSS Посилання"
+          },
+          {
+            "id": 16,
+            "link": "https://w3schoolsua.github.io/css/css_list.html#gsc.tab=0",
+            "title": "CSS Списки"
+          },
+          {
+            "id": 17,
+            "link": "https://w3schoolsua.github.io/css/css_table.html#gsc.tab=0",
+            "title": "CSS Таблиці"
+          },
+          {
+            "id": 18,
+            "link": "https://w3schoolsua.github.io/css/css_display_visibility.html#gsc.tab=0",
+            "title": "CSS Display"
+          },
+          {
+            "id": 19,
+            "link": "https://w3schoolsua.github.io/css/css_max-width.html#gsc.tab=0",
+            "title": "CSS Max-width"
+          },
+          {
+            "id": 20,
+            "link": "https://w3schoolsua.github.io/css/css_positioning.html#gsc.tab=0",
+            "title": "CSS Position"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
+        "links": [{ "id": 1, "title": "CSS", "link": "tasks/css" }]
+      }
+    ]
   }
 ]

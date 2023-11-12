@@ -14,6 +14,13 @@
 
 # production
 /build
+/descriptions.json
+/homework.json
+/listOfThemes.json
+/projects.json
+/questions.json
+/tests.json
+/users.json
 
 # misc
 .DS_Store
