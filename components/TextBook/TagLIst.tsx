@@ -204,11 +204,11 @@ const TagList: React.FC = () => {
           />
         </div>
         <button onClick={handleShowPreview} className="bg-blue-500 text-white p-2 rounded">
-          {`Показати прев\'ю`}
+          Показати прев"ю
         </button>
         {showPreview && selectTag && (
           <div className="mt-4">
-            <label>{`Прев\'ю:`}</label>
+            <label>Прев"ю:</label>
             <div
               dangerouslySetInnerHTML={{ __html: renderTag(selectedTag!) }}
               className="p-4 border border-gray-300 rounded"
