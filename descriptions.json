@@ -5,7 +5,12 @@
       "HTML (від англ. HyperText Markup Language — \"мова гіпертекстової розмітки\") — стандартизована мова розмітки документів у Всесвітній павутині",
       {
         "image": {
-          "url": "https://lh3.googleusercontent.com/pw/ADCreHd1WyTof7OkfFA0PVDsShRyK7VYU-NHHBGMczxL4fw6QVPdef2bNkXcz2OsY9IU5N1Kxce6xFkbqRVV0qRwZEiChrhjb9Sbv5P3FrZmBNvmJ1ksAfWBphYa36wSkE3XW04xu9Hsfx5WdnZKSeqWKZENd7Pxx8ivhwGRIkCcsY2mDyaqugk5D9rsXL6ZdEAwF9k5-PPN_sHCFGyq2Nge8wm_IQ4dkUhdb5OlGA6WmWoVuza0WrjB7v6vlirFOLCyBdjsBQU8SopSCG4dScDnuRsfvy6h4EKIrT36oX_mD3-VxHMAbSJnOYckO0Sj8ugpgNtelPvOm_EgYgePLZzRlttUf_Jx4edFtTmjfgcsaooZe2UkgWZm7ERR6m1GdK_kGUo5TeaTgM7PE5LuNstwAnctWSKyZls1O79wDGbzzyAwmQj1HRLlCSgPyvqkBQh6kQRvKY6rg1rVAenGGiXc9CBvt_AMOSqbBj-Lqj8mrETOEiH7zuBhjYrkuNCUCrF0XreWV6bYXGqqt0UOylqfBsOR7ZSU7ap1k--nFcRiVYmVvGiNmNkZ6Aa6J37dXxa_Ul66oj2XX4MVrn6Uqgck1yY0hJndWcGwUElEP3C_ysMPyeBpZ9jkH9v39OuJ-bLO76zh_VWSXnHlDZEuZrqIs7ighZAhx7i1Ou-ueQXWIBzTxaBOlLOTF-KfbnP_BK-0u5eY-hbbvcmfyHdFnvFis3FB4TlUkuCU8NLgE2kQjWKm6j2WkivtYOAtBTOoH5vfep9C4nC_lDMsd4l3I0ZHuz-LmvVrYqy_BaXGx1Fs6BdHeWBIBROo6sgfH75yluZK0oDwCwMCyIjJNULhkihExg-DrFLq6U4QqF-bO0X3hdjog9xep85LCXN3M79PcoejUMcRcCbY7d4S-JkZYMlBI9jw2D1QxKdQcYm2UTs46tDWPuJ0auvlPMBtrvvR=w836-h388-s-no-gm?authuser=0",
+          "src": "/_next/static/media/html_syntax_1.eaba4075.png",
+          "height": 388,
+          "width": 836,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhtml_syntax_1.eaba4075.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 4,
           "caption": []
         }
       },
@@ -23,7 +28,7 @@
       "Зарезервовані символи в HTML мають бути замінені символьними об’єктами (або сутностями).",
       {
         "image": {
-          "url": "https://w3schoolsua.github.io/images/img_sem_elements.gif",
+          "src": "https://w3schoolsua.github.io/images/img_sem_elements.gif",
           "caption": [
             "HTML пропонує кілька семантичних елемента, які визначають різні частини вебсторінки",
             "<header> - Визначає заголовок для документа або розділу",
@@ -149,7 +154,7 @@
       "Вбудований стиль має найвищий пріоритет та перевизначає зовнішні та внутрішні стилі й налаштування браузера за замовчуванням.",
       {
         "image": {
-          "url": "https://html-plus.in.ua/wp-content/uploads/2017/04/box-model.jpg",
+          "src": "https://html-plus.in.ua/wp-content/uploads/2017/04/box-model.jpg",
           "caption": []
         }
       },
@@ -326,7 +331,12 @@
       "Спільна робота: Використання методології БЕМ сприяє спільній роботі багатьох розробників над проектом, оскільки вона забезпечує стандартизовану систему іменування, що полегшує співпрацю.",
       {
         "image": {
-          "url": "https://lh3.googleusercontent.com/pw/ADCreHdJVDsVfcZpnwLTy289jsJRuzNRnBrlRbPTEzvQRfQVAPxpeFMMZK3a3cLvFHBBH0XBcXSblqn9q8gpbXBGkXIQr8JVIYVh_QeoxbcV55_oxSh9zp-9NeTh5DSp9PKVsmdId2pJpAXs3rKkTszBsu6HoUQfhS0nFd7dnPmUrN9g_yqjWVCBGo8_kc7rFvl7cy6MHXLpZ2Xs6whqE5okR1WDXJw-EwFGwZxT85RxUZ9Std4aHsNiex5evAn-2ezVx0IOCMcVCeEoAFn1N2u0cbdfRX_9__V2JDAbIldemMWf14c54oBviFICJhCWn2umfZvYj7PHzS4InHLW_6ufTWwgrEJkZlw-yker6XPK_dJs-6wXXwaigddv-MMvGiNwGY_RUg_RG8udtDx9wHJ7-qCircpLG5pGFDkWkjPro3n4trUh3q9uskDgaaB8L35a9LiIVtRkYIpX7ltHLAl4ZhJVjKADk3cZqEdaQLi9oihTKr-6Ap3QX4iK_N_lVIJuOmYNoD2cziTK21JulvXBG1zcEa0ocztZkH8yVI8IFBQPonnfqU9QeLVE4cPz8h-dnSBKV5U7PvUXyrXM0TIWiIZzytDBs42t0GavLbSCvDgDcgtnBHL05lGoaC-dhiM85YV1kbg3MvsbZJbyEK-hXcFn04_2uxQ343Yql-jnB1aThPPpzy_mjWxjztvTaWEtL-gGHIkBpIfFCjCToEKzAuxK11a8QwerNeNkLCkL-ZlLdswTGq4CDhNPaGNjYJqBzhqcgM70zZ656x3KO1hURHLVM7fTs47mWLHOhmYiuZ6oKA0EWXbkmV14NxsB5Ql57EZYBalJtkV_Ygxw8MQJr_I1iCRl4ky5BRjd3CT4CkwpIVjna4oA8bJCJ-VFxiMRvT51_rW3RHFWgbJA1k4Dei6O-bI_RAugEqAog1Wgx171u3gWZq8SM6MXbpoL=w722-h216-s-no-gm?authuser=0",
+          "src": "/_next/static/media/css_bem_1.502a64bd.png",
+          "height": 216,
+          "width": 722,
+          "blurDataURL": "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcss_bem_1.502a64bd.png&w=8&q=70",
+          "blurWidth": 8,
+          "blurHeight": 2,
           "caption": []
         }
       }

@@ -39,15 +39,15 @@ const ThemesContent = ({ params }: Params) => {
                 );
               } else if (typeof subitem === "object") {
                 if ("image" in subitem) {
+                  console.log(subitem);
                   return (
                     <div key={"image"} className="flex flex-col space-y-2">
                       <div className="flex justify-center items-center">
                         <Image
-                          src={subitem?.image?.url!}
-                          alt={subitem?.image?.url! + "_image_"}
-                          width={600}
-                          height={400}
-                          className="h-full w-auto"
+                          src={subitem?.image?.src!}
+                          {...subitem?.image}
+                          alt={subitem?.image?.src!}
+                          className="h-auto max-w-4xl"
                         />
                       </div>
                       {subitem?.image?.caption?.map((item, index) => {

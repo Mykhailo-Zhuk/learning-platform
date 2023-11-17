@@ -1,7 +1,17 @@
 import { fetchDataFromNextServer, fetchPartOfData } from "@/lib/utils";
 import { create } from "zustand";
 
-type Image = { image?: { url: string; caption: string[] } };
+type Image = {
+  image?: {
+    src: string;
+    height?: number;
+    width?: number;
+    blurDataURL?: string;
+    blurWidth?: number;
+    blurHeight?: number;
+    caption?: string[];
+  };
+};
 type Table = {
   table?: {
     title: string;
@@ -38,6 +48,7 @@ type Store = {
       extra?: boolean;
     }[];
   }[];
+
   questions: {
     subtitle: string;
     url: string;
@@ -48,6 +59,7 @@ type Store = {
       correctAnswer: string;
     }[];
   }[];
+
   projects: {
     id: number;
     title: string;
@@ -59,28 +71,7 @@ type Store = {
 
   descriptions: {
     subtitle: string;
-    content: [
-      string,
-      { image?: { url: string; caption: string[] } },
-      {
-        table?: {
-          title: string;
-          headers: string[];
-          rows: {
-            id: number;
-            selector: string;
-            example?: string;
-            description: string;
-          }[];
-        };
-      },
-      {
-        list?: {
-          id: number;
-          item: string;
-        }[];
-      },
-    ];
+    content: [string, Image, Table, List];
   }[];
 
   listOfThemes: {
@@ -91,6 +82,7 @@ type Store = {
       url: string;
     }[];
   }[];
+
   homework: {
     id: number;
     date: string;
