@@ -160,9 +160,10 @@ const TagList: React.FC = () => {
         <div className="mb-4">
           <label>Атрибути:</label>
           <select
+            defaultValue="Виберіть атрибут"
             onChange={handleAttributeSelectChange}
             className="block w-full bg-white border border-gray-300 p-2 rounded">
-            <option value="" disabled selected>
+            <option value="Виберіть атрибут" disabled selected>
               Виберіть атрибут
             </option>
             {tagAttributesOptions.map((option) => (
@@ -182,9 +183,10 @@ const TagList: React.FC = () => {
         <div className="mb-4">
           <label>Стилі:</label>
           <select
+            defaultValue="Виберіть стилі"
             onChange={handleStyleSelectChange}
             className="block w-full bg-white border border-gray-300 p-2 rounded">
-            <option value="" disabled selected>
+            <option value="Виберіть стилі" disabled selected>
               Виберіть стилі
             </option>
             {stylePropertiesOptions.map((option) => (
