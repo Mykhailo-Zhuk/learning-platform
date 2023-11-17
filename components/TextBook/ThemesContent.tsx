@@ -39,7 +39,6 @@ const ThemesContent = ({ params }: Params) => {
                 );
               } else if (typeof subitem === "object") {
                 if ("image" in subitem) {
-                  console.log(subitem);
                   return (
                     <div key={"image"} className="flex flex-col space-y-2">
                       <div className="flex justify-center items-center">
