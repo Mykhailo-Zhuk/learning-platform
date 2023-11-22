@@ -286,5 +286,93 @@
         "links": [{ "id": 1, "title": "CSS", "link": "tasks/css" }]
       }
     ]
+  },
+  {
+    "id": 4,
+    "date": "18.11.2023",
+    "homework": [
+      {
+        "id": 1,
+        "action": "Прочитати теми: ",
+        "listOfThemes": [
+          {
+            "id": 1,
+            "link": "https://w3schoolsua.github.io/css/css_display_visibility.html#gsc.tab=0",
+            "title": "CSS Display"
+          },
+          {
+            "id": 2,
+            "link": "https://w3schoolsua.github.io/css/css_max-width.html#gsc.tab=0",
+            "title": "CSS Max-width"
+          },
+          {
+            "id": 3,
+            "link": "https://w3schoolsua.github.io/css/css_positioning.html#gsc.tab=0",
+            "title": "CSS Position"
+          },
+          {
+            "id": 4,
+            "link": "https://w3schoolsua.github.io/css/css_z-index.html#gsc.tab=0",
+            "title": "CSS Z-index"
+          },
+          {
+            "id": 5,
+            "link": "https://w3schoolsua.github.io/css/css_overflow.html#gsc.tab=0",
+            "title": "CSS Overflow"
+          },
+          {
+            "id": 6,
+            "link": "https://w3schoolsua.github.io/css/css_float.html#gsc.tab=0",
+            "title": "CSS Float"
+          },
+          {
+            "id": 7,
+            "link": "https://w3schoolsua.github.io/css/css_inline-block.html#gsc.tab=0",
+            "title": "CSS Inline-block"
+          },
+          {
+            "id": 8,
+            "link": "https://w3schoolsua.github.io/css/css_align.html#gsc.tab=0",
+            "title": "CSS Вирівнювання"
+          },
+          {
+            "id": 9,
+            "link": "https://w3schoolsua.github.io/css/css_combinators.html#gsc.tab=0",
+            "title": "CSS Комбінатори"
+          },
+          {
+            "id": 10,
+            "link": "https://w3schoolsua.github.io/css/css_pseudo_classes.html#gsc.tab=0",
+            "title": "CSS Псевдокласи"
+          },
+          {
+            "id": 11,
+            "link": "https://w3schoolsua.github.io/css/css_pseudo_elements.html#gsc.tab=0",
+            "title": "CSS Псевдоелементи"
+          },
+          {
+            "id": 12,
+            "link": "https://w3schoolsua.github.io/css/css_image_transparency.html#gsc.tab=0",
+            "title": "CSS Opacity"
+          },
+          {
+            "id": 13,
+            "link": "https://w3schoolsua.github.io/css/css_units.html#gsc.tab=0",
+            "title": "CSS Одиниці"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
+        "links": [
+          { "id": 1, "title": "CSS Селектори", "link": "tasks/css_selectors" },
+          { "id": 2, "title": "CSS Комбінатори", "link": "tasks/css_combinator" },
+          { "id": 3, "title": "CSS Псевдокласи", "link": "tasks/css_preudo_classes" },
+          { "id": 4, "title": "CSS Псевдоелементи", "link": "tasks/css_pseudo_elements" },
+          { "id": 5, "title": "CSS Змінні", "link": "tasks/css_variables" }
+        ]
+      }
+    ]
   }
 ]

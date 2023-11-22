@@ -1094,5 +1094,724 @@
         "correctAnswer": "margin: 0 auto;"
       }
     ]
+  },
+  "css_selectors": {
+    "subtitle": "CSS Селектори",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Оберіть всі абзаци з класом \"highlight\".",
+        "options": ["p.highlight", "p .highlight", ".highlight p", "p > .highlight"],
+        "correctAnswer": "p.highlight"
+      },
+      {
+        "id": 2,
+        "question": "Оберіть перший дочірній елемент кожного елемента \"ul\".",
+        "options": [
+          "ul:first-child",
+          "ul > :first-child",
+          "ul li:first-child",
+          "ul > li:first-child"
+        ],
+        "correctAnswer": "ul > :first-child"
+      },
+      {
+        "id": 3,
+        "question": "Оберіть всі елементи з атрибутом \"data-active\".",
+        "options": [
+          "[data-active]",
+          "*[data-active]",
+          "елемент[data-active]",
+          ".active[data-active]"
+        ],
+        "correctAnswer": "[data-active]"
+      },
+      {
+        "id": 4,
+        "question": "Оберіть останній елемент \"li\" в кожному елементі \"ul\".",
+        "options": [
+          "ul li:last-child",
+          "ul > :last-child",
+          "ul:last-child > li",
+          "ul li:last-of-type"
+        ],
+        "correctAnswer": "ul li:last-child"
+      },
+      {
+        "id": 5,
+        "question": "Оберіть всі парні рядки в таблиці.",
+        "options": [
+          "table tr:even",
+          "table tr:nth-child(even)",
+          "table tr:nth-child(2n)",
+          "table tr:nth-child(even)"
+        ],
+        "correctAnswer": "table tr:nth-child(even)"
+      },
+      {
+        "id": 6,
+        "question": "Оберіть всі посилання (a), які містять текст \"Клацніть тут\".",
+        "options": [
+          "a:contains(\"Клацніть тут\")",
+          "a[href*=\"Клацніть тут\"]",
+          "a[text=\"Клацніть тут\"]",
+          "a:has(\"Клацніть тут\")"
+        ],
+        "correctAnswer": "a[href*=\"Клацніть тут\"]"
+      },
+      {
+        "id": 7,
+        "question": "Оберіть всі елементи з класом \"active\", які є дочірніми елементами \"div\".",
+        "options": ["div .active", "div > .active", ".active div", "div.active"],
+        "correctAnswer": "div > .active"
+      },
+      {
+        "id": 8,
+        "question": "Оберіть останній дочірній елемент кожного \"section\" з класом \"container\".",
+        "options": [
+          "section.container:last-child",
+          "section.container > :last-child",
+          "section.container > *:last-child",
+          "section.container > *:last-of-type"
+        ],
+        "correctAnswer": "section.container > *:last-child"
+      },
+      {
+        "id": 9,
+        "question": "Оберіть всі елементи з атрибутом \"disabled\" у формі з ідентифікатором \"myForm\".",
+        "options": [
+          "#myForm [disabled]",
+          "#myForm * [disabled]",
+          "form#myForm [disabled]",
+          "form#myForm *[disabled]"
+        ],
+        "correctAnswer": "form#myForm [disabled]"
+      },
+      {
+        "id": 10,
+        "question": "Оберіть всі непарні рядки у таблиці з класом \"striped\".",
+        "options": [
+          "table.striped tr:odd",
+          "table.striped tr:nth-child(odd)",
+          "table.striped tr:nth-child(2n+1)",
+          "table.striped tr:nth-child(odd)"
+        ],
+        "correctAnswer": "table.striped tr:nth-child(odd)"
+      },
+      {
+        "id": 11,
+        "question": "Оберіть всі елементи \"span\" з класом \"highlight\", які знаходяться безпосередньо після елемента \"p\".",
+        "options": [
+          "p + span.highlight",
+          "span.highlight + p",
+          "p ~ span.highlight",
+          "span.highlight ~ p"
+        ],
+        "correctAnswer": "p + span.highlight"
+      },
+      {
+        "id": 12,
+        "question": "Оберіть всі елементи \"div\" з атрибутом \"data-category\" зі значенням \"important\".",
+        "options": [
+          "div[data-category=\"important\"]",
+          "div[data-category=important]",
+          "div[data-category*=\"important\"]",
+          "div[data-category^=\"important\"]"
+        ],
+        "correctAnswer": "div[data-category=\"important\"]"
+      },
+      {
+        "id": 13,
+        "question": "Оберіть всі елементи \"a\", які мають клас \"external\" та відкриваються в новому вікні (з атрибутом \"target\" рівним \"_blank\").",
+        "options": [
+          "a.external[target=\"_blank\"]",
+          "a[target=\"_blank\"].external",
+          "a.external[target^=\"_blank\"]",
+          "a[target=\"_blank\"][class=\"external\"]"
+        ],
+        "correctAnswer": "a.external[target=\"_blank\"]"
+      },
+      {
+        "id": 14,
+        "question": "Оберіть всі елементи \"li\" з класом \"active\", які є останніми елементами своїх батьківських \"ul\".",
+        "options": [
+          "ul li.active:last-child",
+          "ul li.active:last-of-type",
+          "ul:last-child > li.active",
+          "ul li:last-child.active"
+        ],
+        "correctAnswer": "ul li:last-child.active"
+      },
+      {
+        "id": 15,
+        "question": "Оберіть всі елементи \"input\" з типом \"text\" або \"password\".",
+        "options": [
+          "input[type=\"text\" || type=\"password\"]",
+          "input[type=\"text\"], input[type=\"password\"]",
+          "input[type*=\"text\"][type*=\"password\"]",
+          "input[type^=\"text\"][type^=\"password\"]"
+        ],
+        "correctAnswer": "input[type=\"text\"], input[type=\"password\"]"
+      },
+      {
+        "id": 16,
+        "question": "Оберіть всі елементи \"h2\" або \"h3\", які знаходяться безпосередньо в середині елемента \"section\".",
+        "options": [
+          "section > h2, section > h3",
+          "section h2, section h3",
+          "section > * > h2, section > * > h3",
+          "section h2 + h3"
+        ],
+        "correctAnswer": "section > h2, section > h3"
+      },
+      {
+        "id": 17,
+        "question": "Оберіть всі елементи \"ul\" з класом \"menu\", які не мають дочірніх елементів \"li\".",
+        "options": [
+          "ul.menu:not(:has(li))",
+          "ul.menu:empty",
+          "ul.menu:not(:has(>li))",
+          "ul.menu:has(li)"
+        ],
+        "correctAnswer": "ul.menu:empty"
+      },
+      {
+        "id": 18,
+        "question": "Оберіть всі елементи \"a\", які мають атрибут \"href\" починаючи з \"https://\".",
+        "options": [
+          "a[href*=\"https://\"]",
+          "a[href^=\"https://\"]",
+          "a[href$=\"https://\"]",
+          "a[href=\"https://\"]"
+        ],
+        "correctAnswer": "a[href^=\"https://\"]"
+      },
+      {
+        "id": 19,
+        "question": "Оберіть всі елементи \"div\", які мають клас \"box\" та атрибут \"data-status\" зі значенням \"active\".",
+        "options": [
+          "div.box[data-status=\"active\"]",
+          "div[data-status=\"active\"].box",
+          "div.box[status=\"active\"]",
+          "div.box[status^=\"active\"]"
+        ],
+        "correctAnswer": "div.box[data-status=\"active\"]"
+      },
+      {
+        "id": 20,
+        "question": "Оберіть всі елементи \"p\", які знаходяться всередині елемента \"article\", але не знаходяться всередині іншого елемента \"section\".",
+        "options": [
+          "article p:not(section p)",
+          "article p:not(section > p)",
+          "article p:not(section p)",
+          "article > p:not(section > p)"
+        ],
+        "correctAnswer": "article > p:not(section > p)"
+      }
+    ]
+  },
+  "css_combinator": {
+    "subtitle": "CSS Комбінатори",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Як здійснити вибір елементів за їх класом?",
+        "options": ["getElementByClass", ".getElement", "#getElement", "getElementsByClassName"],
+        "correctAnswer": "getElementsByClassName"
+      },
+      {
+        "id": 2,
+        "question": "Яка комбінація об\"єднує всі <p> елементи, які є дочірніми елементами <div>?",
+        "options": ["div p", "div + p", "div > p", "div ~ p"],
+        "correctAnswer": "div > p"
+      },
+      {
+        "id": 3,
+        "question": "Як вибрати всі парні рядки у таблиці?",
+        "options": ["tr:nth-child(even)", "tr:nth-child(odd)", "tr:even", "tr:odd"],
+        "correctAnswer": "tr:nth-child(even)"
+      },
+      {
+        "id": 4,
+        "question": "Як вибрати елемент, який має клас \"active\" та знаходиться всередині елемента з id \"menu\"?",
+        "options": ["#menu .active", ".active #menu", "#menu > .active", ".active menu"],
+        "correctAnswer": "#menu .active"
+      },
+      {
+        "id": 5,
+        "question": "Як вибрати перший дочірній елемент <li> всередині елемента з класом \"list\"?",
+        "options": [
+          ".list li:first-child",
+          ".list li:first-of-type",
+          ".list > li:first-child",
+          ".list > li:first-of-type"
+        ],
+        "correctAnswer": ".list > li:first-of-type"
+      },
+      {
+        "id": 6,
+        "question": "Як вибрати всі <a> елементи, які містять атрибут href?",
+        "options": ["a[href]", "a > href", "a:has(href)", "a.attr(href)"],
+        "correctAnswer": "a[href]"
+      },
+      {
+        "id": 7,
+        "question": "Як вибрати останній <li> елемент у списку?",
+        "options": ["li:last", "li:last-child", "li:nth-last-child(1)", "li:nth-last-of-type(1)"],
+        "correctAnswer": "li:last-child"
+      },
+      {
+        "id": 8,
+        "question": "Як вибрати всі <input> елементи, які є в стані фокусу?",
+        "options": ["input:focus", "input:focused", "input.active", "input:active"],
+        "correctAnswer": "input:focus"
+      },
+      {
+        "id": 9,
+        "question": "Як вибрати елемент, який має клас \"highlight\" або \"active\"?",
+        "options": [
+          ".highlight.active",
+          ".highlight, .active",
+          ".highlight | .active",
+          ".highlight > .active"
+        ],
+        "correctAnswer": ".highlight, .active"
+      },
+      {
+        "id": 10,
+        "question": "Як вибрати всі <div> елементи, які не мають класу \"hidden\"?",
+        "options": ["div:not(.hidden)", "div.-hidden", "div.no-hidden", "div!hidden"],
+        "correctAnswer": "div:not(.hidden)"
+      },
+      {
+        "id": 11,
+        "question": "Як вибрати перший елемент у списку всіх <h2> елементів?",
+        "options": ["h2:first", "h2:first-child", "h2:nth-child(1)", "h2:nth-of-type(1)"],
+        "correctAnswer": "h2:first-of-type"
+      },
+      {
+        "id": 12,
+        "question": "Як вибрати всі <p> елементи, які слідують одразу за <h1> елементами?",
+        "options": ["h1 + p", "h1 ~ p", "h1 > p", "h1 < p"],
+        "correctAnswer": "h1 + p"
+      },
+      {
+        "id": 13,
+        "question": "Як вибрати останній <td> елемент в кожному рядку таблиці?",
+        "options": [
+          "td:last-child",
+          "td:last-of-type",
+          "td:nth-last-child(1)",
+          "td:nth-last-of-type(1)"
+        ],
+        "correctAnswer": "td:last-child"
+      },
+      {
+        "id": 14,
+        "question": "Як вибрати всі <span> елементи, які мають клас \"bold\" або \"italic\"?",
+        "options": [
+          "span.bold.italic",
+          "span.bold, span.italic",
+          "span.bold | span.italic",
+          "span.bold > span.italic"
+        ],
+        "correctAnswer": "span.bold, span.italic"
+      },
+      {
+        "id": 15,
+        "question": "Як вибрати всі <input> елементи типу \"text\" у формі з id \"myForm\"?",
+        "options": [
+          "#myForm input[type=\"text\"]",
+          "form#myForm input[type=\"text\"]",
+          "#myForm > input[type=\"text\"]",
+          "input[type=\"text\"]:in(#myForm)"
+        ],
+        "correctAnswer": "#myForm input[type=\"text\"]"
+      },
+      {
+        "id": 16,
+        "question": "Як вибрати всі елементи, які не мають атрибуту \"disabled\"?",
+        "options": ["*:not([disabled])", "*:no([disabled])", "*[enabled]", "*:enabled"],
+        "correctAnswer": "*:not([disabled])"
+      },
+      {
+        "id": 17,
+        "question": "Як вибрати перший елемент <div> всередині кожного елемента з класом \"container\"?",
+        "options": [
+          ".container div:first-child",
+          ".container div:first-of-type",
+          ".container > div:first-child",
+          ".container > div:first-of-type"
+        ],
+        "correctAnswer": ".container > div:first-of-type"
+      },
+      {
+        "id": 18,
+        "question": "Як вибрати всі <a> елементи, які не мають класу \"external\"?",
+        "options": ["a:not(.external)", "a.-external", "a.no-external", "a:has-no(external)"],
+        "correctAnswer": "a:not(.external)"
+      },
+      {
+        "id": 19,
+        "question": "Як вибрати всі елементи <div>, які є останніми дочірніми в своїх батьківських елементах?",
+        "options": [
+          "div:last-child",
+          "div:last-of-type",
+          "div > :last-child",
+          "div > :last-of-type"
+        ],
+        "correctAnswer": "div > :last-child"
+      },
+      {
+        "id": 20,
+        "question": "Як вибрати всі <h3> елементи, які є на тому ж рівні, що і їхній попередній сусід?",
+        "options": ["h3 + h3", "h3 ~ h3", "h3 > h3", "h3 < h3"],
+        "correctAnswer": "h3 + h3"
+      }
+    ]
+  },
+  "css_preudo_classes": {
+    "subtitle": "CSS Псевдокласи",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Яким псевдокласом можна вибрати перший елемент списку?",
+        "options": [":first-child", ":last-child", ":nth-child(2)", ":only-child"],
+        "correctAnswer": ":first-child"
+      },
+      {
+        "id": 2,
+        "question": "Як вибрати елемент, який має клас \"active\"?",
+        "options": [".active", ":has(.active)", ":is(.active)", ":contains(active)"],
+        "correctAnswer": ".active"
+      },
+      {
+        "id": 3,
+        "question": "Як вибрати четний елемент списку?",
+        "options": [":even", ":odd", ":nth-child(2n)", ":nth-child(2n+1)"],
+        "correctAnswer": ":even"
+      },
+      {
+        "id": 4,
+        "question": "Як вибрати елемент, який отримує фокус?",
+        "options": [":focus", ":active", ":hover", ":target"],
+        "correctAnswer": ":focus"
+      },
+      {
+        "id": 5,
+        "question": "Як вибрати всі елементи, крім першого?",
+        "options": [":not(:first-child)", ":nth-child(n+2)", ":nth-child(n+1)", ":last-child"],
+        "correctAnswer": ":not(:first-child)"
+      },
+      {
+        "id": 6,
+        "question": "Як вибрати всі посилання, які мають клас \"external\"?",
+        "options": ["a.external", "a:external", ".external a", ":link(external)"],
+        "correctAnswer": "a.external"
+      },
+      {
+        "id": 7,
+        "question": "Як вибрати елемент, який знаходиться всередині елемента з класом \"container\"?",
+        "options": [".container > *", ".container *", ":inside(.container)", ":parent(.container)"],
+        "correctAnswer": ".container *"
+      },
+      {
+        "id": 8,
+        "question": "Як вибрати елементи з парним індексом у списку?",
+        "options": [":even", ":odd", ":nth-child(2n)", ":nth-child(2n+1)"],
+        "correctAnswer": ":even"
+      },
+      {
+        "id": 9,
+        "question": "Як вибрати всі елементи, які мають клас \"important\" і є останніми в своїх батьківських елементах?",
+        "options": [
+          ".important:last-child",
+          ".important:last-of-type",
+          ".important:nth-last-child(1)",
+          ".important:only-child"
+        ],
+        "correctAnswer": ".important:last-child"
+      },
+      {
+        "id": 10,
+        "question": "Як вибрати елемент, який має попереднього сусіда?",
+        "options": [":prev", ":previous", ":prev-sibling", ":prev-element"],
+        "correctAnswer": ":prev-sibling"
+      },
+      {
+        "id": 11,
+        "question": "Як вибрати всі елементи, які не мають класу \"hidden\"?",
+        "options": [":not(.hidden)", ":without(.hidden)", ":except(.hidden)", ".not-hidden"],
+        "correctAnswer": ":not(.hidden)"
+      },
+      {
+        "id": 12,
+        "question": "Як вибрати перший дочірній елемент з класом \"child\" для кожного батьківського елемента?",
+        "options": [
+          ":first-child(.child)",
+          ".child:first-child",
+          ":first-of-type(.child)",
+          ":child:first"
+        ],
+        "correctAnswer": ":first-of-type(.child)"
+      },
+      {
+        "id": 13,
+        "question": "Як вибрати всі елементи, які мають атрибут \"data-active\"?",
+        "options": [
+          "[data-active]",
+          ":has([data-active])",
+          ":attr(data-active)",
+          ":contains(data-active)"
+        ],
+        "correctAnswer": "[data-active]"
+      },
+      {
+        "id": 14,
+        "question": "Як вибрати останній елемент у списку?",
+        "options": [":last", ":last-child", ":nth-last-child(1)", ":end"],
+        "correctAnswer": ":last-child"
+      },
+      {
+        "id": 15,
+        "question": "Як вибрати всі чекбокси, які є в стані вибору?",
+        "options": [":checked", ":selected", ":active", ":enabled"],
+        "correctAnswer": ":checked"
+      },
+      {
+        "id": 16,
+        "question": "Як вибрати всі елементи, які знаходяться на тому ж рівні, що і їхній батьківський елемент?",
+        "options": [":same-level", ":siblings", ":brothers", ":adjacent"],
+        "correctAnswer": ":siblings"
+      },
+      {
+        "id": 17,
+        "question": "Як вибрати елементи з атрибутом \"href\" починаючи з \"https://\"?",
+        "options": [
+          "[href^=\"https://\"]",
+          "[href*=\"https://\"]",
+          "[href$=\"https://\"]",
+          ":has([href^=\"https://\"])"
+        ],
+        "correctAnswer": "[href^=\"https://\"]"
+      },
+      {
+        "id": 18,
+        "question": "Як вибрати елементи, які не мають класу \"inactive\"?",
+        "options": [
+          ":not(.inactive)",
+          ":without(.inactive)",
+          ":except(.inactive)",
+          ".not-inactive"
+        ],
+        "correctAnswer": ":not(.inactive)"
+      },
+      {
+        "id": 19,
+        "question": "Як вибрати елементи, які є попередніми сусідами для елементів з класом \"current\"?",
+        "options": [
+          ".current ~ :prev-sibling",
+          ".current + :prev-sibling",
+          ".current ~ :previous",
+          ".current ~ :prev"
+        ],
+        "correctAnswer": ".current ~ :prev-sibling"
+      },
+      {
+        "id": 20,
+        "question": "Як вибрати елемент, який має клас \"active\" і має текстовий контент \"Click me\"?",
+        "options": [
+          ".active:contains(\"Click me\")",
+          ".active:has(\"Click me\")",
+          ".active[text=\"Click me\"]",
+          ".active[textContent=\"Click me\"]"
+        ],
+        "correctAnswer": ".active:contains(\"Click me\")"
+      }
+    ]
+  },
+  "css_pseudo_elements": {
+    "subtitle": "CSS Псевдоелементи",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Як вибрати перший елемент списку за допомогою псевдоелементу?",
+        "options": [":first-child", ":first-element", ":first-item", ":first"],
+        "correctAnswer": ":first-child"
+      },
+      {
+        "id": 2,
+        "question": "Як вибрати останній елемент списку за допомогою псевдоелементу?",
+        "options": [":last-child", ":last-item", ":end", ":last"],
+        "correctAnswer": ":last-child"
+      },
+      {
+        "id": 3,
+        "question": "Як вибрати кожен парний елемент списку за допомогою псевдоелементу?",
+        "options": [":even", ":odd", ":nth-child(2n)", ":nth-child(even)"],
+        "correctAnswer": ":nth-child(2n)"
+      },
+      {
+        "id": 4,
+        "question": "Як вибрати елементи, які не мають класу \"hidden\"?",
+        "options": [":not(.hidden)", ":no-class(hidden)", ":exclude(.hidden)", ":without(.hidden)"],
+        "correctAnswer": ":not(.hidden)"
+      },
+      {
+        "id": 5,
+        "question": "Як вибрати перший букву тексту елемента за допомогою псевдоелементу?",
+        "options": [":first-letter", ":initial-letter", ":start-letter", ":first-char"],
+        "correctAnswer": ":first-letter"
+      },
+      {
+        "id": 6,
+        "question": "Як вибрати перший рядок таблиці за допомогою псевдоелементу?",
+        "options": [":first-line", ":first-row", ":initial-row", ":row(1)"],
+        "correctAnswer": ":first-line"
+      },
+      {
+        "id": 7,
+        "question": "Як вибрати елемент, який отримує фокус, за допомогою псевдоелементу?",
+        "options": [":focus-element", ":active", ":focus", ":focus-item"],
+        "correctAnswer": ":focus"
+      },
+      {
+        "id": 8,
+        "question": "Як вибрати всі непарні елементи списку за допомогою псевдоелементу?",
+        "options": [":even", ":odd", ":nth-child(2n+1)", ":nth-child(odd)"],
+        "correctAnswer": ":nth-child(2n+1)"
+      },
+      {
+        "id": 9,
+        "question": "Як вибрати елемент, який знаходиться в стані \"hover\", за допомогою псевдоелементу?",
+        "options": [":hover", ":active", ":focus", ":hovered"],
+        "correctAnswer": ":hover"
+      },
+      {
+        "id": 10,
+        "question": "Як вибрати елементи, які мають атрибут \"target\" за допомогою псевдоелементу?",
+        "options": [":has(target)", ":contains(target)", ":with(target)", ":target"],
+        "correctAnswer": ":target"
+      },
+      {
+        "id": 11,
+        "question": "Як вибрати елемент, який є останнім дочірнім для батьківського елемента, за допомогою псевдоелементу?",
+        "options": [":last-child", ":nth-last-child(1)", ":final-child", ":child-last"],
+        "correctAnswer": ":last-child"
+      },
+      {
+        "id": 12,
+        "question": "Як вибрати елемент, який не має дочірніх елементів, за допомогою псевдоелементу?",
+        "options": [":no-child", ":empty", ":has-no-child", ":childless"],
+        "correctAnswer": ":empty"
+      },
+      {
+        "id": 13,
+        "question": "Як вибрати елемент, який є дочірнім для батьківського елемента, за допомогою псевдоелементу?",
+        "options": [":child", ":nth-child", ":nth-element", ":is-child"],
+        "correctAnswer": ":nth-child"
+      },
+      {
+        "id": 14,
+        "question": "Як вибрати перший елемент із класом \"active\" за допомогою псевдоелементу?",
+        "options": [
+          ":first(.active)",
+          ":first-of(.active)",
+          ":first-child(.active)",
+          ":first-item(.active)"
+        ],
+        "correctAnswer": ":first-child(.active)"
+      },
+      {
+        "id": 15,
+        "question": "Як вибрати елемент, який знаходиться перед іншим елементом, за допомогою псевдоелементу?",
+        "options": [":before", ":preceding", ":previous", ":prev"],
+        "correctAnswer": ":before"
+      },
+      {
+        "id": 16,
+        "question": "Як вибрати елемент, який знаходиться після іншого елемента, за допомогою псевдоелементу?",
+        "options": [":after", ":following", ":next", ":post"],
+        "correctAnswer": ":after"
+      },
+      {
+        "id": 17,
+        "question": "Як вибрати всі елементи, окрім певного елемента, за допомогою псевдоелементу?",
+        "options": [":not()", ":exclude()", ":without()", ":except()"],
+        "correctAnswer": ":not()"
+      },
+      {
+        "id": 18,
+        "question": "Як вибрати елементи, які мають атрибут \"disabled\" за допомогою псевдоелементу?",
+        "options": [":attribute(disabled)", ":attr(disabled)", ":has-attr(disabled)", ":disabled"],
+        "correctAnswer": ":disabled"
+      },
+      {
+        "id": 19,
+        "question": "Як вибрати елемент, який є першим дочірнім для батьківського елемента, за допомогою псевдоелементу?",
+        "options": [":first-child", ":nth-child(1)", ":child-first", ":first-element"],
+        "correctAnswer": ":first-child"
+      },
+      {
+        "id": 20,
+        "question": "Як вибрати останній елемент із класом \"highlight\" за допомогою псевдоелементу?",
+        "options": [
+          ":last(.highlight)",
+          ":last-of(.highlight)",
+          ":last-child(.highlight)",
+          ":last-item(.highlight)"
+        ],
+        "correctAnswer": ":last-child(.highlight)"
+      }
+    ]
+  },
+  "css_variables": {
+    "subtitle": "CSS Змінні",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Що таке CSS змінні?",
+        "options": [
+          "Можливість задавати змінні для JavaScript коду",
+          "Можливість задавати змінні для CSS коду",
+          "Можливість задавати змінні для HTML коду",
+          "Можливість задавати змінні для PHP коду"
+        ],
+        "correctAnswer": "Можливість задавати змінні для CSS коду"
+      },
+      {
+        "id": 2,
+        "question": "Як оголошувати CSS змінні?",
+        "options": [
+          "var my-variable;",
+          "const my-variable = value;",
+          "let my-variable: value;",
+          "--my-variable: value;"
+        ],
+        "correctAnswer": "--my-variable: value;"
+      },
+      {
+        "id": 3,
+        "question": "Як використовувати CSS змінні в коді?",
+        "options": [
+          "color: $my-variable;",
+          "color: var(my-variable);",
+          "color: #{$my-variable};",
+          "color: use-variable(my-variable);"
+        ],
+        "correctAnswer": "color: var(my-variable);"
+      },
+      {
+        "id": 4,
+        "question": "Що відбувається, якщо спробувати змінити значення CSS змінної на елементі?",
+        "options": [
+          "Значення буде змінено лише для поточного елемента",
+          "Значення буде змінено для усіх нащадків елемента",
+          "Значення не може бути змінено після встановлення",
+          "Зміна значення CSS змінної неможлива"
+        ],
+        "correctAnswer": "Значення буде змінено лише для поточного елемента"
+      }
+    ]
   }
 }
