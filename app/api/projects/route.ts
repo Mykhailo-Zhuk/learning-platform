@@ -1,4 +1,3 @@
-import { fetchDataFromKV } from "@/lib/utils";
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@vercel/kv";
 

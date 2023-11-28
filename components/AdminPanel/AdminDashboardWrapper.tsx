@@ -21,11 +21,9 @@ const AdminDashboardWrapper = () => {
   //     try {
   //     } catch (err) {}
   //   }
-  console.log(filterUsers);
-  console.log(session);
 
   if (status === "loading") {
-    return <p>Loading...</p>;
+    return <p className="flex max-w-[1400px] mx-auto p-5 justify-center">Loading...</p>;
   }
 
   if (status === "authenticated" && filterUsers?.role === "admin") {
@@ -33,7 +31,7 @@ const AdminDashboardWrapper = () => {
   }
 
   return (
-    <p>
+    <p className="flex max-w-[1400px] mx-auto p-5 flex-col items-center justify-center">
       У вас недостатньо прав для перегляду цієї сторінки.
       <br />
       <a href="/">Повернутися до головної сторінки</a>

@@ -16,6 +16,7 @@ type Store = {
       extra?: boolean;
     }[];
   }[];
+
   questions: {
     subtitle: string;
     url: string;
@@ -26,6 +27,7 @@ type Store = {
       correctAnswer: string;
     }[];
   }[];
+
   projects: {
     id: number;
     title: string;
@@ -34,6 +36,7 @@ type Store = {
     votes: number;
     participants: string[];
   }[];
+
   descriptions: {
     id: number | string;
     subtitle: string;
@@ -42,6 +45,7 @@ type Store = {
     image?: { url: string; caption: string[] };
     code?: string[];
   }[];
+
   listOfThemes: {
     title: string;
     subtitles: {
@@ -50,6 +54,12 @@ type Store = {
       url: string;
     }[];
   }[];
+
+  adminPanelList: {
+    id: number;
+    title: string;
+    url: string;
+  }[];
   // addTracks: () => void;
   addListOfThemes: () => void;
   getUsers: () => void;
@@ -57,10 +67,12 @@ type Store = {
   getProjects: () => void;
   getQuestions: (params: string) => void;
   getDescriptions: (params: string) => void;
+  getAdminPanelList: () => void;
 };
 
 export const useStore = create<Store>((set, get) => ({
   // tracks: [],
+  adminPanelList: [],
   users: [],
   tests: [],
   questions: [],
@@ -132,9 +144,19 @@ export const useStore = create<Store>((set, get) => ({
       const response = await fetchPartOfData("descriptions", params);
 
       const data = await response.json();
-      console.log(data);
 
       set({ descriptions: data });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  getAdminPanelList: async () => {
+    try {
+      const response = await fetchPartOfData("adminPanelList");
+
+      const data = await response.json();
+
+      set({ adminPanelList: data });
     } catch (error) {
       console.log(error);
     }
