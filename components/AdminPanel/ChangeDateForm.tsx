@@ -6,7 +6,7 @@ import { format, addDays, isAfter, isBefore } from "date-fns";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-import { cn } from "@/lib/utils";
+import { cn, fetchToChangeDataOnServer } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -30,15 +30,22 @@ const ChangeDateForm = () => {
     resolver: zodResolver(FormSchema),
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: "Обрано дату:",
-      description: <p className="mt-2 w-[340px] rounded-md">{format(data.date, "dd.MM.yyyy")}</p>,
+  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
+    const response = await fetchToChangeDataOnServer("time", "post", {
+      date: format(data.date, "dd.MM.yyyy"),
     });
-  }
+
+    if (response.ok) {
+      toast({
+        title: "Обрано наступну дату:",
+        description: <p className="mt-2 w-[340px] rounded-md">{format(data.date, "dd.MM.yyyy")}</p>,
+      });
+    }
+  };
   const today = new Date();
 
   const oneWeekFromNow = addDays(today, 14);
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-2/6">

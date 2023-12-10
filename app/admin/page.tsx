@@ -2,7 +2,7 @@ import AdminDashboardWrapper from "@/components/AdminPanel/AdminDashboardWrapper
 
 const Admin = () => {
   return (
-    <main className="min-h-screen font-monserat">
+    <main className="h-[80vh] font-monserat">
       <AdminDashboardWrapper />
     </main>
   );

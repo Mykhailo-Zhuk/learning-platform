@@ -113,6 +113,7 @@ type Store = {
   getQuestions: (params: string) => void;
   getDescriptions: (params: string) => void;
   getAdminPanelList: () => void;
+  getTime: () => void;
 };
 
 export const useStore = create<Store>((set, get) => ({
@@ -211,6 +212,7 @@ export const useStore = create<Store>((set, get) => ({
       console.log(error);
     }
   },
+
   getAdminPanelList: async () => {
     try {
       const response = await fetchPartOfData("adminPanelList");

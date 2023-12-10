@@ -11,13 +11,11 @@ import { useEffect, useState } from "react";
 
 const Content = ({ params }: { params: { type: string } }) => {
   const [type, setType] = useState("");
-  console.log(params);
 
   useEffect(() => {
     setType(params.type);
   }, [params]);
 
-  console.log(type);
   let content;
 
   switch (type) {

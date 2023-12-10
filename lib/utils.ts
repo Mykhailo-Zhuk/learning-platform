@@ -16,17 +16,24 @@ export const fetchDataFromNextServer = (
   });
 };
 
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  skills: string;
+  votes: number;
+  participants: string[];
+};
+
+type Time = {
+  start_time?: string;
+  end_time?: string;
+  date?: string;
+};
 export const fetchToChangeDataOnServer = (
   endpoint: string,
   method = "post",
-  data?: {
-    id: number;
-    title: string;
-    description: string;
-    skills: string;
-    votes: number;
-    participants: string[];
-  },
+  data?: Project | Time,
 ) => {
   return fetch(`${baseUrl}api/${endpoint}`, {
     method,

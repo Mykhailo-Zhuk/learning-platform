@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
+import { fetchToChangeDataOnServer } from "@/lib/utils";
 
 const FormSchema = z.object({
   start_time: z
@@ -41,7 +42,7 @@ const ChangeTimeForm = () => {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     const isValidTimeFormat = (time: string) => /^\d{2}:\d{2}$/.test(time);
 
     const formattedStartTime = isValidTimeFormat(data.start_time)
@@ -52,13 +53,22 @@ const ChangeTimeForm = () => {
       ? data.end_time
       : `${data.end_time.slice(0, 2)}:00`;
 
-    toast({
-      title: "Обрано:",
-      description: (
-        <p className="mt-2 w-[340px] rounded-md p-4">{`${formattedStartTime} - ${formattedEndTime}`}</p>
-      ),
-    });
-  }
+    const newTime = {
+      start_time: formattedStartTime,
+      end_time: formattedEndTime,
+    };
+
+    const response = await fetchToChangeDataOnServer("time", "post", newTime);
+
+    if (response.ok) {
+      toast({
+        title: "Обрано наступний час:",
+        description: (
+          <p className="mt-2 w-[340px] rounded-md p-4">{`${formattedStartTime} - ${formattedEndTime}`}</p>
+        ),
+      });
+    }
+  };
 
   return (
     <Form {...form}>

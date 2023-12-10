@@ -1,5 +1,6 @@
 "use client";
 
+import Spinner from "../ui/spinner";
 import AdminDashboard from "./AdminDashboard";
 import { useSession } from "next-auth/react";
 
@@ -23,7 +24,7 @@ const AdminDashboardWrapper = () => {
   //   }
 
   if (status === "loading") {
-    return <p className="flex max-w-[1400px] mx-auto p-5 justify-center">Loading...</p>;
+    return <Spinner />;
   }
 
   if (status === "authenticated" && filterUsers?.role === "admin") {
