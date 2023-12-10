@@ -30,3 +30,10 @@ export { default as Login } from "./Cabinet/Login";
 
 ////// Admin panel
 export { default as AdminDashboard } from "./AdminPanel/AdminDashboard";
+export { default as AdminPanelList } from "./AdminPanel/AdminPanelList";
+export { default as HomeworkInput } from "./AdminPanel/HomeworkInput";
+export { default as QuestionsInput } from "./AdminPanel/QuestionsInput";
+export { default as TestsInput } from "./AdminPanel/TestsInput";
+export { default as TextbookInput } from "./AdminPanel/TextbookInput";
+export { default as ChangeDateForm } from "./AdminPanel/ChangeDateForm";
+export { default as ChangeTimeForm } from "./AdminPanel/ChangeTimeForm";

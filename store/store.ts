@@ -34,7 +34,6 @@ type List = {
 };
 
 type Store = {
-  // tracks: { title: string; url: string }[];
   users: { id: string | number; name: string; password: string; role: "admin" | "student" }[];
   tests: {
     subtitle: string;
@@ -86,6 +85,12 @@ type Store = {
     }[];
   }[];
 
+  adminPanelList: {
+    id: number;
+    title: string;
+    url: string;
+  }[];
+
   homework: {
     id: number;
     date: string;
@@ -107,11 +112,11 @@ type Store = {
   getProjects: () => void;
   getQuestions: (params: string) => void;
   getDescriptions: (params: string) => void;
-  getHomework: () => void;
-  getTime: () => void;
+  getAdminPanelList: () => void;
 };
 
 export const useStore = create<Store>((set, get) => ({
+  adminPanelList: [],
   time: { start_time: "", end_time: "", date: "" },
   users: [],
   tests: [],
@@ -177,6 +182,7 @@ export const useStore = create<Store>((set, get) => ({
 
       const data = await response.json();
       console.log(data);
+
       set({ descriptions: data });
     } catch (error) {
       console.log(error);
@@ -201,6 +207,17 @@ export const useStore = create<Store>((set, get) => ({
       const data = await response.json();
 
       set({ time: data });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  getAdminPanelList: async () => {
+    try {
+      const response = await fetchPartOfData("adminPanelList");
+
+      const data = await response.json();
+
+      set({ adminPanelList: data });
     } catch (error) {
       console.log(error);
     }
