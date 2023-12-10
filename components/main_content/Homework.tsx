@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { baseURL } from "@/lib/utils";
 import { useStore } from "@/store/store";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
@@ -63,7 +62,7 @@ const Homework = () => {
                               return (
                                 <Link
                                   key={theme?.id}
-                                  href={baseURL + theme?.link}
+                                  href={theme?.link}
                                   className="text-blue-500 flex-shrink-0 pb-1">
                                   {theme?.title + ","}
                                 </Link>
