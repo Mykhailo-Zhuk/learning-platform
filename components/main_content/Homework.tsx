@@ -25,7 +25,7 @@ const Homework = () => {
     fetchData();
   }, [getHomework]);
 
-  const homeworkSlice = homework.slice(-3).toReversed();
+  const homeworkSlice = homework.slice(-3).reverse();
 
   let content;
 
