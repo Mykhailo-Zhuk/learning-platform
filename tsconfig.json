@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/api/restricted.js"
+    "app/api/restricted.js",
+    "config.ts"
   ],
   "exclude": ["node_modules"],
   "experimental": {

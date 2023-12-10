@@ -1,7 +1,6 @@
+import { baseUrl } from "@/config";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-
-const baseURL = process.env.BASE_URL || "http://localhost:3000/";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -11,7 +10,7 @@ export const fetchDataFromNextServer = (
   method = "get",
   data?: { id: string | number; name: string; password: string; role: "admin" | "student" },
 ) => {
-  return fetch(`${baseURL}api/${endpoint}`, {
+  return fetch(`${baseUrl}api/${endpoint}`, {
     method,
     body: JSON.stringify(data) ?? null,
   });
@@ -29,12 +28,12 @@ export const fetchToChangeDataOnServer = (
     participants: string[];
   },
 ) => {
-  return fetch(`${baseURL}api/${endpoint}`, {
+  return fetch(`${baseUrl}api/${endpoint}`, {
     method,
     body: JSON.stringify(data) ?? null,
   });
 };
 
 export const fetchPartOfData = (endpoint: string, params?: string) => {
-  return fetch(`${baseURL}api/${endpoint}?params=${params}`);
+  return fetch(`${baseUrl}api/${endpoint}?params=${params}`);
 };
