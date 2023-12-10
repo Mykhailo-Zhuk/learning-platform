@@ -2,6 +2,7 @@ export { default as Header } from "./Header";
 export { default as Hello } from "./Hello";
 export { default as TabsRow } from "./TabsRow";
 export { default as Homework } from "./main_content/Homework";
+export { default as AllHomework } from "./main_content/AllHomework";
 export { default as MainResources } from "./main_content/MainResources";
 export { default as References } from "./main_content/References";
 export { default as MusicList } from "./AudioPlayer/MusicList";

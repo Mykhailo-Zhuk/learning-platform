@@ -13,7 +13,7 @@ import { useStore } from "@/store/store";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
 
-const Homework = () => {
+const AllHomework = () => {
   const [loading, setLoading] = useState(true);
   const homework = useStore((state) => state.homework);
   const getHomework = useStore((state) => state.getHomework);
@@ -26,15 +26,13 @@ const Homework = () => {
     fetchData();
   }, [getHomework]);
 
-  const homeworkSlice = homework.slice(-3).toReversed();
-
   let content;
 
   if (loading) {
     content = <Skeleton className="w-full h-10 rounded-lg"></Skeleton>;
   } else {
     if (homework?.length !== 0) {
-      content = homeworkSlice?.map((item) => {
+      content = homework?.map((item) => {
         return (
           <Accordion key={item?.id} type="single" collapsible>
             <AccordionItem value="item-1">
@@ -88,10 +86,10 @@ const Homework = () => {
     <section className="border-t border-t-slate-200 py-5">
       <div className="bg-slate-200 p-5 space-y-2 rounded-lg w-full">
         <div className="flex flex-col md:flex-row space-y-3 md:space-x-3 md:space-y-0 md:justify-between">
-          <h1 className="font-bold text-base md:text-xl">Моє домашнє завдання</h1>
+          <h1 className="font-bold text-base md:text-xl">Усі домашні завдання</h1>
           <Button asChild>
-            <Link href="/homework">
-              Уся домашня <span className="text-xl ml-2">&#62;</span>
+            <Link href="/">
+              Повернутися <span className="text-xl ml-2">&#62;</span>
             </Link>
           </Button>
         </div>
@@ -101,4 +99,4 @@ const Homework = () => {
   );
 };
 
-export default Homework;
+export default AllHomework;

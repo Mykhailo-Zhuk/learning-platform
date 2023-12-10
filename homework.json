@@ -374,5 +374,70 @@
         ]
       }
     ]
+  },
+  {
+    "id": 5,
+    "date": "25.11.2023",
+    "homework": [
+      {
+        "id": 1,
+        "action": "Прочитати теми: ",
+        "listOfThemes": [
+          {
+            "id": 1,
+            "link": "https://w3schoolsua.github.io/css/css3_flexbox.html#gsc.tab=0",
+            "title": "CSS Flexbox"
+          },
+          {
+            "id": 2,
+            "link": "https://w3schoolsua.github.io/css/css3_mediaqueries.html#gsc.tab=0",
+            "title": "CSS Media запити"
+          },
+          {
+            "id": 3,
+            "link": "https://w3schoolsua.github.io/css/css3_mediaqueries_ex.html#gsc.tab=0",
+            "title": "CSS Приклади медіа запитів"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
+        "links": [
+          { "id": 1, "title": "CSS Flex", "link": "tasks/css_flex" },
+          { "id": 2, "title": "CSS Media Queries", "link": "tasks/media_queries" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "date": "02.12.2023",
+    "homework": [
+      {
+        "id": 1,
+        "action": "Повторити всі попередні теми та додатково прочитати теми: ",
+        "listOfThemes": [
+          {
+            "id": 1,
+            "link": "https://learngitbranching.js.org/?locale=uk",
+            "title": "Git"
+          },
+          {
+            "id": 2,
+            "link": "",
+            "title": "Знання про веб-технології та мережу інтернет із цього сайту"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
+        "links": [
+          { "id": 1, "title": "Git", "link": "tasks/git" },
+          { "id": 2, "title": "Веб-технології", "link": "tasks/web_technology" }
+        ]
+      }
+    ]
   }
 ]

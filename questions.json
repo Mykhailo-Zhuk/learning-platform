@@ -1813,5 +1813,1326 @@
         "correctAnswer": "Значення буде змінено лише для поточного елемента"
       }
     ]
+  },
+  "css_flex": {
+    "subtitle": "CSS Flex",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Яка властивість CSS використовується для визначення гнучкої моделі?",
+        "options": ["flex-mode", "flexible-layout", "flexbox", "flex-direction"],
+        "correctAnswer": "flexbox",
+        "level": "low"
+      },
+      {
+        "id": 2,
+        "question": "Як правильно визначити напрямок розташування елементів у flex-контейнері?",
+        "options": ["flex-flow", "direction", "flex-direction", "flex-align"],
+        "correctAnswer": "flex-direction",
+        "level": "middle"
+      },
+      {
+        "id": 3,
+        "question": "Що робить властивість CSS justify-content?",
+        "options": [
+          "Центрує елементи вздовж головної вісі",
+          "Центрує елементи вздовж поперечної вісі",
+          "Змінює порядок елементів",
+          "Визначає відстань між елементами"
+        ],
+        "correctAnswer": "Центрує елементи вздовж головної вісі",
+        "level": "middle"
+      },
+      {
+        "id": 4,
+        "question": "Як визначити порядок елементів в flex-контейнері?",
+        "options": ["order", "flex-order", "item-order", "flex-item-order"],
+        "correctAnswer": "order",
+        "level": "high"
+      },
+      {
+        "id": 5,
+        "question": "Як встановити гнучку властивість для всіх дочірніх елементів flex-контейнера?",
+        "options": ["flexible", "flex-item", "flex-child", "flex"],
+        "correctAnswer": "flex",
+        "level": "high"
+      },
+      {
+        "id": 6,
+        "question": "Як правильно використовувати властивість align-items?",
+        "options": [
+          "Визначає напрямок",
+          "Центрує елементи вздовж головної вісі",
+          "Центрує елементи вздовж поперечної вісі",
+          "Встановлює порядок елементів"
+        ],
+        "correctAnswer": "Центрує елементи вздовж поперечної вісі",
+        "level": "middle"
+      },
+      {
+        "id": 7,
+        "question": "Як вирівняти елементи вздовж головної вісі за допомогою justify-content?",
+        "options": ["flex-start", "center", "space-between", "flex-end"],
+        "correctAnswer": "flex-start",
+        "level": "low"
+      },
+      {
+        "id": 8,
+        "question": "Що робить властивість flex-wrap?",
+        "options": [
+          "Визначає напрямок",
+          "Запобігає переносу елементів",
+          "Визначає порядок",
+          "Визначає розташування елементів"
+        ],
+        "correctAnswer": "Запобігає переносу елементів",
+        "level": "middle"
+      },
+      {
+        "id": 9,
+        "question": "Як визначити розташування елементів у гнучкому контейнері, коли вони не вміщуються в один ряд?",
+        "options": ["row", "column", "wrap", "flex-wrap"],
+        "correctAnswer": "flex-wrap",
+        "level": "middle"
+      },
+      {
+        "id": 10,
+        "question": "Як використовувати властивість align-self?",
+        "options": [
+          "Визначає напрямок",
+          "Центрує елемент",
+          "Центрує елементи вздовж головної вісі",
+          "Змінює порядок елементів"
+        ],
+        "correctAnswer": "Центрує елемент",
+        "level": "high"
+      },
+      {
+        "id": 11,
+        "question": "Як використовувати flex-basis?",
+        "options": [
+          "Встановлює початковий розмір елементу",
+          "Центрує елемент",
+          "Встановлює розташування елементів",
+          "Визначає порядок елементів"
+        ],
+        "correctAnswer": "Встановлює початковий розмір елементу",
+        "level": "high"
+      },
+      {
+        "id": 12,
+        "question": "Як використовувати властивість flex-shrink?",
+        "options": [
+          "Зменшує розмір елементу",
+          "Збільшує розмір елементу",
+          "Встановлює початковий розмір елементу",
+          "Визначає напрямок"
+        ],
+        "correctAnswer": "Зменшує розмір елементу",
+        "level": "middle"
+      },
+      {
+        "id": 13,
+        "question": "Як вирівняти елементи вздовж поперечної вісі за допомогою align-content?",
+        "options": ["flex-start", "center", "space-between", "stretch"],
+        "correctAnswer": "stretch",
+        "level": "middle"
+      },
+      {
+        "id": 14,
+        "question": "Як використовувати властивість order?",
+        "options": [
+          "Встановлює порядок елементів",
+          "Центрує елементи",
+          "Визначає напрямок",
+          "Збільшує розмір елементу"
+        ],
+        "correctAnswer": "Встановлює порядок елементів",
+        "level": "high"
+      },
+      {
+        "id": 15,
+        "question": "Що робить властивість flex-grow?",
+        "options": [
+          "Збільшує розмір елементу",
+          "Зменшує розмір елементу",
+          "Встановлює розташування елементів",
+          "Визначає напрямок"
+        ],
+        "correctAnswer": "Збільшує розмір елементу",
+        "level": "middle"
+      },
+      {
+        "id": 16,
+        "question": "Як використовувати властивість flex-align?",
+        "options": [
+          "Визначає напрямок",
+          "Центрує елементи вздовж головної вісі",
+          "Центрує елементи вздовж поперечної вісі",
+          "Змінює порядок елементів"
+        ],
+        "correctAnswer": "Центрує елементи вздовж поперечної вісі",
+        "level": "low"
+      },
+      {
+        "id": 17,
+        "question": "Що робить властивість flex-basis?",
+        "options": [
+          "Встановлює початковий розмір елементу",
+          "Центрує елементи вздовж головної вісі",
+          "Визначає порядок елементів",
+          "Встановлює розташування елементів"
+        ],
+        "correctAnswer": "Встановлює початковий розмір елементу",
+        "level": "middle"
+      },
+      {
+        "id": 18,
+        "question": "Як використовувати властивість align-self?",
+        "options": [
+          "Центрує елемент",
+          "Визначає напрямок",
+          "Центрує елементи вздовж головної вісі",
+          "Змінює порядок елементів"
+        ],
+        "correctAnswer": "Центрує елемент",
+        "level": "middle"
+      },
+      {
+        "id": 19,
+        "question": "Як використовувати властивість justify-items?",
+        "options": [
+          "Визначає напрямок",
+          "Центрує елементи",
+          "Центрує елементи вздовж головної вісі",
+          "Змінює порядок елементів"
+        ],
+        "correctAnswer": "Центрує елементи",
+        "level": "high"
+      },
+      {
+        "id": 20,
+        "question": "Як визначити напрямок розташування елементів у flex-контейнері та їхнє перенесення?",
+        "options": ["flex-wrap", "direction-wrap", "wrap-direction", "flex-direction"],
+        "correctAnswer": "flex-direction",
+        "level": "middle"
+      }
+    ]
+  },
+  "media_queries": {
+    "title": "Media Queries",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Що означає абревіатура CSS?",
+        "options": [
+          "Cascading Style Sheets",
+          "Creative Style Sheets",
+          "Computer Style Sheets",
+          "Colorful Style Sheets"
+        ],
+        "correctAnswer": "Cascading Style Sheets",
+        "level": "low"
+      },
+      {
+        "id": 2,
+        "question": "Як правильно визначити стиль для елементу з ідентифікатором \"header\" в медіа-запиті ширини екрану менше 768 пікселів?",
+        "options": [
+          "#header { /* стилі для екранів шириною 768 пікселів та менше */ }",
+          "@media (max-width: 768px) { #header { /* стилі для екранів шириною 768 пікселів та менше */ } }",
+          "@media (screen: max-width(768px)) { #header { /* стилі для екранів шириною 768 пікселів та менше */ } }",
+          "header@media (max-width: 768px) { /* стилі для екранів шириною 768 пікселів та менше */ }"
+        ],
+        "correctAnswer": "@media (max-width: 768px) { #header { /* стилі для екранів шириною 768 пікселів та менше */ } }",
+        "level": "middle"
+      },
+      {
+        "id": 3,
+        "question": "Як правильно використовувати медіа-запит для покращення стилів на друкованих сторінках?",
+        "options": [
+          "@media print { /* стилі для друку */ }",
+          "@media screen { /* стилі для екранів */ }",
+          "@media (device: printer) { /* стилі для друку */ }",
+          "@media (print) { /* стилі для друку */ }"
+        ],
+        "correctAnswer": "@media print { /* стилі для друку */ }",
+        "level": "high"
+      },
+      {
+        "id": 4,
+        "question": "Якість адаптивного дизайну оцінюється на основі:",
+        "options": [
+          "Кількість кольорів",
+          "Широта екрану",
+          "Гнучкість та легкість адаптації",
+          "Схожість до інших веб-сайтів"
+        ],
+        "correctAnswer": "Гнучкість та легкість адаптації",
+        "level": "low"
+      },
+      {
+        "id": 5,
+        "question": "Як використовувати медіа-запит для стилізації елементів на екранах з високою роздільною здатністю (retina)?",
+        "options": [
+          "@media (min-resolution: 192dpi) { /* стилі для екранів retina */ }",
+          "@media (max-resolution: 96dpi) { /* стилі для екранів retina */ }",
+          "@media (device-pixel-ratio: 2) { /* стилі для екранів retina */ }",
+          "@media (min-device-pixel-ratio: 2) { /* стилі для екранів retina */ }"
+        ],
+        "correctAnswer": "@media (min-resolution: 192dpi) { /* стилі для екранів retina */ }",
+        "level": "middle"
+      },
+      {
+        "id": 6,
+        "question": "Як правильно визначити стилі для елементу, якщо ширина екрану менше 576 пікселів, або довільний пристрій з високою роздільною здатністю (retina)?",
+        "options": [
+          "@media (max-width: 576px) or (min-resolution: 192dpi) { /* стилі для вказаних умов */ }",
+          "@media (max-width: 576px), (min-resolution: 192dpi) { /* стилі для вказаних умов */ }",
+          "@media (max-width: 576px) and (min-resolution: 192dpi) { /* стилі для вказаних умов */ }",
+          "@media (max-width: 576px) or (device-pixel-ratio: 2) { /* стилі для вказаних умов */ }"
+        ],
+        "correctAnswer": "@media (max-width: 576px) or (min-resolution: 192dpi) { /* стилі для вказаних умов */ }",
+        "level": "high"
+      },
+      {
+        "id": 7,
+        "question": "Що таке \"mobile-first\" підхід в адаптивному дизайні?",
+        "options": [
+          "Підхід, де стилі для мобільних пристроїв переважають над іншими",
+          "Підхід, де стилі для більших екранів переважають над іншими",
+          "Методологія для розробки мобільних додатків",
+          "Термін взагалі не використовується в адаптивному дизайні"
+        ],
+        "correctAnswer": "Підхід, де стилі для мобільних пристроїв переважають над іншими",
+        "level": "low"
+      },
+      {
+        "id": 8,
+        "question": "Як визначити стилі для елементів на пристроях з екраном високої яскравості (high-brightness)?",
+        "options": [
+          "@media (brightness: 100%) { /* стилі для яскравих екранів */ }",
+          "@media (max-brightness: 150%) { /* стилі для яскравих екранів */ }",
+          "@media (min-brightness: 200%) { /* стилі для яскравих екранів */ }",
+          "@media (device-brightness: high) { /* стилі для яскравих екранів */ }"
+        ],
+        "correctAnswer": "@media (brightness: 100%) { /* стилі для яскравих екранів */ }",
+        "level": "middle"
+      },
+      {
+        "id": 9,
+        "question": "Як встановити стилі для елементу, якщо пристрій підтримує тач-екрани?",
+        "options": [
+          "@media (pointer-type: touch) { /* стилі для тач-екранів */ }",
+          "@media (max-touch-points: 1) { /* стилі для тач-екранів */ }",
+          "@media (hover: none) { /* стилі для тач-екранів */ }",
+          "@media (device-type: touch) { /* стилі для тач-екранів */ }"
+        ],
+        "correctAnswer": "@media (pointer-type: touch) { /* стилі для тач-екранів */ }",
+        "level": "high"
+      },
+      {
+        "id": 11,
+        "question": "Що таке viewport в контексті веб-розробки?",
+        "options": [
+          "Контейнер для зображень на веб-сайті",
+          "Область, яку користувач може бачити на екрані",
+          "Спеціальний тег для відображення відео",
+          "Висота екрану пристрою"
+        ],
+        "correctAnswer": "Область, яку користувач може бачити на екрані",
+        "level": "low"
+      },
+      {
+        "id": 12,
+        "question": "Як правильно використовувати медіа-запит для пристроїв з деякою орієнтацією, наприклад, лише для портретної?",
+        "options": [
+          "@media (orientation: portrait) { /* стилі для портретної орієнтації */ }",
+          "@media (orientation: landscape) { /* стилі для портретної орієнтації */ }",
+          "@media (min-aspect-ratio: 1/1) { /* стилі для портретної орієнтації */ }",
+          "@media (max-aspect-ratio: 1/1) { /* стилі для портретної орієнтації */ }"
+        ],
+        "correctAnswer": "@media (orientation: portrait) { /* стилі для портретної орієнтації */ }",
+        "level": "middle"
+      },
+      {
+        "id": 13,
+        "question": "Що таке \"Mobile View\" в розробці веб-сайтів?",
+        "options": [
+          "Десктопний вигляд веб-сайту",
+          "Дизайн, призначений для мобільних пристроїв",
+          "Вигляд з далекою точкою перегляду",
+          "Вигляд, що відображається на горизонтально орієнтованих пристроях"
+        ],
+        "correctAnswer": "Дизайн, призначений для мобільних пристроїв",
+        "level": "high"
+      },
+      {
+        "id": 14,
+        "question": "Як використовувати медіа-запит для стилізації елементів для пристроїв з великим екраном?",
+        "options": [
+          "@media (min-width: 1024px) { /* стилі для великих екранів */ }",
+          "@media (device-width: 1200px) { /* стилі для великих екранів */ }",
+          "@media (screen: min-width(1024px)) { /* стилі для великих екранів */ }",
+          "@media (max-width: 800px) { /* стилі для великих екранів */ }"
+        ],
+        "correctAnswer": "@media (min-width: 1024px) { /* стилі для великих екранів */ }",
+        "level": "low"
+      },
+      {
+        "id": 15,
+        "question": "Що таке \"Device Pixel Ratio\" (DPR) в контексті медіа-запитів?",
+        "options": [
+          "Кількість пікселів на екрані",
+          "Кількість пікселів на дюйм",
+          "Співвідношення фізичних пікселів до логічних пікселів на екрані",
+          "Кількість точок на екрані"
+        ],
+        "correctAnswer": "Співвідношення фізичних пікселів до логічних пікселів на екрані",
+        "level": "middle"
+      }
+    ]
+  },
+  "css_animation": {
+    "title": "CSS Анімації і градієнти",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Як в CSS задати анімацію для елементу?",
+        "options": [
+          "animation: fadeIn 1s ease-in-out;",
+          "transition: opacity 0.5s ease;",
+          "animate: fadeIn 1s ease-in-out;",
+          "transform: rotate(45deg);"
+        ],
+        "correctAnswer": "animation: fadeIn 1s ease-in-out;",
+        "level": "low"
+      },
+      {
+        "id": 2,
+        "question": "Як в CSS використовувати градієнти?",
+        "options": [
+          "background-color: #ff0000;",
+          "color: white;",
+          "background: linear-gradient(red, blue);",
+          "border: 1px solid #000;"
+        ],
+        "correctAnswer": "background: linear-gradient(red, blue);",
+        "level": "low"
+      },
+      {
+        "id": 3,
+        "question": "Як створити пульсуючу анімацію за допомогою CSS?",
+        "options": [
+          "animation: pulse 1s infinite;",
+          "transform: scale(1.5);",
+          "transition: opacity 0.5s ease;",
+          "keyframes: pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); }}"
+        ],
+        "correctAnswer": "keyframes: pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); }}",
+        "level": "middle"
+      },
+      {
+        "id": 4,
+        "question": "Як використовувати кольорові градієнти в CSS?",
+        "options": [
+          "background: linear-gradient(red, yellow, green);",
+          "color: gradient(#ff0000, #00ff00);",
+          "border-color: gradient(blue, purple);",
+          "background-color: #ff0000;"
+        ],
+        "correctAnswer": "background: linear-gradient(red, yellow, green);",
+        "level": "middle"
+      },
+      {
+        "id": 5,
+        "question": "Як в CSS створити анімацію, яка рухається вліво?",
+        "options": [
+          "animation: moveLeft 2s linear infinite;",
+          "transform: translateX(-100%);",
+          "transition: left 1s ease-in-out;",
+          "position: relative; left: -50px;"
+        ],
+        "correctAnswer": "animation: moveLeft 2s linear infinite;",
+        "level": "high"
+      },
+      {
+        "id": 6,
+        "question": "Як в CSS задати градієнтний фон для тексту?",
+        "options": [
+          "background: linear-gradient(to right, red, yellow);",
+          "text-color: gradient(blue, green);",
+          "background-color: transparent;",
+          "color: #ffffff;"
+        ],
+        "correctAnswer": "background: linear-gradient(to right, red, yellow);",
+        "level": "high"
+      },
+      {
+        "id": 7,
+        "question": "Як в CSS змінити прозорість елементу при наведенні миші?",
+        "options": [
+          "opacity: 0.5;",
+          "transition: opacity 0.3s ease-in-out;",
+          "hover: opacity(0.8);",
+          "filter: alpha(opacity=50);"
+        ],
+        "correctAnswer": "transition: opacity 0.3s ease-in-out;",
+        "level": "low"
+      },
+      {
+        "id": 8,
+        "question": "Як створити анімацію зміни кольору в CSS?",
+        "options": [
+          "transition: color 0.5s ease-in-out;",
+          "animation: changeColor 1s infinite;",
+          "color: animate(red, blue);",
+          "background-color: #ff0000;"
+        ],
+        "correctAnswer": "animation: changeColor 1s infinite;",
+        "level": "low"
+      },
+      {
+        "id": 9,
+        "question": "Як створити анімацію появи елементу в CSS?",
+        "options": [
+          "visibility: hidden; animation: fadeIn 1s ease-in-out;",
+          "opacity: 0; transition: opacity 0.5s ease-in-out;",
+          "display: none; transition: display 1s ease-in-out;",
+          "transform: scale(0); animation: scaleIn 0.5s ease-in-out;"
+        ],
+        "correctAnswer": "opacity: 0; transition: opacity 0.5s ease-in-out;",
+        "level": "middle"
+      },
+      {
+        "id": 10,
+        "question": "Як використовувати CSS градієнти для створення тіні?",
+        "options": [
+          "box-shadow: 2px 2px 5px gradient(black, transparent);",
+          "box-shadow: 2px 2px 5px linear-gradient(black, transparent);",
+          "text-shadow: 2px 2px gradient(black, transparent);",
+          "text-shadow: 2px 2px 5px linear-gradient(black, transparent);"
+        ],
+        "correctAnswer": "box-shadow: 2px 2px 5px linear-gradient(black, transparent);",
+        "level": "middle"
+      },
+      {
+        "id": 11,
+        "question": "Як створити анімацію обертання елементу в CSS?",
+        "options": [
+          "animation: rotate 1s linear infinite;",
+          "transform: rotate(45deg); transition: transform 0.5s ease-in-out;",
+          "rotate: animate(0deg, 360deg);",
+          "transition: rotate(45deg) 0.5s ease-in-out;"
+        ],
+        "correctAnswer": "animation: rotate 1s linear infinite;",
+        "level": "high"
+      },
+      {
+        "id": 12,
+        "question": "Як використовувати радіальний градієнт в CSS?",
+        "options": [
+          "background: gradient(radial, red, yellow);",
+          "background: radial-gradient(circle, red, yellow);",
+          "color: radial-gradient(blue, green);",
+          "border-color: gradient(radial, blue, purple);"
+        ],
+        "correctAnswer": "background: radial-gradient(circle, red, yellow);",
+        "level": "high"
+      },
+      {
+        "id": 13,
+        "question": "Як в CSS змінити розмір елементу з анімацією?",
+        "options": [
+          "transition: size 1s ease-in-out;",
+          "animate: resize 0.5s ease-in-out;",
+          "transform: scale(1.5); transition: transform 0.5s ease-in-out;",
+          "width: animate(100px, 200px);"
+        ],
+        "correctAnswer": "transform: scale(1.5); transition: transform 0.5s ease-in-out;",
+        "level": "low"
+      },
+      {
+        "id": 14,
+        "question": "Як зробити елемент прозорим і відсутнім для взаємодії в CSS?",
+        "options": [
+          "opacity: 0.5; pointer-events: none;",
+          "visibility: hidden; opacity: 0.5;",
+          "display: none; opacity: 0;",
+          "opacity: 0.5; interaction: none;"
+        ],
+        "correctAnswer": "opacity: 0.5; pointer-events: none;",
+        "level": "middle"
+      },
+      {
+        "id": 15,
+        "question": "Як в CSS задати анімацію виїзду знизу?",
+        "options": [
+          "animation: slideUp 1s ease-in-out;",
+          "transform: translateY(-100%); transition: transform 0.5s ease-in-out;",
+          "position: relative; top: -50px; transition: top 1s ease-in-out;",
+          "animate: moveUp 1s ease-in-out;"
+        ],
+        "correctAnswer": "transform: translateY(-100%); transition: transform 0.5s ease-in-out;",
+        "level": "high"
+      },
+      {
+        "id": 16,
+        "question": "Як використовувати CSS градієнти для створення мінливого фону?",
+        "options": [
+          "background-color: gradient(red, yellow);",
+          "background: linear-gradient(to right, red, yellow);",
+          "color: gradient(blue, green);",
+          "border-color: gradient(blue, purple);"
+        ],
+        "correctAnswer": "background: linear-gradient(to right, red, yellow);",
+        "level": "low"
+      },
+      {
+        "id": 17,
+        "question": "Як змінити колір тексту з анімацією в CSS?",
+        "options": [
+          "animation: changeColor 1s infinite;",
+          "text-color: animate(blue, red);",
+          "color: transition(color 0.5s ease-in-out);",
+          "color: animate(red, blue);"
+        ],
+        "correctAnswer": "animation: changeColor 1s infinite;",
+        "level": "middle"
+      },
+      {
+        "id": 18,
+        "question": "Як використовувати CSS анімацію для масштабування елементу?",
+        "options": [
+          "transform: scale(1.5); transition: transform 0.5s ease-in-out;",
+          "animation: zoom 2s linear infinite;",
+          "size: animate(100%, 150%);",
+          "transition: size 1s ease-in-out;"
+        ],
+        "correctAnswer": "transform: scale(1.5); transition: transform 0.5s ease-in-out;",
+        "level": "high"
+      },
+      {
+        "id": 19,
+        "question": "Як використовувати CSS анімацію для плавного зникаючого ефекту?",
+        "options": [
+          "animation: fadeOut 1s ease-in-out;",
+          "opacity: 0; transition: opacity 0.5s ease-in-out;",
+          "display: none; opacity: 0;",
+          "visibility: hidden; transition: visibility 1s ease-in-out;"
+        ],
+        "correctAnswer": "opacity: 0; transition: opacity 0.5s ease-in-out;",
+        "level": "low"
+      },
+      {
+        "id": 20,
+        "question": "Як створити ефект \"поступового затемнення\" у CSS?",
+        "options": [
+          "box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.5);",
+          "background-color: darken(#ffffff, 10%);",
+          "filter: brightness(50%);",
+          "opacity: 0.5; transition: opacity 0.5s ease-in-out;"
+        ],
+        "correctAnswer": "box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.5);",
+        "level": "middle"
+      }
+    ]
+  },
+  "sass": {
+    "subtitle": "SASS",
+    "tasks": [
+      {
+        "id": 2,
+        "question": "Які засоби SASS використовуються для організації коду?",
+        "options": ["@import", "@extend", "@mixin", "@include"],
+        "correctAnswer": ["@import", "@mixin"],
+        "level": "middle"
+      },
+      {
+        "id": 3,
+        "question": "Що таке SASS Maps і як їх використовувати?",
+        "options": [
+          "Це тип даних, що дозволяє зберігати пари ключ-значення",
+          "Це функція для генерації випадкових чисел",
+          "Це стандартна бібліотека функцій SASS",
+          "Це набір правил для збирання проекту"
+        ],
+        "correctAnswer": "Це тип даних, що дозволяє зберігати пари ключ-значення",
+        "level": "high"
+      },
+      {
+        "id": 4,
+        "question": "Що таке SASS і для чого він використовується?",
+        "options": [
+          "Мова програмування для створення веб-сайтів",
+          "Препроцесор для CSS, який дозволяє використовувати змінні та інші функції",
+          "Спеціальний тип кави, що підвищує продуктивність"
+        ],
+        "correctAnswer": "Препроцесор для CSS, який дозволяє використовувати змінні та інші функції",
+        "level": "low"
+      },
+      {
+        "id": 5,
+        "question": "Як можна використовувати міксини в SASS?",
+        "options": [
+          "Вони використовуються для з\"єднання двох файлів CSS",
+          "Вони дозволяють вбудовувати один SASS файл в інший",
+          "Вони дозволяють використовувати та повторно викликати блоки стилів",
+          "Вони дозволяють визначати змінні в SASS"
+        ],
+        "correctAnswer": "Вони дозволяють використовувати та повторно викликати блоки стилів",
+        "level": "middle"
+      },
+      {
+        "id": 6,
+        "question": "Які є варіанти організації коду в SASS?",
+        "options": [
+          "БЕМ (Блок, Елемент, Модифікатор)",
+          "MVC (Model-View-Controller)",
+          "Архітектура Зони Високої Інтенсивності",
+          "SOLID принципи (Одинична відповідальність, Відкритість/закритість, Лісковий принцип, Розділення інтерфейсів, Зворотна залежність)"
+        ],
+        "correctAnswer": "БЕМ (Блок, Елемент, Модифікатор)",
+        "level": "high"
+      },
+      {
+        "id": 7,
+        "question": "Що таке змінні в SASS і як їх використовувати?",
+        "options": [
+          "Змінні - це числа, що використовуються для математичних операцій",
+          "Змінні - це іменовані контейнери для збереження значень, які можна використовувати в різних частинах коду",
+          "Змінні - це ключі, які використовуються для роботи з SASS Maps"
+        ],
+        "correctAnswer": "Змінні - це іменовані контейнери для збереження значень, які можна використовувати в різних частинах коду",
+        "level": "low"
+      },
+      {
+        "id": 8,
+        "question": "Як в SASS використовувати плейсхолдери?",
+        "options": [
+          "Плейсхолдери використовуються для вирішення конфліктів імен класів",
+          "Плейсхолдери дозволяють зберігати набір правил стилів, які можна включити в інші селектори",
+          "Плейсхолдери призначені для роботи з медіа-запитами"
+        ],
+        "correctAnswer": "Плейсхолдери дозволяють зберігати набір правил стилів, які можна включити в інші селектори",
+        "level": "middle"
+      },
+      {
+        "id": 9,
+        "question": "Як використовувати оператори умови в SASS?",
+        "options": [
+          "Умовні оператори недоступні в SASS",
+          "Використовується оператор if/else",
+          "Використовується оператор switch/case",
+          "Оператори умови використовуються для обчислення математичних виразів"
+        ],
+        "correctAnswer": "Використовується оператор if/else",
+        "level": "high"
+      },
+      {
+        "id": 11,
+        "question": "Як в SASS здійснюється наслідування стилів (extend)?",
+        "options": [
+          "За допомогою ключового слова \"inherit\"",
+          "За допомогою ключового слова \"@extend\"",
+          "Нащадок стилів наслідується автоматично"
+        ],
+        "correctAnswer": "За допомогою ключового слова \"@extend\"",
+        "level": "middle"
+      },
+      {
+        "id": 12,
+        "question": "Що таке SASS Functions і як їх використовувати?",
+        "options": [
+          "SASS Functions - це об\"єкти, які дозволяють взаємодіяти з DOM",
+          "SASS Functions - це набори правил для форматування коду",
+          "SASS Functions - це функції, які використовуються для виконання обчислень та змін стилів"
+        ],
+        "correctAnswer": "SASS Functions - це функції, які використовуються для виконання обчислень та змін стилів",
+        "level": "high"
+      },
+      {
+        "id": 13,
+        "question": "Що таке SASS Placeholder селектори і як вони використовуються?",
+        "options": [
+          "SASS Placeholder - це селектори, які дозволяють приховувати елементи в HTML",
+          "SASS Placeholder - це інструкції для знаходження елементів у CSS",
+          "SASS Placeholder - це селектори, які використовуються для відкладеного стилювання та виклику тільки при необхідності"
+        ],
+        "correctAnswer": "SASS Placeholder - це селектори, які використовуються для відкладеного стилювання та виклику тільки при необхідності",
+        "level": "low"
+      },
+      {
+        "id": 14,
+        "question": "Як в SASS використовувати цикли (loops)?",
+        "options": [
+          "Цикли в SASS використовуються за допомогою ключового слова \"loop\"",
+          "В SASS немає циклів",
+          "Цикли в SASS використовуються за допомогою директиви \"@for\""
+        ],
+        "correctAnswer": "Цикли в SASS використовуються за допомогою директиви \"@for\"",
+        "level": "middle"
+      },
+      {
+        "id": 15,
+        "question": "Що таке SASS Інтерполяція і як вона використовується?",
+        "options": [
+          "Інтерполяція в SASS використовується для вставки змінних або виразів в рядки",
+          "Інтерполяція - це ім\"я вбудованого плагіна для SASS",
+          "Інтерполяція в SASS використовується для розробки інтерактивних інтерфейсів"
+        ],
+        "correctAnswer": "Інтерполяція в SASS використовується для вставки змінних або виразів в рядки",
+        "level": "high"
+      }
+    ]
+  },
+  "git": {
+    "subtitle": "Git & GitHub",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Як створити нову гілку в Git?",
+        "options": [
+          "git branch new-branch",
+          "git checkout -b new-branch",
+          "git create branch new-branch",
+          "git branch -n new-branch"
+        ],
+        "correctAnswer": "git checkout -b new-branch",
+        "level": "low"
+      },
+      {
+        "id": 2,
+        "question": "Як з\"єднати гілку з іншою гілкою в Git?",
+        "options": ["git merge", "git connect", "git combine", "git join"],
+        "correctAnswer": "git merge",
+        "level": "middle"
+      },
+      {
+        "id": 3,
+        "question": "Як видалити гілку в Git?",
+        "options": [
+          "git delete branch branch-name",
+          "git remove branch branch-name",
+          "git branch -d branch-name",
+          "git branch -r branch-name"
+        ],
+        "correctAnswer": "git branch -d branch-name",
+        "level": "middle"
+      },
+      {
+        "id": 4,
+        "question": "Як додати файли до коміту в Git?",
+        "options": [
+          "git add file.txt",
+          "git commit file.txt",
+          "git stage file.txt",
+          "git push file.txt"
+        ],
+        "correctAnswer": "git add file.txt",
+        "level": "low"
+      },
+      {
+        "id": 5,
+        "question": "Що робить команда \"git clone\"?",
+        "options": [
+          "Створює новий репозиторій",
+          "Копіює існуючий репозиторій",
+          "Збирає всі гілки репозиторію",
+          "Показує історію комітів"
+        ],
+        "correctAnswer": "Копіює існуючий репозиторій",
+        "level": "high"
+      },
+      {
+        "id": 6,
+        "question": "Як подивитися список гілок в Git?",
+        "options": ["git branches", "git list", "git branch", "git show branches"],
+        "correctAnswer": "git branch",
+        "level": "low"
+      },
+      {
+        "id": 7,
+        "question": "Що таке конфлікт злиття в Git?",
+        "options": [
+          "Помилка при використанні команди merge",
+          "Конфлікт інтересів між розробниками",
+          "Проблема з синтаксисом комітів",
+          "Конфлікт інтерфейсу"
+        ],
+        "correctAnswer": "Конфлікт інтересів між розробниками",
+        "level": "middle"
+      },
+      {
+        "id": 8,
+        "question": "Що робить команда \"git pull\"?",
+        "options": [
+          "Вивантажує локальні зміни на сервер",
+          "Оновлює локальний репозиторій з віддаленого",
+          "Вивантажує віддалені зміни локально",
+          "Стягує всі гілки репозиторію"
+        ],
+        "correctAnswer": "Оновлює локальний репозиторій з віддаленого",
+        "level": "middle"
+      },
+      {
+        "id": 9,
+        "question": "Як змінити останній коміт в Git?",
+        "options": ["git amend", "git modify", "git change", "git commit --change"],
+        "correctAnswer": "git amend",
+        "level": "low"
+      },
+      {
+        "id": 10,
+        "question": "Що таке .gitignore?",
+        "options": [
+          "Список ігнорованих файлів та каталогів",
+          "Зміна імені репозиторію",
+          "Історія комітів",
+          "Інструкція по збереженню файлів"
+        ],
+        "correctAnswer": "Список ігнорованих файлів та каталогів",
+        "level": "high"
+      },
+      {
+        "id": 11,
+        "question": "Як видалити файл з історії комітів в Git?",
+        "options": [
+          "git remove file.txt",
+          "git delete file.txt",
+          "git forget file.txt",
+          "git rm file.txt"
+        ],
+        "correctAnswer": "git rm file.txt",
+        "level": "middle"
+      },
+      {
+        "id": 12,
+        "question": "Що таке pull request в GitHub?",
+        "options": [
+          "Запит на видалення гілки",
+          "Запит на злиття змін в іншу гілку",
+          "Запит на видалення репозиторію",
+          "Запит на створення нової гілки"
+        ],
+        "correctAnswer": "Запит на злиття змін в іншу гілку",
+        "level": "middle"
+      },
+      {
+        "id": 13,
+        "question": "Як створити тег в Git?",
+        "options": [
+          "git create tag v1.0",
+          "git new tag v1.0",
+          "git tag create v1.0",
+          "git tag -a v1.0 -m \"Version 1.0\""
+        ],
+        "correctAnswer": "git tag -a v1.0 -m \"Version 1.0\"",
+        "level": "low"
+      },
+      {
+        "id": 14,
+        "question": "Що робить команда \"git log\"?",
+        "options": [
+          "Виводить список всіх гілок",
+          "Виводить історію комітів",
+          "Виводить статус файлів",
+          "Виводить список віддалених репозиторіїв"
+        ],
+        "correctAnswer": "Виводить історію комітів",
+        "level": "middle"
+      },
+      {
+        "id": 15,
+        "question": "Як створити порожній коміт в Git?",
+        "options": [
+          "git empty commit",
+          "git commit -m \"Empty commit\"",
+          "git create commit",
+          "git commit --empty"
+        ],
+        "correctAnswer": "git commit --allow-empty -m \"Empty commit\"",
+        "level": "high"
+      }
+    ]
+  },
+  "web_technology": {
+    "subtitle": "Знання про веб-технології та мережу інтернет",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Як називається мова розмітки, яка використовується для створення структури веб-сторінки?",
+        "options": ["HTML", "CSS", "JavaScript", "PHP"],
+        "correctAnswer": "HTML",
+        "level": "low"
+      },
+      {
+        "id": 2,
+        "question": "Що означає абревіатура CSS?",
+        "options": [
+          "Creative Style Sheets",
+          "Computer Style Sheets",
+          "Cascading Style Sheets",
+          "Colorful Style Sheets"
+        ],
+        "correctAnswer": "Cascading Style Sheets",
+        "level": "middle"
+      },
+      {
+        "id": 3,
+        "question": "Які з наступних тегів використовуються для вставки скриптів у HTML-документ?",
+        "options": ["<script>", "<style>", "<code>", "<javascript>"],
+        "correctAnswer": "<script>",
+        "level": "middle"
+      },
+      {
+        "id": 4,
+        "question": "Що таке HTTP?",
+        "options": [
+          "HyperText Transfer Protocol",
+          "HyperText Transfer Privacy",
+          "HyperTransfer Text Protocol",
+          "HyperText Privacy Protocol"
+        ],
+        "correctAnswer": "HyperText Transfer Protocol",
+        "level": "high"
+      },
+      {
+        "id": 5,
+        "question": "Які з наступних HTTP-методів призначені для отримання ресурсів?",
+        "options": ["GET", "POST", "PUT", "DELETE"],
+        "correctAnswer": "GET",
+        "level": "high"
+      },
+      {
+        "id": 6,
+        "question": "Як називається мова програмування, яка використовується для взаємодії з елементами веб-сторінки?",
+        "options": ["HTML", "CSS", "JavaScript", "PHP"],
+        "correctAnswer": "JavaScript",
+        "level": "low"
+      },
+      {
+        "id": 7,
+        "question": "Які з наступних подій є пов\"язаними з мишею в контексті веб-розробки?",
+        "options": ["click", "keypress", "resize", "submit"],
+        "correctAnswer": "click",
+        "level": "low"
+      },
+      {
+        "id": 8,
+        "question": "Що таке абревіатура URL?",
+        "options": [
+          "Universal Resource Locator",
+          "Uniform Resource Locator",
+          "Unique Resource Locator",
+          "Universal Rendering Locator"
+        ],
+        "correctAnswer": "Uniform Resource Locator",
+        "level": "middle"
+      },
+      {
+        "id": 9,
+        "question": "Які з наступних тегів використовуються для створення таблиць у HTML?",
+        "options": ["<table>", "<div>", "<form>", "<section>"],
+        "correctAnswer": "<table>",
+        "level": "middle"
+      },
+      {
+        "id": 10,
+        "question": "Що означає абревіатура API?",
+        "options": [
+          "Application Programming Interface",
+          "Advanced Programming Interface",
+          "Automated Programming Interface",
+          "Application Process Interface"
+        ],
+        "correctAnswer": "Application Programming Interface",
+        "level": "high"
+      },
+      {
+        "id": 11,
+        "question": "Які HTTP-статуси позначають, що запит клієнта був успішно оброблений?",
+        "options": ["200 OK", "404 Not Found", "500 Internal Server Error", "302 Found"],
+        "correctAnswer": "200 OK",
+        "level": "high"
+      },
+      {
+        "id": 12,
+        "question": "Як називається метод HTTP, який використовується для відправки даних на сервер?",
+        "options": ["GET", "POST", "PUT", "DELETE"],
+        "correctAnswer": "POST",
+        "level": "low"
+      },
+      {
+        "id": 13,
+        "question": "Що таке DNS?",
+        "options": [
+          "Dynamic Name System",
+          "Domain Name System",
+          "Data Node System",
+          "Digital Name Service"
+        ],
+        "correctAnswer": "Domain Name System",
+        "level": "middle"
+      },
+      {
+        "id": 14,
+        "question": "Які з наступних технологій використовуються для забезпечення безпеки з\"єднання між користувачем і веб-сайтом?",
+        "options": ["HTTP", "FTP", "SSL/TLS", "SSH"],
+        "correctAnswer": "SSL/TLS",
+        "level": "high"
+      },
+      {
+        "id": 15,
+        "question": "Що таке responsive web design?",
+        "options": [
+          "Розробка, яка відповідає за реакції користувачів",
+          "Розробка відзивчивих інтерфейсів",
+          "Адаптація веб-сайту до різних розмірів екранів",
+          "Створення статичних веб-сайтів"
+        ],
+        "correctAnswer": "Адаптація веб-сайту до різних розмірів екранів",
+        "level": "middle"
+      },
+      {
+        "id": 16,
+        "question": "Які з наступних технологій використовуються для анімації на веб-сторінках?",
+        "options": ["HTML", "CSS", "JavaScript", "All of the above"],
+        "correctAnswer": "All of the above",
+        "level": "low"
+      },
+      {
+        "id": 17,
+        "question": "Що таке AJAX?",
+        "options": [
+          "Asynchronous JavaScript and XML",
+          "Advanced JavaScript and XML",
+          "Automated JavaScript and XML",
+          "Async JavaScript and XHTML"
+        ],
+        "correctAnswer": "Asynchronous JavaScript and XML",
+        "level": "high"
+      },
+      {
+        "id": 18,
+        "question": "Як називаються елементи, які не є видимими для користувачів, але використовуються для структури веб-сторінки та SEO?",
+        "options": ["Invisible Elements", "Hidden Elements", "Meta Elements", "Semantic Elements"],
+        "correctAnswer": "Hidden Elements",
+        "level": "middle"
+      },
+      {
+        "id": 19,
+        "question": "Які технології використовуються для забезпечення безпеки паролів на веб-сайтах?",
+        "options": ["MD5", "SHA-256", "bcrypt", "All of the above"],
+        "correctAnswer": "All of the above",
+        "level": "high"
+      },
+      {
+        "id": 20,
+        "question": "Що означає абревіатура CMS в контексті веб-розробки?",
+        "options": [
+          "Content Management System",
+          "Code Management System",
+          "Creative Management System",
+          "Computer Management System"
+        ],
+        "correctAnswer": "Content Management System",
+        "level": "middle"
+      },
+      {
+        "id": 21,
+        "question": "Які з наступних тегів використовуються для створення списку у HTML?",
+        "options": ["<ul>", "<ol>", "<li>", "Всі відповіді вірні"],
+        "correctAnswer": "Всі відповіді вірні",
+        "level": "low"
+      },
+      {
+        "id": 22,
+        "question": "Як визначити стилі для всіх посилань на веб-сторінці за допомогою CSS?",
+        "options": ["a { }", "link { }", "a:link { }", "All of the above"],
+        "correctAnswer": "a:link { }",
+        "level": "low"
+      },
+      {
+        "id": 23,
+        "question": "Що таке фреймворк в контексті веб-розробки?",
+        "options": [
+          "Тип шрифту",
+          "Стандартна бібліотека коду",
+          "Структура CSS",
+          "Заготовка для роботи з кодом"
+        ],
+        "correctAnswer": "Заготовка для роботи з кодом",
+        "level": "middle"
+      },
+      {
+        "id": 24,
+        "question": "Як визначити зовнішній стиль елементу у CSS?",
+        "options": ["style", "external", "inline", "link"],
+        "correctAnswer": "link",
+        "level": "middle"
+      },
+      {
+        "id": 25,
+        "question": "Що таке \"cookie\" у веб-контексті?",
+        "options": [
+          "Файл із рецептом",
+          "Файл з кодом",
+          "Файл для зберігання інформації на браузері",
+          "Секретний ключ для шифрування"
+        ],
+        "correctAnswer": "Файл для зберігання інформації на браузері",
+        "level": "high"
+      },
+      {
+        "id": 26,
+        "question": "Що таке DOM?",
+        "options": [
+          "Document Object Model",
+          "Digital Object Model",
+          "Dynamic Object Model",
+          "Data Object Model"
+        ],
+        "correctAnswer": "Document Object Model",
+        "level": "high"
+      },
+      {
+        "id": 27,
+        "question": "Як використовувати flexbox для центрування елементів у контейнері?",
+        "options": [
+          "justify-content: center;",
+          "align-items: center;",
+          "flex: center;",
+          "Both a and b"
+        ],
+        "correctAnswer": "Both a and b",
+        "level": "low"
+      },
+      {
+        "id": 28,
+        "question": "Як визначити медіа-запит для екранів з шириною менше 600 пікселів?",
+        "options": [
+          "@media screen and (max-width: 600px)",
+          "@media screen and (min-width: 600px)",
+          "@media screen and (width < 600px)",
+          "All of the above"
+        ],
+        "correctAnswer": "@media screen and (max-width: 600px)",
+        "level": "middle"
+      },
+      {
+        "id": 29,
+        "question": "Що таке CDN?",
+        "options": [
+          "Centralized Domain Network",
+          "Content Delivery Network",
+          "Code Deployment Network",
+          "Computer Development Network"
+        ],
+        "correctAnswer": "Content Delivery Network",
+        "level": "high"
+      },
+      {
+        "id": 30,
+        "question": "Які технології використовуються для анімації на веб-сторінках?",
+        "options": [
+          "CSS animations",
+          "SVG animations",
+          "JavaScript animations",
+          "All of the above"
+        ],
+        "correctAnswer": "All of the above",
+        "level": "low"
+      },
+      {
+        "id": 31,
+        "question": "Що таке XSS атака?",
+        "options": [
+          "Cross-Site Scripting",
+          "XML Security Scheme",
+          "Xbox Screen Saver",
+          "Xtra Strong Security"
+        ],
+        "correctAnswer": "Cross-Site Scripting",
+        "level": "high"
+      },
+      {
+        "id": 32,
+        "question": "Як визначити змінну в JavaScript?",
+        "options": ["var x;", "let x;", "const x;", "All of the above"],
+        "correctAnswer": "All of the above",
+        "level": "low"
+      },
+      {
+        "id": 33,
+        "question": "Як перевірити тип даних змінної в JavaScript?",
+        "options": ["typeOf x;", "typeof(x);", "type(x);", "All of the above"],
+        "correctAnswer": "typeof(x);",
+        "level": "middle"
+      },
+      {
+        "id": 34,
+        "question": "Що означає абревіатура REST в контексті веб-сервісів?",
+        "options": [
+          "Representational State Transfer",
+          "Remote Environment Service Technology",
+          "Responsive Server Technique",
+          "Rapid Element Structure Transfer"
+        ],
+        "correctAnswer": "Representational State Transfer",
+        "level": "high"
+      },
+      {
+        "id": 35,
+        "question": "Як зупинити подальше виконання JavaScript коду після умови?",
+        "options": ["stop;", "break;", "return;", "exit;"],
+        "correctAnswer": "return;",
+        "level": "middle"
+      },
+      {
+        "id": 36,
+        "question": "Які з наступних тегів HTML використовуються для вставки зображення?",
+        "options": ["<img>", "<picture>", "<image>", "<figure>"],
+        "correctAnswer": "<img>",
+        "level": "low"
+      },
+      {
+        "id": 37,
+        "question": "Як використовувати promise в JavaScript для асинхронного програмування?",
+        "options": ["try/catch", "async/await", "Promise.resolve()", "Both b and c"],
+        "correctAnswer": "Both b and c",
+        "level": "high"
+      },
+      {
+        "id": 38,
+        "question": "Що таке SQL?",
+        "options": [
+          "Structured Language",
+          "Standardized Query Language",
+          "Scripted Question Language",
+          "Static Query Language"
+        ],
+        "correctAnswer": "Standardized Query Language",
+        "level": "middle"
+      },
+      {
+        "id": 39,
+        "question": "Як визначити локальну змінну в JavaScript?",
+        "options": ["const", "let", "var", "All of the above"],
+        "correctAnswer": "All of the above",
+        "level": "low"
+      },
+      {
+        "id": 40,
+        "question": "Що таке \"Viewport\" у веб-розробці?",
+        "options": [
+          "Конфігурація мережі",
+          "Рамка веб-сайту",
+          "Область видимості на екрані користувача",
+          "Вікно редагування коду"
+        ],
+        "correctAnswer": "Область видимості на екрані користувача",
+        "level": "middle"
+      }
+    ]
   }
 }

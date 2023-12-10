@@ -49,6 +49,8 @@ type Store = {
     }[];
   }[];
 
+  time: { start_time: string; end_time: string; date: string };
+
   questions: {
     subtitle: string;
     url: string;
@@ -57,6 +59,7 @@ type Store = {
       question: string;
       options: string[];
       correctAnswer: string;
+      level?: string;
     }[];
   }[];
 
@@ -97,7 +100,7 @@ type Store = {
       links?: { id: number; title: string; link: string }[];
     }[];
   }[];
-  // addTracks: () => void;
+
   addListOfThemes: () => void;
   getUsers: () => void;
   getTests: (params: string) => void;
@@ -105,10 +108,11 @@ type Store = {
   getQuestions: (params: string) => void;
   getDescriptions: (params: string) => void;
   getHomework: () => void;
+  getTime: () => void;
 };
 
 export const useStore = create<Store>((set, get) => ({
-  // tracks: [],
+  time: { start_time: "", end_time: "", date: "" },
   users: [],
   tests: [],
   questions: [],
@@ -116,15 +120,7 @@ export const useStore = create<Store>((set, get) => ({
   projects: [],
   listOfThemes: [],
   homework: [],
-  // addTracks: async () => {
-  //   try {
-  //     const response = await fetchDataFromNextServer("tracks");
-  //     const data = await response.json();
-  //     set({ tracks: data });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // },
+
   addListOfThemes: async () => {
     try {
       const response = await fetchPartOfData("listOfThemes");
@@ -191,9 +187,20 @@ export const useStore = create<Store>((set, get) => ({
       const response = await fetchPartOfData("homework");
 
       const data = await response.json();
-      console.log(data);
 
       set({ homework: data });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  getTime: async () => {
+    try {
+      const response = await fetchPartOfData("time");
+
+      const data = await response.json();
+
+      set({ time: data });
     } catch (error) {
       console.log(error);
     }

@@ -6,9 +6,23 @@ import Image from "next/image";
 import { code } from "@/public/images";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import { useStore } from "@/store/store";
+import { useEffect, useState } from "react";
+import { Skeleton } from "../ui/skeleton";
 
 const MainResources = () => {
+  const [loading, setLoading] = useState(true);
+  const time = useStore((state) => state.time);
+  const getTime = useStore((state) => state.getTime);
   const router = useRouter();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await getTime();
+      setLoading(false);
+    };
+    fetchData();
+  }, [getTime]);
   return (
     <section className="flex flex-col lg:grid lg:grid-cols-[auto_minmax(200px,_400px)] gap-5 py-5">
       <div className="flex max-lg:flex-col max-lg:space-y-3 lg:space-x-3 max-lg:items-center justify-between bg-gradient-to-r from-slate-500 to-purple-950 text-white p-5 rounded-lg">
@@ -19,9 +33,14 @@ const MainResources = () => {
             <h2 className="text-center md:text-left">Наступний урок</h2>
             <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
               <BsFillCalendarCheckFill size={18} />
-              <p>Сб, 25.11</p>
+              <p className="inline-flex">
+                Сб, {loading ? <Skeleton className="w-20 h-5 rounded-lg"></Skeleton> : time.date}
+              </p>
               <BsFillClockFill size={18} />
-              <p>10:00 - 12:00</p>
+              <p className="inline-flex">
+                {loading ? <Skeleton className="w-12 h-5 rounded-lg"></Skeleton> : time.start_time}{" "}
+                - {loading ? <Skeleton className="w-12 h-5 rounded-lg"></Skeleton> : time.end_time}
+              </p>
             </div>
           </div>
           <div className="flex flex-col space-y-3 md:flex-row md:space-x-5 md:space-y-0">
