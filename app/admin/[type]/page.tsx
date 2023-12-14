@@ -10,6 +10,7 @@ import {
 import { useEffect, useState } from "react";
 
 const Content = ({ params }: { params: { type: string } }) => {
+  // TODO: add adaptive style
   const [type, setType] = useState("");
 
   useEffect(() => {

@@ -12,3 +12,19 @@ export async function GET(req: NextRequest) {
 
   return NextResponse.json(questions);
 }
+
+export async function POST(req: NextRequest) {
+  const client = createClient({
+    url: process.env.kv_REST_API_URL!,
+    token: process.env.kv_REST_API_TOKEN!,
+  });
+  const currentTests = await client.json.get("tests");
+
+  const body = await req.json();
+
+  const newSection = { ...currentTests, ...body };
+
+  const section = await client.json.set("tests", "$", newSection);
+
+  return NextResponse.json({ section, body });
+}
