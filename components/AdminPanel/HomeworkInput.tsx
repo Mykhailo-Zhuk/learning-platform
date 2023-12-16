@@ -3,6 +3,9 @@
 import { SubmitHandler, useFieldArray, useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import { BsTrash3Fill } from "react-icons/bs";
+import { useId } from "react";
+import { fetchToChangeDataOnServer } from "@/lib/utils";
+import { toast } from "../ui/use-toast";
 
 type Theme = {
   id: number;
@@ -23,31 +26,16 @@ type FormData = {
   writting: HomeworkItem;
 };
 
-const homeworkData = {
-  date: "",
-  reading: [
-    {
-      id: 1,
-      action: "Прочитати теми: ",
-      listOfThemes: [{ id: 1, link: "", title: "" }],
-    },
-  ],
-  writting: [
-    {
-      id: 2,
-      action: "Ознайомитися із практичними завданнями та тестами по темах: ",
-      links: [{ id: 1, link: "", title: "" }],
-    },
-  ],
-};
-
 const styles = {
   inputContainer: `flex flex-col space-y-2`,
   inputLabel: "text-[0.8rem] font-medium",
   inputError: "w-full px-3 py-2 border rounded focus:outline-none",
+  spanError: "text-[0.8rem] font-medium text-red-500",
 };
 
 const HomeworkInput: React.FC = () => {
+  const uniqId = useId();
+
   const {
     register,
     control,
@@ -96,11 +84,31 @@ const HomeworkInput: React.FC = () => {
     writtingAppend({ id: writtingFields.length + 1, link: "", title: "" });
   };
 
-  const onSubmit: SubmitHandler<FormData> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    console.log(data);
+    const newHomework = {
+      id: uniqId,
+      date: data.date,
+      homework: [data.reading, data.writting],
+    };
+    const response = await fetchToChangeDataOnServer("homework", "post", newHomework);
 
-  const { inputContainer, inputLabel, inputError } = styles;
+    if (response.ok) {
+      toast({
+        title: "Додано домашнє по наступним темам:",
+        description: (
+          <p className="mt-2 w-[340px] rounded-md py-4">
+            Читання: {data.reading.listOfThemes?.map((theme) => theme.title)}; Практичне:{" "}
+            {data.writting.links?.map((link) => link.title)};
+          </p>
+        ),
+      });
+    }
+    reset();
+  };
 
-  console.log(watch());
+  const { inputContainer, inputLabel, inputError, spanError } = styles;
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-screen-md mx-auto">
       <div className="space-y-4 p-6 border rounded-lg shadow-md">
@@ -113,9 +121,7 @@ const HomeworkInput: React.FC = () => {
             {...register("date", { required: "Це поле є обов'язковим" })}
             className={`${inputError} ${errors?.date ? "border-red-500" : "focus:border-accent"}`}
           />
-          {errors.date && (
-            <span className="text-[0.8rem] font-medium text-red-500">{errors.date?.message}</span>
-          )}
+          {errors.date && <span className={spanError}>{errors.date?.message}</span>}
 
           <label htmlFor="reading.action" className={inputLabel}>
             Читання:
@@ -127,9 +133,7 @@ const HomeworkInput: React.FC = () => {
             }`}
           />
           {errors.reading?.action && (
-            <span className="text-[0.8rem] font-medium text-red-500">
-              {errors.reading?.action?.message}
-            </span>
+            <span className={spanError}>{errors.reading?.action?.message}</span>
           )}
         </div>
 
@@ -155,7 +159,7 @@ const HomeworkInput: React.FC = () => {
                   }`}
                 />
                 {errors.reading?.listOfThemes?.[index]?.title && (
-                  <span className="text-[0.8rem] font-medium text-red-500">
+                  <span className={spanError}>
                     {errors.reading?.listOfThemes?.[index]?.title?.message}
                   </span>
                 )}
@@ -177,7 +181,7 @@ const HomeworkInput: React.FC = () => {
                   }`}
                 />
                 {errors.reading?.listOfThemes?.[index]?.link && (
-                  <span className="text-[0.8rem] font-medium text-red-500">
+                  <span className={spanError}>
                     {errors.reading?.listOfThemes?.[index]?.link?.message}
                   </span>
                 )}
@@ -185,8 +189,9 @@ const HomeworkInput: React.FC = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="opacity-0 group-hover:opacity-100 absolute transition-opacity top-1 right-1">
-                <BsTrash3Fill />
+                className="opacity-0 group-hover:opacity-100 absolute transition-opacity top-1 right-1"
+                onClick={() => readingRemove(index)}>
+                <BsTrash3Fill className="text-red-500"/>
               </Button>
             </div>
           );
@@ -209,9 +214,7 @@ const HomeworkInput: React.FC = () => {
             }`}
           />
           {errors?.writting?.action && (
-            <span className="text-[0.8rem] font-medium text-red-500">
-              {errors?.writting?.action.message}
-            </span>
+            <span className={spanError}>{errors?.writting?.action.message}</span>
           )}
         </div>
 
@@ -237,7 +240,7 @@ const HomeworkInput: React.FC = () => {
                   }`}
                 />
                 {errors.writting?.links?.[index]?.title && (
-                  <span className="text-[0.8rem] font-medium text-red-500">
+                  <span className={spanError}>
                     {errors.writting?.links?.[index]?.title?.message}
                   </span>
                 )}
@@ -256,7 +259,7 @@ const HomeworkInput: React.FC = () => {
                   }`}
                 />
                 {errors.writting?.links?.[index]?.link && (
-                  <span className="text-[0.8rem] font-medium text-red-500">
+                  <span className={spanError}>
                     {errors.writting?.links?.[index]?.link?.message}
                   </span>
                 )}
@@ -264,8 +267,9 @@ const HomeworkInput: React.FC = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="opacity-0 group-hover:opacity-100 absolute transition-opacity top-1 right-1">
-                <BsTrash3Fill />
+                className="opacity-0 group-hover:opacity-100 absolute transition-opacity top-1 right-1"
+                onClick={() => writtingRemove(index)}>
+                <BsTrash3Fill className="text-red-500"/>
               </Button>
             </div>
           );

@@ -4,6 +4,14 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { fetchToChangeDataOnServer } from "@/lib/utils";
 import { toast } from "../ui/use-toast";
+import { BsTrash3Fill } from "react-icons/bs";
+
+const styles = {
+  inputContainer: `flex flex-col space-y-2`,
+  inputLabel: "text-[0.8rem] font-medium",
+  inputError: "w-full px-3 py-2 border rounded focus:outline-none",
+  spanError: "text-[0.8rem] font-medium text-red-500",
+};
 
 const TestsInput = () => {
   const {
@@ -11,6 +19,7 @@ const TestsInput = () => {
     control,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     defaultValues: {
       section: "",
@@ -24,7 +33,7 @@ const TestsInput = () => {
     name: "tests",
   });
 
-  const handleAddQuestion = () => {
+  const handleAddTest = () => {
     append({
       id: fields.length + 1,
       description: "",
@@ -35,7 +44,7 @@ const TestsInput = () => {
     });
   };
 
-  const handleRemoveQuestion = (index: number) => {
+  const handleRemoveTest = (index: number) => {
     remove(index);
   };
 
@@ -66,6 +75,8 @@ const TestsInput = () => {
       },
     };
 
+    console.log(newSection);
+
     const response = await fetchToChangeDataOnServer("tests", "post", newSection);
 
     if (response.ok) {
@@ -74,113 +85,145 @@ const TestsInput = () => {
         description: <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{data.subtitle}</p>,
       });
     }
+    reset();
   };
+
+  const { inputContainer, inputLabel, inputError, spanError } = styles;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-screen-md mx-auto">
       <div className="space-y-6 p-6 border rounded-lg shadow-md">
-        <div className="flex flex-col space-y-2">
-          <label className="text-[0.8rem] font-medium">Назва секції</label>
+        <div className={inputContainer}>
+          <label htmlFor="section" className={inputLabel}>
+            Назва секції
+          </label>
           <input
+            placeholder="syntax_html"
             {...register("section", { required: "Це поле є обов'язковим" })}
-            placeholder="html_syntax"
-            className={`w-full px-3 py-2 border rounded focus:outline-none ${
-              errors.section ? "border-red-500" : "focus:border-accent"
+            className={`${inputError} ${
+              errors?.section ? "border-red-500" : "focus:border-accent"
             }`}
           />
-          {errors.section && (
-            <span className="text-[0.8rem] font-medium text-red-500">{errors.section.message}</span>
-          )}
-        </div>
-        <div className="flex flex-col space-y-2">
-          <label className="text-[0.8rem] font-medium">Заголовок для секції</label>
+          {errors?.section && <span className={spanError}>{errors?.section?.message}</span>}
+
+          <label htmlFor="subtitle" className={inputLabel}>
+            Заголовок для секції
+          </label>
           <input
             {...register("subtitle", { required: "Це поле є обов'язковим" })}
             placeholder="Синтаксис HTML, структурованість"
-            className={`w-full px-3 py-2 border rounded focus:outline-none ${
-              errors.subtitle ? "border-red-500" : "focus:border-accent"
+            className={`${inputError} ${
+              errors?.subtitle ? "border-red-500" : "focus:border-accent"
             }`}
           />
+          {errors?.subtitle && <span className={spanError}>{errors?.subtitle?.message}</span>}
         </div>
-        {errors.subtitle && (
-          <span className="text-[0.8rem] font-medium text-red-500">{errors.subtitle.message}</span>
-        )}
         {fields.map((description, index) => {
-          const inputStyles = (property: string) =>
-            `w-full px-3 py-2 border rounded focus:outline-none ${
-              errors?.tests && errors?.tests[index] && `errors?.tests[index]?.${property}`
-                ? "border-red-500"
-                : "focus:border-accent"
-            }`;
-
-          const inputError = (property: string) =>
-            errors.tests &&
-            errors?.tests[index] &&
-            errors?.tests[index]?.description && (
-              <span className="text-[0.8rem] font-medium text-red-500">
-                {`errors?.tests[index]?.${property}?.message`}
-              </span>
-            );
           return (
-            <div key={description.id} className="space-y-4 p-3">
-              <div className="flex flex-col space-y-2">
-                <label className="text-[0.8rem] font-medium">Практичне завдання</label>
+            <div
+              key={description.id}
+              className="relative space-y-3 p-5 hover:outline-1 hover:outline hover:outline-accent rounded-lg group">
+              <div className={inputContainer}>
+                <label htmlFor={`tests.${index}.description`} className={inputLabel}>
+                  Практичне завдання
+                </label>
                 <input
                   {...register(`tests.${index}.description`, {
                     required: "Це поле є обов'язковим",
                   })}
                   placeholder="Як користувач, я хочу, щоб фоновий градієнт змінювався автоматично, щоб створити ефект зміни кольорів."
-                  className={inputStyles("description")}
+                  className={`${inputError} ${
+                    errors?.tests?.[index]?.description ? "border-red-500" : "focus:border-accent"
+                  }`}
                 />
-                {inputError("description")}
+                {errors?.tests?.[index]?.description && (
+                  <span className={spanError}>{errors?.tests?.[index]?.description?.message}</span>
+                )}
               </div>
-              <div className="flex flex-col space-y-2">
-                <label className="text-[0.8rem] font-medium">Варіанти відповіді</label>
+
+              <div className={inputContainer}>
+                <label htmlFor={`tests.${index}.options`} className={inputLabel}>
+                  Варіанти відповіді
+                </label>
                 <input
-                  {...register(`tests.${index}.options`, { required: "Це поле є обов'язковим" })}
+                  {...register(`tests.${index}.options`, {
+                    required: "Це поле є обов'язковим",
+                  })}
                   placeholder="Використовуйте @keyframes для анімації градієнта."
-                  className={inputStyles("options")}
+                  className={`${inputError} ${
+                    errors?.tests?.[index]?.options ? "border-red-500" : "focus:border-accent"
+                  }`}
                 />
-                {inputError("options")}
+                {errors?.tests?.[index]?.options && (
+                  <span className={spanError}>{errors?.tests?.[index]?.options?.message}</span>
+                )}
               </div>
-              <div className="flex flex-col space-y-2">
-                <label className="text-[0.8rem] font-medium">Варіанти підказок</label>
+
+              <div className={inputContainer}>
+                <label htmlFor={`tests.${index}.tips`} className={inputLabel}>
+                  Варіанти підказок
+                </label>
                 <input
-                  {...register(`tests.${index}.tips`, { required: "Це поле є обов'язковим" })}
+                  {...register(`tests.${index}.tips`, {
+                    required: "Це поле є обов'язковим",
+                  })}
                   placeholder="Використовуйте @keyframes для оголошення анімації."
-                  className={inputStyles("tips")}
+                  className={`${inputError} ${
+                    errors?.tests?.[index]?.tips ? "border-red-500" : "focus:border-accent"
+                  }`}
                 />
-                {inputError("tips")}
+                {errors?.tests?.[index]?.tips && (
+                  <span className={spanError}>{errors?.tests?.[index]?.tips?.message}</span>
+                )}
               </div>
-              <div className="flex flex-col space-y-2">
-                <label className="text-[0.8rem] font-medium">Бажаний результат</label>
+
+              <div className={inputContainer}>
+                <label htmlFor={`tests.${index}.result`} className={inputLabel}>
+                  Бажаний результат
+                </label>
                 <input
                   {...register(`tests.${index}.result`, {
                     required: "Це поле є обов'язковим",
                   })}
                   placeholder="Автоматична зміна фонового градієнта"
-                  className={inputStyles("result")}
+                  className={`${inputError} ${
+                    errors?.tests?.[index]?.result ? "border-red-500" : "focus:border-accent"
+                  }`}
                 />
-                {inputError("result")}
-                <div className="flex flex-col space-y-2">
-                  <label className="text-[0.8rem] font-medium">Складність</label>
-                  <select
-                    {...register(`tests.${index}.level`, { required: "Оберіть складність" })}
-                    className={inputStyles("level")}>
-                    <option value="low">Низька</option>
-                    <option value="middle">Середня</option>
-                    <option value="hard">Висока</option>
-                  </select>
-                  {inputError("level")}
-                </div>
+                {errors?.tests?.[index]?.result && (
+                  <span className={spanError}>{errors?.tests?.[index]?.result?.message}</span>
+                )}
               </div>
-              <Button variant="destructive" onClick={() => handleRemoveQuestion(index)}>
-                Видалити
+
+              <div className={inputContainer}>
+                <label htmlFor={`tests.${index}.level`} className={inputLabel}>
+                  Складність
+                </label>
+                <select
+                  {...register(`tests.${index}.level`, { required: "Це поле є обов'язковим" })}
+                  placeholder="Оберіть складність"
+                  className={`${inputError} ${
+                    errors?.tests?.[index]?.level ? "border-red-500" : "focus:border-accent"
+                  }`}>
+                  <option value="low">Низька</option>
+                  <option value="middle">Середня</option>
+                  <option value="hard">Висока</option>
+                </select>
+                {errors?.tests?.[index]?.level && (
+                  <span className={spanError}>{errors?.tests?.[index]?.level?.message}</span>
+                )}
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="opacity-0 group-hover:opacity-100 absolute transition-opacity -top-3 right-0"
+                onClick={() => handleRemoveTest(index)}>
+                <BsTrash3Fill className="text-red-500" />
               </Button>
             </div>
           );
         })}
-        <Button variant="ghost" onClick={handleAddQuestion}>
+        <Button variant="ghost" onClick={handleAddTest}>
           Додати
         </Button>
       </div>
