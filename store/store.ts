@@ -113,6 +113,7 @@ type Store = {
   getQuestions: (params: string) => void;
   getDescriptions: (params: string) => void;
   getAdminPanelList: () => void;
+  getHomework: () => void;
   getTime: () => void;
 };
 
