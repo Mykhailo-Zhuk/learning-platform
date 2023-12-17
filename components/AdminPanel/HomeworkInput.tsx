@@ -40,7 +40,6 @@ const HomeworkInput: React.FC = () => {
     register,
     control,
     handleSubmit,
-    watch,
     formState: { errors },
     reset,
   } = useForm<FormData>({

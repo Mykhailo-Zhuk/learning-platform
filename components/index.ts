@@ -35,5 +35,8 @@ export { default as HomeworkInput } from "./AdminPanel/HomeworkInput";
 export { default as QuestionsInput } from "./AdminPanel/QuestionsInput";
 export { default as TestsInput } from "./AdminPanel/TestsInput";
 export { default as TextbookInput } from "./AdminPanel/TextbookInput";
+export { default as TextbookImageInput } from "./AdminPanel/TextbookImageInput";
+export { default as TextbookTableInput } from "./AdminPanel/TextbookTableInput";
+export { default as TextbookListInput } from "./AdminPanel/TextbookListInput";
 export { default as ChangeDateForm } from "./AdminPanel/ChangeDateForm";
 export { default as ChangeTimeForm } from "./AdminPanel/ChangeTimeForm";

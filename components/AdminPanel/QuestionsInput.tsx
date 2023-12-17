@@ -6,6 +6,20 @@ import { fetchToChangeDataOnServer } from "@/lib/utils";
 import { toast } from "../ui/use-toast";
 import { BsTrash3Fill } from "react-icons/bs";
 
+type Task = {
+  id: number;
+  question: string;
+  level: string;
+  options: string;
+  correctAnswer: string;
+};
+
+type FormData = {
+  section: string;
+  subtitle: string;
+  tasks: Task[];
+};
+
 const styles = {
   inputContainer: `flex flex-col space-y-2`,
   inputLabel: "text-[0.8rem] font-medium",
@@ -20,11 +34,11 @@ const QuestionsInput = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({
+  } = useForm<FormData>({
     defaultValues: {
       section: "",
       subtitle: "",
-      tasks: [{ id: 1, question: "", level: "", options: [""], correctAnswer: "" }],
+      tasks: [{ id: 1, question: "", level: "", options: "", correctAnswer: "" }],
     },
   });
 
@@ -34,7 +48,7 @@ const QuestionsInput = () => {
   });
 
   const handleAddQuestion = () => {
-    append({ id: fields.length + 1, question: "", level: "", options: [""], correctAnswer: "" });
+    append({ id: fields.length + 1, question: "", level: "", options: "", correctAnswer: "" });
   };
 
   const handleRemoveQuestion = (index: number) => {
