@@ -49,7 +49,7 @@ export type FormData = {
 type TypeOfData = string[];
 
 export const styles = {
-  inputContainer: `flex flex-col space-y-2`,
+  inputContainer: "flex flex-col space-y-2",
   inputLabel: "text-[0.8rem] font-medium",
   inputError: "w-full px-3 py-2 border rounded focus:outline-none",
   spanError: "text-[0.8rem] font-medium text-red-500",
@@ -58,6 +58,7 @@ export const styles = {
 const TextbookInput = () => {
   const [typeOfData, setTypeOfData] = useState<TypeOfData>([]);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (typeOfData.length === 3) {
@@ -71,8 +72,7 @@ const TextbookInput = () => {
     register,
     control,
     handleSubmit,
-    formState: { errors, isDirty, dirtyFields },
-    setValue,
+    formState: { errors },
     reset,
   } = useForm<FormData>({
     defaultValues: {
@@ -138,36 +138,42 @@ const TextbookInput = () => {
   };
 
   const onSubmit = async (data: any) => {
-    const createArrayFromString = (options: string) => {
-      return options.split("; ");
-    };
+    try {
+      setLoading(true);
+      const createArrayFromString = (options: string) => {
+        return options.split("; ");
+      };
 
-    const list = typeOfData.includes("list") && { list: data.list };
-    const table = typeOfData.includes("table") && {
-      table: { ...data?.table, headers: createArrayFromString(data?.table?.headers) },
-    };
-    const image = typeOfData.includes("image") && {
-      image: { ...data?.image, caption: createArrayFromString(data?.image?.caption) },
-    };
+      const list = typeOfData.includes("list") && { list: data.list };
+      const table = typeOfData.includes("table") && {
+        table: { ...data?.table, headers: createArrayFromString(data?.table?.headers) },
+      };
+      const image = typeOfData.includes("image") && {
+        image: { ...data?.image, caption: createArrayFromString(data?.image?.caption) },
+      };
 
-    const newSection = {
-      [data.section]: {
-        subtitle: data.subtitle,
-        content: [...createArrayFromString(data.content), list, table, image],
-      },
-    };
+      const newSection = {
+        [data.section]: {
+          subtitle: data.subtitle,
+          content: [...createArrayFromString(data.content), list, table, image],
+        },
+      };
 
-    const response = await fetchToChangeDataOnServer("time", "post", newSection);
+      const response = await fetchToChangeDataOnServer("time", "post", newSection);
 
-    if (response.ok) {
-      toast({
-        title: "Додано нову секцію:",
-        description: <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{data.subtitle}</p>,
-      });
+      if (response.ok) {
+        toast({
+          title: "Додано нову секцію:",
+          description: <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{data.subtitle}</p>,
+        });
+      }
+
+      setLoading(false);
+      reset();
+      setTypeOfData([]);
+    } catch (error) {
+      console.log(error);
     }
-
-    reset();
-    setTypeOfData([]);
   };
   const { inputContainer, inputLabel, inputError, spanError } = styles;
 
@@ -203,13 +209,12 @@ const TextbookInput = () => {
           <label htmlFor="content" className={inputLabel}>
             Контент
           </label>
-          <input
+          <textarea
             placeholder="CSS розшифровується як Cascading Style Sheets... Розділяти двокрапкою (;)"
             {...register("content", { required: "Це поле є обов'язковим" })}
             className={`${inputError} ${
               errors?.content ? "border-red-500" : "focus:border-accent"
-            }`}
-          />
+            } resize-y`}></textarea>
           {errors?.content && <span className={spanError}>{errors?.content?.message}</span>}
         </div>
         {typeOfData.includes("table") && (
@@ -264,7 +269,7 @@ const TextbookInput = () => {
         </div>
       </div>
       <div className="flex items-center mt-4">
-        <Button type="submit">Записати</Button>
+        <Button type="submit">{loading ? "Виконую..." : "Змінити"}</Button>
       </div>
     </form>
   );

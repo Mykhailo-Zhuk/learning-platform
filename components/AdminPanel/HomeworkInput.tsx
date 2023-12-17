@@ -3,7 +3,7 @@
 import { SubmitHandler, useFieldArray, useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import { BsTrash3Fill } from "react-icons/bs";
-import { useId } from "react";
+import { useId, useState } from "react";
 import { fetchToChangeDataOnServer } from "@/lib/utils";
 import { toast } from "../ui/use-toast";
 
@@ -27,13 +27,14 @@ type FormData = {
 };
 
 const styles = {
-  inputContainer: `flex flex-col space-y-2`,
+  inputContainer: "flex flex-col space-y-2",
   inputLabel: "text-[0.8rem] font-medium",
   inputError: "w-full px-3 py-2 border rounded focus:outline-none",
   spanError: "text-[0.8rem] font-medium text-red-500",
 };
 
 const HomeworkInput: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const uniqId = useId();
 
   const {
@@ -84,26 +85,31 @@ const HomeworkInput: React.FC = () => {
   };
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    console.log(data);
-    const newHomework = {
-      id: uniqId,
-      date: data.date,
-      homework: [data.reading, data.writting],
-    };
-    const response = await fetchToChangeDataOnServer("homework", "post", newHomework);
+    try {
+      setLoading(true);
+      const newHomework = {
+        id: uniqId,
+        date: data.date,
+        homework: [data.reading, data.writting],
+      };
+      const response = await fetchToChangeDataOnServer("homework", "post", newHomework);
 
-    if (response.ok) {
-      toast({
-        title: "Додано домашнє по наступним темам:",
-        description: (
-          <p className="mt-2 w-[340px] rounded-md py-4">
-            Читання: {data.reading.listOfThemes?.map((theme) => theme.title)}; Практичне:{" "}
-            {data.writting.links?.map((link) => link.title)};
-          </p>
-        ),
-      });
+      if (response.ok) {
+        toast({
+          title: "Додано домашнє по наступним темам:",
+          description: (
+            <p className="mt-2 w-[340px] rounded-md py-4">
+              Читання: {data.reading.listOfThemes?.map((theme) => theme.title)}; Практичне:{" "}
+              {data.writting.links?.map((link) => link.title)};
+            </p>
+          ),
+        });
+      }
+      setLoading(false);
+      reset();
+    } catch (error) {
+      console.log(error);
     }
-    reset();
   };
 
   const { inputContainer, inputLabel, inputError, spanError } = styles;
@@ -126,7 +132,7 @@ const HomeworkInput: React.FC = () => {
             Читання:
           </label>
           <input
-            {...register(`reading.action`, { required: "Це поле є обов'язковим" })}
+            {...register("reading.action", { required: "Це поле є обов'язковим" })}
             className={`${inputError} ${
               errors?.reading?.action ? "border-red-500" : "focus:border-accent"
             }`}
@@ -190,7 +196,7 @@ const HomeworkInput: React.FC = () => {
                 size="icon"
                 className="opacity-0 group-hover:opacity-100 absolute transition-opacity top-1 right-1"
                 onClick={() => readingRemove(index)}>
-                <BsTrash3Fill className="text-red-500"/>
+                <BsTrash3Fill className="text-red-500" />
               </Button>
             </div>
           );
@@ -207,7 +213,7 @@ const HomeworkInput: React.FC = () => {
             Практичні:
           </label>
           <input
-            {...register(`writting.action`, { required: "Це поле є обов'язковим" })}
+            {...register("writting.action", { required: "Це поле є обов'язковим" })}
             className={`${inputError} ${
               errors?.writting?.action ? "border-red-500" : "focus:border-accent"
             }`}
@@ -268,7 +274,7 @@ const HomeworkInput: React.FC = () => {
                 size="icon"
                 className="opacity-0 group-hover:opacity-100 absolute transition-opacity top-1 right-1"
                 onClick={() => writtingRemove(index)}>
-                <BsTrash3Fill className="text-red-500"/>
+                <BsTrash3Fill className="text-red-500" />
               </Button>
             </div>
           );
@@ -280,7 +286,7 @@ const HomeworkInput: React.FC = () => {
         </div>
 
         <div className="flex items-center mt-4">
-          <Button type="submit">Записати</Button>
+          <Button type="submit">{loading ? "Виконую..." : "Змінити"}</Button>
         </div>
       </div>
     </form>

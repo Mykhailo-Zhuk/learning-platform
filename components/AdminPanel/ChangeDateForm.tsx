@@ -20,26 +20,36 @@ import {
 } from "@/components/ui/form";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { toast } from "@/components/ui/use-toast";
+import { useState } from "react";
 
 const FormSchema = z.object({
   date: z.date(),
 });
 
 const ChangeDateForm = () => {
+  const [loading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-    const response = await fetchToChangeDataOnServer("time", "post", {
-      date: format(data.date, "dd.MM.yyyy"),
-    });
-
-    if (response.ok) {
-      toast({
-        title: "Обрано наступну дату:",
-        description: <p className="mt-2 w-[340px] rounded-md">{format(data.date, "dd.MM.yyyy")}</p>,
+    try {
+      setLoading(true);
+      const response = await fetchToChangeDataOnServer("time", "post", {
+        date: format(data.date, "dd.MM.yyyy"),
       });
+
+      if (response.ok) {
+        toast({
+          title: "Обрано наступну дату:",
+          description: (
+            <p className="mt-2 w-[340px] rounded-md">{format(data.date, "dd.MM.yyyy")}</p>
+          ),
+        });
+      }
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
     }
   };
   const today = new Date();
@@ -84,7 +94,7 @@ const ChangeDateForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Змінити</Button>
+        <Button type="submit">{loading ? "Виконую..." : "Змінити"}</Button>
       </form>
     </Form>
   );

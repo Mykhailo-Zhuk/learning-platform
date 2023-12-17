@@ -17,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { fetchToChangeDataOnServer } from "@/lib/utils";
+import { useState } from "react";
 
 const FormSchema = z.object({
   start_time: z
@@ -34,6 +35,7 @@ const FormSchema = z.object({
 });
 
 const ChangeTimeForm = () => {
+  const [loading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -43,30 +45,36 @@ const ChangeTimeForm = () => {
   });
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-    const isValidTimeFormat = (time: string) => /^\d{2}:\d{2}$/.test(time);
+    try {
+      setLoading(true);
+      const isValidTimeFormat = (time: string) => /^\d{2}:\d{2}$/.test(time);
 
-    const formattedStartTime = isValidTimeFormat(data.start_time)
-      ? data.start_time
-      : `${data.start_time.slice(0, 2)}:00`;
+      const formattedStartTime = isValidTimeFormat(data.start_time)
+        ? data.start_time
+        : `${data.start_time.slice(0, 2)}:00`;
 
-    const formattedEndTime = isValidTimeFormat(data.end_time)
-      ? data.end_time
-      : `${data.end_time.slice(0, 2)}:00`;
+      const formattedEndTime = isValidTimeFormat(data.end_time)
+        ? data.end_time
+        : `${data.end_time.slice(0, 2)}:00`;
 
-    const newTime = {
-      start_time: formattedStartTime,
-      end_time: formattedEndTime,
-    };
+      const newTime = {
+        start_time: formattedStartTime,
+        end_time: formattedEndTime,
+      };
 
-    const response = await fetchToChangeDataOnServer("time", "post", newTime);
+      const response = await fetchToChangeDataOnServer("time", "post", newTime);
 
-    if (response.ok) {
-      toast({
-        title: "Обрано наступний час:",
-        description: (
-          <p className="mt-2 w-[340px] rounded-md p-4">{`${formattedStartTime} - ${formattedEndTime}`}</p>
-        ),
-      });
+      if (response.ok) {
+        toast({
+          title: "Обрано наступний час:",
+          description: (
+            <p className="mt-2 w-[340px] rounded-md p-4">{`${formattedStartTime} - ${formattedEndTime}`}</p>
+          ),
+        });
+      }
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -108,7 +116,7 @@ const ChangeTimeForm = () => {
           />
         </div>
         <div className="flex items-center">
-          <Button type="submit">Змінити</Button>
+          <Button type="submit">{loading ? "Виконую..." : "Змінити"}</Button>
         </div>
       </form>
     </Form>

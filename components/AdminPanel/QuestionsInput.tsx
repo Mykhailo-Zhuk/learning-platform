@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { fetchToChangeDataOnServer } from "@/lib/utils";
 import { toast } from "../ui/use-toast";
 import { BsTrash3Fill } from "react-icons/bs";
+import { useState } from "react";
 
 type Task = {
   id: number;
@@ -21,13 +22,14 @@ type FormData = {
 };
 
 const styles = {
-  inputContainer: `flex flex-col space-y-2`,
+  inputContainer: "flex flex-col space-y-2",
   inputLabel: "text-[0.8rem] font-medium",
   inputError: "w-full px-3 py-2 border rounded focus:outline-none",
   spanError: "text-[0.8rem] font-medium text-red-500",
 };
 
 const QuestionsInput = () => {
+  const [loading, setLoading] = useState(false);
   const {
     register,
     control,
@@ -56,36 +58,42 @@ const QuestionsInput = () => {
   };
 
   const onSubmit = async (data: any) => {
-    const createOptionsArray = (optionsString: string) => {
-      return optionsString.split(",").map((option) => option.trim());
-    };
+    try {
+      setLoading(true);
+      const createOptionsArray = (optionsString: string) => {
+        return optionsString.split(",").map((option) => option.trim());
+      };
 
-    const newSection = {
-      [data.section]: {
-        subtitle: data.subtitle,
-        tasks: data.tasks.map(
-          (item: {
-            correctAnswer: string;
-            id: number;
-            options: string;
-            question: string;
-            level: string;
-          }) => {
-            return { ...item, options: createOptionsArray(item.options) };
-          },
-        ),
-      },
-    };
+      const newSection = {
+        [data.section]: {
+          subtitle: data.subtitle,
+          tasks: data.tasks.map(
+            (item: {
+              correctAnswer: string;
+              id: number;
+              options: string;
+              question: string;
+              level: string;
+            }) => {
+              return { ...item, options: createOptionsArray(item.options) };
+            },
+          ),
+        },
+      };
 
-    const response = await fetchToChangeDataOnServer("questions", "post", newSection);
+      const response = await fetchToChangeDataOnServer("questions", "post", newSection);
 
-    if (response.ok) {
-      toast({
-        title: "Додано нову секцію із завданнями:",
-        description: <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{data.subtitle}</p>,
-      });
+      if (response.ok) {
+        toast({
+          title: "Додано нову секцію із завданнями:",
+          description: <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{data.subtitle}</p>,
+        });
+      }
+      setLoading(false);
+      reset();
+    } catch (error) {
+      console.log(error);
     }
-    reset();
   };
 
   const { inputContainer, inputLabel, inputError, spanError } = styles;
@@ -212,7 +220,7 @@ const QuestionsInput = () => {
         </Button>
       </div>
       <div className="flex items-center mt-4">
-        <Button type="submit">Записати</Button>
+        <Button type="submit">{loading ? "Виконую..." : "Змінити"}</Button>
       </div>
     </form>
   );
