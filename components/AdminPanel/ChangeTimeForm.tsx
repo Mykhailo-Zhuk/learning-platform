@@ -80,8 +80,10 @@ const ChangeTimeForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-2/6 space-y-6">
-        <div className="flex space-x-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex flex-col max-[600px]:items-center w-full lg:w-1/2 space-y-6">
+        <div className="flex max-[600px]:flex-col max-[600px]:space-y-5 min-[600px]:space-x-6">
           <FormField
             control={form.control}
             name="start_time"
@@ -89,7 +91,7 @@ const ChangeTimeForm = () => {
               <FormItem>
                 <FormLabel className="whitespace-nowrap">Змінити час початку</FormLabel>
                 <FormControl>
-                  <Input placeholder="10:00" {...field} />
+                  <Input placeholder="10:00" {...field} className="max-w-[240px]" />
                 </FormControl>
                 <FormDescription className="whitespace-nowrap">
                   Це час початку заняття
@@ -105,7 +107,7 @@ const ChangeTimeForm = () => {
               <FormItem>
                 <FormLabel className="whitespace-nowrap">Змінити час закінчення</FormLabel>
                 <FormControl>
-                  <Input placeholder="12:00" {...field} />
+                  <Input placeholder="12:00" {...field} className="max-w-[240px]" />
                 </FormControl>
                 <FormDescription className="whitespace-nowrap">
                   Це час закінчення заняття

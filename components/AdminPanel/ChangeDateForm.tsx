@@ -58,43 +58,49 @@ const ChangeDateForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-2/6">
-        <FormField
-          control={form.control}
-          name="date"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>Дата заняття</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground",
-                      )}>
-                      {field.value ? format(field.value, "PPP") : <span>Обрати дату</span>}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) => isAfter(date, oneWeekFromNow) || isBefore(date, today)}
-                    initialFocus
-                  />
-                </PopoverContent>
-              </Popover>
-              <FormDescription>Це дата майбутнього заняття</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">{loading ? "Виконую..." : "Змінити"}</Button>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex flex-col space-y-8 max-md:w-full w-1/2 lg:w-2/6 max-[600px]:items-center">
+        <div className="flex max-md:flex-col max-md:space-y-5 md:space-x-6">
+          <FormField
+            control={form.control}
+            name="date"
+            render={({ field }) => (
+              <FormItem className="flex flex-col">
+                <FormLabel>Дата заняття</FormLabel>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant={"outline"}
+                        className={cn(
+                          "max-w-[240px] pl-3 text-left font-normal",
+                          !field.value && "text-muted-foreground",
+                        )}>
+                        {field.value ? format(field.value, "PPP") : <span>Обрати дату</span>}
+                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      disabled={(date) => isAfter(date, oneWeekFromNow) || isBefore(date, today)}
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
+                <FormDescription>Це дата майбутнього заняття</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <div className="flex items-center">
+          <Button type="submit">{loading ? "Виконую..." : "Змінити"}</Button>
+        </div>
       </form>
     </Form>
   );

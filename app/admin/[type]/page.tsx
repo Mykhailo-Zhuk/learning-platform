@@ -39,7 +39,7 @@ const Content = ({ params }: { params: { type: string } }) => {
 
   return (
     <section>
-      <div className="max-w-[1400px] mx-auto p-5 grid grid-cols-[minmax(200px,_250px)_auto]">
+      <div className="max-w-[1400px] max-md:flex max-md:flex-col max-md:space-y-5 mx-auto p-5 grid grid-cols-[minmax(200px,_250px)_auto] gap-x-12">
         <AdminPanelList />
         {content}
       </div>
