@@ -3,14 +3,23 @@
 import { SubmitHandler, useFieldArray, useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import { BsTrash3Fill } from "react-icons/bs";
-import { useId, useState } from "react";
+import { useState } from "react";
 import { fetchToChangeDataOnServer } from "@/lib/utils";
 import { toast } from "../ui/use-toast";
+import { v4 as uuidv4 } from "uuid";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 type Theme = {
   id: number;
   link: string;
   title: string;
+  type?: string;
 };
 
 type HomeworkItem = {
@@ -35,13 +44,13 @@ const styles = {
 
 const HomeworkInput: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const uniqId = useId();
 
   const {
     register,
     control,
     handleSubmit,
     formState: { errors },
+    setValue,
     reset,
   } = useForm<FormData>({
     defaultValues: {
@@ -49,13 +58,13 @@ const HomeworkInput: React.FC = () => {
       reading: {
         id: 1,
         action: "Прочитати теми: ",
-        listOfThemes: [{ id: 1, link: "", title: "" }],
+        listOfThemes: [{ id: 1, link: "", title: "", type: "text" }],
       },
 
       writting: {
         id: 2,
         action: "Ознайомитися із практичними завданнями та тестами по темах: ",
-        links: [{ id: 1, link: "", title: "" }],
+        links: [{ id: 1, link: "", title: "", type: "text" }],
       },
     },
   });
@@ -78,17 +87,17 @@ const HomeworkInput: React.FC = () => {
   });
 
   const AppendReadingListHandler = () => {
-    readingAppend({ id: readingFields.length + 1, link: "", title: "" });
+    readingAppend({ id: readingFields.length + 1, link: "", title: "", type: "text" });
   };
   const AppendWrittingListHandler = () => {
-    writtingAppend({ id: writtingFields.length + 1, link: "", title: "" });
+    writtingAppend({ id: writtingFields.length + 1, link: "", title: "", type: "text" });
   };
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       setLoading(true);
       const newHomework = {
-        id: uniqId,
+        id: uuidv4(),
         date: data.date,
         homework: [data.reading, data.writting],
       };
@@ -113,7 +122,6 @@ const HomeworkInput: React.FC = () => {
   };
 
   const { inputContainer, inputLabel, inputError, spanError } = styles;
-
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-screen-md mx-auto">
       <div className="space-y-4 p-6 border rounded-lg shadow-md">
@@ -141,13 +149,12 @@ const HomeworkInput: React.FC = () => {
             <span className={spanError}>{errors.reading?.action?.message}</span>
           )}
         </div>
-
         {/* Читання */}
         {readingFields.map((fields, index) => {
           return (
             <div
               key={fields.id}
-              className="relative p-5 hover:outline hover:outline-1 hover:outline-accent rounded-lg group">
+              className="relative flex flex-col space-y-3 p-5 hover:outline hover:outline-1 hover:outline-accent rounded-lg group">
               <div className={inputContainer}>
                 <label htmlFor={`reading.listOfThemes.${index}.title`} className={inputLabel}>
                   Назва
@@ -172,12 +179,10 @@ const HomeworkInput: React.FC = () => {
 
               <div className={inputContainer}>
                 <label htmlFor={`reading.listOfThemes.${index}.link`} className={inputLabel}>
-                  Силка
+                  Силка | Текст
                 </label>
                 <input
-                  {...register(`reading.listOfThemes.${index}.link`, {
-                    required: "Це поле є обов'язковим",
-                  })}
+                  {...register(`reading.listOfThemes.${index}.link`)}
                   placeholder="https://w3schoolsua.github.io/html/html5_semantic_elements.html"
                   className={`${inputError} ${
                     errors?.reading?.listOfThemes?.[index]
@@ -191,23 +196,34 @@ const HomeworkInput: React.FC = () => {
                   </span>
                 )}
               </div>
+              <div className="flex justify-end">
+                <Select
+                  onValueChange={(type) => setValue(`reading.listOfThemes.${index}.type`, type)}>
+                  <SelectTrigger className="w-fit">
+                    <SelectValue placeholder="Тип" />
+                  </SelectTrigger>
+                  <SelectContent className="min-w-fit">
+                    <SelectItem value="text">Текст</SelectItem>
+                    <SelectItem value="a">Зовнішня силка</SelectItem>
+                    <SelectItem value="link">Внутрішня силка</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
               <Button
                 variant="ghost"
                 size="icon"
-                className="opacity-0 group-hover:opacity-100 absolute transition-opacity top-1 right-1"
+                className="opacity-0 group-hover:opacity-100 absolute transition-opacity -top-3 right-0"
                 onClick={() => readingRemove(index)}>
                 <BsTrash3Fill className="text-red-500" />
               </Button>
             </div>
           );
         })}
-
         <div className="flex justify-end space-x-3">
           <Button variant="ghost" onClick={AppendReadingListHandler}>
             Додати
           </Button>
         </div>
-
         <div className={inputContainer}>
           <label htmlFor="writting.action" className={inputLabel}>
             Практичні:
@@ -228,7 +244,7 @@ const HomeworkInput: React.FC = () => {
           return (
             <div
               key={fields.id}
-              className="relative p-5 hover:outline-1 hover:outline hover:outline-accent rounded-lg group">
+              className="relative flex flex-col space-y-3 p-5 hover:outline-1 hover:outline hover:outline-accent rounded-lg group">
               <div className={inputContainer}>
                 <label htmlFor={`writting.links.${index}.title`} className={inputLabel}>
                   Назва
@@ -252,15 +268,15 @@ const HomeworkInput: React.FC = () => {
               </div>
               <div className={inputContainer}>
                 <label htmlFor={`writting.links.${index}.link`} className={inputLabel}>
-                  Силка
+                  Силка | Текст
                 </label>
                 <input
-                  {...register(`writting.links.${index}.link`, {
-                    required: "Це поле є обов'язковим",
-                  })}
+                  {...register(`writting.links.${index}.link`)}
                   placeholder="tasks/html_semantics"
                   className={`${inputError} ${
-                    errors?.writting?.links?.[index] ? "border-red-500" : "focus:border-accent"
+                    errors?.writting?.links?.[index]?.link
+                      ? "border-red-500"
+                      : "focus:border-accent"
                   }`}
                 />
                 {errors.writting?.links?.[index]?.link && (
@@ -269,10 +285,23 @@ const HomeworkInput: React.FC = () => {
                   </span>
                 )}
               </div>
+              <div className="flex justify-end">
+                <Select onValueChange={(type) => setValue(`writting.links.${index}.type`, type)}>
+                  <SelectTrigger className="w-fit">
+                    <SelectValue placeholder="Тип" />
+                  </SelectTrigger>
+                  <SelectContent className="min-w-fit">
+                    <SelectItem value="text">Текст</SelectItem>
+                    <SelectItem value="a">Зовнішня силка</SelectItem>
+                    <SelectItem value="link">Внутрішня силка</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
               <Button
                 variant="ghost"
                 size="icon"
-                className="opacity-0 group-hover:opacity-100 absolute transition-opacity top-1 right-1"
+                className="opacity-0 group-hover:opacity-100 absolute transition-opacity -top-3 right-0"
                 onClick={() => writtingRemove(index)}>
                 <BsTrash3Fill className="text-red-500" />
               </Button>
@@ -284,9 +313,8 @@ const HomeworkInput: React.FC = () => {
             Додати
           </Button>
         </div>
-
         <div className="flex items-center mt-4">
-          <Button type="submit">{loading ? "Виконую..." : "Змінити"}</Button>
+          <Button type="submit">{loading ? "Виконую..." : "Записати"}</Button>
         </div>
       </div>
     </form>

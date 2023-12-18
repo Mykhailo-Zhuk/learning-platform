@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json();
 
-  const newHomework = { ...currentHomework, ...body };
+  const newHomework = [...currentHomework, body];
 
   const homework = await client.json.set("homework", "$", newHomework);
 

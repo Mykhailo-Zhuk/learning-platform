@@ -10,32 +10,38 @@
           {
             "id": 1,
             "link": "https://w3schoolsua.github.io/html/html5_semantic_elements.html",
-            "title": "HTML Семантика"
+            "title": "HTML Семантика",
+            "type": "a"
           },
           {
             "id": 2,
             "link": "https://w3schoolsua.github.io/html/html_basic.html#gsc.tab=0",
-            "title": "HTML Основні приклади"
+            "title": "HTML Основні приклади",
+            "type": "a"
           },
           {
             "id": 3,
             "link": "https://w3schoolsua.github.io/html/html_elements.html",
-            "title": "HTML Елементи"
+            "title": "HTML Елементи",
+            "type": "a"
           },
           {
             "id": 4,
             "link": "https://w3schoolsua.github.io/html/html_attributes.html",
-            "title": "HTML Атрибути"
+            "title": "HTML Атрибути",
+            "type": "a"
           },
           {
             "id": 5,
             "link": "https://w3schoolsua.github.io/html/html_headings.html#gsc.tab=0",
-            "title": "HTML Загаловки"
+            "title": "HTML Загаловки",
+            "type": "a"
           },
           {
             "id": 6,
             "link": "https://w3schoolsua.github.io/html/html_paragraphs.html",
-            "title": "HTML Параграфи"
+            "title": "HTML Параграфи",
+            "type": "a"
           }
         ]
       },
@@ -43,9 +49,14 @@
         "id": 2,
         "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
         "links": [
-          { "id": 1, "title": "HTML Синтаксис та структура", "link": "tasks/html_syntax" },
-          { "id": 2, "title": "HTML Семантика", "link": "tasks/html_semantics" },
-          { "id": 3, "title": "HTML Теги", "link": "tasks/html_tags" }
+          {
+            "id": 1,
+            "title": "HTML Синтаксис та структура",
+            "link": "tasks/html_syntax",
+            "type": "link"
+          },
+          { "id": 2, "title": "HTML Семантика", "link": "tasks/html_semantics", "type": "link" },
+          { "id": 3, "title": "HTML Теги", "link": "tasks/html_tags", "type": "link" }
         ]
       }
     ]
@@ -61,102 +72,122 @@
           {
             "id": 1,
             "link": "https://w3schoolsua.github.io/html/html_formatting.html",
-            "title": "HTML Форматування"
+            "title": "HTML Форматування",
+            "type": "a"
           },
           {
             "id": 2,
             "link": "https://w3schoolsua.github.io/html/html_quotation_elements.html",
-            "title": "HTML Цитати"
+            "title": "HTML Цитати",
+            "type": "a"
           },
           {
             "id": 3,
             "link": "https://w3schoolsua.github.io/html/html_colors.html",
-            "title": "HTML Кольори"
+            "title": "HTML Кольори",
+            "type": "a"
           },
           {
             "id": 4,
             "link": "https://w3schoolsua.github.io/html/html_links.html",
-            "title": "HTML Посилання"
+            "title": "HTML Посилання",
+            "type": "a"
           },
           {
             "id": 5,
             "link": "https://w3schoolsua.github.io/html/html_images.html",
-            "title": "HTML Зображення"
+            "title": "HTML Зображення",
+            "type": "a"
           },
           {
             "id": 6,
             "link": "https://w3schoolsua.github.io/html/html_favicon.html",
-            "title": "HTML Фавікон"
+            "title": "HTML Фавікон",
+            "type": "a"
           },
           {
             "id": 7,
             "link": "https://w3schoolsua.github.io/html/html_tables.html#gsc.tab=0",
-            "title": "HTML Таблиці"
+            "title": "HTML Таблиці",
+            "type": "a"
           },
           {
             "id": 8,
             "link": "https://w3schoolsua.github.io/html/html_lists.html",
-            "title": "HTML Списки"
+            "title": "HTML Списки",
+            "type": "a"
           },
           {
             "id": 9,
             "link": "https://w3schoolsua.github.io/html/html_blocks.html",
-            "title": "HTML Block & Inline"
+            "title": "HTML Block & Inline",
+            "type": "a"
           },
           {
             "id": 10,
             "link": "https://w3schoolsua.github.io/html/html_classes.html",
-            "title": "HTML Класи"
+            "title": "HTML Класи",
+            "type": "a"
           },
           {
             "id": 11,
             "link": "https://w3schoolsua.github.io/html/html_id.html",
-            "title": "HTML ІД"
+            "title": "HTML ІД",
+            "type": "a"
           },
           {
             "id": 12,
             "link": "https://w3schoolsua.github.io/html/html_iframe.html",
-            "title": "HTML Фрейми"
+            "title": "HTML Фрейми",
+            "type": "a"
           },
           {
             "id": 13,
             "link": "https://w3schoolsua.github.io/html/html5_semantic_elements.html",
-            "title": "HTML Семантика"
+            "title": "HTML Семантика",
+            "type": "a"
           },
           {
             "id": 14,
             "link": "https://w3schoolsua.github.io/html/html5_syntax.html",
-            "title": "HTML Гід по стилю"
+            "title": "HTML Гід по стилю",
+            "type": "a"
           },
           {
             "id": 15,
             "link": "https://w3schoolsua.github.io/html/html_symbols.html",
-            "title": "HTML Символи"
+            "title": "HTML Символи",
+            "type": "a"
           },
           {
             "id": 16,
             "link": "https://w3schoolsua.github.io/html/html_emojis.html",
-            "title": "HTML Емоуджі/Смайли"
+            "title": "HTML Емоуджі/Смайли",
+            "type": "a"
           },
           {
             "id": 17,
             "link": "https://w3schoolsua.github.io/html/html_charset.html",
-            "title": "HTML Набір символів"
+            "title": "HTML Набір символів",
+            "type": "a"
           },
           {
             "id": 18,
             "link": "https://w3schoolsua.github.io/html/html_urlencode.html",
-            "title": "HTML URL кодування"
+            "title": "HTML URL кодування",
+            "type": "a"
           },
           {
             "id": 19,
             "link": "https://w3schoolsua.github.io/html/html_forms.html",
-            "title": "Розділ про HTML Форми"
+            "title": "Розділ про HTML Форми",
+            "type": "a"
           },
           {
             "id": 20,
             "link": "https://w3schoolsua.github.io/html/html_media.html",
-            "title": "Розділ про HTML Медіа"
+            "title": "Розділ про HTML Медіа",
+            "type": "a"
           }
         ]
       },
@@ -164,8 +195,8 @@
         "id": 2,
         "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
         "links": [
-          { "id": 1, "title": "HTML Теги", "link": "tasks/html_tags" },
-          { "id": 2, "title": "HTML Атрибути", "link": "tasks/html_atributes" }
+          { "id": 1, "title": "HTML Теги", "link": "tasks/html_tags", "type": "link" },
+          { "id": 2, "title": "HTML Атрибути", "link": "tasks/html_atributes", "type": "link" }
         ]
       }
     ]
@@ -181,109 +212,129 @@
           {
             "id": 1,
             "link": "https://w3schoolsua.github.io/css/css_syntax.html",
-            "title": "CSS Синтаксис"
+            "title": "CSS Синтаксис",
+            "type": "a"
           },
           {
             "id": 2,
             "link": "https://w3schoolsua.github.io/css/css_selectors.html",
-            "title": "CSS Селектори"
+            "title": "CSS Селектори",
+            "type": "a"
           },
           {
             "id": 3,
             "link": "https://w3schoolsua.github.io/css/css_howto.html",
-            "title": "CSS Як підключити"
+            "title": "CSS Як підключити",
+            "type": "a"
           },
           {
             "id": 4,
             "link": "https://w3schoolsua.github.io/css/css_comments.html",
-            "title": "CSS Коментарі"
+            "title": "CSS Коментарі",
+            "type": "a"
           },
           {
             "id": 5,
             "link": "https://w3schoolsua.github.io/css/css_colors.html",
-            "title": "CSS Кольори"
+            "title": "CSS Кольори",
+            "type": "a"
           },
           {
             "id": 6,
             "link": "https://w3schoolsua.github.io/css/css_background.html",
-            "title": "CSS Фони"
+            "title": "CSS Фони",
+            "type": "a"
           },
           {
             "id": 7,
             "link": "https://w3schoolsua.github.io/css/css_border.html",
-            "title": "CSS Межі"
+            "title": "CSS Межі",
+            "type": "a"
           },
           {
             "id": 8,
             "link": "https://w3schoolsua.github.io/css/css_margin.html",
-            "title": "CSS Поля"
+            "title": "CSS Поля",
+            "type": "a"
           },
           {
             "id": 9,
             "link": "https://w3schoolsua.github.io/css/css_padding.html",
-            "title": "CSS Внутрішній відступ"
+            "title": "CSS Внутрішній відступ",
+            "type": "a"
           },
           {
             "id": 10,
             "link": "https://w3schoolsua.github.io/css/css_dimension.html#gsc.tab=0",
-            "title": "CSS Висота/Ширина"
+            "title": "CSS Висота/Ширина",
+            "type": "a"
           },
           {
             "id": 11,
             "link": "https://w3schoolsua.github.io/css/css_boxmodel.html#gsc.tab=0",
-            "title": "CSS Блочна модель"
+            "title": "CSS Блочна модель",
+            "type": "a"
           },
           {
             "id": 12,
             "link": "https://w3schoolsua.github.io/css/css_text.html#gsc.tab=0",
-            "title": "CSS Текст"
+            "title": "CSS Текст",
+            "type": "a"
           },
           {
             "id": 13,
             "link": "https://w3schoolsua.github.io/css/css_font.html",
-            "title": "CSS Шрифти"
+            "title": "CSS Шрифти",
+            "type": "a"
           },
           {
             "id": 14,
             "link": "https://w3schoolsua.github.io/css/css_icons.html#gsc.tab=0",
-            "title": "CSS Іконки"
+            "title": "CSS Іконки",
+            "type": "a"
           },
           {
             "id": 15,
             "link": "https://w3schoolsua.github.io/css/css_link.html#gsc.tab=0",
-            "title": "CSS Посилання"
+            "title": "CSS Посилання",
+            "type": "a"
           },
           {
             "id": 16,
             "link": "https://w3schoolsua.github.io/css/css_list.html#gsc.tab=0",
-            "title": "CSS Списки"
+            "title": "CSS Списки",
+            "type": "a"
           },
           {
             "id": 17,
             "link": "https://w3schoolsua.github.io/css/css_table.html#gsc.tab=0",
-            "title": "CSS Таблиці"
+            "title": "CSS Таблиці",
+            "type": "a"
           },
           {
             "id": 18,
             "link": "https://w3schoolsua.github.io/css/css_display_visibility.html#gsc.tab=0",
-            "title": "CSS Display"
+            "title": "CSS Display",
+            "type": "a"
           },
           {
             "id": 19,
             "link": "https://w3schoolsua.github.io/css/css_max-width.html#gsc.tab=0",
-            "title": "CSS Max-width"
+            "title": "CSS Max-width",
+            "type": "a"
           },
           {
             "id": 20,
             "link": "https://w3schoolsua.github.io/css/css_positioning.html#gsc.tab=0",
-            "title": "CSS Position"
+            "title": "CSS Position",
+            "type": "a"
           }
         ]
       },
       {
         "id": 2,
         "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
-        "links": [{ "id": 1, "title": "CSS", "link": "tasks/css" }]
+        "links": [{ "id": 1, "title": "CSS", "link": "tasks/css", "type": "link" }]
       }
     ]
   },
@@ -298,67 +349,80 @@
           {
             "id": 1,
             "link": "https://w3schoolsua.github.io/css/css_display_visibility.html#gsc.tab=0",
-            "title": "CSS Display"
+            "title": "CSS Display",
+            "type": "a"
           },
           {
             "id": 2,
             "link": "https://w3schoolsua.github.io/css/css_max-width.html#gsc.tab=0",
-            "title": "CSS Max-width"
+            "title": "CSS Max-width",
+            "type": "a"
           },
           {
             "id": 3,
             "link": "https://w3schoolsua.github.io/css/css_positioning.html#gsc.tab=0",
-            "title": "CSS Position"
+            "title": "CSS Position",
+            "type": "a"
           },
           {
             "id": 4,
             "link": "https://w3schoolsua.github.io/css/css_z-index.html#gsc.tab=0",
-            "title": "CSS Z-index"
+            "title": "CSS Z-index",
+            "type": "a"
           },
           {
             "id": 5,
             "link": "https://w3schoolsua.github.io/css/css_overflow.html#gsc.tab=0",
-            "title": "CSS Overflow"
+            "title": "CSS Overflow",
+            "type": "a"
           },
           {
             "id": 6,
             "link": "https://w3schoolsua.github.io/css/css_float.html#gsc.tab=0",
-            "title": "CSS Float"
+            "title": "CSS Float",
+            "type": "a"
           },
           {
             "id": 7,
             "link": "https://w3schoolsua.github.io/css/css_inline-block.html#gsc.tab=0",
-            "title": "CSS Inline-block"
+            "title": "CSS Inline-block",
+            "type": "a"
           },
           {
             "id": 8,
             "link": "https://w3schoolsua.github.io/css/css_align.html#gsc.tab=0",
-            "title": "CSS Вирівнювання"
+            "title": "CSS Вирівнювання",
+            "type": "a"
           },
           {
             "id": 9,
             "link": "https://w3schoolsua.github.io/css/css_combinators.html#gsc.tab=0",
-            "title": "CSS Комбінатори"
+            "title": "CSS Комбінатори",
+            "type": "a"
           },
           {
             "id": 10,
             "link": "https://w3schoolsua.github.io/css/css_pseudo_classes.html#gsc.tab=0",
-            "title": "CSS Псевдокласи"
+            "title": "CSS Псевдокласи",
+            "type": "a"
           },
           {
             "id": 11,
             "link": "https://w3schoolsua.github.io/css/css_pseudo_elements.html#gsc.tab=0",
-            "title": "CSS Псевдоелементи"
+            "title": "CSS Псевдоелементи",
+            "type": "a"
           },
           {
             "id": 12,
             "link": "https://w3schoolsua.github.io/css/css_image_transparency.html#gsc.tab=0",
-            "title": "CSS Opacity"
+            "title": "CSS Opacity",
+            "type": "a"
           },
           {
             "id": 13,
             "link": "https://w3schoolsua.github.io/css/css_units.html#gsc.tab=0",
-            "title": "CSS Одиниці"
+            "title": "CSS Одиниці",
+            "type": "a"
           }
         ]
       },
@@ -366,11 +430,21 @@
         "id": 2,
         "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
         "links": [
-          { "id": 1, "title": "CSS Селектори", "link": "tasks/css_selectors" },
-          { "id": 2, "title": "CSS Комбінатори", "link": "tasks/css_combinator" },
-          { "id": 3, "title": "CSS Псевдокласи", "link": "tasks/css_preudo_classes" },
-          { "id": 4, "title": "CSS Псевдоелементи", "link": "tasks/css_pseudo_elements" },
-          { "id": 5, "title": "CSS Змінні", "link": "tasks/css_variables" }
+          { "id": 1, "title": "CSS Селектори", "link": "tasks/css_selectors", "type": "link" },
+          { "id": 2, "title": "CSS Комбінатори", "link": "tasks/css_combinator", "type": "link" },
+          {
+            "id": 3,
+            "title": "CSS Псевдокласи",
+            "link": "tasks/css_preudo_classes",
+            "type": "link"
+          },
+          {
+            "id": 4,
+            "title": "CSS Псевдоелементи",
+            "link": "tasks/css_pseudo_elements",
+            "type": "link"
+          },
+          { "id": 5, "title": "CSS Змінні", "link": "tasks/css_variables", "type": "link" }
         ]
       }
     ]
@@ -386,17 +460,20 @@
           {
             "id": 1,
             "link": "https://w3schoolsua.github.io/css/css3_flexbox.html#gsc.tab=0",
-            "title": "CSS Flexbox"
+            "title": "CSS Flexbox",
+            "type": "a"
           },
           {
             "id": 2,
             "link": "https://w3schoolsua.github.io/css/css3_mediaqueries.html#gsc.tab=0",
-            "title": "CSS Media запити"
+            "title": "CSS Media запити",
+            "type": "a"
           },
           {
             "id": 3,
             "link": "https://w3schoolsua.github.io/css/css3_mediaqueries_ex.html#gsc.tab=0",
-            "title": "CSS Приклади медіа запитів"
+            "title": "CSS Приклади медіа запитів",
+            "type": "a"
           }
         ]
       },
@@ -404,8 +481,8 @@
         "id": 2,
         "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
         "links": [
-          { "id": 1, "title": "CSS Flex", "link": "tasks/css_flex" },
-          { "id": 2, "title": "CSS Media Queries", "link": "tasks/media_queries" }
+          { "id": 1, "title": "CSS Flex", "link": "tasks/css_flex", "type": "link" },
+          { "id": 2, "title": "CSS Media Queries", "link": "tasks/media_queries", "type": "link" }
         ]
       }
     ]
@@ -421,12 +498,14 @@
           {
             "id": 1,
             "link": "https://learngitbranching.js.org/?locale=uk",
-            "title": "Git"
+            "title": "Git",
+            "type": "a"
           },
           {
             "id": 2,
-            "link": "",
-            "title": "Знання про веб-технології та мережу інтернет із цього сайту"
+            "link": "textbook/web_technology",
+            "title": "Знання про веб-технології та мережу інтернет із цього сайту",
+            "type": "link"
           }
         ]
       },
@@ -434,8 +513,44 @@
         "id": 2,
         "action": "Ознайомитися із практичними завданнями та тестами по темах: ",
         "links": [
-          { "id": 1, "title": "Git", "link": "tasks/git" },
-          { "id": 2, "title": "Веб-технології", "link": "tasks/web_technology" }
+          { "id": 1, "title": "Git", "link": "tasks/git", "type": "link" },
+          { "id": 2, "title": "Веб-технології", "link": "tasks/web_technology", "type": "link" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "date": "09.12.2023",
+    "homework": [
+      {
+        "action": "Прочитати теми: ",
+        "id": 1,
+        "listOfThemes": [
+          {
+            "id": 1,
+            "link": "https://w3schoolsua.github.io/js/js_variables.html",
+            "title": "JS Змінні",
+            "type": "a"
+          },
+          {
+            "id": 2,
+            "link": "https://w3schoolsua.github.io/js/js_syntax.html",
+            "title": "JS Синтаксис",
+            "type": "a"
+          }
+        ]
+      },
+      {
+        "action": "Ознайомитися із практичними завданнями: ",
+        "id": 2,
+        "links": [
+          {
+            "id": 1,
+            "link": "https://www.figma.com/file/7wJSAi3SYBFUCk2Rh44YnT/Responsive-Landing-Page-Design-%7C-Website-Home-Page-Design-%7C-Agency-Website-UI-Design-(Community)?type=design&node-id=1-720&mode=design&t=Mt8xhYuCus4yzVTC-0",
+            "title": "Верстаємо секції згідно із макетом",
+            "type": "a"
+          }
         ]
       }
     ]

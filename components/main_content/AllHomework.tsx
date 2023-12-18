@@ -14,8 +14,10 @@ import { Skeleton } from "../ui/skeleton";
 
 const AllHomework = () => {
   const [loading, setLoading] = useState(true);
-  const homework = useStore((state) => state.homework);
+  const initialHomework = useStore((state) => state.homework);
   const getHomework = useStore((state) => state.getHomework);
+
+  const homework = initialHomework.reverse();
 
   useEffect(() => {
     const fetchData = async () => {

@@ -17,6 +17,7 @@ const Homework = () => {
   const homework = useStore((state) => state.homework);
   const getHomework = useStore((state) => state.getHomework);
 
+  console.log(homework);
   useEffect(() => {
     const fetchData = async () => {
       await getHomework();
@@ -46,27 +47,64 @@ const Homework = () => {
                         <p className="font-bold">{work?.action}</p>
                         {work?.listOfThemes
                           ? work?.listOfThemes?.map((theme) => {
-                              return (
-                                <a
-                                  key={theme?.id}
-                                  href={theme?.link}
-                                  className="text-blue-500 flex-shrink-0 pb-1"
-                                  target="_blank">
-                                  {theme?.title + ","}
-                                </a>
-                              );
+                              if (theme?.type === "link") {
+                                return (
+                                  <Link
+                                    key={theme?.id}
+                                    href={theme?.link}
+                                    className="text-blue-500 flex-shrink-0 pb-1"
+                                    target="_blank">
+                                    {theme?.title + ", "}
+                                  </Link>
+                                );
+                              }
+
+                              if (theme?.type === "a") {
+                                return (
+                                  <a
+                                    key={theme?.id}
+                                    href={theme?.link}
+                                    className="text-blue-500 flex-shrink-0 pb-1"
+                                    target="_blank">
+                                    {theme?.title + ", "}
+                                  </a>
+                                );
+                              }
+
+                              if (theme?.type === "text") {
+                                return theme.title + " " + theme.link + ", ";
+                              }
                             })
                           : null}
                         {work?.links
                           ? work?.links.map((theme) => {
-                              return (
-                                <Link
-                                  key={theme?.id}
-                                  href={theme?.link}
-                                  className="text-blue-500 flex-shrink-0 pb-1">
-                                  {theme?.title + ","}
-                                </Link>
-                              );
+                              if (theme?.type === "link") {
+                                return (
+                                  <Link
+                                    key={theme?.id}
+                                    href={theme?.link}
+                                    className="text-blue-500 flex-shrink-0 pb-1"
+                                    target="_blank">
+                                    {theme?.title + ", "}
+                                  </Link>
+                                );
+                              }
+
+                              if (theme?.type === "a") {
+                                return (
+                                  <a
+                                    key={theme?.id}
+                                    href={theme?.link}
+                                    className="text-blue-500 flex-shrink-0 pb-1"
+                                    target="_blank">
+                                    {theme?.title + ", "}
+                                  </a>
+                                );
+                              }
+
+                              if (theme?.type === "text") {
+                                return theme.title + " " + theme.link + ", ";
+                              }
                             })
                           : null}
                       </li>

@@ -33,78 +33,79 @@ type List = {
   ];
 };
 
-type Store = {
-  users: { id: string | number; name: string; password: string; role: "admin" | "student" }[];
+type Users = { id: string | number; name: string; password: string; role: "admin" | "student" }[];
+type Tests = {
+  subtitle: string;
+  url: string;
   tests: {
-    subtitle: string;
-    url: string;
-    tests: {
-      id: number | string;
-      description: string;
-      options: string[];
-      tips: string[];
-      result: string;
-      extra?: boolean;
-    }[];
-  }[];
-
-  time: { start_time: string; end_time: string; date: string };
-
-  questions: {
-    subtitle: string;
-    url: string;
-    tasks: {
-      id: number;
-      question: string;
-      options: string[];
-      correctAnswer: string;
-      level?: string;
-    }[];
-  }[];
-
-  projects: {
-    id: number;
-    title: string;
+    id: number | string;
     description: string;
-    skills: string;
-    votes: number;
-    participants: string[];
+    options: string[];
+    tips: string[];
+    result: string;
+    extra?: boolean;
   }[];
-
-  descriptions: {
-    subtitle: string;
-    content: [string, Image, Table, List];
-  }[];
-
-  listOfThemes: {
-    title: string;
-    subtitles: {
-      id: number;
-      subtitle: string;
-      url: string;
-    }[];
-  }[];
-
-  adminPanelList: {
+}[];
+type Time = { start_time: string; end_time: string; date: string };
+type Questions = {
+  subtitle: string;
+  url: string;
+  tasks: {
     id: number;
-    title: string;
+    question: string;
+    options: string[];
+    correctAnswer: string;
+    level?: string;
+  }[];
+}[];
+type Projects = {
+  id: number;
+  title: string;
+  description: string;
+  skills: string;
+  votes: number;
+  participants: string[];
+}[];
+type Description = {
+  subtitle: string;
+  content: [string, Image, Table, List];
+}[];
+type ListOfThemes = {
+  title: string;
+  subtitles: {
+    id: number;
+    subtitle: string;
     url: string;
   }[];
-
+}[];
+type AdminList = { id: number; title: string; url: string }[];
+type HomeWorkItem = {
+  id: number;
+  link: string;
+  title: string;
+  type: string;
+};
+type Homework = {
+  id: number;
+  date: string;
   homework: {
     id: number;
-    date: string;
-    homework: {
-      id: number;
-      action: string;
-      listOfThemes?: {
-        id: number;
-        link: string;
-        title: string;
-      }[];
-      links?: { id: number; title: string; link: string }[];
-    }[];
+    action: string;
+    listOfThemes?: HomeWorkItem[];
+    links?: HomeWorkItem[];
   }[];
+}[];
+
+type Store = {
+  users: Users;
+  tests: Tests;
+  time: Time;
+  questions: Questions;
+  projects: Projects;
+  descriptions: Description;
+  listOfThemes: ListOfThemes;
+  adminPanelList: AdminList;
+  homework: Homework;
 
   addListOfThemes: () => void;
   getUsers: () => void;

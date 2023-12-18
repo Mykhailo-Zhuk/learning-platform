@@ -3134,5 +3134,510 @@
         "level": "middle"
       }
     ]
+  },
+  "js_syntax": {
+    "subtitle": "Синтаксис JavaScript",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Що буде результатом виразу: 5 + \"5\"?",
+        "options": ["10", "55", "Error", "25"],
+        "correctAnswer": "55",
+        "level": "low"
+      },
+      {
+        "id": 2,
+        "question": "Як правильно оголосити змінну в JavaScript?",
+        "options": ["let x = 5;", "variable x = 5;", "int x = 5;", "const x = 5;"],
+        "correctAnswer": "const x = 5;",
+        "level": "middle"
+      },
+      {
+        "id": 3,
+        "question": "Що виведе на консоль код: console.log(\"Hello\" + 5 + 3);",
+        "options": ["Hello53", "Hello8", "Error", "Hello53"],
+        "correctAnswer": "Hello53",
+        "level": "low"
+      },
+      {
+        "id": 4,
+        "question": "Що буде результатом виразу: \"20\" - 10?",
+        "options": ["10", "20", "Error", "30"],
+        "correctAnswer": "10",
+        "level": "middle"
+      },
+      {
+        "id": 5,
+        "question": "Як перевірити, чи є змінна undefined в JavaScript?",
+        "options": [
+          "if (x == undefined)",
+          "if (x === null)",
+          "if (typeof x === \"undefined\")",
+          "if (x == null)"
+        ],
+        "correctAnswer": "if (typeof x === \"undefined\")",
+        "level": "high"
+      },
+      {
+        "id": 6,
+        "question": "Як правильно оголосити функцію в JavaScript?",
+        "options": [
+          "function myFunction() {}",
+          "const myFunction = {};",
+          "let myFunction = () => {};",
+          "var myFunction = function() {}"
+        ],
+        "correctAnswer": "function myFunction() {}",
+        "level": "middle"
+      },
+      {
+        "id": 7,
+        "question": "Як можна видалити властивість з об\"єкта в JavaScript?",
+        "options": [
+          "delete obj.property;",
+          "obj.removeProperty(\"property\");",
+          "obj.delete(\"property\");",
+          "obj.remove(\"property\");"
+        ],
+        "correctAnswer": "delete obj.property;",
+        "level": "high"
+      },
+      {
+        "id": 8,
+        "question": "Що виведе на консоль код: console.log(typeof null);",
+        "options": ["object", "null", "undefined", "string"],
+        "correctAnswer": "object",
+        "level": "low"
+      },
+      {
+        "id": 9,
+        "question": "Як правильно порівняти дві строки в JavaScript?",
+        "options": ["str1 == str2", "str1 === str2", "str1.equal(str2)", "str1.compareTo(str2)"],
+        "correctAnswer": "str1 === str2",
+        "level": "middle"
+      },
+      {
+        "id": 10,
+        "question": "Що буде результатом виразу: true + 5;",
+        "options": ["true5", "6", "Error", "NaN"],
+        "correctAnswer": "6",
+        "level": "low"
+      },
+      {
+        "id": 11,
+        "question": "Які змінні в JavaScript мають область видимості, обмежену блоком коду?",
+        "options": ["var", "let", "const", "both let and const"],
+        "correctAnswer": "both let and const",
+        "level": "high"
+      },
+      {
+        "id": 12,
+        "question": "Що виведе на консоль код: console.log(3 + \"2\" + 1);",
+        "options": ["321", "6", "Error", "321"],
+        "correctAnswer": "321",
+        "level": "low"
+      },
+      {
+        "id": 13,
+        "question": "Як правильно створити об\"єкт в JavaScript?",
+        "options": [
+          "{key: \"value\"}",
+          "new Object(\"key\", \"value\")",
+          "Object.create(\"key\", \"value\")",
+          "[\"key\", \"value\"]"
+        ],
+        "correctAnswer": "{key: \"value\"}",
+        "level": "middle"
+      },
+      {
+        "id": 14,
+        "question": "Як визначити кількість елементів в масиві в JavaScript?",
+        "options": ["arr.size()", "arr.count", "arr.length", "arr.size"],
+        "correctAnswer": "arr.length",
+        "level": "low"
+      },
+      {
+        "id": 15,
+        "question": "Що виведе на консоль код: console.log(Math.floor(Math.random() * 10));",
+        "options": ["Випадкове число від 0 до 10", "Випадкове число від 1 до 9", "10", "0"],
+        "correctAnswer": "Випадкове число від 0 до 10",
+        "level": "middle"
+      },
+      {
+        "id": 16,
+        "question": "Як правильно перевірити, чи є елемент у масиві в JavaScript?",
+        "options": [
+          "if (item in array)",
+          "if (array.contains(item))",
+          "if (array.indexOf(item) !== -1)",
+          "if (array.includes(item))"
+        ],
+        "correctAnswer": "if (array.includes(item))",
+        "level": "high"
+      },
+      {
+        "id": 17,
+        "question": "Що виведе на консоль код: console.log(2 + 2 + \"2\");",
+        "options": ["4", "22", "Error", "NaN"],
+        "correctAnswer": "42",
+        "level": "low"
+      },
+      {
+        "id": 18,
+        "question": "Як правильно використовувати оператор \"try...catch\" в JavaScript?",
+        "options": [
+          "try { /* код */ } catch { /* обробник помилки */ }",
+          "try { /* код */ } catch (e) { /* обробник помилки */ }",
+          "try (/* код */) { /* обробник помилки */ }",
+          "try { /* код */ } finally { /* завжди виконується */ }"
+        ],
+        "correctAnswer": "try { /* код */ } catch (e) { /* обробник помилки */ }",
+        "level": "middle"
+      },
+      {
+        "id": 19,
+        "question": "Що виведе на консоль код: console.log(typeof undefined);",
+        "options": ["object", "undefined", "null", "string"],
+        "correctAnswer": "undefined",
+        "level": "low"
+      },
+      {
+        "id": 20,
+        "question": "Як правильно використовувати стрілкові функції (arrow functions) в JavaScript?",
+        "options": [
+          "function add(x, y) => x + y",
+          "(x, y) => { return x + y }",
+          "function add(x, y) { return x + y }",
+          "let add = function(x, y) => x + y"
+        ],
+        "correctAnswer": "(x, y) => { return x + y }",
+        "level": "high"
+      }
+    ]
+  },
+  "js_variable": {
+    "subtitle": "Змінні JavaScript",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Як визначити змінну в JavaScript?",
+        "options": ["let", "const", "var", "variable"],
+        "correctAnswer": "let",
+        "level": "low"
+      },
+      {
+        "id": 2,
+        "question": "Як визначити константу в JavaScript?",
+        "options": ["const", "let", "var", "constant"],
+        "correctAnswer": "const",
+        "level": "low"
+      },
+      {
+        "id": 3,
+        "question": "Що виведе console.log(typeof \"Hello\")?",
+        "options": ["string", "number", "undefined", "object"],
+        "correctAnswer": "string",
+        "level": "middle"
+      },
+      {
+        "id": 4,
+        "question": "Як визначити довжину рядка \"JavaScript\"?",
+        "options": ["8", "10", "12", "11"],
+        "correctAnswer": "10",
+        "level": "middle"
+      },
+      {
+        "id": 5,
+        "question": "Що виведе console.log(2 + \"2\")?",
+        "options": ["22", "4", "undefined", "NaN"],
+        "correctAnswer": "22",
+        "level": "high"
+      },
+      {
+        "id": 6,
+        "question": "Як визначити, чи є змінна undefined в JavaScript?",
+        "options": ["typeof", "isNull", "undefined", "isNaN"],
+        "correctAnswer": "typeof",
+        "level": "high"
+      },
+      {
+        "id": 7,
+        "question": "Як перевірити, чи змінна має значення NaN?",
+        "options": ["isNaN()", "isNotNaN()", "typeof NaN", "isNaN"],
+        "correctAnswer": "isNaN",
+        "level": "low"
+      },
+      {
+        "id": 8,
+        "question": "Як визначити, чи є змінна число в JavaScript?",
+        "options": ["isNumeric()", "typeof number", "Number.isNumber()", "typeof"],
+        "correctAnswer": "typeof",
+        "level": "low"
+      },
+      {
+        "id": 9,
+        "question": "Що виведе console.log(3 === \"3\")?",
+        "options": ["true", "false", "undefined", "TypeError"],
+        "correctAnswer": "false",
+        "level": "middle"
+      },
+      {
+        "id": 10,
+        "question": "Як отримати останній елемент масиву в JavaScript?",
+        "options": ["array.last()", "array[-1]", "array.pop()", "array[array.length-1]"],
+        "correctAnswer": "array[array.length-1]",
+        "level": "middle"
+      },
+      {
+        "id": 11,
+        "question": "Як змінити регістр рядка \"JavaScript\" на \"javascript\"?",
+        "options": ["toLowerCase()", "toUpperCase()", "changeCase(\"lower\")", "case(\"lower\")"],
+        "correctAnswer": "toLowerCase()",
+        "level": "high"
+      },
+      {
+        "id": 12,
+        "question": "Що виведе console.log(0.1 + 0.2 === 0.3)?",
+        "options": ["true", "false", "undefined", "SyntaxError"],
+        "correctAnswer": "false",
+        "level": "high"
+      },
+      {
+        "id": 13,
+        "question": "Як скопіювати значення змінної a в змінну b?",
+        "options": ["b = a", "b = copy(a)", "b = a.clone()", "b = Object.assign({}, a)"],
+        "correctAnswer": "b = a",
+        "level": "low"
+      },
+      {
+        "id": 14,
+        "question": "Як перевірити, чи містить об\"єкт властивість \"key\"?",
+        "options": [
+          "object.hasKey(\"key\")",
+          "object.keyExists(\"key\")",
+          "\"key\" in object",
+          "object.contains(\"key\")"
+        ],
+        "correctAnswer": "\"key\" in object",
+        "level": "middle"
+      },
+      {
+        "id": 15,
+        "question": "Що виведе console.log(typeof null)?",
+        "options": ["object", "null", "undefined", "string"],
+        "correctAnswer": "object",
+        "level": "middle"
+      },
+      {
+        "id": 16,
+        "question": "Як визначити, чи є змінна числом у діапазоні від 1 до 100?",
+        "options": [
+          "isNumberInRange(1, 100)",
+          "Number.isBetween(1, 100)",
+          "1 <= number <= 100",
+          "isInRange(number, 1, 100)"
+        ],
+        "correctAnswer": "1 <= number <= 100",
+        "level": "high"
+      },
+      {
+        "id": 17,
+        "question": "Як змінити регістр першої літери рядка \"javascript\" на велику?",
+        "options": [
+          "capitalizeFirstLetter()",
+          "toUpperCaseFirst()",
+          "firstLetterUpperCase()",
+          "uppercaseFirst()"
+        ],
+        "correctAnswer": "capitalizeFirstLetter()",
+        "level": "low"
+      },
+      {
+        "id": 18,
+        "question": "Як визначити, чи є змінна унікальним значенням у масиві?",
+        "options": [
+          "array.isUnique(value)",
+          "array.includes(value)",
+          "array.indexOf(value) === -1",
+          "new Set(array).size === array.length"
+        ],
+        "correctAnswer": "new Set(array).size === array.length",
+        "level": "middle"
+      },
+      {
+        "id": 19,
+        "question": "Як видалити властивість \"key\" з об\"єкта?",
+        "options": [
+          "delete object.key",
+          "object.remove(\"key\")",
+          "object.removeKey(\"key\")",
+          "object[key] = null"
+        ],
+        "correctAnswer": "delete object.key",
+        "level": "high"
+      },
+      {
+        "id": 20,
+        "question": "Що виведе console.log(!!\"Hello\")?",
+        "options": ["true", "false", "undefined", "TypeError"],
+        "correctAnswer": "true",
+        "level": "low"
+      }
+    ]
+  },
+  "js_operators": {
+    "subtitle": "Оператори JavaScript",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Який оператор використовується для додавання двох чисел?",
+        "options": ["+", "*", "/", "-"],
+        "correctAnswer": "+",
+        "level": "low"
+      },
+      {
+        "id": 2,
+        "question": "Який оператор використовується для порівняння на рівність за значенням?",
+        "options": ["==", "===", "!=", "!=="],
+        "correctAnswer": "===",
+        "level": "low"
+      },
+      {
+        "id": 3,
+        "question": "Що буде результатом виразу 5 % 2?",
+        "options": ["0", "1", "2", "5"],
+        "correctAnswer": "1",
+        "level": "low"
+      },
+      {
+        "id": 4,
+        "question": "Що буде результатом виразу \"2\" + \"2\"?",
+        "options": ["4", "22", "0", "null"],
+        "correctAnswer": "22",
+        "level": "low"
+      },
+      {
+        "id": 5,
+        "question": "Яка властивість дозволяє отримати кількість елементів у масиві?",
+        "options": ["length", "size", "count", "elements"],
+        "correctAnswer": "length",
+        "level": "middle"
+      },
+      {
+        "id": 6,
+        "question": "Які оператори використовуються для зменшення або збільшення значення змінної на 1?",
+        "options": ["++", "--", "+=", "-="],
+        "correctAnswer": "++ та --",
+        "level": "middle"
+      },
+      {
+        "id": 7,
+        "question": "Який оператор логічного \"І\" в JavaScript?",
+        "options": ["&&", "||", "!", "&"],
+        "correctAnswer": "&&",
+        "level": "middle"
+      },
+      {
+        "id": 8,
+        "question": "Що виведе на консоль вираз (true && false) || (true && true)?",
+        "options": ["true", "false", "null", "undefined"],
+        "correctAnswer": "true",
+        "level": "middle"
+      },
+      {
+        "id": 9,
+        "question": "Що виведе на консоль typeof \"Hello\"?",
+        "options": ["string", "number", "undefined", "object"],
+        "correctAnswer": "string",
+        "level": "middle"
+      },
+      {
+        "id": 10,
+        "question": "Які оператори порівняння враховують типи операндів?",
+        "options": ["==", "===", "!=", "!=="],
+        "correctAnswer": "=== та !==",
+        "level": "middle"
+      },
+      {
+        "id": 11,
+        "question": "Як можна перевірити, чи є деяка змінна рівна NaN?",
+        "options": ["isNaN()", "isNotNaN()", "typeof NaN", "NaN()"],
+        "correctAnswer": "isNaN()",
+        "level": "high"
+      },
+      {
+        "id": 12,
+        "question": "Що буде результатом виразу \"5\" == 5?",
+        "options": ["true", "false", "undefined", "null"],
+        "correctAnswer": "true",
+        "level": "high"
+      },
+      {
+        "id": 13,
+        "question": "Яка різниця між \"==\" та \"===\" в операторах порівняння?",
+        "options": [
+          "\"==\" порівнює значення, \"===\" порівнює значення та типи",
+          "\"===\" порівнює значення, \"==\" порівнює значення та типи",
+          "\"==\" порівнює лише типи",
+          "Немає різниці"
+        ],
+        "correctAnswer": "\"==\" порівнює значення, \"===\" порівнює значення та типи",
+        "level": "high"
+      },
+      {
+        "id": 14,
+        "question": "Що виведе на консоль вираз (5 > 3) ? \"Yes\" : \"No\"?",
+        "options": ["Yes", "No", "true", "false"],
+        "correctAnswer": "Yes",
+        "level": "high"
+      },
+      {
+        "id": 15,
+        "question": "Що виведе на консоль typeof null?",
+        "options": ["object", "null", "undefined", "string"],
+        "correctAnswer": "object",
+        "level": "low"
+      },
+      {
+        "id": 16,
+        "question": "Як можна перевірити, чи змінна має значення \"undefined\"?",
+        "options": [
+          "if (x === undefined)",
+          "if (x == undefined)",
+          "if (x === \"undefined\")",
+          "if (x == \"undefined\")"
+        ],
+        "correctAnswer": "if (x === undefined)",
+        "level": "middle"
+      },
+      {
+        "id": 17,
+        "question": "Що буде результатом виразу true || false?",
+        "options": ["true", "false", "null", "undefined"],
+        "correctAnswer": "true",
+        "level": "middle"
+      },
+      {
+        "id": 18,
+        "question": "Що виведе на консоль вираз (10 >= 10) && (5 < 7)?",
+        "options": ["true", "false", "null", "undefined"],
+        "correctAnswer": "true",
+        "level": "low"
+      },
+      {
+        "id": 19,
+        "question": "Як можна перевірити, чи число парне?",
+        "options": ["if (x % 2 === 0)", "if (x % 2 == 0)", "if (x.isEven())", "if (isEven(x))"],
+        "correctAnswer": "if (x % 2 === 0)",
+        "level": "high"
+      },
+      {
+        "id": 20,
+        "question": "Яке значення матиме змінна після виконання коду: let x = 5; x += \"3\";?",
+        "options": ["53", "8", "null", "undefined"],
+        "correctAnswer": "53",
+        "level": "high"
+      }
+    ]
   }
 }
