@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Montserrat, League_Spartan } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import AuthProvider from "./context/AuthProvider";
+import { Analytics } from "@vercel/analytics/react";
 
 const monserat = Montserrat({ subsets: ["latin"], variable: "--font-monserat" });
 const spartan = League_Spartan({ subsets: ["latin"], weight: "400", variable: "--font-spartan" });
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AuthProvider>
           <Header />
           {children}
+          <Analytics />
         </AuthProvider>
         <Toaster />
       </body>
