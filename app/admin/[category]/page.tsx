@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   AdminPanelList,
   HomeworkInput,
@@ -7,19 +8,18 @@ import {
   TestsInput,
   TextbookInput,
 } from "@/components/index";
-import { useEffect, useState } from "react";
 
-const Content = ({ params }: { params: { type: string } }) => {
+const Content = ({ params }: { params: { category: string } }) => {
   // TODO: add adaptive style
-  const [type, setType] = useState("");
+  const [category, setCategory] = useState("");
 
   useEffect(() => {
-    setType(params.type);
+    setCategory(params.category);
   }, [params]);
 
   let content;
 
-  switch (type) {
+  switch (category) {
     case "questions":
       content = <QuestionsInput />;
       break;

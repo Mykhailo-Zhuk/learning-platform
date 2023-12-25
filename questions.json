@@ -2019,6 +2019,191 @@
       }
     ]
   },
+  "css_grid": {
+    "subtitle": "CSS Grid",
+    "tasks": [
+      {
+        "id": 1,
+        "question": "Як створити контейнер з CSS Grid?",
+        "options": ["grid-container: true;", "display: flex;", "display: grid;", "grid: true;"],
+        "correctAnswer": "display: grid;",
+        "level": "low"
+      },
+      {
+        "id": 2,
+        "question": "Як визначити кількість стовпців у сітці CSS Grid?",
+        "options": ["grid-columns", "columns", "grid-template-columns", "grid: columns;"],
+        "correctAnswer": "grid-template-columns",
+        "level": "low"
+      },
+      {
+        "id": 3,
+        "question": "Як визначити розміри стовпців у сітці CSS Grid?",
+        "options": ["grid-size", "size", "grid-column-size", "grid-template-columns: auto 1fr;"],
+        "correctAnswer": "grid-template-columns: auto 1fr;",
+        "level": "middle"
+      },
+      {
+        "id": 4,
+        "question": "Як вирівняти елемент в середині стовпця CSS Grid?",
+        "options": [
+          "align-items: center;",
+          "justify-content: center;",
+          "align-content: center;",
+          "grid-align: center;"
+        ],
+        "correctAnswer": "align-items: center;",
+        "level": "middle"
+      },
+      {
+        "id": 5,
+        "question": "Як створити адаптивну сітку CSS Grid?",
+        "options": ["media queries", "grid-adapt", "adaptive-grid", "responsive-grid"],
+        "correctAnswer": "media queries",
+        "level": "middle"
+      },
+      {
+        "id": 6,
+        "question": "Як визначити розмір рядка у сітці CSS Grid?",
+        "options": ["grid-row-size", "grid-template-rows", "row-size", "grid: rows;"],
+        "correctAnswer": "grid-template-rows",
+        "level": "middle"
+      },
+      {
+        "id": 7,
+        "question": "Як створити зону (area) у CSS Grid?",
+        "options": ["grid-area", "zone: name;", "area: grid;", "create-area: true;"],
+        "correctAnswer": "grid-area",
+        "level": "high"
+      },
+      {
+        "id": 8,
+        "question": "Як вирівняти елементи по діагоналі у сітці CSS Grid?",
+        "options": [
+          "grid-diagonal-align",
+          "grid-diagonal",
+          "grid-column: span 2 / span 2;",
+          "diagonal-align: grid;"
+        ],
+        "correctAnswer": "grid-column: span 2 / span 2;",
+        "level": "high"
+      },
+      {
+        "id": 9,
+        "question": "Як змінити порядок виведення елементів у сітці CSS Grid?",
+        "options": ["order: 2;", "grid-order: 2;", "grid-row: 2;", "row-order: 2;"],
+        "correctAnswer": "order: 2;",
+        "level": "high"
+      },
+      {
+        "id": 10,
+        "question": "Як створити вкладену сітку (nested grid) у CSS Grid?",
+        "options": [
+          "grid-nesting: true;",
+          "nested: grid;",
+          "display: nested-grid;",
+          "display: subgrid;"
+        ],
+        "correctAnswer": "display: subgrid;",
+        "level": "high"
+      },
+      {
+        "id": 11,
+        "question": "Як використовувати fr у визначенні розмірів стовпців у сітці CSS Grid?",
+        "options": ["fr: 2", "grid-fr: 2", "grid-template-columns: 1fr 2fr", "col-size: fr"],
+        "correctAnswer": "grid-template-columns: 1fr 2fr",
+        "level": "low"
+      },
+      {
+        "id": 12,
+        "question": "Як створити внутрішні відступи між елементами сітки CSS Grid?",
+        "options": ["grid-gap", "margin: grid", "padding: grid", "gap: grid"],
+        "correctAnswer": "grid-gap",
+        "level": "low"
+      },
+      {
+        "id": 13,
+        "question": "Як визначити стартовий рядок для елемента у сітці CSS Grid?",
+        "options": ["grid-row-start", "row-start: 2", "start-row: 2", "grid-start: row 2"],
+        "correctAnswer": "grid-row-start",
+        "level": "middle"
+      },
+      {
+        "id": 14,
+        "question": "Як додати внутрішні відступи для всіх елементів сітки CSS Grid?",
+        "options": [
+          "grid-padding: 10px",
+          "padding: grid 10px",
+          "grid: padding 10px",
+          "padding: 10px"
+        ],
+        "correctAnswer": "padding: 10px",
+        "level": "middle"
+      },
+      {
+        "id": 15,
+        "question": "Як змінити порядок рядків у сітці CSS Grid?",
+        "options": ["grid-row-order", "row-order", "order: row", "grid-row: 2"],
+        "correctAnswer": "order: row",
+        "level": "middle"
+      },
+      {
+        "id": 16,
+        "question": "Як вирівняти елементи уздовж вертикалі у сітці CSS Grid?",
+        "options": [
+          "vertical-align: center;",
+          "align-items: middle;",
+          "justify-content: center;",
+          "grid-align: middle;"
+        ],
+        "correctAnswer": "align-items: middle;",
+        "level": "high"
+      },
+      {
+        "id": 17,
+        "question": "Як визначити розміри стовпців у сітці CSS Grid, якщо їх кількість не відома заздалегідь?",
+        "options": [
+          "grid-auto-columns",
+          "auto-columns: grid;",
+          "grid-size: auto;",
+          "columns: auto;"
+        ],
+        "correctAnswer": "grid-auto-columns",
+        "level": "high"
+      },
+      {
+        "id": 18,
+        "question": "Як змінити порядок виведення елементів у стовпці CSS Grid?",
+        "options": [
+          "grid-column-order",
+          "column-order: 2;",
+          "grid-order: column 2;",
+          "order: column 2;"
+        ],
+        "correctAnswer": "order: column 2;",
+        "level": "high"
+      },
+      {
+        "id": 19,
+        "question": "Як створити плаваючий елемент у сітці CSS Grid?",
+        "options": ["float: grid;", "grid-float: true;", "grid-float: left;", "floating: grid;"],
+        "correctAnswer": "grid-float: left;",
+        "level": "high"
+      },
+      {
+        "id": 20,
+        "question": "Як вирівняти елементи уздовж горизонталі у сітці CSS Grid?",
+        "options": [
+          "justify-content: middle;",
+          "horizontal-align: center;",
+          "align-items: center;",
+          "grid-align: center;"
+        ],
+        "correctAnswer": "justify-content: middle;",
+        "level": "high"
+      }
+    ]
+  },
   "media_queries": {
     "title": "Media Queries",
     "tasks": [
@@ -3315,7 +3500,7 @@
       }
     ]
   },
-  "js_variable": {
+  "js_variables": {
     "subtitle": "Змінні JavaScript",
     "tasks": [
       {
@@ -3639,5 +3824,93 @@
         "level": "high"
       }
     ]
+  },
+  "js_types_of_data": {
+    "subtitle": "Типи даних (Type of data)",
+    "tasks": []
+  },
+  "js_string": {
+    "subtitle": "Рядки та їх методи (String)",
+    "tasks": []
+  },
+  "js_string_templates": {
+    "subtitle": "Рядкові шаблони (String templates)",
+    "tasks": []
+  },
+  "js_number": {
+    "subtitle": "Числа та їх методи (Number)",
+    "tasks": []
+  },
+  "js_date": {
+    "subtitle": "Дати (Date)",
+    "tasks": []
+  },
+  "js_object": {
+    "subtitle": "Об\"єкти та їх методи (Object)",
+    "tasks": []
+  },
+  "js_object_math": {
+    "subtitle": "Об\"єкт Math",
+    "tasks": []
+  },
+  "js_array": {
+    "subtitle": "Масиви та їх методи (Array)",
+    "tasks": []
+  },
+  "js_function": {
+    "subtitle": "Функції (Function)",
+    "tasks": []
+  },
+  "js_scope": {
+    "subtitle": "Область видимості (Scope)",
+    "tasks": []
+  },
+  "js_condition": {
+    "subtitle": "Умови (Condition)",
+    "tasks": []
+  },
+  "js_loops": {
+    "subtitle": "Цикли (Loops)",
+    "tasks": []
+  },
+  "js_dom": {
+    "subtitle": "DOM (Document Object Model)",
+    "tasks": []
+  },
+  "js_events": {
+    "subtitle": "Обробка подій (Events)",
+    "tasks": []
+  },
+  "js_callbacks": {
+    "subtitle": "Колбеки (Callbacks)",
+    "tasks": []
+  },
+  "js_async": {
+    "subtitle": "Async/await",
+    "tasks": []
+  },
+  "js_promises": {
+    "subtitle": "Проміси (Promises)",
+    "tasks": []
+  },
+  "js_prototype": {
+    "subtitle": "Прототипи (Prototype)",
+    "tasks": []
+  },
+  "js_ajax": {
+    "subtitle": "AJAX",
+    "tasks": []
+  },
+  "js_json": {
+    "subtitle": "JSON",
+    "tasks": []
+  },
+  "js_storage": {
+    "subtitle": "LocalStorage та SessionStorage",
+    "tasks": []
+  },
+  "js_rest": {
+    "subtitle": "REST API",
+    "tasks": []
   }
 }

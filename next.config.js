@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    domains: ["w3schoolsua.github.io", "html-plus.in.ua"],
+    domains: ["w3schoolsua.github.io", "html-plus.in.ua", "res.cloudinary.com"],
   },
   webpack: (config, { dev }) => {
     // Add file loader for mp3 files

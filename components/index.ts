@@ -38,5 +38,6 @@ export { default as TextbookInput } from "./AdminPanel/TextbookInput";
 export { default as TextbookImageInput } from "./AdminPanel/TextbookImageInput";
 export { default as TextbookTableInput } from "./AdminPanel/TextbookTableInput";
 export { default as TextbookListInput } from "./AdminPanel/TextbookListInput";
+export { default as TextbookTextInput } from "./AdminPanel/TextbookTextInput";
 export { default as ChangeDateForm } from "./AdminPanel/ChangeDateForm";
 export { default as ChangeTimeForm } from "./AdminPanel/ChangeTimeForm";

@@ -15,6 +15,8 @@ const MainResources = () => {
   const time = useStore((state) => state.time);
   const getTime = useStore((state) => state.getTime);
   const router = useRouter();
+  const code =
+    "https://res.cloudinary.com/dxcpen44g/image/upload/f_auto,q_auto/v1/learning-platform/s1ae3hdnkl4szygfvbqu";
 
   useEffect(() => {
     const fetchData = async () => {

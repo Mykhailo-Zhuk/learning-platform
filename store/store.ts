@@ -4,11 +4,6 @@ import { create } from "zustand";
 type Image = {
   image?: {
     src: string;
-    height?: number;
-    width?: number;
-    blurDataURL?: string;
-    blurWidth?: number;
-    blurHeight?: number;
     caption?: string[];
   };
 };
@@ -18,19 +13,20 @@ type Table = {
     headers: string[];
     rows: {
       id: number;
-      selector: string;
+      item: string;
       example?: string;
       description: string;
     }[];
   };
 };
 type List = {
-  list: [
-    {
+  list: {
+    title: string;
+    items: {
       id: number;
       item: string;
-    },
-  ];
+    }[];
+  };
 };
 
 type Users = { id: string | number; name: string; password: string; role: "admin" | "student" }[];

@@ -1557,6 +1557,166 @@
       }
     ]
   },
+  "css_grid": {
+    "subtitle": "CSS Grid",
+    "tests": [
+      {
+        "id": 1,
+        "description": "Як користувачу, я хочу мати сітку з двома колонками, де одна колонка ширша за іншу. Який CSS Grid код необхідно написати для досягнення цього результату?",
+        "options": ["grid-template-columns: 1fr 2fr;", "grid-template-columns: 2fr 1fr;"],
+        "tips": [
+          "Використовуйте \"grid-template-columns\"",
+          "Вказуйте ширину колонок, наприклад, \"1fr\" та \"2fr\""
+        ],
+        "result": "grid-template-columns: 1fr 2fr;",
+        "level": "low"
+      },
+      {
+        "id": 2,
+        "description": "Мені, як користувачу, потрібно вирівняти елементи в середині контейнера. Який CSS Grid код вирівняє елементи по центру?",
+        "options": [
+          "justify-content: center; align-items: center;",
+          "align-self: center; justify-self: center;"
+        ],
+        "tips": [
+          "Використовуйте \"justify-content\" та \"align-items\"",
+          "Ці властивості працюють на батьківському контейнері"
+        ],
+        "result": "justify-content: center; align-items: center;",
+        "level": "low"
+      },
+      {
+        "id": 3,
+        "description": "Щоб полегшити створення адаптивного дизайну, мені, як користувачу, потрібно зробити так, щоб кількість колонок зменшувалась на екранах малого розміру. Який код CSS Grid забезпечить таку адаптацію?",
+        "options": [
+          "grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));",
+          "grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));"
+        ],
+        "tips": [
+          "Використовуйте \"repeat\", \"auto-fit\" або \"auto-fill\"",
+          "Встановіть мінімальну та максимальну ширину для колонок"
+        ],
+        "result": "grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));",
+        "level": "middle"
+      },
+      {
+        "id": 4,
+        "description": "Я, як користувач, хочу використовувати CSS Grid для створення схеми з трьома рядками та трьома колонками, де кожна клітинка має відмінну ширину та висоту. Який код забезпечить таку структуру?",
+        "options": ["grid-template-rows: 100px 1fr 2fr;", "grid-template-columns: repeat(3, 1fr);"],
+        "tips": ["Використовуйте \"grid-template-rows\"", "Зазначте висоту для кожного рядка"],
+        "result": "grid-template-rows: 100px 1fr 2fr;",
+        "level": "middle"
+      },
+      {
+        "id": 5,
+        "description": "Мені, як користувачу, потрібно створити сітку, де деякі елементи можуть займати більше одного рядка або колонку. Який CSS Grid код дозволяє елементам займати більше одного рядка чи колонку?",
+        "options": ["grid-row: span 2;", "grid-column: span 2;"],
+        "tips": [
+          "Використовуйте \"grid-row\" або \"grid-column\"",
+          "Зазначте кількість рядків чи колонок, які елемент повинен охоплювати"
+        ],
+        "result": "grid-row: span 2;",
+        "level": "middle"
+      },
+      {
+        "id": 6,
+        "description": "Мені, як користувачу, потрібно створити сітку, де елементи можуть розташовуватися як у таблиці зі злиттям комірок. Який CSS Grid код реалізує такий ефект?",
+        "options": [
+          "grid-template-areas: \"header header header\" \"main main sidebar\" \"footer footer footer\";",
+          "grid-template-columns: repeat(3, 1fr);"
+        ],
+        "tips": [
+          "Використовуйте \"grid-template-areas\"",
+          "Визначте області для кожного елемента та їх розташування"
+        ],
+        "result": "grid-template-areas: \"header header header\" \"main main sidebar\" \"footer footer footer\";",
+        "level": "middle"
+      },
+      {
+        "id": 7,
+        "description": "Я, як користувач, хочу вирівняти елементи вздовж осі X у портретному режимі, а вздовж осі Y у ландшафтному режимі. Який CSS Grid код реалізує такий адаптивний дизайн?",
+        "options": [
+          "@media (orientation: portrait) { grid-template-columns: 1fr 2fr; } @media (orientation: landscape) { grid-template-rows: repeat(2, 1fr); }",
+          "@media (orientation: landscape) { grid-template-columns: 1fr 2fr; } @media (orientation: portrait) { grid-template-rows: repeat(2, 1fr); }"
+        ],
+        "tips": [
+          "Використовуйте \"@media\" для адаптації до орієнтації екрану",
+          "Зазначте розміри для портретного та ландшафтного режимів"
+        ],
+        "result": "@media (orientation: portrait) { grid-template-columns: 1fr 2fr; } @media (orientation: landscape) { grid-template-rows: repeat(2, 1fr); }",
+        "level": "middle"
+      },
+      {
+        "id": 8,
+        "description": "Мені, як користувачу, потрібно створити сітку з елементами, які мають відступи між собою. Який CSS Grid код додасть відступи між елементами?",
+        "options": ["grid-gap: 20px;", "margin: 20px;"],
+        "tips": ["Використовуйте \"grid-gap\"", "Встановіть розмір відступу, наприклад, \"20px\""],
+        "result": "grid-gap: 20px;",
+        "level": "low"
+      },
+      {
+        "id": 9,
+        "description": "Мені, як користувачу, потрібно вирівняти елементи вздовж осі X, так щоб вони займали всю доступну ширину контейнера. Який CSS Grid код реалізує таке вирівнювання?",
+        "options": [
+          "grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));",
+          "grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));"
+        ],
+        "tips": [
+          "Використовуйте \"repeat\", \"auto-fill\" або \"auto-fit\"",
+          "Зазначте мінімальну та максимальну ширину для колонок"
+        ],
+        "result": "grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));",
+        "level": "middle"
+      },
+      {
+        "id": 10,
+        "description": "Я, як користувач, хочу використовувати CSS Grid для створення сітки зі зручною навігацією, де елементи можуть мати різну висоту. Який код CSS Grid забезпечить структуру з різними висотами елементів?",
+        "options": [
+          "grid-auto-rows: minmax(100px, auto);",
+          "grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));"
+        ],
+        "tips": [
+          "Використовуйте \"grid-auto-rows\"",
+          "Встановіть мінімальну та максимальну висоту для автоматично створюваних рядків"
+        ],
+        "result": "grid-auto-rows: minmax(100px, auto);",
+        "level": "middle"
+      },
+      {
+        "id": 11,
+        "description": "Мені, як користувачу, потрібно вирівняти елементи уздовж осі X так, щоб вони розташовувалися в середині контейнера і займали всю доступну ширину. Який CSS Grid код реалізує таке вирівнювання?",
+        "options": ["justify-content: center; grid-template-columns: 1fr;"],
+        "tips": [
+          "Використовуйте \"justify-content\"",
+          "Встановіть властивість \"grid-template-columns\" для розділення доступної ширини"
+        ],
+        "result": "justify-content: center; grid-template-columns: 1fr;",
+        "level": "low"
+      },
+      {
+        "id": 12,
+        "description": "Я, як користувач, хочу використовувати CSS Grid для створення сітки з елементами, які змінюють свій порядок на екранах з вузькою шириною. Який код CSS Grid забезпечить такий порядок?",
+        "options": ["grid-template-columns: 1fr; order: 2;", "grid-template-rows: 1fr; order: 2;"],
+        "tips": ["Використовуйте \"order\"", "Зазначте порядковий номер для кожного елемента"],
+        "result": "grid-template-columns: 1fr; order: 2;",
+        "level": "middle"
+      },
+      {
+        "id": 13,
+        "description": "Мені, як користувачу, потрібно визначити розміри елементів так, щоб вони займали однакову ширину та висоту. Який CSS Grid код забезпечить однакові розміри для всіх елементів?",
+        "options": [
+          "grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); grid-template-rows: 100px;",
+          "grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); grid-auto-rows: 100px;"
+        ],
+        "tips": [
+          "Використовуйте \"grid-template-columns\" та \"grid-template-rows\"",
+          "Зазначте мінімальну та максимальну ширину та висоту"
+        ],
+        "result": "grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); grid-template-rows: 100px;",
+        "level": "middle"
+      }
+    ]
+  },
   "media_queries": {
     "title": "Media Queries",
     "tests": [
@@ -2256,5 +2416,93 @@
         "level": "high"
       }
     ]
+  },
+  "js_types_of_data": {
+    "subtitle": "Типи даних (Type of data)",
+    "tasks": []
+  },
+  "js_string": {
+    "subtitle": "Рядки та їх методи (String)",
+    "tasks": []
+  },
+  "js_string_templates": {
+    "subtitle": "Рядкові шаблони (String templates)",
+    "tasks": []
+  },
+  "js_number": {
+    "subtitle": "Числа та їх методи (Number)",
+    "tasks": []
+  },
+  "js_date": {
+    "subtitle": "Дати (Date)",
+    "tasks": []
+  },
+  "js_object": {
+    "subtitle": "Об\"єкти та їх методи (Object)",
+    "tasks": []
+  },
+  "js_object_math": {
+    "subtitle": "Об\"єкт Math",
+    "tasks": []
+  },
+  "js_array": {
+    "subtitle": "Масиви та їх методи (Array)",
+    "tasks": []
+  },
+  "js_function": {
+    "subtitle": "Функції (Function)",
+    "tasks": []
+  },
+  "js_scope": {
+    "subtitle": "Область видимості (Scope)",
+    "tasks": []
+  },
+  "js_condition": {
+    "subtitle": "Умови (Condition)",
+    "tasks": []
+  },
+  "js_loops": {
+    "subtitle": "Цикли (Loops)",
+    "tasks": []
+  },
+  "js_dom": {
+    "subtitle": "DOM (Document Object Model)",
+    "tasks": []
+  },
+  "js_events": {
+    "subtitle": "Обробка подій (Events)",
+    "tasks": []
+  },
+  "js_callbacks": {
+    "subtitle": "Колбеки (Callbacks)",
+    "tasks": []
+  },
+  "js_async": {
+    "subtitle": "Async/await",
+    "tasks": []
+  },
+  "js_promises": {
+    "subtitle": "Проміси (Promises)",
+    "tasks": []
+  },
+  "js_prototype": {
+    "subtitle": "Прототипи (Prototype)",
+    "tasks": []
+  },
+  "js_ajax": {
+    "subtitle": "AJAX",
+    "tasks": []
+  },
+  "js_json": {
+    "subtitle": "JSON",
+    "tasks": []
+  },
+  "js_storage": {
+    "subtitle": "LocalStorage та SessionStorage",
+    "tasks": []
+  },
+  "js_rest": {
+    "subtitle": "REST API",
+    "tasks": []
   }
 }

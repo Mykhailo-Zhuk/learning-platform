@@ -2,7 +2,7 @@ import React from "react";
 
 type Row = {
   id: number;
-  selector: string;
+  item: string;
   example?: string;
   description: string;
 };
@@ -31,21 +31,23 @@ const NotionStyleTable: React.FC<Props> = ({ data }) => {
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Селектор
+                    {data.headers[0]}
                   </th>
+                  {data.headers[1] && (
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      {data.headers[1]}
+                    </th>
+                  )}
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Приклад
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Опис
+                    {data.headers[2]}
                   </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {data?.rows.map((row) => (
                   <tr key={row.id}>
-                    <td className="px-6 py-4">{row.selector}</td>
-                    <td className="px-6 py-4">{row.example}</td>
+                    <td className="px-6 py-4">{row.item}</td>
+                    {row.example && <td className="px-6 py-4">{row.example}</td>}
                     <td className="px-6 py-4">{row.description}</td>
                   </tr>
                 ))}

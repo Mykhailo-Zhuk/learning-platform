@@ -40,11 +40,10 @@ const ThemesContent = ({ params }: Params) => {
               } else if (typeof subitem === "object") {
                 if ("image" in subitem) {
                   return (
-                    <div key={"image"} className="flex flex-col space-y-2">
+                    <div key={subitem.image?.src} className="flex flex-col space-y-2">
                       <div className="flex justify-center items-center">
                         <Image
                           src={subitem?.image?.src!}
-                          {...subitem?.image}
                           alt={subitem?.image?.src!}
                           className="h-auto max-w-4xl"
                         />
@@ -61,22 +60,32 @@ const ThemesContent = ({ params }: Params) => {
                 }
 
                 if ("table" in subitem) {
-                  return <NotionStyleTable key={"table"} data={subitem?.table} />;
+                  return (
+                    <NotionStyleTable
+                      key={subitem?.table?.title.replaceAll(" ", "")}
+                      data={subitem?.table}
+                    />
+                  );
                 }
 
                 if ("list" in subitem) {
                   return (
-                    <ol key={"list"} className="list-decimal list-inside">
-                      {subitem?.list?.map((li) => {
-                        return (
-                          <li
-                            key={li?.id}
-                            className="text-2xl text-justify leading-10 font-spartan mt-1">
-                            {li?.item}
-                          </li>
-                        );
-                      })}
-                    </ol>
+                    <Fragment key={subitem?.list?.title?.replaceAll(" ", "")}>
+                      <h1>
+                        <b>{subitem?.list?.title}</b>
+                      </h1>
+                      <ol className="list-decimal list-inside">
+                        {subitem?.list?.items?.map((item) => {
+                          return (
+                            <li
+                              key={item?.id}
+                              className="text-2xl text-justify leading-10 font-spartan mt-1">
+                              {item?.item}
+                            </li>
+                          );
+                        })}
+                      </ol>
+                    </Fragment>
                   );
                 }
               }

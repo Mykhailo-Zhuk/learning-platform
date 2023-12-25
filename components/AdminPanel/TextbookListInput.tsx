@@ -22,7 +22,7 @@ type TextbookTableInputProps = {
   removeAdditionalElement: (index: string) => void;
 };
 
-const TextbookTableInput: React.FC<TextbookTableInputProps> = ({
+const TextbookListInput: React.FC<TextbookTableInputProps> = ({
   register,
   errors,
   fields,
@@ -100,4 +100,4 @@ const TextbookTableInput: React.FC<TextbookTableInputProps> = ({
   );
 };
 
-export default TextbookTableInput;
+export default TextbookListInput;

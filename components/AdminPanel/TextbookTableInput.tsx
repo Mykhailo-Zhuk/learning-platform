@@ -33,7 +33,7 @@ const TextbookTableInput: React.FC<TextbookTableInputProps> = ({
   const tableAppendHandler = () => {
     append({
       id: fields.length + 1,
-      selector: "",
+      item: "",
       example: "",
       description: "",
     });
@@ -80,20 +80,20 @@ const TextbookTableInput: React.FC<TextbookTableInputProps> = ({
             key={row.id}
             className="relative space-y-3 p-5 hover:outline-1 hover:outline hover:outline-accent rounded-lg group/rows">
             <div className={inputContainer}>
-              <label htmlFor={`table.rows.${index}.selector`} className={inputLabel}>
+              <label htmlFor={`table.rows.${index}.item`} className={inputLabel}>
                 Назва елементу
               </label>
               <input
-                {...register(`table.rows.${index}.selector`, {
+                {...register(`table.rows.${index}.item`, {
                   required: "Це поле є обов'язковим",
                 })}
                 placeholder="Яка мета тегу <head> в HTML?"
                 className={`${inputError} ${
-                  errors?.table?.rows?.[index]?.selector ? "border-red-500" : "focus:border-accent"
+                  errors?.table?.rows?.[index]?.item ? "border-red-500" : "focus:border-accent"
                 }`}
               />
-              {errors?.table?.rows?.[index]?.selector && (
-                <span className={spanError}>{errors?.table?.rows?.[index]?.selector?.message}</span>
+              {errors?.table?.rows?.[index]?.item && (
+                <span className={spanError}>{errors?.table?.rows?.[index]?.item?.message}</span>
               )}
             </div>
 

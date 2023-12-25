@@ -227,7 +227,7 @@ const QuestionsInput = () => {
         </Button>
       </div>
       <div className="flex items-center mt-4">
-        <Button type="submit">{loading ? "Виконую..." : "Змінити"}</Button>
+        <Button type="submit">{loading ? "Виконую..." : "Записати"}</Button>
       </div>
     </form>
   );

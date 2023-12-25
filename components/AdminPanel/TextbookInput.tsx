@@ -11,14 +11,19 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { TextbookImageInput, TextbookListInput, TextbookTableInput } from "../index";
+import {
+  TextbookImageInput,
+  TextbookListInput,
+  TextbookTableInput,
+  TextbookTextInput,
+} from "../index";
 
 type Table = {
   title: string;
   headers: string;
   rows: {
     id: number;
-    selector: string;
+    item: string;
     example: string;
     description: string;
   }[];
@@ -40,7 +45,7 @@ type Image = {
 export type FormData = {
   section: string;
   subtitle: string;
-  content: string;
+  content: string[];
   table?: Table;
   list?: List;
   image?: Image;
@@ -49,24 +54,17 @@ export type FormData = {
 type TypeOfData = string[];
 
 export const styles = {
-  inputContainer: "flex flex-col space-y-2",
-  inputLabel: "text-[0.8rem] font-medium",
+  inputContainer: "flex space-x-2",
+  inputLabel: "text-[0.8rem] font-medium whitespace-nowrap leading-10",
   inputError: "w-full px-3 py-2 border rounded focus:outline-none",
   spanError: "text-[0.8rem] font-medium text-red-500",
 };
 
 const TextbookInput = () => {
-  const [typeOfData, setTypeOfData] = useState<TypeOfData>([]);
-  const [isDisabled, setIsDisabled] = useState(false);
+  const [typeOfData, setTypeOfData] = useState<TypeOfData>(["text_0"]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (typeOfData.length === 3) {
-      setIsDisabled(true);
-    } else {
-      setIsDisabled(false);
-    }
-  }, [typeOfData]);
+  console.log(typeOfData);
 
   const {
     register,
@@ -78,14 +76,14 @@ const TextbookInput = () => {
     defaultValues: {
       section: "",
       subtitle: "",
-      content: "",
+      content: [],
       table: {
         title: "",
         headers: "",
         rows: [
           {
             id: 1,
-            selector: "",
+            item: "",
             example: "",
             description: "",
           },
@@ -126,54 +124,54 @@ const TextbookInput = () => {
   });
 
   const AddAditionalElementHandler = (type: string) => {
-    if (!typeOfData.includes(type)) {
-      setTypeOfData((prevState) => [...prevState, type]);
-    }
+    setTypeOfData((prevState) => {
+      const length = prevState.length;
+      return [...prevState, `${type}_${length + 1}`];
+    });
   };
 
   const RemoveAditionalElementHandler = (type: string) => {
-    setTypeOfData((prevState) =>
-      prevState.includes(type) ? prevState.filter((item) => item !== type) : [...prevState, type],
-    );
+    setTypeOfData((prevState) => prevState.filter((item) => item !== type));
   };
 
   const onSubmit = async (data: any) => {
-    try {
-      setLoading(true);
-      const createArrayFromString = (options: string) => {
-        return options.split("; ");
-      };
+    console.log(data);
+    // try {
+    //   setLoading(true);
+    //   const createArrayFromString = (options: string) => {
+    //     return options.split("; ");
+    //   };
 
-      const list = typeOfData.includes("list") && { list: data.list };
-      const table = typeOfData.includes("table") && {
-        table: { ...data?.table, headers: createArrayFromString(data?.table?.headers) },
-      };
-      const image = typeOfData.includes("image") && {
-        image: { ...data?.image, caption: createArrayFromString(data?.image?.caption) },
-      };
+    //   const list = typeOfData.includes("list") && { list: data.list };
+    //   const table = typeOfData.includes("table") && {
+    //     table: { ...data?.table, headers: createArrayFromString(data?.table?.headers) },
+    //   };
+    //   const image = typeOfData.includes("image") && {
+    //     image: { ...data?.image, caption: createArrayFromString(data?.image?.caption) },
+    //   };
 
-      const newSection = {
-        [data.section]: {
-          subtitle: data.subtitle,
-          content: [...createArrayFromString(data.content), list, table, image],
-        },
-      };
+    //   const newSection = {
+    //     [data.section]: {
+    //       subtitle: data.subtitle,
+    //       content: [...createArrayFromString(data.content), list, table, image],
+    //     },
+    //   };
 
-      const response = await fetchToChangeDataOnServer("time", "post", newSection);
+    //   const response = await fetchToChangeDataOnServer("time", "post", newSection);
 
-      if (response.ok) {
-        toast({
-          title: "Додано нову секцію:",
-          description: <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{data.subtitle}</p>,
-        });
-      }
+    //   if (response.ok) {
+    //     toast({
+    //       title: "Додано нову секцію:",
+    //       description: <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{data.subtitle}</p>,
+    //     });
+    //   }
 
-      setLoading(false);
-      reset();
-      setTypeOfData([]);
-    } catch (error) {
-      console.log(error);
-    }
+    //   setLoading(false);
+    //   reset();
+    //   setTypeOfData([]);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
   const { inputContainer, inputLabel, inputError, spanError } = styles;
 
@@ -182,7 +180,7 @@ const TextbookInput = () => {
       <div className="space-y-6 p-6 border rounded-lg shadow-md">
         <div className={inputContainer}>
           <label htmlFor="section" className={inputLabel}>
-            Назва секції
+            "[Назва секції]":
           </label>
           <input
             placeholder="syntax_html"
@@ -192,9 +190,10 @@ const TextbookInput = () => {
             }`}
           />
           {errors?.section && <span className={spanError}>{errors?.section?.message}</span>}
-
+        </div>
+        <div className={inputContainer}>
           <label htmlFor="subtitle" className={inputLabel}>
-            Заголовок для секції
+            "subtitle":
           </label>
           <input
             {...register("subtitle", { required: "Це поле є обов'язковим" })}
@@ -207,54 +206,61 @@ const TextbookInput = () => {
         </div>
         <div className={inputContainer}>
           <label htmlFor="content" className={inputLabel}>
-            Контент
+            "content":
           </label>
-          <textarea
-            placeholder="CSS розшифровується як Cascading Style Sheets... Розділяти двокрапкою (;)"
-            {...register("content", { required: "Це поле є обов'язковим" })}
-            className={`${inputError} ${
-              errors?.content ? "border-red-500" : "focus:border-accent"
-            } resize-y`}></textarea>
-          {errors?.content && <span className={spanError}>{errors?.content?.message}</span>}
+          <div className="flex w-full flex-col space-y-2">
+            {typeOfData.map((type, index) => {
+              if (type.includes("text"))
+                return (
+                  <TextbookTextInput
+                    order={index}
+                    register={register}
+                    errors={errors}
+                    removeAdditionalElement={RemoveAditionalElementHandler}
+                  />
+                );
+              // if (type === "table")
+              //   return (
+              //     <TextbookTableInput
+              //       register={register}
+              //       errors={errors}
+              //       fields={tableFields}
+              //       append={tableAppend}
+              //       remove={tableRemove}
+              //       removeAdditionalElement={RemoveAditionalElementHandler}
+              //     />
+              //   );
+              // if (type === "list")
+              //   return (
+              //     <TextbookListInput
+              //       register={register}
+              //       errors={errors}
+              //       fields={listFields}
+              //       append={listAppend}
+              //       remove={listRemove}
+              //       removeAdditionalElement={RemoveAditionalElementHandler}
+              //     />
+              //   );
+              // if (type === "image")
+              //   return (
+              //     <TextbookImageInput
+              //       register={register}
+              //       errors={errors}
+              //       removeAdditionalElement={RemoveAditionalElementHandler}
+              //     />
+              //   );
+            })}
+          </div>
         </div>
-        {typeOfData.includes("table") && (
-          <TextbookTableInput
-            register={register}
-            errors={errors}
-            fields={tableFields}
-            append={tableAppend}
-            remove={tableRemove}
-            removeAdditionalElement={RemoveAditionalElementHandler}
-          />
-        )}
-
-        {typeOfData.includes("list") && (
-          <TextbookListInput
-            register={register}
-            errors={errors}
-            fields={listFields}
-            append={listAppend}
-            remove={listRemove}
-            removeAdditionalElement={RemoveAditionalElementHandler}
-          />
-        )}
-
-        {typeOfData.includes("image") && (
-          <TextbookImageInput
-            register={register}
-            errors={errors}
-            removeAdditionalElement={RemoveAditionalElementHandler}
-          />
-        )}
-
         <div className="flex justify-end">
           <DropdownMenu>
-            <DropdownMenuTrigger
-              className="hover:bg-accent py-2 px-4 rounded-lg disabled:bg-gray-200 disabled:opacity-50"
-              disabled={isDisabled}>
+            <DropdownMenuTrigger className="hover:bg-accent py-2 px-4 rounded-lg disabled:bg-gray-200 disabled:opacity-50">
               Додати елемент
             </DropdownMenuTrigger>
             <DropdownMenuContent>
+              <DropdownMenuItem onClick={() => AddAditionalElementHandler("text")}>
+                Текст
+              </DropdownMenuItem>
               <DropdownMenuItem onClick={() => AddAditionalElementHandler("table")}>
                 Таблиця
               </DropdownMenuItem>
@@ -269,7 +275,7 @@ const TextbookInput = () => {
         </div>
       </div>
       <div className="flex items-center mt-4">
-        <Button type="submit">{loading ? "Виконую..." : "Змінити"}</Button>
+        <Button type="submit">{loading ? "Виконую..." : "Записати"}</Button>
       </div>
     </form>
   );
