@@ -157,15 +157,18 @@ const TextbookInput = () => {
     return valid;
   };
 
-  const debouncedUpdate = useCallback((field: string) => {
-    const isValid = validateForm();
+  const debouncedUpdate = useCallback(
+    (field: string) => {
+      const isValid = validateForm();
 
-    if (isValid) {
-      setErrors((prev) => ({ ...prev, [field]: false }));
-    } else {
-      setErrors((prev) => ({ ...prev, [field]: true }));
-    }
-  }, [validateForm]);
+      if (isValid) {
+        setErrors((prev) => ({ ...prev, [field]: false }));
+      } else {
+        setErrors((prev) => ({ ...prev, [field]: true }));
+      }
+    },
+    [validateForm],
+  );
 
   const handleItemChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -227,26 +230,25 @@ const TextbookInput = () => {
       setLoading(false);
       return;
     }
+    try {
+      const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
 
-    // try {
-    //   const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
+      if (response.ok) {
+        toast({
+          title: "Додано нову секцію:",
+          description: (
+            <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{formData.section}</p>
+          ),
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Помилка під час надсилання даних",
+      });
+      console.error(error);
+    }
 
-    //   if (response.ok) {
-    //     toast({
-    //       title: "Додано нову секцію:",
-    //       description: (
-    //         <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{formData.section}</p>
-    //       ),
-    //     });
-    //   }
-    // } catch (error) {
-    //   toast({
-    //     title: "Помилка під час надсилання даних",
-    //   });
-    //   console.error(error);
-    // }
-
-    // setFormData({ section: "", subtitle: "", content: [] });
+    setFormData({ section: "", subtitle: "", content: [] });
     setLoading(false);
   };
 
