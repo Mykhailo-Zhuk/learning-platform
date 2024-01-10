@@ -52,16 +52,19 @@ const TextbookImageInput: React.FC<TextbookTableInputProps> = ({
     return valid;
   };
 
-  const debouncedUpdateImage = (updatedImage: Image) => {
-    const isValid = validateForm();
+  const debouncedUpdateImage = useCallback(
+    (updatedImage: Image) => {
+      const isValid = validateForm();
 
-    if (isValid) {
-      onUpdateImage(index, updatedImage);
-      setErrors((prev) => ({ ...prev, content: false }));
-    } else {
-      setErrors((prev) => ({ ...prev, content: true }));
-    }
-  };
+      if (isValid) {
+        onUpdateImage(index, updatedImage);
+        setErrors((prev) => ({ ...prev, content: false }));
+      } else {
+        setErrors((prev) => ({ ...prev, content: true }));
+      }
+    },
+    [validateForm],
+  );
 
   const handleItemChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -74,7 +77,7 @@ const TextbookImageInput: React.FC<TextbookTableInputProps> = ({
 
   return (
     <div className={`relative ${inputHover} group/table p-1`}>
-      <p className={inputLabel}>"image":</p>
+      <p className={inputLabel}>&quot;image&quot;:</p>
       <div className="flex flex-col space-y-2 pl-10">
         <InputField
           label='"src"'

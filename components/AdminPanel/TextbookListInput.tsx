@@ -112,23 +112,26 @@ const TextbookListInput: React.FC<TextbookListInputProps> = ({
     return valid;
   };
 
-  const debouncedUpdateList = (updatedList: List) => {
-    const isValid = validateForm();
+  const debouncedUpdateList = useCallback(
+    (updatedList: List) => {
+      const isValid = validateForm();
 
-    if (isValid) {
-      onUpdateList(index, updatedList);
-      setErrors((prev) => ({ ...prev, content: false }));
-    } else {
-      setErrors((prev) => ({ ...prev, content: true }));
-    }
-  };
+      if (isValid) {
+        onUpdateList(index, updatedList);
+        setErrors((prev) => ({ ...prev, content: false }));
+      } else {
+        setErrors((prev) => ({ ...prev, content: true }));
+      }
+    },
+    [validateForm],
+  );
 
   const handleItemChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       setList((prev) => ({ ...prev, listTitle: e.target.value }));
       setTimeout(() => debouncedUpdateList({ ...list, listTitle: e.target.value }), 500);
     },
-    [list.listTitle, setList, debouncedUpdateList],
+    [list, setList, debouncedUpdateList],
   );
 
   const handleRowChange = useCallback(
@@ -138,12 +141,12 @@ const TextbookListInput: React.FC<TextbookListInputProps> = ({
       setList((prev) => ({ ...prev, listItems: updatedRows }));
       setTimeout(() => debouncedUpdateList({ ...list, listItems: updatedRows }), 500);
     },
-    [list.listItems, setList, debouncedUpdateList],
+    [list, setList, debouncedUpdateList],
   );
 
   return (
     <div className={`relative ${inputHover} group/table p-1`}>
-      <p className={inputLabel}>"list":</p>
+      <p className={inputLabel}>&quot;list&quot;:</p>
       <div className="flex flex-col space-y-2">
         <InputField
           label='"title"'
@@ -155,7 +158,7 @@ const TextbookListInput: React.FC<TextbookListInputProps> = ({
           error={listError?.listTitle}
         />
         <div className={inputContainer}>
-          <p className={inputLabel}>"items":</p>
+          <p className={inputLabel}>&quot;items&quot;:</p>
           <div className="flex w-full flex-col space-y-1 pt-10">
             {list.listItems.map((row, rowIndex) => {
               return (

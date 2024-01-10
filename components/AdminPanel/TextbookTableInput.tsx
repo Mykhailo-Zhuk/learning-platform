@@ -111,22 +111,25 @@ const TextbookTableInput: React.FC<TextbookTableInputProps> = ({
     return valid;
   };
 
-  const debouncedUpdateTable = (updatedTable: Table) => {
-    const isValid = validateForm();
-    if (isValid) {
-      onUpdateTable(index, updatedTable);
-      setErrors((prev) => ({ ...prev, content: false }));
-    } else {
-      setErrors((prev) => ({ ...prev, content: true }));
-    }
-  };
+  const debouncedUpdateTable = useCallback(
+    (updatedTable: Table) => {
+      const isValid = validateForm();
+      if (isValid) {
+        onUpdateTable(index, updatedTable);
+        setErrors((prev) => ({ ...prev, content: false }));
+      } else {
+        setErrors((prev) => ({ ...prev, content: true }));
+      }
+    },
+    [validateForm],
+  );
 
   const handleItemChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>, field: string) => {
       setTable((prev) => ({ ...prev, [field]: e.target.value }));
       setTimeout(() => debouncedUpdateTable({ ...table, [field]: e.target.value }), 500);
     },
-    [table.tableTitle, table.tableHeaders, setTable, debouncedUpdateTable],
+    [table, setTable, debouncedUpdateTable],
   );
 
   const handleRowChange = useCallback(
@@ -136,12 +139,12 @@ const TextbookTableInput: React.FC<TextbookTableInputProps> = ({
       setTable((prev) => ({ ...prev, tableRows: updatedRows }));
       setTimeout(() => debouncedUpdateTable({ ...table, tableRows: updatedRows }), 500);
     },
-    [table.tableRows, index, setTable, debouncedUpdateTable],
+    [table, index, setTable, debouncedUpdateTable],
   );
 
   return (
     <div className={`relative ${inputHover} group/table p-1`}>
-      <p className={inputLabel}>"table":</p>
+      <p className={inputLabel}>&quot;table&quot;:</p>
       <div className="flex flex-col space-y-2">
         <InputField
           label='"title?":'
@@ -161,7 +164,7 @@ const TextbookTableInput: React.FC<TextbookTableInputProps> = ({
           error={errors?.tableHeaders}
         />
         <div className={inputContainer}>
-          <p className={inputLabel}>"rows":</p>
+          <p className={inputLabel}>&quot;rows&quot;:</p>
           <div className="flex w-full flex-col space-y-1 pt-10">
             {table.tableRows.map((row, rowIndex) => {
               return (

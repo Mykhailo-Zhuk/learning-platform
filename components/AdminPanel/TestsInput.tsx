@@ -93,7 +93,7 @@ const TestsInput = () => {
       <div className="flex flex-col space-y-6 p-6 border rounded-lg shadow-md">
         <div className={inputContainer}>
           <label htmlFor="section" className={inputLabel}>
-            "section":
+            &quot;section&quot;:
           </label>
           <input
             placeholder="syntax_html"
@@ -107,7 +107,7 @@ const TestsInput = () => {
         </div>
         <div className={inputContainer}>
           <label htmlFor="subtitle" className={inputLabel}>
-            "subtitle":
+            &quot;subtitle&quot;:
           </label>
           <input
             placeholder="Як користувачу, я хочу мати сітку з двома колонками, де одна колонка ширша за іншу. Який CSS Grid код необхідно написати для досягнення цього результату?"
@@ -120,7 +120,7 @@ const TestsInput = () => {
           {errors.subtitle && <span className={spanError}>{errors.subtitle}</span>}
         </div>
         <div className={inputContainer}>
-          <label className={inputLabel}>"tests"</label>
+          <label className={inputLabel}>&quot;tests&quot;</label>
           <div className="flex w-full flex-col space-y-1">
             <textarea
               value={data.tests}

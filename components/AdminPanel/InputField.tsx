@@ -33,7 +33,7 @@ const InputField = ({ label, name, value, onChange, onBlur, error, placeHolder }
           onBlur={handleBlur}
           className={`${inputError} ${error ? "border-red-500" : "focus:border-accent"}`}
         />
-        {error && <span className={spanError}>Це поле є обов'язковим</span>}
+        {error && <span className={spanError}>Це поле є обов&apos;язковим</span>}
       </div>
     </div>
   );

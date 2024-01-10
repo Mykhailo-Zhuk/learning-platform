@@ -157,7 +157,7 @@ const TextbookInput = () => {
     return valid;
   };
 
-  const debouncedUpdate = (field: string) => {
+  const debouncedUpdate = useCallback((field: string) => {
     const isValid = validateForm();
 
     if (isValid) {
@@ -165,7 +165,7 @@ const TextbookInput = () => {
     } else {
       setErrors((prev) => ({ ...prev, [field]: true }));
     }
-  };
+  }, [validateForm]);
 
   const handleItemChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -228,25 +228,25 @@ const TextbookInput = () => {
       return;
     }
 
-    try {
-      const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
+    // try {
+    //   const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
 
-      if (response.ok) {
-        toast({
-          title: "Додано нову секцію:",
-          description: (
-            <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{formData.section}</p>
-          ),
-        });
-      }
-    } catch (error) {
-      toast({
-        title: "Помилка під час надсилання даних",
-      });
-      console.error(error);
-    }
+    //   if (response.ok) {
+    //     toast({
+    //       title: "Додано нову секцію:",
+    //       description: (
+    //         <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{formData.section}</p>
+    //       ),
+    //     });
+    //   }
+    // } catch (error) {
+    //   toast({
+    //     title: "Помилка під час надсилання даних",
+    //   });
+    //   console.error(error);
+    // }
 
-    setFormData({ section: "", subtitle: "", content: [] });
+    // setFormData({ section: "", subtitle: "", content: [] });
     setLoading(false);
   };
 
@@ -274,7 +274,7 @@ const TextbookInput = () => {
           error={errors?.subtitle}
         />
         <div className={inputContainer}>
-          <p className={inputLabel}>"content":</p>
+          <p className={inputLabel}>&quot;content&quot;:</p>
           <div className="flex w-full flex-col space-y-2 pt-10">
             {formData.content.map((item, index) => (
               // TODO: Зробити новий розділ для написання тексту схожого на код у vscode із форматування та кольорами

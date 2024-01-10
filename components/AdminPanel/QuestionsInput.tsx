@@ -93,7 +93,7 @@ const QuestionsInput = () => {
       <div className="flex flex-col space-y-6 p-6 border rounded-lg shadow-md">
         <div className={inputContainer}>
           <label htmlFor="section" className={inputLabel}>
-            "section":
+            &quot;section&quot;:
           </label>
           <input
             placeholder="syntax_html"
@@ -107,7 +107,7 @@ const QuestionsInput = () => {
         </div>
         <div className={inputContainer}>
           <label htmlFor="subtitle" className={inputLabel}>
-            "subtitle":
+            &quot;subtitle&quot;:
           </label>
           <input
             placeholder="CSS Grid"
@@ -120,7 +120,7 @@ const QuestionsInput = () => {
           {errors.subtitle && <span className={spanError}>{errors.subtitle}</span>}
         </div>
         <div className={inputContainer}>
-          <label className={inputLabel}>"tasks"</label>
+          <label className={inputLabel}>&quot;tasks&quot;</label>
           <div className="flex w-full flex-col space-y-1">
             <textarea
               value={questions.tasks}

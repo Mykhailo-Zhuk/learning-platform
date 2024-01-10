@@ -38,22 +38,25 @@ const TextbookTextInput: React.FC<TextbookTableInputProps> = ({
     return valid;
   };
 
-  const debouncedUpdateText = (updatedText: Text) => {
-    const isValid = validateForm();
-    if (isValid) {
-      updateTextValue(index, updatedText);
-      setErrors((prev) => ({ ...prev, content: false }));
-    } else {
-      setErrors((prev) => ({ ...prev, content: true }));
-    }
-  };
+  const debouncedUpdateText = useCallback(
+    (updatedText: Text) => {
+      const isValid = validateForm();
+      if (isValid) {
+        updateTextValue(index, updatedText);
+        setErrors((prev) => ({ ...prev, content: false }));
+      } else {
+        setErrors((prev) => ({ ...prev, content: true }));
+      }
+    },
+    [validateForm],
+  );
 
   const handleItemChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       setText({ textValue: e.target.value });
       setTimeout(() => debouncedUpdateText({ textValue: e.target.value }), 500);
     },
-    [text, setText, debouncedUpdateText],
+    [setText, debouncedUpdateText],
   );
 
   return (
