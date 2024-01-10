@@ -9,10 +9,10 @@ type Image = {
 };
 type Table = {
   table?: {
-    title: string;
+    title?: string;
     headers: string[];
     rows: {
-      id: number;
+      id: number | string;
       item: string;
       example?: string;
       description: string;
@@ -23,7 +23,7 @@ type List = {
   list: {
     title: string;
     items: {
-      id: number;
+      id: string;
       item: string;
     }[];
   };
@@ -47,7 +47,7 @@ type Questions = {
   subtitle: string;
   url: string;
   tasks: {
-    id: number;
+    id: number | string;
     question: string;
     options: string[];
     correctAnswer: string;
@@ -69,23 +69,23 @@ type Description = {
 type ListOfThemes = {
   title: string;
   subtitles: {
-    id: number;
+    id: number | string;
     subtitle: string;
     url: string;
   }[];
 }[];
-type AdminList = { id: number; title: string; url: string }[];
+type AdminList = { id: number | string; title: string; url: string }[];
 type HomeWorkItem = {
-  id: number;
+  id: number | string;
   link: string;
   title: string;
   type: string;
 };
 type Homework = {
-  id: number;
+  id: number | string;
   date: string;
   homework: {
-    id: number;
+    id: string;
     action: string;
     listOfThemes?: HomeWorkItem[];
     links?: HomeWorkItem[];
@@ -148,7 +148,6 @@ export const useStore = create<Store>((set, get) => ({
     try {
       const response = await fetchPartOfData("tests", params);
       const data = await response.json();
-      console.log(data);
 
       set({ tests: data });
     } catch (error) {

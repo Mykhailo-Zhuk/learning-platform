@@ -62,7 +62,7 @@ const ThemesContent = ({ params }: Params) => {
                 if ("table" in subitem) {
                   return (
                     <NotionStyleTable
-                      key={subitem?.table?.title.replaceAll(" ", "")}
+                      key={subitem?.table?.title?.replaceAll(" ", "")}
                       data={subitem?.table}
                     />
                   );

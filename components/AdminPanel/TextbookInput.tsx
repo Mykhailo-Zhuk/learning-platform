@@ -1,10 +1,11 @@
 "use client";
 
-import { useForm, useFieldArray } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
 import { Button } from "@/components/ui/button";
+import { styles } from "@/lib/styles";
 import { fetchToChangeDataOnServer } from "@/lib/utils";
 import { toast } from "../ui/use-toast";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useCallback, useMemo, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,262 +13,325 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
+  InputField,
   TextbookImageInput,
   TextbookListInput,
   TextbookTableInput,
   TextbookTextInput,
 } from "../index";
 
-type Table = {
-  title: string;
-  headers: string;
-  rows: {
-    id: number;
+export type Row = {
+  id: string;
+  item: string;
+  example: string;
+  description: string;
+};
+
+export type Table = {
+  tableTitle?: string;
+  tableHeaders: string;
+  tableRows: Row[];
+};
+
+export type List = {
+  listTitle: string;
+  listItems: {
+    id: string;
     item: string;
-    example: string;
-    description: string;
   }[];
 };
 
-type List = {
-  title: string;
-  items: {
-    id: number;
-    item: string;
-  }[];
+export type Image = {
+  imageSrc: string;
+  imageCaption: string;
 };
 
-type Image = {
-  src: string;
-  caption: string;
+export type Text = {
+  textValue: string;
 };
+
+type Content = (Text | Table | List | Image)[];
 
 export type FormData = {
   section: string;
   subtitle: string;
-  content: string[];
-  table?: Table;
-  list?: List;
-  image?: Image;
+  content: Content;
 };
 
-type TypeOfData = string[];
-
-export const styles = {
-  inputContainer: "flex space-x-2",
-  inputLabel: "text-[0.8rem] font-medium whitespace-nowrap leading-10",
-  inputError: "w-full px-3 py-2 border rounded focus:outline-none",
-  spanError: "text-[0.8rem] font-medium text-red-500",
+export type Errors = {
+  section: boolean;
+  subtitle: boolean;
+  content: boolean;
 };
 
 const TextbookInput = () => {
-  const [typeOfData, setTypeOfData] = useState<TypeOfData>(["text_0"]);
   const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState<Errors>({
+    section: false,
+    subtitle: false,
+    content: false,
+  });
+  const [formData, setFormData] = useState<FormData>({
+    section: "",
+    subtitle: "",
+    content: [{ textValue: "" }],
+  });
 
-  console.log(typeOfData);
+  const textFieldData = { textValue: "" };
+  const tableFieldData = {
+    tableTitle: "",
+    tableHeaders: "",
+    tableRows: [
+      {
+        id: uuidv4(),
+        item: "",
+        example: "",
+        description: "",
+      },
+    ],
+  };
 
-  const {
-    register,
-    control,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<FormData>({
-    defaultValues: {
-      section: "",
-      subtitle: "",
-      content: [],
-      table: {
-        title: "",
-        headers: "",
-        rows: [
-          {
-            id: 1,
-            item: "",
-            example: "",
-            description: "",
-          },
-        ],
+  const imageFieldData = {
+    imageSrc: "",
+    imageCaption: "",
+  };
+
+  const listFieldData = {
+    listTitle: "",
+    listItems: [
+      {
+        id: uuidv4(),
+        item: "",
       },
-      image: {
-        src: "",
-        caption: "",
-      },
-      list: {
-        title: "",
-        items: [
-          {
-            id: 1,
-            item: "",
-          },
-        ],
-      },
+    ],
+  };
+
+  // Add data fields
+  const addDataField = (data: Table | List | Image | Text) => {
+    setFormData((prev) => ({
+      ...prev,
+      content: [...prev.content, data],
+    }));
+  };
+
+  // Remove elements
+  const removeContent = (index: number) => {
+    setFormData((prev) => ({
+      ...prev,
+      content: prev.content.filter((_, i) => i !== index),
+    }));
+  };
+
+  // Update values
+  const onUpdateFieldsHandler = (index: number, field: Text | Table | List | Image) => {
+    setFormData((prev) => ({
+      ...prev,
+      content: prev.content.map((item, i) => (i === index ? { ...field } : item)),
+    }));
+  };
+
+  const validateForm = () => {
+    let valid = true;
+
+    const newErrors = {
+      section: false,
+      subtitle: false,
+      content: false,
+    };
+
+    if (!formData.section.trim()) {
+      newErrors.section = true;
+      valid = false;
+    }
+
+    if (!formData.subtitle.trim()) {
+      newErrors.subtitle = true;
+      valid = false;
+    }
+    if (!formData.content.length) {
+      newErrors.content = true;
+      valid = false;
+    }
+
+    setErrors((prev) => ({ ...prev, ...newErrors }));
+    return valid;
+  };
+
+  const debouncedUpdate = (field: string) => {
+    const isValid = validateForm();
+
+    if (isValid) {
+      setErrors((prev) => ({ ...prev, [field]: false }));
+    } else {
+      setErrors((prev) => ({ ...prev, [field]: true }));
+    }
+  };
+
+  const handleItemChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+
+      setFormData((prev) => ({ ...prev, [name]: value }));
+      setTimeout(() => {
+        debouncedUpdate(name);
+      }, 500);
     },
-  });
+    [setFormData, debouncedUpdate],
+  );
 
-  const {
-    fields: tableFields,
-    append: tableAppend,
-    remove: tableRemove,
-  } = useFieldArray({
-    control,
-    name: "table.rows",
-  });
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    const isValid = validateForm();
 
-  const {
-    fields: listFields,
-    append: listAppend,
-    remove: listRemove,
-  } = useFieldArray({
-    control,
-    name: "list.items",
-  });
+    const createArrayFromString = (options: string) => {
+      return options.split("; ");
+    };
 
-  const AddAditionalElementHandler = (type: string) => {
-    setTypeOfData((prevState) => {
-      const length = prevState.length;
-      return [...prevState, `${type}_${length + 1}`];
-    });
-  };
+    const newSection = {
+      [formData.section]: {
+        subtitle: formData.subtitle,
+        content: formData.content.map((item) => {
+          if ("textValue" in item) {
+            return item.textValue;
+          }
 
-  const RemoveAditionalElementHandler = (type: string) => {
-    setTypeOfData((prevState) => prevState.filter((item) => item !== type));
-  };
+          if ("listItems" in item) {
+            return { list: { title: item.listTitle, items: [...item.listItems] } };
+          }
 
-  const onSubmit = async (data: any) => {
-    console.log(data);
+          if ("imageSrc" in item) {
+            return {
+              image: { src: item.imageSrc, caption: createArrayFromString(item.imageCaption) },
+            };
+          }
+
+          if ("tableRows" in item) {
+            return {
+              table: {
+                title: item.tableTitle,
+                headers: createArrayFromString(item.tableHeaders),
+                rows: [...item.tableRows],
+              },
+            };
+          }
+        }),
+      },
+    };
+
+    if (!isValid) {
+      toast({
+        title: "Помилка валідації",
+        description: "Не заповнені всі обов'язкові поля",
+      });
+      setLoading(false);
+      return;
+    }
+    console.log(newSection);
+
     // try {
-    //   setLoading(true);
-    //   const createArrayFromString = (options: string) => {
-    //     return options.split("; ");
-    //   };
-
-    //   const list = typeOfData.includes("list") && { list: data.list };
-    //   const table = typeOfData.includes("table") && {
-    //     table: { ...data?.table, headers: createArrayFromString(data?.table?.headers) },
-    //   };
-    //   const image = typeOfData.includes("image") && {
-    //     image: { ...data?.image, caption: createArrayFromString(data?.image?.caption) },
-    //   };
-
-    //   const newSection = {
-    //     [data.section]: {
-    //       subtitle: data.subtitle,
-    //       content: [...createArrayFromString(data.content), list, table, image],
-    //     },
-    //   };
-
-    //   const response = await fetchToChangeDataOnServer("time", "post", newSection);
+    //   const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
 
     //   if (response.ok) {
     //     toast({
     //       title: "Додано нову секцію:",
-    //       description: <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{data.subtitle}</p>,
+    //       description: (
+    //         <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{formData.section}</p>
+    //       ),
     //     });
     //   }
-
-    //   setLoading(false);
-    //   reset();
-    //   setTypeOfData([]);
     // } catch (error) {
     //   console.log(error);
     // }
+
+    // setFormData({ section: "", subtitle: "", content: [] });
+    setLoading(false);
   };
-  const { inputContainer, inputLabel, inputError, spanError } = styles;
+
+  const { inputContainer, inputLabel } = styles;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-screen-md mx-auto">
-      <div className="space-y-6 p-6 border rounded-lg shadow-md">
+    <form onSubmit={onSubmit} className="w-full max-w-screen-md mx-auto">
+      <div className="flex flex-col space-y-6 p-6 border rounded-lg shadow-md">
+        <InputField
+          label='"section"'
+          name="section"
+          value={formData.section}
+          placeHolder="js_general"
+          onChange={(e) => handleItemChange(e)}
+          onBlur={(e) => handleItemChange(e)}
+          error={errors?.section}
+        />
+        <InputField
+          label='"subtitle"'
+          name="subtitle"
+          value={formData.subtitle}
+          placeHolder="Загальні поняття про Javascript"
+          onChange={(e) => handleItemChange(e)}
+          onBlur={(e) => handleItemChange(e)}
+          error={errors?.subtitle}
+        />
         <div className={inputContainer}>
-          <label htmlFor="section" className={inputLabel}>
-            "[Назва секції]":
-          </label>
-          <input
-            placeholder="syntax_html"
-            {...register("section", { required: "Це поле є обов'язковим" })}
-            className={`${inputError} ${
-              errors?.section ? "border-red-500" : "focus:border-accent"
-            }`}
-          />
-          {errors?.section && <span className={spanError}>{errors?.section?.message}</span>}
-        </div>
-        <div className={inputContainer}>
-          <label htmlFor="subtitle" className={inputLabel}>
-            "subtitle":
-          </label>
-          <input
-            {...register("subtitle", { required: "Це поле є обов'язковим" })}
-            placeholder="Синтаксис HTML, структурованість"
-            className={`${inputError} ${
-              errors?.subtitle ? "border-red-500" : "focus:border-accent"
-            }`}
-          />
-          {errors?.subtitle && <span className={spanError}>{errors?.subtitle?.message}</span>}
-        </div>
-        <div className={inputContainer}>
-          <label htmlFor="content" className={inputLabel}>
-            "content":
-          </label>
-          <div className="flex w-full flex-col space-y-2">
-            {typeOfData.map((type, index) => {
-              if (type.includes("text"))
-                return (
+          <p className={inputLabel}>"content":</p>
+          <div className="flex w-full flex-col space-y-2 pt-10">
+            {formData.content.map((item, index) => (
+              // TODO: Зробити новий розділ для написання тексту схожого на код у vscode із форматування та кольорами
+              <div key={index}>
+                {"textValue" in item && (
                   <TextbookTextInput
-                    order={index}
-                    register={register}
-                    errors={errors}
-                    removeAdditionalElement={RemoveAditionalElementHandler}
+                    key={index}
+                    setErrors={setErrors}
+                    index={index}
+                    updateTextValue={onUpdateFieldsHandler}
+                    removeContent={removeContent}
                   />
-                );
-              // if (type === "table")
-              //   return (
-              //     <TextbookTableInput
-              //       register={register}
-              //       errors={errors}
-              //       fields={tableFields}
-              //       append={tableAppend}
-              //       remove={tableRemove}
-              //       removeAdditionalElement={RemoveAditionalElementHandler}
-              //     />
-              //   );
-              // if (type === "list")
-              //   return (
-              //     <TextbookListInput
-              //       register={register}
-              //       errors={errors}
-              //       fields={listFields}
-              //       append={listAppend}
-              //       remove={listRemove}
-              //       removeAdditionalElement={RemoveAditionalElementHandler}
-              //     />
-              //   );
-              // if (type === "image")
-              //   return (
-              //     <TextbookImageInput
-              //       register={register}
-              //       errors={errors}
-              //       removeAdditionalElement={RemoveAditionalElementHandler}
-              //     />
-              //   );
-            })}
+                )}
+                {"tableRows" in item && (
+                  <TextbookTableInput
+                    key={index}
+                    index={index}
+                    setErrors={setErrors}
+                    onUpdateTable={onUpdateFieldsHandler}
+                    removeContent={removeContent}
+                  />
+                )}
+                {"listItems" in item && (
+                  <TextbookListInput
+                    key={index}
+                    index={index}
+                    setErrors={setErrors}
+                    onUpdateList={onUpdateFieldsHandler}
+                    removeContent={removeContent}
+                  />
+                )}
+                {"imageSrc" in item && (
+                  <TextbookImageInput
+                    key={index}
+                    index={index}
+                    setErrors={setErrors}
+                    onUpdateImage={onUpdateFieldsHandler}
+                    removeContent={removeContent}
+                  />
+                )}
+              </div>
+            ))}
           </div>
         </div>
+
         <div className="flex justify-end">
           <DropdownMenu>
             <DropdownMenuTrigger className="hover:bg-accent py-2 px-4 rounded-lg disabled:bg-gray-200 disabled:opacity-50">
               Додати елемент
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuItem onClick={() => AddAditionalElementHandler("text")}>
-                Текст
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => AddAditionalElementHandler("table")}>
+              <DropdownMenuItem onClick={() => addDataField(textFieldData)}>Текст</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => addDataField(tableFieldData)}>
                 Таблиця
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => AddAditionalElementHandler("list")}>
+              <DropdownMenuItem onClick={() => addDataField(listFieldData)}>
                 Список
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => AddAditionalElementHandler("image")}>
+              <DropdownMenuItem onClick={() => addDataField(imageFieldData)}>
                 Картинка
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -275,7 +339,11 @@ const TextbookInput = () => {
         </div>
       </div>
       <div className="flex items-center mt-4">
-        <Button type="submit">{loading ? "Виконую..." : "Записати"}</Button>
+        <Button
+          type="submit"
+          disabled={Object.values(errors).some((item) => item === true) ? true : false}>
+          {loading ? "Виконую..." : "Записати"}
+        </Button>
       </div>
     </form>
   );

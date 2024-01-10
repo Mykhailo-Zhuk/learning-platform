@@ -41,3 +41,4 @@ export { default as TextbookListInput } from "./AdminPanel/TextbookListInput";
 export { default as TextbookTextInput } from "./AdminPanel/TextbookTextInput";
 export { default as ChangeDateForm } from "./AdminPanel/ChangeDateForm";
 export { default as ChangeTimeForm } from "./AdminPanel/ChangeTimeForm";
+export { default as InputField } from "./AdminPanel/InputField";

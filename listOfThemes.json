@@ -201,15 +201,15 @@
       },
       {
         "id": 9,
-        "subtitle": "Об\"єкти та їх методи (Object)",
-        "url": "js_object",
+        "subtitle": "Об\"єкт Math",
+        "url": "js_object_math",
         "tests": true,
         "questions": true
       },
       {
         "id": 10,
-        "subtitle": "Об\"єкт Math",
-        "url": "js_object_math",
+        "subtitle": "Об\"єкти та їх методи (Object)",
+        "url": "js_object",
         "tests": true,
         "questions": true
       },

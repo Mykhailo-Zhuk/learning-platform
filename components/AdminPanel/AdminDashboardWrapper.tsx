@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 
 type Role = "admin" | "student";
 
-type User = { id: number | string; name: string; password: string; role: Role };
+type User = { id: string; name: string; password: string; role: Role };
 
 const AdminDashboardWrapper = () => {
   const { data: session, status } = useSession();

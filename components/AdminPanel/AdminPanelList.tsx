@@ -38,7 +38,8 @@ const AdminPanelList = () => {
             <li
               key={item?.id}
               className={`${
-                params.type === item?.url || (params.type === undefined && item?.url === "/")
+                params.category === item?.url ||
+                (params.category === undefined && item?.url === "/")
                   ? "bg-accent"
                   : ""
               } text-xl px-4 py-1 hover:bg-accent rounded-lg cursor-pointer`}>

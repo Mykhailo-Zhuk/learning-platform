@@ -10,7 +10,6 @@ import {
 } from "@/components/index";
 
 const Content = ({ params }: { params: { category: string } }) => {
-  // TODO: add adaptive style
   const [category, setCategory] = useState("");
 
   useEffect(() => {

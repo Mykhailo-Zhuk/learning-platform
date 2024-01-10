@@ -17,7 +17,6 @@ const Homework = () => {
   const homework = useStore((state) => state.homework);
   const getHomework = useStore((state) => state.getHomework);
 
-  console.log(homework);
   useEffect(() => {
     const fetchData = async () => {
       await getHomework();

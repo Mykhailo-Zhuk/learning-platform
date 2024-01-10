@@ -2419,90 +2419,90 @@
   },
   "js_types_of_data": {
     "subtitle": "Типи даних (Type of data)",
-    "tasks": []
+    "tests": []
   },
   "js_string": {
     "subtitle": "Рядки та їх методи (String)",
-    "tasks": []
+    "tests": []
   },
   "js_string_templates": {
     "subtitle": "Рядкові шаблони (String templates)",
-    "tasks": []
+    "tests": []
   },
   "js_number": {
     "subtitle": "Числа та їх методи (Number)",
-    "tasks": []
+    "tests": []
   },
   "js_date": {
     "subtitle": "Дати (Date)",
-    "tasks": []
+    "tests": []
   },
   "js_object": {
     "subtitle": "Об\"єкти та їх методи (Object)",
-    "tasks": []
+    "tests": []
   },
   "js_object_math": {
     "subtitle": "Об\"єкт Math",
-    "tasks": []
+    "tests": []
   },
   "js_array": {
     "subtitle": "Масиви та їх методи (Array)",
-    "tasks": []
+    "tests": []
   },
   "js_function": {
     "subtitle": "Функції (Function)",
-    "tasks": []
+    "tests": []
   },
   "js_scope": {
     "subtitle": "Область видимості (Scope)",
-    "tasks": []
+    "tests": []
   },
   "js_condition": {
     "subtitle": "Умови (Condition)",
-    "tasks": []
+    "tests": []
   },
   "js_loops": {
     "subtitle": "Цикли (Loops)",
-    "tasks": []
+    "tests": []
   },
   "js_dom": {
     "subtitle": "DOM (Document Object Model)",
-    "tasks": []
+    "tests": []
   },
   "js_events": {
     "subtitle": "Обробка подій (Events)",
-    "tasks": []
+    "tests": []
   },
   "js_callbacks": {
     "subtitle": "Колбеки (Callbacks)",
-    "tasks": []
+    "tests": []
   },
   "js_async": {
     "subtitle": "Async/await",
-    "tasks": []
+    "tests": []
   },
   "js_promises": {
     "subtitle": "Проміси (Promises)",
-    "tasks": []
+    "tests": []
   },
   "js_prototype": {
     "subtitle": "Прототипи (Prototype)",
-    "tasks": []
+    "tests": []
   },
   "js_ajax": {
     "subtitle": "AJAX",
-    "tasks": []
+    "tests": []
   },
   "js_json": {
     "subtitle": "JSON",
-    "tasks": []
+    "tests": []
   },
   "js_storage": {
     "subtitle": "LocalStorage та SessionStorage",
-    "tasks": []
+    "tests": []
   },
   "js_rest": {
     "subtitle": "REST API",
-    "tasks": []
+    "tests": []
   }
 }

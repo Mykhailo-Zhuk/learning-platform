@@ -2205,7 +2205,7 @@
     ]
   },
   "media_queries": {
-    "title": "Media Queries",
+    "subtitle": "Media Queries",
     "tasks": [
       {
         "id": 1,
@@ -2378,7 +2378,7 @@
     ]
   },
   "css_animation": {
-    "title": "CSS Анімації і градієнти",
+    "subtitle": "CSS Анімації і градієнти",
     "tasks": [
       {
         "id": 1,

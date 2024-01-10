@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/select";
 
 type Theme = {
-  id: number;
+  id: string;
   link: string;
   title: string;
   type?: string;
@@ -58,13 +58,13 @@ const HomeworkInput: React.FC = () => {
       reading: {
         id: 1,
         action: "Прочитати теми: ",
-        listOfThemes: [{ id: 1, link: "", title: "", type: "text" }],
+        listOfThemes: [{ id: uuidv4(), link: "", title: "", type: "text" }],
       },
 
       writting: {
         id: 2,
         action: "Ознайомитися із практичними завданнями та тестами по темах: ",
-        links: [{ id: 1, link: "", title: "", type: "text" }],
+        links: [{ id: uuidv4(), link: "", title: "", type: "text" }],
       },
     },
   });
@@ -87,10 +87,10 @@ const HomeworkInput: React.FC = () => {
   });
 
   const AppendReadingListHandler = () => {
-    readingAppend({ id: readingFields.length + 1, link: "", title: "", type: "text" });
+    readingAppend({ id: uuidv4(), link: "", title: "", type: "text" });
   };
   const AppendWrittingListHandler = () => {
-    writtingAppend({ id: writtingFields.length + 1, link: "", title: "", type: "text" });
+    writtingAppend({ id: uuidv4(), link: "", title: "", type: "text" });
   };
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {

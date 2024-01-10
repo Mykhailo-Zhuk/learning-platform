@@ -3,7 +3,6 @@
 import { AspectRatio } from "../ui/aspect-ratio";
 import { BsFillCalendarCheckFill, BsFillClockFill } from "react-icons/bs";
 import Image from "next/image";
-import { code } from "@/public/images";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 import { useStore } from "@/store/store";

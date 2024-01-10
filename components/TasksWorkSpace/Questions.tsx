@@ -29,14 +29,14 @@ const Questions = ({ params }: Params) => {
     }
   }, [setQuestions, params]);
 
-  const handleAnswerSelection = (questionId: number, selectedAnswer: string) => {
+  const handleAnswerSelection = (questionId: number | string, selectedAnswer: string) => {
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
       [questionId]: selectedAnswer,
     }));
   };
 
-  const checkAnswer = (questionId: number) => {
+  const checkAnswer = (questionId: number | string) => {
     if (submitted) {
       if (
         answers[questionId] ===
@@ -53,51 +53,59 @@ const Questions = ({ params }: Params) => {
     setSubmitted(true);
     localStorage.setItem("testResults", JSON.stringify(answers));
   };
+  console.log(questions);
 
   let content;
 
   if (questions?.length === 0) {
-    content = <h1 className="text-2xl text-center">По цій темі немає практичних завдань</h1>;
+    return (
+      <h1 className="text-2xl text-center p-5">В цьому розділі немає жодних практичних завдань</h1>
+    );
   }
 
   if (loading) {
     content = <Spinner />;
   } else {
-    content = (
-      <div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">
-        {questions[0]?.tasks?.map((question) => (
-          <div key={question?.id} className={`mb-3 ${checkAnswer(question?.id)}`}>
-            <p className="text-lg font-medium mb-2">{question?.question}</p>
-            {question?.options.map((option, index) => (
-              <div key={index} className="mb-2">
-                <label className="inline-flex items-center">
-                  <input
-                    type="radio"
-                    name={`question${question?.id}`}
-                    value={option}
-                    onChange={() => handleAnswerSelection(question?.id, option)}
-                    checked={answers[question?.id] === option}
-                    className="text-indigo-600 h-4 w-4"
-                  />
-                  <span className="ml-2">{option}</span>
-                </label>
-              </div>
-            ))}
-          </div>
-        ))}
-        <button
-          onClick={handleSubmit}
-          className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mr-2">
-          Submit
-        </button>
-        <CorrectAnswers correct={answers} />
-      </div>
-    );
+    if (questions[0]?.tasks.length === 0) {
+      return (
+        <h1 className="text-2xl text-center py-5">
+          В цьому розділі немає жодних практичних завдань
+        </h1>
+      );
+    }
+    content = questions[0]?.tasks?.map((question) => {
+      return (
+        <div key={question?.id} className={`mb-3 ${checkAnswer(question?.id)}`}>
+          <p className="text-lg font-medium mb-2">{question?.question}</p>
+          {question?.options.map((option, index) => (
+            <div key={index} className="mb-2">
+              <label className="inline-flex items-center">
+                <input
+                  type="radio"
+                  name={`question${question?.id}`}
+                  value={option}
+                  onChange={() => handleAnswerSelection(question?.id, option)}
+                  checked={answers[question?.id] === option}
+                  className="text-indigo-600 h-4 w-4"
+                />
+                <span className="ml-2">{option}</span>
+              </label>
+            </div>
+          ))}
+          <button
+            onClick={handleSubmit}
+            className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mr-2">
+            Submit
+          </button>
+          <CorrectAnswers correct={answers} />
+        </div>
+      );
+    });
   }
 
   // TODO: message about nothing if questions for particular theme are not found
 
-  return content;
+  return <div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">{content}</div>;
 };
 
 export default Questions;

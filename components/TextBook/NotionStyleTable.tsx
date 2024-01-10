@@ -1,14 +1,12 @@
-import React from "react";
-
 type Row = {
-  id: number;
+  id: number | string;
   item: string;
   example?: string;
   description: string;
 };
 
 type Table = {
-  title: string;
+  title?: string;
   headers: string[];
   rows: Row[];
 };

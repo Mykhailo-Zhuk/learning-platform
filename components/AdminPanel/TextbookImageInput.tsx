@@ -1,59 +1,103 @@
 "use client";
 
-import { UseFormRegister, FieldErrors } from "react-hook-form";
-import { FormData, styles } from "./TextbookInput";
+import { Errors, Image } from "./TextbookInput";
+import { styles } from "@/lib/styles";
 import { Button } from "../ui/button";
 import { BsTrash3Fill } from "react-icons/bs";
+import { ChangeEvent, Dispatch, SetStateAction, useCallback, useState } from "react";
+import { InputField } from "../index";
 
-const { inputContainer, inputLabel, inputError, spanError } = styles;
+const { inputLabel, buttonOpacity, inputHover } = styles;
 
 type TextbookTableInputProps = {
-  register: UseFormRegister<FormData>;
-  errors: FieldErrors<FormData>;
-  removeAdditionalElement: (index: string) => void;
+  index: number;
+  setErrors: Dispatch<SetStateAction<Errors>>;
+  removeContent: (index: number) => void;
+  onUpdateImage: (index: number, image: Image) => void;
+};
+
+type ImageErrors = {
+  imageSrc: boolean;
 };
 
 const TextbookImageInput: React.FC<TextbookTableInputProps> = ({
-  register,
-  errors,
-  removeAdditionalElement,
+  index,
+  setErrors,
+  removeContent,
+  onUpdateImage,
 }) => {
+  const [imageError, setImageError] = useState<ImageErrors>({
+    imageSrc: false,
+  });
+  const [image, setImage] = useState<Image>({
+    imageSrc: "",
+    imageCaption: "",
+  });
+
+  const validateForm = () => {
+    let valid = true;
+    let newErrors = {
+      imageSrc: false,
+    };
+
+    if (!image.imageSrc.trim()) {
+      newErrors = {
+        imageSrc: true,
+      };
+      valid = false;
+    }
+
+    setImageError(newErrors);
+
+    return valid;
+  };
+
+  const debouncedUpdateImage = (updatedImage: Image) => {
+    const isValid = validateForm();
+
+    if (isValid) {
+      onUpdateImage(index, updatedImage);
+      setErrors((prev) => ({ ...prev, content: false }));
+    } else {
+      setErrors((prev) => ({ ...prev, content: true }));
+    }
+  };
+
+  const handleItemChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setImage((prev) => ({ ...prev, [name]: value }));
+      setTimeout(() => debouncedUpdateImage({ ...image, [name]: value }), 500);
+    },
+    [image, setImage, debouncedUpdateImage],
+  );
+
   return (
-    <div className="relative hover:outline-1 hover:outline hover:outline-accent group/table rounded-lg p-5">
-      <p className={`${inputLabel} text-center`}>Картинка</p>
-      <div className={inputContainer}>
-        <label htmlFor="image.src" className={inputLabel}>
-          Посилання
-        </label>
-        <input
-          placeholder="https://html-plus.in.ua/wp-content/uploads/2017/04/box-model.jpg"
-          {...register("image.src", { required: "Це поле є обов'язковим" })}
-          className={`${inputError} ${
-            errors?.image?.src ? "border-red-500" : "focus:border-accent"
-          }`}
+    <div className={`relative ${inputHover} group/table p-1`}>
+      <p className={inputLabel}>"image":</p>
+      <div className="flex flex-col space-y-2 pl-10">
+        <InputField
+          label='"src"'
+          name="imageSrc"
+          value={image.imageSrc}
+          placeHolder="https://res.cloudinary.com/dxcpen44g/image/upload/f_auto,q_auto/v1/learning-platform/html_css/l9zgjctgixkq2sfxwzgf"
+          onChange={handleItemChange}
+          onBlur={handleItemChange}
+          error={imageError?.imageSrc}
         />
-        {errors?.image?.src && <span className={spanError}>{errors?.image?.src?.message}</span>}
-      </div>
-      <div className={inputContainer}>
-        <label htmlFor="image.caption" className={inputLabel}>
-          Допис під зображення
-        </label>
-        <input
-          placeholder="Селектор; Приклад; Опис. Розділяти двокрапкою (;)"
-          {...register("image.caption")}
-          className={`${inputError} ${
-            errors?.image?.caption ? "border-red-500" : "focus:border-accent"
-          }`}
+        <InputField
+          label='"caption"'
+          name="imageCaption"
+          placeHolder="Розділяти за допомогою ( ; )"
+          value={image.imageCaption}
+          onChange={handleItemChange}
         />
-        {errors?.image?.caption && (
-          <span className={spanError}>{errors?.image?.caption?.message}</span>
-        )}
       </div>
       <Button
         variant="ghost"
         size="icon"
-        className="opacity-0 group-hover/table:opacity-100 absolute transition-opacity top-0 right-0"
-        onClick={() => removeAdditionalElement("image")}>
+        className={`${buttonOpacity} group-hover/table:opacity-100 top-0 right-0`}
+        onClick={() => removeContent(index)}>
         <BsTrash3Fill className="text-red-500" />
       </Button>
     </div>
