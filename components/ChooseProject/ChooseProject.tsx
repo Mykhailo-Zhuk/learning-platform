@@ -122,10 +122,15 @@ const ChooseProject = () => {
 
       const data = await response.json();
 
-      if (response.ok) {
-        console.log(data);
+      if (data) {
+        toast({
+          title: "Дані обновлено",
+        });
       }
     } catch (error) {
+      toast({
+        title: "Помилка під час надсилання даних",
+      });
       console.log(error);
     }
   };

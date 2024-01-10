@@ -53,7 +53,6 @@ const Questions = ({ params }: Params) => {
     setSubmitted(true);
     localStorage.setItem("testResults", JSON.stringify(answers));
   };
-  console.log(questions);
 
   let content;
 

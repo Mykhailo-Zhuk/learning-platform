@@ -49,6 +49,9 @@ const ChangeDateForm = () => {
       }
       setLoading(false);
     } catch (error) {
+      toast({
+        title: "Помилка під час надсилання даних.",
+      });
       console.log(error);
     }
   };

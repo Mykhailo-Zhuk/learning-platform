@@ -64,7 +64,6 @@ const TestsInput = () => {
             tests: JSON.parse(data.tests),
           },
         };
-        console.log({ test: "test", ...newSection });
         const response = await fetchToChangeDataOnServer("tests", "post", newSection);
 
         if (response.ok) {
@@ -80,6 +79,9 @@ const TestsInput = () => {
         toast({ title: "Помилка валідації", description: "Не заповнені всі обов'язкові поля" });
       }
     } catch (error) {
+      toast({
+        title: "Помилка під час надсилання даних",
+      });
       console.log(error);
     }
   };

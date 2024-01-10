@@ -227,24 +227,26 @@ const TextbookInput = () => {
       setLoading(false);
       return;
     }
-    console.log(newSection);
 
-    // try {
-    //   const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
+    try {
+      const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
 
-    //   if (response.ok) {
-    //     toast({
-    //       title: "Додано нову секцію:",
-    //       description: (
-    //         <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{formData.section}</p>
-    //       ),
-    //     });
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
+      if (response.ok) {
+        toast({
+          title: "Додано нову секцію:",
+          description: (
+            <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{formData.section}</p>
+          ),
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Помилка під час надсилання даних",
+      });
+      console.error(error);
+    }
 
-    // setFormData({ section: "", subtitle: "", content: [] });
+    setFormData({ section: "", subtitle: "", content: [] });
     setLoading(false);
   };
 

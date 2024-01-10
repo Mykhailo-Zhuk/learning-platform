@@ -79,6 +79,9 @@ const QuestionsInput = () => {
         toast({ title: "Помилка валідації", description: "Не заповнені всі обов'язкові поля" });
       }
     } catch (error) {
+      toast({
+        title: "Помилка під час надсилання даних",
+      });
       console.log(error);
     }
   };

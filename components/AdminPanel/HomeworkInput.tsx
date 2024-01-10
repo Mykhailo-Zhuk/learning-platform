@@ -117,6 +117,9 @@ const HomeworkInput: React.FC = () => {
       setLoading(false);
       reset();
     } catch (error) {
+      toast({
+        title: "Помилка під час надсилання даних",
+      });
       console.log(error);
     }
   };
