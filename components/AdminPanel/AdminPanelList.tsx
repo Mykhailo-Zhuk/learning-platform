@@ -18,7 +18,7 @@ const AdminPanelList = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [getAdminPanelList]);
 
   let content;
 

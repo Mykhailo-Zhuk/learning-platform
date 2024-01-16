@@ -130,14 +130,14 @@ const TextbookInput = () => {
   };
 
   // Update values
-  const onUpdateFieldsHandler = (index: number, field: Code | Text | Table | List | Image) => {
+  const onUpdateFieldsHandler = useCallback((index: number, field: Code | Text | Table | List | Image) => {
     setFormData((prev) => ({
       ...prev,
       content: prev.content.map((item, i) => (i === index ? { ...field } : item)),
     }));
-  };
+  }, [setFormData]);
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     let valid = true;
 
     const newErrors = {
@@ -162,7 +162,7 @@ const TextbookInput = () => {
 
     setErrors((prev) => ({ ...prev, ...newErrors }));
     return valid;
-  };
+  }, [formData, setErrors]);
 
   const debouncedUpdate = useCallback(
     (field: string) => {

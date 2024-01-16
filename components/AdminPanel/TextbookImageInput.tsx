@@ -63,7 +63,7 @@ const TextbookImageInput: React.FC<TextbookTableInputProps> = ({
         setErrors((prev) => ({ ...prev, content: true }));
       }
     },
-    [validateForm],
+    [validateForm, index, setErrors, onUpdateImage],
   );
 
   const handleItemChange = useCallback(

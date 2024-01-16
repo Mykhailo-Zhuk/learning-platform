@@ -48,7 +48,7 @@ const TextbookTextInput: React.FC<TextbookTableInputProps> = ({
         setErrors((prev) => ({ ...prev, content: true }));
       }
     },
-    [validateForm],
+    [validateForm, index, updateTextValue, setErrors],
   );
 
   const handleItemChange = useCallback(

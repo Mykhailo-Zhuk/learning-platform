@@ -123,7 +123,7 @@ const TextbookListInput: React.FC<TextbookListInputProps> = ({
         setErrors((prev) => ({ ...prev, content: true }));
       }
     },
-    [validateForm],
+    [validateForm, index, onUpdateList, setErrors],
   );
 
   const handleItemChange = useCallback(

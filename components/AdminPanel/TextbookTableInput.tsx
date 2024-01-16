@@ -121,7 +121,7 @@ const TextbookTableInput: React.FC<TextbookTableInputProps> = ({
         setErrors((prev) => ({ ...prev, content: true }));
       }
     },
-    [validateForm],
+    [validateForm, onUpdateTable, index, setErrors],
   );
 
   const handleItemChange = useCallback(
@@ -139,7 +139,7 @@ const TextbookTableInput: React.FC<TextbookTableInputProps> = ({
       setTable((prev) => ({ ...prev, tableRows: updatedRows }));
       setTimeout(() => debouncedUpdateTable({ ...table, tableRows: updatedRows }), 500);
     },
-    [table, index, setTable, debouncedUpdateTable],
+    [table, setTable, debouncedUpdateTable],
   );
 
   return (

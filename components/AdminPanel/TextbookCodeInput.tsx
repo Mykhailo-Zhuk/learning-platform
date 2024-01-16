@@ -67,7 +67,7 @@ const TextbookCodeInput: React.FC<TextbookCodeInputProps> = ({
         setErrors((prev) => ({ ...prev, content: true }));
       }
     },
-    [validateForm],
+    [validateForm, index, setErrors, updateCodeInput],
   );
 
   const handleItemChange = useCallback(
@@ -76,7 +76,7 @@ const TextbookCodeInput: React.FC<TextbookCodeInputProps> = ({
       setCodeInput((prev) => ({ ...prev, [name]: value }));
       setTimeout(() => debouncedUpdateText({ ...codeInput, [name]: value }), 500);
     },
-    [setCodeInput, debouncedUpdateText],
+    [setCodeInput, debouncedUpdateText, codeInput],
   );
 
   return (
@@ -84,7 +84,7 @@ const TextbookCodeInput: React.FC<TextbookCodeInputProps> = ({
       <p className={inputLabel}>&quot;code&quot;:</p>
       <div className="flex flex-col space-y-2">
         <div className={inputContainer}>
-          <label className={inputLabel}>{'"text":'}</label>
+          <label className={inputLabel}>&quot;text&quot;:</label>
           <div className="flex w-full flex-col space-y-1">
             <textarea
               name="codeValue"
