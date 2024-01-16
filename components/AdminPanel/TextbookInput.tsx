@@ -130,12 +130,15 @@ const TextbookInput = () => {
   };
 
   // Update values
-  const onUpdateFieldsHandler = useCallback((index: number, field: Code | Text | Table | List | Image) => {
-    setFormData((prev) => ({
-      ...prev,
-      content: prev.content.map((item, i) => (i === index ? { ...field } : item)),
-    }));
-  }, [setFormData]);
+  const onUpdateFieldsHandler = useCallback(
+    (index: number, field: Code | Text | Table | List | Image) => {
+      setFormData((prev) => ({
+        ...prev,
+        content: prev.content.map((item, i) => (i === index ? { ...field } : item)),
+      }));
+    },
+    [setFormData],
+  );
 
   const validateForm = useCallback(() => {
     let valid = true;
@@ -247,25 +250,25 @@ const TextbookInput = () => {
       return;
     }
     console.log(newSection);
-    // try {
-    //   const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
+    try {
+      const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
 
-    //   if (response.ok) {
-    //     toast({
-    //       title: "Додано нову секцію:",
-    //       description: (
-    //         <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{formData.section}</p>
-    //       ),
-    //     });
-    //   }
-    // } catch (error) {
-    //   toast({
-    //     title: "Помилка під час надсилання даних",
-    //   });
-    //   console.error(error);
-    // }
+      if (response.ok) {
+        toast({
+          title: "Додано нову секцію:",
+          description: (
+            <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{formData.section}</p>
+          ),
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Помилка під час надсилання даних",
+      });
+      console.error(error);
+    }
 
-    // setFormData({ section: "", subtitle: "", content: [] });
+    setFormData({ section: "", subtitle: "", content: [] });
     setLoading(false);
   };
 
