@@ -1,10 +1,12 @@
 "use client";
 
+import { v4 as uuidv4 } from "uuid";
 import Image from "next/image";
 import { Fragment, useEffect, useState } from "react";
 import { useStore } from "@/store/store";
 import Spinner from "../ui/spinner";
 import NotionStyleTable from "./NotionStyleTable";
+import { TextFormatter } from "../index";
 
 type Params = { params: string };
 
@@ -33,14 +35,14 @@ const ThemesContent = ({ params }: Params) => {
             {item?.content?.map((subitem, index) => {
               if (typeof subitem === "string") {
                 return (
-                  <p key={index} className="text-2xl leading-10 font-spartan">
+                  <p key={uuidv4()} className="text-2xl leading-10 font-spartan">
                     {subitem}
                   </p>
                 );
               } else if (typeof subitem === "object") {
                 if ("image" in subitem) {
                   return (
-                    <div key={subitem.image?.src} className="flex flex-col space-y-2">
+                    <div key={uuidv4()} className="flex flex-col space-y-2">
                       <div className="flex justify-center items-center">
                         <Image
                           src={subitem?.image?.src!}
@@ -50,7 +52,7 @@ const ThemesContent = ({ params }: Params) => {
                       </div>
                       {subitem?.image?.caption?.map((item, index) => {
                         return (
-                          <p key={index} className="text-2xl leading-10 font-spartan">
+                          <p key={uuidv4()} className="text-2xl leading-10 font-spartan">
                             {item}
                           </p>
                         );
@@ -60,17 +62,22 @@ const ThemesContent = ({ params }: Params) => {
                 }
 
                 if ("table" in subitem) {
+                  return <NotionStyleTable key={uuidv4()} data={subitem?.table} />;
+                }
+
+                if ("code" in subitem) {
                   return (
-                    <NotionStyleTable
-                      key={subitem?.table?.title?.replaceAll(" ", "")}
-                      data={subitem?.table}
+                    <TextFormatter
+                      key={uuidv4()}
+                      language={subitem?.code?.language}
+                      code={subitem?.code?.codeValue}
                     />
                   );
                 }
 
                 if ("list" in subitem) {
                   return (
-                    <Fragment key={subitem?.list?.title?.replaceAll(" ", "")}>
+                    <Fragment key={uuidv4()}>
                       <h1>
                         <b>{subitem?.list?.title}</b>
                       </h1>

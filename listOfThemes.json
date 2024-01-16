@@ -6,111 +6,84 @@
       {
         "id": 1,
         "subtitle": "Синтаксис HTML, структурованість",
-        "url": "html_syntax",
-        "tests": true,
-        "questions": true
+        "url": "html_syntax"
       },
       {
         "id": 2,
         "subtitle": "Семантика",
-        "url": "html_semantics",
-        "tests": true,
-        "questions": true
+        "url": "html_semantics"
       },
       {
         "id": 3,
         "subtitle": "Теги HTML",
-        "url": "html_tags",
-        "tests": true,
-        "questions": true
+        "url": "html_tags"
       },
       {
         "id": 4,
         "subtitle": "Атрибути HTML",
-        "url": "html_atributes",
-        "tests": true,
-        "questions": true
+        "url": "html_atributes"
       },
-      { "id": 5, "subtitle": "CSS", "url": "css", "tests": true, "questions": true },
+      { "id": 5, "subtitle": "CSS", "url": "css" },
       {
         "id": 6,
         "subtitle": "Iдентифікатори",
-        "url": "css_identifier",
-        "tests": true,
-        "questions": true
+        "url": "css_identifier"
       },
-      { "id": 7, "subtitle": "Класи", "url": "css_classes", "tests": false, "questions": false },
+      { "id": 7, "subtitle": "Класи", "url": "css_classes" },
       {
         "id": 8,
         "subtitle": "Методологія БЕМ:",
-        "url": "css_bem",
-        "tests": false,
-        "questions": false
+        "url": "css_bem"
       },
       {
         "id": 9,
         "subtitle": "Селектори",
         "url": "css_selectors",
-        "tests": false,
-        "questions": true
+        "tests": false
       },
       {
         "id": 10,
         "subtitle": "Комбінатор",
-        "url": "css_combinator",
-        "tests": true,
-        "questions": true
+        "url": "css_combinator"
       },
       {
         "id": 11,
         "subtitle": "Псевдокласи",
-        "url": "css_preudo_classes",
-        "tests": true,
-        "questions": true
+        "url": "css_preudo_classes"
       },
       {
         "id": 12,
         "subtitle": "Псевдоелементи",
-        "url": "css_pseudo_elements",
-        "tests": true,
-        "questions": true
+        "url": "css_pseudo_elements"
       },
       {
         "id": 13,
         "subtitle": "Змінні у CSS",
         "url": "css_variables",
-        "tests": true,
+
         "questions": false
       },
       {
         "id": 14,
         "subtitle": "Flex",
-        "url": "css_flex",
-        "tests": true,
-        "questions": true
+        "url": "css_flex"
       },
       {
         "id": 15,
         "subtitle": "Grid",
-        "url": "css_grid",
-        "tests": true,
-        "questions": true
+        "url": "css_grid"
       },
       {
         "id": 16,
         "subtitle": "Media queries та адаптивність",
-        "url": "media_queries",
-        "tests": true,
-        "questions": true
+        "url": "media_queries"
       },
       {
         "id": 17,
         "subtitle": "Анімації і градієнти",
-        "url": "css_animation",
-        "tests": true,
-        "questions": true
+        "url": "css_animation"
       },
-      { "id": 17, "subtitle": "SASS", "url": "sass", "tests": true, "questions": true }
+      { "id": 17, "subtitle": "SASS", "url": "sass" }
     ]
   },
   {
@@ -120,9 +93,7 @@
       {
         "id": 1,
         "subtitle": "Загальні положення",
-        "url": "git",
-        "tests": false,
-        "questions": true
+        "url": "git"
       }
     ]
   },
@@ -133,9 +104,7 @@
       {
         "id": 1,
         "subtitle": "Загальні положення",
-        "url": "web_technology",
-        "tests": false,
-        "questions": true
+        "url": "web_technology"
       }
     ]
   },
@@ -146,177 +115,147 @@
       {
         "id": 1,
         "subtitle": "Загальні поняття:",
-        "url": "js_syntax",
-        "tests": true,
-        "questions": false
+        "url": "js_general"
       },
       {
         "id": 2,
         "subtitle": "Змінні (Variables)",
-        "url": "js_variables",
-        "tests": true,
-        "questions": false
+        "url": "js_variables"
       },
       {
         "id": 3,
         "subtitle": "Типи даних (Type of data)",
-        "url": "js_types_of_data",
-        "tests": true,
-        "questions": true
+        "url": "js_types_of_data"
       },
       {
         "id": 4,
         "subtitle": "Оператори (Operators)",
-        "url": "js_operators",
-        "tests": true,
-        "questions": true
+        "url": "js_operators"
       },
       {
         "id": 5,
         "subtitle": "Рядки та їх методи (String)",
-        "url": "js_string",
-        "tests": true,
-        "questions": true
+        "url": "js_string"
       },
       {
         "id": 6,
         "subtitle": "Рядкові шаблони (String templates)",
-        "url": "js_string_templates",
-        "tests": true,
-        "questions": true
+        "url": "js_string_templates"
       },
       {
         "id": 7,
         "subtitle": "Числа та їх методи (Number)",
-        "url": "js_number",
-        "tests": true,
-        "questions": true
+        "url": "js_number"
       },
       {
         "id": 8,
         "subtitle": "Дати (Date)",
-        "url": "js_date",
-        "tests": true,
-        "questions": true
+        "url": "js_date"
       },
       {
         "id": 9,
         "subtitle": "Об\"єкт Math",
-        "url": "js_object_math",
-        "tests": true,
-        "questions": true
+        "url": "js_object_math"
       },
       {
         "id": 10,
-        "subtitle": "Об\"єкти та їх методи (Object)",
-        "url": "js_object",
-        "tests": true,
-        "questions": true
+        "subtitle": "Умови (Condition)",
+        "url": "js_condition"
       },
       {
         "id": 11,
-        "subtitle": "Масиви та їх методи (Array)",
-        "url": "js_array",
-        "tests": true,
-        "questions": true
+        "subtitle": "Об\"єкти та їх методи (Object)",
+        "url": "js_object"
       },
       {
         "id": 12,
         "subtitle": "Функції (Function)",
-        "url": "js_function",
-        "tests": true,
-        "questions": true
+        "url": "js_function"
       },
       {
         "id": 13,
-        "subtitle": "Область видимості (Scope)",
-        "url": "js_scope",
-        "tests": true,
-        "questions": true
+        "subtitle": "Цикли (Loops)",
+        "url": "js_loops"
       },
       {
         "id": 14,
-        "subtitle": "Умови (Condition)",
-        "url": "js_condition",
-        "tests": true,
-        "questions": true
+        "subtitle": "Класи (Classes)",
+        "url": "js_classes"
       },
       {
         "id": 15,
-        "subtitle": "Цикли (Loops)",
-        "url": "js_loops",
-        "tests": true,
-        "questions": true
+        "subtitle": "Прототипи (Prototype)",
+        "url": "js_prototype"
       },
       {
         "id": 16,
-        "subtitle": "DOM (Document Object Model)",
-        "url": "js_dom",
-        "tests": true,
-        "questions": true
+        "subtitle": "Масиви та їх методи (Array)",
+        "url": "js_array"
       },
       {
         "id": 17,
-        "subtitle": "Обробка подій (Events)",
-        "url": "js_events",
-        "tests": true,
-        "questions": true
+        "subtitle": "Інші типи даних",
+        "url": "js_other_types_of_data"
       },
       {
         "id": 18,
-        "subtitle": "Колбеки (Callbacks)",
-        "url": "js_callbacks",
-        "tests": true,
-        "questions": true
+        "subtitle": "Регулярні вирази (Regular expression)",
+        "url": "js_regular_expression"
       },
       {
         "id": 19,
-        "subtitle": "Async/await",
-        "url": "js_async",
-        "tests": true,
-        "questions": true
+        "subtitle": "Область видимості (Scope)",
+        "url": "js_scope"
       },
       {
         "id": 20,
-        "subtitle": "Проміси (Promises)",
-        "url": "js_promises",
-        "tests": true,
-        "questions": true
+        "subtitle": "Обробка помилок (Error Handling)",
+        "url": "js_error_handling"
       },
       {
         "id": 21,
-        "subtitle": "Прототипи (Prototype)",
-        "url": "js_prototype",
-        "tests": true,
-        "questions": true
+        "subtitle": "DOM (Document Object Model)",
+        "url": "js_dom"
       },
       {
         "id": 22,
-        "subtitle": "AJAX",
-        "url": "js_ajax",
-        "tests": true,
-        "questions": true
+        "subtitle": "Обробка подій (Events)",
+        "url": "js_events"
       },
       {
         "id": 23,
-        "subtitle": "JSON",
-        "url": "js_json",
-        "tests": true,
-        "questions": true
+        "subtitle": "Колбеки (Callbacks)",
+        "url": "js_callbacks"
       },
       {
         "id": 24,
-        "subtitle": "LocalStorage та SessionStorage",
-        "url": "js_storage",
-        "tests": true,
-        "questions": true
+        "subtitle": "Async/await",
+        "url": "js_async"
       },
       {
         "id": 25,
+        "subtitle": "Проміси (Promises)",
+        "url": "js_promises"
+      },
+      {
+        "id": 26,
+        "subtitle": "AJAX",
+        "url": "js_ajax"
+      },
+      {
+        "id": 27,
+        "subtitle": "JSON",
+        "url": "js_json"
+      },
+      {
+        "id": 28,
+        "subtitle": "LocalStorage та SessionStorage",
+        "url": "js_storage"
+      },
+      {
+        "id": 29,
         "subtitle": "REST API",
-        "url": "js_rest",
-        "tests": true,
-        "questions": true
+        "url": "js_rest"
       }
     ]
   },
@@ -327,9 +266,7 @@
       {
         "id": 1,
         "subtitle": "Загальні положення",
-        "url": "terminal",
-        "tests": true,
-        "questions": true
+        "url": "terminal"
       }
     ]
   },
@@ -340,9 +277,7 @@
       {
         "id": 1,
         "subtitle": "Загальні положення",
-        "url": "npm",
-        "tests": true,
-        "questions": true
+        "url": "npm"
       }
     ]
   },
@@ -353,9 +288,7 @@
       {
         "id": 1,
         "subtitle": "Загальні положення",
-        "url": "worker",
-        "tests": true,
-        "questions": true
+        "url": "worker"
       }
     ]
   },
@@ -366,9 +299,7 @@
       {
         "id": 1,
         "subtitle": "Загальні положення",
-        "url": "algorithm",
-        "tests": true,
-        "questions": true
+        "url": "algorithm"
       }
     ]
   }

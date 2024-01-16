@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { styles } from "@/lib/styles";
 import { fetchToChangeDataOnServer } from "@/lib/utils";
 import { toast } from "../ui/use-toast";
-import { ChangeEvent, useCallback, useMemo, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   InputField,
+  TextbookCodeInput,
   TextbookImageInput,
   TextbookListInput,
   TextbookTableInput,
@@ -50,7 +51,12 @@ export type Text = {
   textValue: string;
 };
 
-type Content = (Text | Table | List | Image)[];
+export type Code = {
+  codeValue: string;
+  language: string;
+};
+
+type Content = (Text | Code | Table | List | Image)[];
 
 export type FormData = {
   section: string;
@@ -78,6 +84,7 @@ const TextbookInput = () => {
   });
 
   const textFieldData = { textValue: "" };
+  const codeFieldData = { codeValue: "", language: "js" };
   const tableFieldData = {
     tableTitle: "",
     tableHeaders: "",
@@ -107,7 +114,7 @@ const TextbookInput = () => {
   };
 
   // Add data fields
-  const addDataField = (data: Table | List | Image | Text) => {
+  const addDataField = (data: Code | Table | List | Image | Text) => {
     setFormData((prev) => ({
       ...prev,
       content: [...prev.content, data],
@@ -123,7 +130,7 @@ const TextbookInput = () => {
   };
 
   // Update values
-  const onUpdateFieldsHandler = (index: number, field: Text | Table | List | Image) => {
+  const onUpdateFieldsHandler = (index: number, field: Code | Text | Table | List | Image) => {
     setFormData((prev) => ({
       ...prev,
       content: prev.content.map((item, i) => (i === index ? { ...field } : item)),
@@ -218,6 +225,15 @@ const TextbookInput = () => {
               },
             };
           }
+
+          if ("codeValue" in item) {
+            return {
+              code: {
+                codeValue: item.codeValue,
+                language: item.language,
+              },
+            };
+          }
         }),
       },
     };
@@ -230,25 +246,26 @@ const TextbookInput = () => {
       setLoading(false);
       return;
     }
-    try {
-      const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
+    console.log(newSection);
+    // try {
+    //   const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
 
-      if (response.ok) {
-        toast({
-          title: "Додано нову секцію:",
-          description: (
-            <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{formData.section}</p>
-          ),
-        });
-      }
-    } catch (error) {
-      toast({
-        title: "Помилка під час надсилання даних",
-      });
-      console.error(error);
-    }
+    //   if (response.ok) {
+    //     toast({
+    //       title: "Додано нову секцію:",
+    //       description: (
+    //         <p className="mt-2 w-[340px] rounded-md py-4 font-bold">{formData.section}</p>
+    //       ),
+    //     });
+    //   }
+    // } catch (error) {
+    //   toast({
+    //     title: "Помилка під час надсилання даних",
+    //   });
+    //   console.error(error);
+    // }
 
-    setFormData({ section: "", subtitle: "", content: [] });
+    // setFormData({ section: "", subtitle: "", content: [] });
     setLoading(false);
   };
 
@@ -279,7 +296,6 @@ const TextbookInput = () => {
           <p className={inputLabel}>&quot;content&quot;:</p>
           <div className="flex w-full flex-col space-y-2 pt-10">
             {formData.content.map((item, index) => (
-              // TODO: Зробити новий розділ для написання тексту схожого на код у vscode із форматування та кольорами
               <div key={index}>
                 {"textValue" in item && (
                   <TextbookTextInput
@@ -317,6 +333,15 @@ const TextbookInput = () => {
                     removeContent={removeContent}
                   />
                 )}
+                {"codeValue" in item && (
+                  <TextbookCodeInput
+                    key={index}
+                    setErrors={setErrors}
+                    index={index}
+                    updateCodeInput={onUpdateFieldsHandler}
+                    removeContent={removeContent}
+                  />
+                )}
               </div>
             ))}
           </div>
@@ -338,6 +363,7 @@ const TextbookInput = () => {
               <DropdownMenuItem onClick={() => addDataField(imageFieldData)}>
                 Картинка
               </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => addDataField(codeFieldData)}>Код</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

@@ -54,6 +54,9 @@ type Questions = {
     level?: string;
   }[];
 }[];
+type Code = {
+  code: { codeValue: string; language: string };
+};
 type Projects = {
   id: number;
   title: string;
@@ -64,7 +67,7 @@ type Projects = {
 }[];
 type Description = {
   subtitle: string;
-  content: [string, Image, Table, List];
+  content: [string, Image, Table, List, Code];
 }[];
 type ListOfThemes = {
   title: string;

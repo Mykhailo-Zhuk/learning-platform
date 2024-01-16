@@ -3320,7 +3320,7 @@
       }
     ]
   },
-  "js_syntax": {
+  "js_general": {
     "subtitle": "Синтаксис JavaScript",
     "tasks": [
       {
