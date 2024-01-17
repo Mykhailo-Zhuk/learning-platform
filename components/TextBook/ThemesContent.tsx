@@ -32,7 +32,7 @@ const ThemesContent = ({ params }: Params) => {
       materials = descriptions?.map((item, index) => {
         return (
           <Fragment key={index}>
-            {item?.content?.map((subitem, index) => {
+            {item?.content?.map((subitem) => {
               if (typeof subitem === "string") {
                 return (
                   <p key={uuidv4()} className="text-2xl leading-10 font-spartan">
@@ -50,7 +50,7 @@ const ThemesContent = ({ params }: Params) => {
                           className="h-auto max-w-4xl"
                         />
                       </div>
-                      {subitem?.image?.caption?.map((item, index) => {
+                      {subitem?.image?.caption?.map((item) => {
                         return (
                           <p key={uuidv4()} className="text-2xl leading-10 font-spartan">
                             {item}

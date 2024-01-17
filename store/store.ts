@@ -182,7 +182,6 @@ export const useStore = create<Store>((set, get) => ({
       const response = await fetchPartOfData("descriptions", params);
 
       const data = await response.json();
-      console.log(data);
 
       set({ descriptions: data });
     } catch (error) {

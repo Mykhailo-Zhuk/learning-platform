@@ -1,3 +1,5 @@
+import { replacedPartOfText } from "@/lib/utils";
+
 type Row = {
   id: number | string;
   item: string;
@@ -45,8 +47,14 @@ const NotionStyleTable: React.FC<Props> = ({ data }) => {
                 {data?.rows.map((row) => (
                   <tr key={row.id}>
                     <td className="px-6 py-4">{row.item}</td>
-                    {row.example && <td className="px-6 py-4">{row.example}</td>}
-                    <td className="px-6 py-4">{row.description}</td>
+                    {row.example && (
+                      <td className="px-6 py-4 whitespace-pre-line">
+                        {replacedPartOfText(row.example)}
+                      </td>
+                    )}
+                    <td className="px-6 py-4 whitespace-pre-line">
+                      {replacedPartOfText(row.description)}
+                    </td>
                   </tr>
                 ))}
               </tbody>

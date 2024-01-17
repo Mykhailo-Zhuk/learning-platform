@@ -7,6 +7,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const replacedPartOfText = (text: string) => text.replaceAll(/\\n/g, "\n");
+
 // export const cld = new Cloudinary({
 //   cloud: {
 //     cloudName: "dxcpen44g",
