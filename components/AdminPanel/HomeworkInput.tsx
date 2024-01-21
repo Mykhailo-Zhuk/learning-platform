@@ -102,7 +102,7 @@ const HomeworkInput: React.FC = () => {
         homework: [data.reading, data.writting],
       };
 
-      const replacedSingleQuotes = JSON.parse(JSON.stringify(newHomework).replaceAll("'", '\\"'));
+      const replacedSingleQuotes = JSON.parse(JSON.stringify(newHomework).replace(/'/g, '"'));
 
       const response = await fetchToChangeDataOnServer("homework", "post", replacedSingleQuotes);
 
