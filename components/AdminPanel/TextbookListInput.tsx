@@ -76,7 +76,7 @@ const TextbookListInput: React.FC<TextbookListInputProps> = ({
     }));
   };
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     let valid = true;
     let newErrors = {
       listTitle: false,
@@ -110,7 +110,7 @@ const TextbookListInput: React.FC<TextbookListInputProps> = ({
     setListError(newErrors);
 
     return valid;
-  };
+  }, [setListError, list]);
 
   const debouncedUpdateList = useCallback(
     (updatedList: List) => {

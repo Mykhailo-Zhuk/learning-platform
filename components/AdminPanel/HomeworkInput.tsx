@@ -101,7 +101,10 @@ const HomeworkInput: React.FC = () => {
         date: data.date,
         homework: [data.reading, data.writting],
       };
-      const response = await fetchToChangeDataOnServer("homework", "post", newHomework);
+
+      const replacedSingleQuotes = JSON.parse(JSON.stringify(newHomework).replaceAll("'", '\\"'));
+
+      const response = await fetchToChangeDataOnServer("homework", "post", replacedSingleQuotes);
 
       type Notification = {
         msg?: string;

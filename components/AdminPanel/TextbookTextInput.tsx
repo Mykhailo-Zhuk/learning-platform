@@ -25,7 +25,7 @@ const TextbookTextInput: React.FC<TextbookTableInputProps> = ({
   const [textError, setTextError] = useState(false);
   const [text, setText] = useState({ textValue: "" });
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     let valid = true;
 
     if (!text.textValue.trim()) {
@@ -36,7 +36,7 @@ const TextbookTextInput: React.FC<TextbookTableInputProps> = ({
     }
 
     return valid;
-  };
+  }, [text, setTextError]);
 
   const debouncedUpdateText = useCallback(
     (updatedText: Text) => {

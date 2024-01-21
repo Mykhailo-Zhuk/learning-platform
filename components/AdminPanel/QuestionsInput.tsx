@@ -64,7 +64,9 @@ const QuestionsInput = () => {
             tasks: JSON.parse(questions.tasks),
           },
         };
-        const response = await fetchToChangeDataOnServer("questions", "post", newSection);
+        const replacedSingleQuotes = JSON.parse(JSON.stringify(newSection).replaceAll("'", '\\"'));
+
+        const response = await fetchToChangeDataOnServer("questions", "post", replacedSingleQuotes);
 
         if (response.ok) {
           toast({

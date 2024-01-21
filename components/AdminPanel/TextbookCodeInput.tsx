@@ -34,7 +34,7 @@ const TextbookCodeInput: React.FC<TextbookCodeInputProps> = ({
 
   const [codeInput, setCodeInput] = useState<Code>({ codeValue: "", language: "js" });
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     let valid = true;
 
     let newErrors = {
@@ -55,7 +55,7 @@ const TextbookCodeInput: React.FC<TextbookCodeInputProps> = ({
     setCodeInputError((prev) => ({ ...prev, ...newErrors }));
 
     return valid;
-  };
+  }, [codeInput, setCodeInputError]);
 
   const debouncedUpdateText = useCallback(
     (updatedText: Code) => {

@@ -74,7 +74,7 @@ const TextbookTableInput: React.FC<TextbookTableInputProps> = ({
     }));
   };
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     let valid = true;
     const newErrors: TableErrors = {
       tableHeaders: false,
@@ -109,7 +109,7 @@ const TextbookTableInput: React.FC<TextbookTableInputProps> = ({
 
     setErrors(newErrors);
     return valid;
-  };
+  }, [setErrors, table]);
 
   const debouncedUpdateTable = useCallback(
     (updatedTable: Table) => {

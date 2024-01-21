@@ -21,9 +21,8 @@ export async function POST(req: NextRequest) {
   const currentTests = await client.json.get("tests");
 
   const body = await req.json();
-  const replacedDoubleQuete = JSON.parse(JSON.stringify(body).replaceAll("'", '\\"'));
 
-  const newSection = [{ ...currentTests[0], ...replacedDoubleQuete }];
+  const newSection = [{ ...currentTests[0], ...body }];
 
   await client.json.set("tests", "$", newSection);
 

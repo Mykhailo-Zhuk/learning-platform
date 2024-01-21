@@ -34,7 +34,7 @@ const TextbookImageInput: React.FC<TextbookTableInputProps> = ({
     imageCaption: "",
   });
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     let valid = true;
     let newErrors = {
       imageSrc: false,
@@ -50,7 +50,7 @@ const TextbookImageInput: React.FC<TextbookTableInputProps> = ({
     setImageError(newErrors);
 
     return valid;
-  };
+  }, [setImageError, image]);
 
   const debouncedUpdateImage = useCallback(
     (updatedImage: Image) => {

@@ -64,7 +64,9 @@ const TestsInput = () => {
             tests: JSON.parse(data.tests),
           },
         };
-        const response = await fetchToChangeDataOnServer("tests", "post", newSection);
+        const replacedSingleQuotes = JSON.parse(JSON.stringify(newSection).replaceAll("'", '\\"'));
+
+        const response = await fetchToChangeDataOnServer("tests", "post", replacedSingleQuotes);
 
         if (response.ok) {
           toast({
