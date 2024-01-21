@@ -82,8 +82,10 @@ const QuestionsInput = () => {
       toast({
         title: "Помилка під час надсилання даних",
       });
-      console.log(error);
+      setLoading(false);
     }
+    setQuestions({ section: "", subtitle: "", tasks: "" });
+    setLoading(false);
   };
 
   const { inputContainer, inputLabel, inputError, spanError } = styles;

@@ -69,21 +69,12 @@ const Tests = ({ params }: Params) => {
                 <span className="bg-accent rounded-full py-2 px-3.5 mr-2">{index + 1}</span>
                 {test?.description}
               </p>
-              {/* <div className="mt-4">
-                      <h4 className="text-gray-500">Options:</h4>
-                      <ul className="list-disc list-inside mt-2">
-                        {test?.options.map((option, index) => (
-                          <li key={index}>{option}</li>
-                        ))}
-                      </ul>
-                    </div> */}
               <div className="absolute top-0 right-0 p-2">
                 <p className="text-4xl text-center">{index % 2 === 0 ? "A" : "B"}</p>
               </div>
               <div className="mt-4 text-justify">
-                <h4 className="text-gray-500">Результат:</h4>
                 {CustomTooltip(
-                  <p className="mt-2 text-black">{test?.result}</p>,
+                  <h4 className="text-gray-500">Підказка!</h4>,
                   <ul className="list-disc list-inside p-2 text-sm">
                     {test?.tips.map((tip, index) => (
                       <li key={index}>{tip}</li>

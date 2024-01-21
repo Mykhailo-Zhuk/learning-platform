@@ -82,8 +82,10 @@ const TestsInput = () => {
       toast({
         title: "Помилка під час надсилання даних",
       });
-      console.log(error);
+      setLoading(false);
     }
+    setData({ section: "", subtitle: "", tests: "" });
+    setLoading(false);
   };
 
   const { inputContainer, inputLabel, inputError, spanError } = styles;
@@ -124,7 +126,7 @@ const TestsInput = () => {
           <div className="flex w-full flex-col space-y-1">
             <textarea
               value={data.tests}
-              placeholder='{"id":1,"description":"Як користувачу, я хочу мати сітку з двома колонками, де одна колонка ширша за іншу. Який CSS Grid код необхідно написати для досягнення цього результату?","options":["grid-template-columns: 1fr 2fr;","grid-template-columns: 2fr 1fr;"],"tips":["Використовуйте \"grid-template-columns\"","Вказуйте ширину колонок, наприклад, \"1fr\" та \"2fr\""],"result":"grid-template-columns: 1fr 2fr;","level":"low"}'
+              placeholder='[{"id":1,"description":"Як користувачу, я хочу мати сітку з двома колонками, де одна колонка ширша за іншу. Який CSS Grid код необхідно написати для досягнення цього результату?","options":["grid-template-columns: 1fr 2fr;","grid-template-columns: 2fr 1fr;"],"tips":["Використовуйте \"grid-template-columns\"","Вказуйте ширину колонок, наприклад, \"1fr\" та \"2fr\""],"result":"grid-template-columns: 1fr 2fr;","level":"low"}]'
               onChange={(e) => setData((prev) => ({ ...prev, tests: e.target.value }))}
               className={`${inputError} ${
                 errors?.tests ? "border-red-500" : "focus:border-accent"

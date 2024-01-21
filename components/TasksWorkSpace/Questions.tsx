@@ -91,20 +91,22 @@ const Questions = ({ params }: Params) => {
               </label>
             </div>
           ))}
-          <button
-            onClick={handleSubmit}
-            className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mr-2">
-            Submit
-          </button>
-          <CorrectAnswers correct={answers} />
         </div>
       );
     });
   }
 
-  // TODO: message about nothing if questions for particular theme are not found
-
-  return <div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">{content}</div>;
+  return (
+    <div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      {content}
+      <button
+        onClick={handleSubmit}
+        className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mr-2">
+        Submit
+      </button>
+      <CorrectAnswers correct={answers} />
+    </div>
+  );
 };
 
 export default Questions;

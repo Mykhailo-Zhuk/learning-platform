@@ -103,13 +103,33 @@ const HomeworkInput: React.FC = () => {
       };
       const response = await fetchToChangeDataOnServer("homework", "post", newHomework);
 
-      if (response.ok) {
+      type Notification = {
+        msg?: string;
+        updated?: boolean;
+        done?: boolean;
+      };
+
+      const notification: Notification = await response.json();
+
+      if (notification?.updated) {
+        toast({
+          title: notification?.msg,
+        });
+      }
+
+      if (notification?.done) {
         toast({
           title: "Додано домашнє по наступним темам:",
           description: (
             <p className="mt-2 w-[340px] rounded-md py-4">
-              Читання: {data.reading.listOfThemes?.map((theme) => theme.title)}; Практичне:{" "}
-              {data.writting.links?.map((link) => link.title)};
+              <b>Читання:</b>{" "}
+              {data.reading.listOfThemes?.map(
+                (theme, index) => theme.title + (index > 0 ? ", " : ""),
+              )}
+              ;
+              <br />
+              <b>Практичне:</b>{" "}
+              {data.writting.links?.map((link, index) => link.title + (index > 0 ? ", " : ""))};
             </p>
           ),
         });

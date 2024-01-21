@@ -8,9 +8,7 @@ export async function GET(req: NextRequest) {
   });
 
   const params = req.nextUrl.searchParams.get("params");
-
-  const questions = await client.json.get("questions", `$.${params}`);
-
+  const questions = await client.json.get("questions", `$.[0].${params}`);
   return NextResponse.json(questions);
 }
 
@@ -22,10 +20,11 @@ export async function POST(req: NextRequest) {
   const currentQuestions = await client.json.get("questions");
 
   const body = await req.json();
+  const replacedDoubleQuete = JSON.parse(JSON.stringify(body).replaceAll("'", '\\"'));
 
-  const newSection = { ...currentQuestions, ...body };
+  const newSection = [{ ...currentQuestions[0], ...replacedDoubleQuete }];
 
-  const section = await client.json.set("questions", "$", newSection);
+  await client.json.set("questions", "$", newSection);
 
-  return NextResponse.json({ section, body });
+  return NextResponse.json({ done: true });
 }

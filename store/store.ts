@@ -36,9 +36,7 @@ type Tests = {
   tests: {
     id: number | string;
     description: string;
-    options: string[];
     tips: string[];
-    result: string;
     extra?: boolean;
   }[];
 }[];
@@ -132,6 +130,7 @@ export const useStore = create<Store>((set, get) => ({
     try {
       const response = await fetchPartOfData("listOfThemes");
       const data = await response.json();
+
       set({ listOfThemes: data });
     } catch (error) {
       console.log(error);

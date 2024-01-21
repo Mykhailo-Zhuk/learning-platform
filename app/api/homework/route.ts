@@ -12,18 +12,39 @@ export async function GET() {
   return NextResponse.json(homework);
 }
 
+type Homework = {
+  homework: object[];
+  id?: string | number;
+  date: string;
+};
+
 export async function POST(req: NextRequest) {
   const client = createClient({
     url: process.env.kv_REST_API_URL!,
     token: process.env.kv_REST_API_TOKEN!,
   });
-  const currentHomework = await client.json.get("homework");
+  const currentHomeworks: Homework[] = await client.json.get("homework");
 
-  const body = await req.json();
+  const body: Homework = await req.json();
 
-  const newHomework = [...currentHomework, body];
+  const isCurrentHomeworkExist = currentHomeworks.find((elem) => elem.date === body.date);
 
-  const homework = await client.json.set("homework", "$", newHomework);
+  if (isCurrentHomeworkExist) {
+    const updatedHomeworks = currentHomeworks.map((elem) =>
+      elem.date === body.date ? body : elem,
+    );
 
-  return NextResponse.json({ success: true });
+    await client.json.set("homework", "$", updatedHomeworks);
+
+    return NextResponse.json({
+      msg: `Домашнє завдання за ${isCurrentHomeworkExist.date} було переписано`,
+      updated: true,
+    });
+  } else {
+    const newHomeworks = [...currentHomeworks, body];
+
+    await client.json.set("homework", "$", newHomeworks);
+
+    return NextResponse.json({ done: true });
+  }
 }
