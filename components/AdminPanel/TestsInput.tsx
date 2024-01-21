@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { styles } from "@/lib/styles";
 import { Button } from "../ui/button";
 import { toast } from "../ui/use-toast";
-import { fetchToChangeDataOnServer } from "@/lib/utils";
+import { fetchToChangeDataOnServer, replacedSingleQuotes } from "@/lib/utils";
 
 type Tests = {
   section: string;
@@ -64,9 +64,12 @@ const TestsInput = () => {
             tests: JSON.parse(data.tests),
           },
         };
-        const replacedSingleQuotes = JSON.parse(JSON.stringify(newSection).replace(/'/g, '"'));
 
-        const response = await fetchToChangeDataOnServer("tests", "post", replacedSingleQuotes);
+        const response = await fetchToChangeDataOnServer(
+          "tests",
+          "post",
+          replacedSingleQuotes(newSection),
+        );
 
         if (response.ok) {
           toast({

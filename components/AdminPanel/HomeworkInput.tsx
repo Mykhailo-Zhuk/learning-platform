@@ -4,7 +4,7 @@ import { SubmitHandler, useFieldArray, useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import { BsTrash3Fill } from "react-icons/bs";
 import { useState } from "react";
-import { fetchToChangeDataOnServer } from "@/lib/utils";
+import { fetchToChangeDataOnServer, replacedSingleQuotes } from "@/lib/utils";
 import { toast } from "../ui/use-toast";
 import { v4 as uuidv4 } from "uuid";
 import {
@@ -102,9 +102,11 @@ const HomeworkInput: React.FC = () => {
         homework: [data.reading, data.writting],
       };
 
-      const replacedSingleQuotes = JSON.parse(JSON.stringify(newHomework).replace(/'/g, '"'));
-
-      const response = await fetchToChangeDataOnServer("homework", "post", replacedSingleQuotes);
+      const response = await fetchToChangeDataOnServer(
+        "homework",
+        "post",
+        replacedSingleQuotes(newHomework),
+      );
 
       type Notification = {
         msg?: string;

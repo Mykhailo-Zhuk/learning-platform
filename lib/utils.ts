@@ -9,6 +9,9 @@ export function cn(...inputs: ClassValue[]) {
 
 export const replacedPartOfText = (text: string) => text.replaceAll(/\\n/g, "\n");
 
+export const replacedSingleQuotes = (text: any) =>
+  JSON.parse(JSON.stringify(text).replace(/'/g, '"'));
+
 // export const cld = new Cloudinary({
 //   cloud: {
 //     cloudName: "dxcpen44g",
