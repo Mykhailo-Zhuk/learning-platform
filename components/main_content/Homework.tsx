@@ -14,12 +14,14 @@ import { Skeleton } from "../ui/skeleton";
 
 const Homework = () => {
   const [loading, setLoading] = useState(true);
+
+  const currentGroup = useStore((state) => state.group);
   const homework = useStore((state) => state.homework);
   const getHomework = useStore((state) => state.getHomework);
 
   useEffect(() => {
     const fetchData = async () => {
-      await getHomework();
+      await getHomework(currentGroup);
       setLoading(false);
     };
     fetchData();

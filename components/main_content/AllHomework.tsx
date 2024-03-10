@@ -14,6 +14,8 @@ import { Skeleton } from "../ui/skeleton";
 
 const AllHomework = () => {
   const [loading, setLoading] = useState(true);
+
+  const currentGroup = useStore((state) => state.group);
   const initialHomework = useStore((state) => state.homework);
   const getHomework = useStore((state) => state.getHomework);
 
@@ -21,7 +23,7 @@ const AllHomework = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      await getHomework();
+      await getHomework(currentGroup);
       setLoading(false);
     };
     fetchData();
@@ -90,7 +92,7 @@ const AllHomework = () => {
           <h1 className="font-bold text-base md:text-xl">Усі домашні завдання</h1>
           <Button asChild>
             <Link href="/">
-              Повернутися <span className="text-xl ml-2">&#62;</span>
+              <span className="text-xl mr-2">&lt;</span> Повернутися
             </Link>
           </Button>
         </div>

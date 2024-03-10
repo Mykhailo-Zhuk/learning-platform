@@ -94,6 +94,7 @@ type Homework = {
 }[];
 
 type Store = {
+  group: string;
   users: Users;
   tests: Tests;
   time: Time;
@@ -111,8 +112,9 @@ type Store = {
   getQuestions: (params: string) => void;
   getDescriptions: (params: string) => void;
   getAdminPanelList: () => void;
-  getHomework: () => void;
-  getTime: () => void;
+  getHomework: (group: string) => void;
+  getTime: (group: string) => void;
+  getGroup: (group: string) => void;
 };
 
 export const useStore = create<Store>((set, get) => ({
@@ -125,6 +127,11 @@ export const useStore = create<Store>((set, get) => ({
   projects: [],
   listOfThemes: [],
   homework: [],
+  group: "group1",
+
+  getGroup: async (group) => {
+    set({ group });
+  },
 
   addListOfThemes: async () => {
     try {
@@ -187,9 +194,9 @@ export const useStore = create<Store>((set, get) => ({
       console.log(error);
     }
   },
-  getHomework: async () => {
+  getHomework: async (group) => {
     try {
-      const response = await fetchPartOfData("homework");
+      const response = await fetchPartOfData("homework", group);
 
       const data = await response.json();
 
@@ -199,9 +206,9 @@ export const useStore = create<Store>((set, get) => ({
     }
   },
 
-  getTime: async () => {
+  getTime: async (group) => {
     try {
-      const response = await fetchPartOfData("time");
+      const response = await fetchPartOfData("time", group);
 
       const data = await response.json();
 

@@ -14,6 +14,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { fetchToChangeDataOnServer } from "@/lib/utils";
@@ -32,6 +33,7 @@ const FormSchema = z.object({
       message: "Ось вірний зразок написання 12:00",
     })
     .max(5, { message: "Ось вірний зразок написання 12:00" }),
+  group: z.string(),
 });
 
 const ChangeTimeForm = () => {
@@ -60,13 +62,14 @@ const ChangeTimeForm = () => {
       const newTime = {
         start_time: formattedStartTime,
         end_time: formattedEndTime,
+        group: data.group,
       };
 
       const response = await fetchToChangeDataOnServer("time", "post", newTime);
 
       if (response.ok) {
         toast({
-          title: "Обрано наступний час:",
+          title: `Обрано наступний час для групи №:${data.group === "group1" ? "1" : "2"}`,
           description: (
             <p className="mt-2 w-[340px] rounded-md p-4">{`${formattedStartTime} - ${formattedEndTime}`}</p>
           ),
@@ -86,7 +89,7 @@ const ChangeTimeForm = () => {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col max-[600px]:items-center w-full lg:w-1/2 space-y-6">
-        <div className="flex max-[600px]:flex-col max-[600px]:space-y-5 min-[600px]:space-x-6">
+        <div className="flex flex-col space-y-5">
           <FormField
             control={form.control}
             name="start_time"
@@ -115,6 +118,25 @@ const ChangeTimeForm = () => {
                 <FormDescription className="whitespace-nowrap">
                   Це час закінчення заняття
                 </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="group"
+            render={({ field }) => (
+              <FormItem className="flex flex-col">
+                <FormLabel>Група</FormLabel>
+                <Select onValueChange={field.onChange}>
+                  <SelectTrigger className="w-fit">
+                    <SelectValue placeholder="Виберіть групу" />
+                  </SelectTrigger>
+                  <SelectContent className="min-w-fit">
+                    <SelectItem value="group1">Група 1</SelectItem>
+                    <SelectItem value="group2">Група 2</SelectItem>
+                  </SelectContent>
+                </Select>
                 <FormMessage />
               </FormItem>
             )}

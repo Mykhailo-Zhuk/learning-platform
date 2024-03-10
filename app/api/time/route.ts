@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@vercel/kv";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   const client = createClient({
     url: process.env.kv_REST_API_URL!,
     token: process.env.kv_REST_API_TOKEN!,
   });
 
-  const time = await client.json.get("time");
+  const params = req.nextUrl.searchParams.get("params");
+
+  const time = await client.json.get(`time:${params}`);
 
   return NextResponse.json(time);
 }
@@ -17,13 +19,18 @@ export async function POST(req: NextRequest) {
     url: process.env.kv_REST_API_URL!,
     token: process.env.kv_REST_API_TOKEN!,
   });
-  const currentTime = await client.json.get("time");
 
   const body = await req.json();
 
-  const newTime = { ...currentTime, ...body };
+  const groupField = body.group;
+  const currentTime = await client.json.get(`time:${groupField}`);
 
-  const time = await client.json.set("time", "$", newTime);
+  const bodyWithoutGroupField = { ...body };
+  delete bodyWithoutGroupField.group;
 
-  return NextResponse.json({ time, body });
+  const newTime = { ...currentTime, ...bodyWithoutGroupField };
+
+  await client.json.set(`time:${groupField}`, "$", newTime);
+
+  return NextResponse.json({ newTime });
 }

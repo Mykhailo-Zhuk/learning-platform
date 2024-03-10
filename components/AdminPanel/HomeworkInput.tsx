@@ -30,9 +30,11 @@ type HomeworkItem = {
 };
 
 type FormData = {
+  id: string;
   date: string;
   reading: HomeworkItem;
   writting: HomeworkItem;
+  group: string;
 };
 
 const styles = {
@@ -100,6 +102,7 @@ const HomeworkInput: React.FC = () => {
         id: uuidv4(),
         date: data.date,
         homework: [data.reading, data.writting],
+        group: data.group,
       };
 
       const response = await fetchToChangeDataOnServer(
@@ -336,10 +339,24 @@ const HomeworkInput: React.FC = () => {
             </div>
           );
         })}
-        <div className="flex justify-end space-x-3">
-          <Button variant="ghost" onClick={AppendWrittingListHandler}>
-            Додати
-          </Button>
+        <div className="flex justify-between space-x-3">
+          <div>
+            <Select onValueChange={(group) => setValue(`group`, group)}>
+              <SelectTrigger className="w-fit">
+                <SelectValue placeholder="Виберіть групу" />
+              </SelectTrigger>
+              <SelectContent className="min-w-fit">
+                <SelectItem value="group1">Група 1</SelectItem>
+                <SelectItem value="group2">Група 2</SelectItem>
+              </SelectContent>
+            </Select>
+            {errors?.group && <span className={spanError}>{errors.group.message}</span>}
+          </div>
+          <div className="flex justify-center items-center">
+            <Button variant="ghost" onClick={AppendWrittingListHandler}>
+              Додати
+            </Button>
+          </div>
         </div>
         <div className="flex items-center mt-4">
           <Button type="submit">{loading ? "Виконую..." : "Записати"}</Button>

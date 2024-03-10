@@ -5,25 +5,22 @@ import { BsFillCalendarCheckFill, BsFillClockFill } from "react-icons/bs";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
-import { useStore } from "@/store/store";
-import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
 
-const MainResources = () => {
-  const [loading, setLoading] = useState(true);
-  const time = useStore((state) => state.time);
-  const getTime = useStore((state) => state.getTime);
+type MainResourcesProps = {
+  time: {
+    date: string;
+    start_time: string;
+    end_time: string;
+  };
+  loading: boolean;
+};
+
+const MainResources = ({ time, loading }: MainResourcesProps) => {
   const router = useRouter();
   const code =
     "https://res.cloudinary.com/dxcpen44g/image/upload/f_auto,q_auto/v1/learning-platform/s1ae3hdnkl4szygfvbqu";
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await getTime();
-      setLoading(false);
-    };
-    fetchData();
-  }, [getTime]);
   return (
     <section className="flex flex-col lg:grid lg:grid-cols-[auto_minmax(200px,_400px)] gap-5 py-5">
       <div className="flex max-lg:flex-col max-lg:space-y-3 lg:space-x-3 max-lg:items-center justify-between bg-gradient-to-r from-slate-500 to-purple-950 text-white p-5 rounded-lg">
