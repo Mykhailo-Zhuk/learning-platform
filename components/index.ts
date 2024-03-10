@@ -21,9 +21,6 @@ export { default as CorrectAnswers } from "./TasksWorkSpace/CorrectAnswers";
 export { default as Questions } from "./TasksWorkSpace/Questions";
 export { default as Tests } from "./TasksWorkSpace/Tests";
 
-///// ChooseProjects
-export { default as ChooseProject } from "./ChooseProject/ChooseProject";
-
 ///// Cabinet
 export { default as UserCard } from "./Cabinet/UserCard";
 export { default as Login } from "./Cabinet/Login";
