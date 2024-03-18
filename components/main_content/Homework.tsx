@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useStore } from "@/store/store";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
+import { CldImage } from "next-cloudinary";
 
 const Homework = () => {
   const [loading, setLoading] = useState(true);
@@ -45,10 +46,10 @@ const Homework = () => {
                   {item?.homework.map((work) => {
                     return (
                       <li key={work?.id} className="mt-2 flex space-x-1 flex-wrap">
-                        <p className="font-bold">{work?.action}</p>
+                        <p className="font-bold text-nowrap">{work?.action}</p>
                         {work?.listOfThemes
                           ? work?.listOfThemes?.map((theme) => {
-                              if (theme?.type === "link") {
+                              if (["link", "a"].includes(theme?.type)) {
                                 return (
                                   <Link
                                     key={theme?.id}
@@ -60,26 +61,14 @@ const Homework = () => {
                                 );
                               }
 
-                              if (theme?.type === "a") {
-                                return (
-                                  <a
-                                    key={theme?.id}
-                                    href={theme?.link}
-                                    className="text-blue-500 flex-shrink-0 pb-1"
-                                    target="_blank">
-                                    {theme?.title + ", "}
-                                  </a>
-                                );
-                              }
-
                               if (theme?.type === "text") {
-                                return theme.title + " " + theme.link + ", ";
+                                return <p>{theme.title + " " + theme.link + ", "}</p>;
                               }
                             })
                           : null}
                         {work?.links
                           ? work?.links.map((theme) => {
-                              if (theme?.type === "link") {
+                              if (["link", "a"].includes(theme?.type)) {
                                 return (
                                   <Link
                                     key={theme?.id}
@@ -91,20 +80,28 @@ const Homework = () => {
                                 );
                               }
 
-                              if (theme?.type === "a") {
+                              if (theme?.type === "photo") {
                                 return (
-                                  <a
+                                  <Link
                                     key={theme?.id}
                                     href={theme?.link}
-                                    className="text-blue-500 flex-shrink-0 pb-1"
-                                    target="_blank">
-                                    {theme?.title + ", "}
-                                  </a>
+                                    className="text-blue-500"
+                                    target="_blank"
+                                    download>
+                                    <CldImage
+                                      width={60}
+                                      height={20}
+                                      src={theme?.link}
+                                      alt={theme?.title}
+                                      title={theme?.title}
+                                      loading="lazy"
+                                    />
+                                  </Link>
                                 );
                               }
 
                               if (theme?.type === "text") {
-                                return theme.title + " " + theme.link + ", ";
+                                return <p>{theme.title + " " + theme.link + ", "}</p>;
                               }
                             })
                           : null}

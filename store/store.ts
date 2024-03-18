@@ -55,14 +55,6 @@ type Questions = {
 type Code = {
   code: { codeValue: string; language: string };
 };
-type Projects = {
-  id: number;
-  title: string;
-  description: string;
-  skills: string;
-  votes: number;
-  participants: string[];
-}[];
 type Description = {
   subtitle: string;
   content: [string, Image, Table, List, Code];
@@ -99,7 +91,6 @@ type Store = {
   tests: Tests;
   time: Time;
   questions: Questions;
-  projects: Projects;
   descriptions: Description;
   listOfThemes: ListOfThemes;
   adminPanelList: AdminList;
@@ -108,7 +99,6 @@ type Store = {
   addListOfThemes: () => void;
   getUsers: () => void;
   getTests: (params: string) => void;
-  getProjects: () => void;
   getQuestions: (params: string) => void;
   getDescriptions: (params: string) => void;
   getAdminPanelList: () => void;
@@ -124,7 +114,6 @@ export const useStore = create<Store>((set, get) => ({
   tests: [],
   questions: [],
   descriptions: [],
-  projects: [],
   listOfThemes: [],
   homework: [],
   group: "group1",
@@ -163,16 +152,7 @@ export const useStore = create<Store>((set, get) => ({
       console.log(error);
     }
   },
-  getProjects: async () => {
-    try {
-      const response = await fetchDataFromNextServer("projects");
-      const data = await response.json();
 
-      set({ projects: data });
-    } catch (error) {
-      console.log(error);
-    }
-  },
   getQuestions: async (params: string) => {
     try {
       const response = await fetchPartOfData("questions", params);

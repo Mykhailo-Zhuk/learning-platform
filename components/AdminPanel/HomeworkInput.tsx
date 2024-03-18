@@ -325,6 +325,7 @@ const HomeworkInput: React.FC = () => {
                     <SelectItem value="text">Текст</SelectItem>
                     <SelectItem value="a">Зовнішня силка</SelectItem>
                     <SelectItem value="link">Внутрішня силка</SelectItem>
+                    <SelectItem value="photo">Фото</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
