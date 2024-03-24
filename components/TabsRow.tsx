@@ -19,7 +19,7 @@ const TabsRow = () => {
       setLoading(false);
     };
     fetchData();
-  }, [currentGroup]);
+  }, [currentGroup, getTime]);
 
   return (
     <section className="flex w-full p-1 md:p-5 border-t border-t-slate-200">

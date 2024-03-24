@@ -26,7 +26,7 @@ const Homework = () => {
       setLoading(false);
     };
     fetchData();
-  }, [getHomework]);
+  }, [getHomework, currentGroup]);
 
   const homeworkSlice = homework.slice(-3).reverse();
 
@@ -62,7 +62,9 @@ const Homework = () => {
                               }
 
                               if (theme?.type === "text") {
-                                return <p>{theme.title + " " + theme.link + ", "}</p>;
+                                return (
+                                  <p key={theme?.id}>{theme?.title + " " + theme?.link + ", "}</p>
+                                );
                               }
                             })
                           : null}
@@ -101,7 +103,9 @@ const Homework = () => {
                               }
 
                               if (theme?.type === "text") {
-                                return <p>{theme.title + " " + theme.link + ", "}</p>;
+                                return (
+                                  <p key={theme?.id}>{theme?.title + " " + theme?.link + ", "}</p>
+                                );
                               }
                             })
                           : null}

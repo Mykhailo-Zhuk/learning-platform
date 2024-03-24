@@ -27,7 +27,7 @@ const AllHomework = () => {
       setLoading(false);
     };
     fetchData();
-  }, [getHomework]);
+  }, [getHomework, currentGroup]);
 
   let content;
 
