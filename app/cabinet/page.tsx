@@ -1,7 +1,7 @@
 import { options } from "../api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
-import { UserCard } from "../../components/index";
+import { ParentsCabinet } from "../../components/index";
 
 export default async function Cabinet() {
   const session = await getServerSession(options);
@@ -10,10 +10,5 @@ export default async function Cabinet() {
     redirect("api/auth/signin?callbackUrl=/cabinet");
   }
 
-  return (
-    <section>
-      <h1 className="text-center">Cabinet</h1>
-      <UserCard user={session?.user} />
-    </section>
-  );
+  return <section>{session.user && <ParentsCabinet user={session?.user} />}</section>;
 }

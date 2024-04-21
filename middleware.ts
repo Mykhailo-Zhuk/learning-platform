@@ -1,3 +1,17 @@
-export { default } from 'next-auth/middleware';
+import middleware, { NextRequestWithAuth, withAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server";
 
-export const config = { matcher: ['/cabinet', '/admin'] };
+export default withAuth(function middleware(request: NextRequestWithAuth) {
+  if (
+    request.nextUrl.pathname.startsWith("/cabinet") &&
+    request.nextauth.token?.role !== "student"
+  ) {
+    return NextResponse.rewrite(new URL("/denied", request.url));
+  }
+
+  if (request.nextUrl.pathname.startsWith("/admin") && request.nextauth.token?.role !== "admin") {
+    return NextResponse.rewrite(new URL("/denied", request.url));
+  }
+});
+
+export const config = { matcher: ["/cabinet", "/admin"] };

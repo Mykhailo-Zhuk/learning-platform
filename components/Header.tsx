@@ -7,9 +7,13 @@ import { FaHamburger } from "react-icons/fa";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Login, MusicList } from "./index";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { Button } from "./ui/button";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { data: session, status } = useSession();
+
   return (
     <header className="flex w-full max-w-[1400px] mx-auto bg-white justify-between p-5 sticky z-10 top-0 rounded-sm">
       <div className="flex-shrink-0 flex justify-center items-center">
@@ -20,7 +24,12 @@ const Header = () => {
 
       <div className="hidden md:flex px-2 pt-[2px]">
         <MusicList />
-        <div className="flex justify-center items-center ml-5 space-x-3">
+        <div className="flex justify-center items-center space-x-3 gap-4">
+          {status === "authenticated" && session.user.role === "admin" && (
+            <Button asChild variant="ghost">
+              <Link href="/admin">Admin</Link>
+            </Button>
+          )}
           <Login />
           <Link href={"/cabinet"}>
             <Avatar>

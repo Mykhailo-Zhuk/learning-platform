@@ -2,7 +2,6 @@ import { baseUrl } from "@/config";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -39,4 +38,12 @@ export const fetchToChangeDataOnServer = (endpoint: string, method = "post", dat
 
 export const fetchPartOfData = (endpoint: string, params?: string) => {
   return fetch(`${baseUrl}api/${endpoint}?params=${params}`);
+};
+
+export const fetchPersonalHomework = (group: string, homeworkDate: string) => {
+  return fetch(`${baseUrl}api/homework?group=${group}&homeworkDate=${homeworkDate}`);
+};
+
+export const fetchPersonalHomeworkResults = (username: string) => {
+  return fetch(`${baseUrl}api/users?username=${username}`);
 };

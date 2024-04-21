@@ -22,7 +22,9 @@ export { default as Questions } from "./TasksWorkSpace/Questions";
 export { default as Tests } from "./TasksWorkSpace/Tests";
 
 ///// Cabinet
-export { default as UserCard } from "./Cabinet/UserCard";
+export { default as ParentsCabinet } from "./Cabinet/ParentsCabinet";
+export { default as CabinetNavigation } from "./Cabinet/CabinetNavigation";
+export { default as CabinetWorkspace } from "./Cabinet/CabinetWorkspace";
 export { default as Login } from "./Cabinet/Login";
 
 ////// Admin panel

@@ -1,4 +1,0 @@
-[
-  { "id": "27", "name": "Misha", "password": "nextauth", "role": "admin" },
-  { "id": "28", "name": "Victor", "password": "nextauth", "role": "student" }
-]

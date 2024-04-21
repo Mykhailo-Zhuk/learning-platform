@@ -1,9 +1,12 @@
-import type { NextAuthOptions } from "next-auth";
+import type { NextAuthOptions, Session } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { fetchPartOfData } from "@/lib/utils";
 
 export const options: NextAuthOptions = {
+  session: {
+    strategy: "jwt",
+  },
   providers: [
     // GitHub provider
     GitHubProvider({
@@ -44,4 +47,34 @@ export const options: NextAuthOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  callbacks: {
+    async jwt({ token, user }) {
+      const merged = {
+        ...token,
+        ...user,
+      };
+
+      return {
+        name: merged.name,
+        group: merged.group,
+        role: merged.role,
+        label: merged.label,
+      };
+    },
+    async session({ session, token }) {
+      if (token) {
+        return {
+          ...session,
+          user: {
+            role: token.role,
+            name: token?.name as string,
+            label: token.label,
+            group: token.group,
+          },
+        } satisfies Session;
+      }
+
+      return session;
+    },
+  },
 };

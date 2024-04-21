@@ -1,4 +1,8 @@
-import { fetchDataFromNextServer, fetchPartOfData } from "@/lib/utils";
+import {
+  fetchDataFromNextServer,
+  fetchPartOfData,
+  fetchPersonalHomeworkResults,
+} from "@/lib/utils";
 import { create } from "zustand";
 
 type Image = {
@@ -85,6 +89,19 @@ type Homework = {
   }[];
 }[];
 
+export type PersonalHomeworkResults = {
+  name: string;
+  group: string;
+  type: string;
+  homeworkIsDone: {
+    id: string;
+    date: string;
+    isCompleted: "Частково" | "Виконав" | "Не виконав";
+    lessonTitle: string;
+    homeworkId: string;
+  }[];
+};
+
 type Store = {
   group: string;
   users: Users;
@@ -95,6 +112,7 @@ type Store = {
   listOfThemes: ListOfThemes;
   adminPanelList: AdminList;
   homework: Homework;
+  personalHomeworkResults: PersonalHomeworkResults;
 
   addListOfThemes: () => void;
   getUsers: () => void;
@@ -105,9 +123,16 @@ type Store = {
   getHomework: (group: string) => void;
   getTime: (group: string) => void;
   getGroup: (group: string) => void;
+  getPersonalHomeworkResults: (username: string) => void;
 };
 
 export const useStore = create<Store>((set, get) => ({
+  personalHomeworkResults: {
+    name: "",
+    group: "",
+    type: "",
+    homeworkIsDone: [],
+  },
   adminPanelList: [],
   time: { start_time: "", end_time: "", date: "" },
   users: [],
@@ -205,6 +230,17 @@ export const useStore = create<Store>((set, get) => ({
       const data = await response.json();
 
       set({ adminPanelList: data });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  getPersonalHomeworkResults: async (username) => {
+    try {
+      const response = await fetchPersonalHomeworkResults(username);
+
+      const data = await response.json();
+
+      set({ personalHomeworkResults: data });
     } catch (error) {
       console.log(error);
     }

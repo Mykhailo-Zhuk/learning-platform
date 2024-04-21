@@ -21,6 +21,8 @@
 /questions.json
 /tests.json
 /users.json
+/personalData.json
+/youtubeLinks.json
 
 # misc
 .DS_Store

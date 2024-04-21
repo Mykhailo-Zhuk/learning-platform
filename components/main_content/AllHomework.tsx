@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useStore } from "@/store/store";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
+import { CldImage } from "next-cloudinary";
 
 const AllHomework = () => {
   const [loading, setLoading] = useState(true);
@@ -45,30 +46,67 @@ const AllHomework = () => {
                   {item?.homework.map((work) => {
                     return (
                       <li key={work?.id} className="mt-2 flex space-x-1 flex-wrap">
-                        <p className="font-bold">{work?.action}</p>
+                        <p className="font-bold text-nowrap">{work?.action}</p>
                         {work?.listOfThemes
                           ? work?.listOfThemes?.map((theme) => {
-                              return (
-                                <a
-                                  key={theme?.id}
-                                  href={theme?.link}
-                                  className="text-blue-500 flex-shrink-0 pb-1"
-                                  target="_blank">
-                                  {theme?.title + ","}
-                                </a>
-                              );
+                              if (["link", "a"].includes(theme?.type)) {
+                                return (
+                                  <Link
+                                    key={theme?.id}
+                                    href={theme?.link}
+                                    className="text-blue-500 flex-shrink-0 pb-1"
+                                    target="_blank">
+                                    {theme?.title + ", "}
+                                  </Link>
+                                );
+                              }
+
+                              if (theme?.type === "text") {
+                                return (
+                                  <p key={theme?.id}>{theme?.title + " " + theme?.link + ", "}</p>
+                                );
+                              }
                             })
                           : null}
                         {work?.links
                           ? work?.links.map((theme) => {
-                              return (
-                                <Link
-                                  key={theme?.id}
-                                  href={theme?.link}
-                                  className="text-blue-500 flex-shrink-0 pb-1">
-                                  {theme?.title + ","}
-                                </Link>
-                              );
+                              if (["link", "a"].includes(theme?.type)) {
+                                return (
+                                  <Link
+                                    key={theme?.id}
+                                    href={theme?.link}
+                                    className="text-blue-500 flex-shrink-0 pb-1"
+                                    target="_blank">
+                                    {theme?.title + ", "}
+                                  </Link>
+                                );
+                              }
+
+                              if (theme?.type === "photo") {
+                                return (
+                                  <Link
+                                    key={theme?.id}
+                                    href={theme?.link}
+                                    className="text-blue-500"
+                                    target="_blank"
+                                    download>
+                                    <CldImage
+                                      width={60}
+                                      height={20}
+                                      src={theme?.link}
+                                      alt={theme?.title}
+                                      title={theme?.title}
+                                      loading="lazy"
+                                    />
+                                  </Link>
+                                );
+                              }
+
+                              if (theme?.type === "text") {
+                                return (
+                                  <p key={theme?.id}>{theme?.title + " " + theme?.link + ", "}</p>
+                                );
+                              }
                             })
                           : null}
                       </li>

@@ -7,23 +7,11 @@ export async function GET(req: NextRequest) {
     token: process.env.kv_REST_API_TOKEN!,
   });
 
-  const group = req.nextUrl.searchParams.get("group");
-  const homeworkDate = req.nextUrl.searchParams.get("homeworkDate");
-
-  if (group && homeworkDate) {
-    const exactHomework = await client.json.get(
-      `homework:${group}`,
-      `$.[?(@.date == '${homeworkDate}')]`,
-    );
-
-    return NextResponse.json(exactHomework);
-  }
-
   const params = req.nextUrl.searchParams.get("params");
 
-  const homework = await client.json.get(`homework:${params}`);
+  const links = await client.json.get(`links:${params}`);
 
-  return NextResponse.json(homework);
+  return NextResponse.json(links);
 }
 
 type Homework = {

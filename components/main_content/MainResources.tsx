@@ -6,52 +6,77 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 import { Skeleton } from "../ui/skeleton";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 type MainResourcesProps = {
   time: {
     date: string;
     start_time: string;
     end_time: string;
+    completed: boolean;
   };
   loading: boolean;
 };
 
 const MainResources = ({ time, loading }: MainResourcesProps) => {
+  const { data: session, status } = useSession();
   const router = useRouter();
   const code =
     "https://res.cloudinary.com/dxcpen44g/image/upload/f_auto,q_auto/v1/learning-platform/s1ae3hdnkl4szygfvbqu";
+
+  const isCompleted = time.completed;
 
   return (
     <section className="flex flex-col lg:grid lg:grid-cols-[auto_minmax(200px,_400px)] gap-5 py-5">
       <div className="flex max-lg:flex-col max-lg:space-y-3 lg:space-x-3 max-lg:items-center justify-between bg-gradient-to-r from-slate-500 to-purple-950 text-white p-5 rounded-lg">
         <div className="space-y-3">
           <h1 className="font-spartan text-3xl font-bold">Уроки програмування</h1>
-          <p>Кожної суботи</p>
-          <div className="bg-white w-full lg:min-w-[400px] p-5 text-slate-950 rounded-lg space-y-3">
-            <h2 className="text-center md:text-left">Наступний урок</h2>
-            <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
-              <BsFillCalendarCheckFill size={18} />
-              <p className="inline-flex">
-                Сб, {loading ? <Skeleton className="w-20 h-5 rounded-lg"></Skeleton> : time.date}
-              </p>
-              <BsFillClockFill size={18} />
-              <p className="inline-flex">
-                {loading ? <Skeleton className="w-12 h-5 rounded-lg"></Skeleton> : time.start_time}{" "}
-                - {loading ? <Skeleton className="w-12 h-5 rounded-lg"></Skeleton> : time.end_time}
-              </p>
-            </div>
-          </div>
+
+          {!isCompleted ? (
+            <>
+              <p>Кожної суботи</p>
+              <div className="bg-white w-full lg:min-w-[400px] p-5 text-slate-950 rounded-lg space-y-3">
+                <h2 className="text-center md:text-left">Наступний урок</h2>
+                <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
+                  <BsFillCalendarCheckFill size={18} />
+                  <p className="inline-flex">
+                    Сб,{" "}
+                    {loading ? <Skeleton className="w-20 h-5 rounded-lg"></Skeleton> : time.date}
+                  </p>
+                  <BsFillClockFill size={18} />
+                  <p className="inline-flex">
+                    {loading ? (
+                      <Skeleton className="w-12 h-5 rounded-lg"></Skeleton>
+                    ) : (
+                      time.start_time
+                    )}{" "}
+                    -{" "}
+                    {loading ? (
+                      <Skeleton className="w-12 h-5 rounded-lg"></Skeleton>
+                    ) : (
+                      time.end_time
+                    )}
+                  </p>
+                </div>
+              </div>
+            </>
+          ) : (
+            <p>Курс для даної групи завершено</p>
+          )}
           <div className="flex flex-col space-y-3 md:flex-row md:space-x-5 md:space-y-0">
             <Button
               size="lg"
               className="bg-gradient-to-r from-slate-950 to-purple-950 font-semibold flex-shrink-0">
               Все про курс
             </Button>
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-slate-950 to-purple-950 font-semibold flex-shrink-0">
-              Мій прогрес
-            </Button>
+            {status === "authenticated" && session?.user.role === "student" && (
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-slate-950 to-purple-950 font-semibold flex-shrink-0">
+                <Link href="/cabinet">Мій прогрес</Link>
+              </Button>
+            )}
           </div>
         </div>
         <div className="w-full min-w-[200px] max-w-[300px] p-1 md:p-5">
