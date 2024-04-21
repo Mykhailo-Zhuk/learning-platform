@@ -44,7 +44,7 @@ type Tests = {
     extra?: boolean;
   }[];
 }[];
-type Time = { start_time: string; end_time: string; date: string };
+type Time = { start_time: string; end_time: string; date: string; completed: boolean };
 type Questions = {
   subtitle: string;
   url: string;
@@ -134,7 +134,7 @@ export const useStore = create<Store>((set, get) => ({
     homeworkIsDone: [],
   },
   adminPanelList: [],
-  time: { start_time: "", end_time: "", date: "" },
+  time: { start_time: "", end_time: "", date: "", completed: false },
   users: [],
   tests: [],
   questions: [],
