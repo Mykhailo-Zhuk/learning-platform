@@ -26,6 +26,7 @@ export { default as ParentsCabinet } from "./Cabinet/ParentsCabinet";
 export { default as CabinetNavigation } from "./Cabinet/CabinetNavigation";
 export { default as CabinetWorkspace } from "./Cabinet/CabinetWorkspace";
 export { default as Login } from "./Cabinet/Login";
+export { default as ShowExactHomework } from "./Cabinet/ShowExactHomework";
 
 ////// Admin panel
 export { default as AdminDashboard } from "./AdminPanel/AdminDashboard";

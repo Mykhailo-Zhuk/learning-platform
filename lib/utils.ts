@@ -40,8 +40,8 @@ export const fetchPartOfData = (endpoint: string, params?: string) => {
   return fetch(`${baseUrl}api/${endpoint}?params=${params}`);
 };
 
-export const fetchPersonalHomework = (group: string, homeworkDate: string) => {
-  return fetch(`${baseUrl}api/homework?group=${group}&homeworkDate=${homeworkDate}`);
+export const fetchPersonalHomework = (group: string, homeworkId: string) => {
+  return fetch(`${baseUrl}api/homework?group=${group}&homeworkId=${homeworkId}`);
 };
 
 export const fetchPersonalHomeworkResults = (username: string) => {

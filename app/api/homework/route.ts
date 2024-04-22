@@ -8,14 +8,13 @@ export async function GET(req: NextRequest) {
   });
 
   const group = req.nextUrl.searchParams.get("group");
-  const homeworkDate = req.nextUrl.searchParams.get("homeworkDate");
+  const homeworkId = req.nextUrl.searchParams.get("homeworkId");
 
-  if (group && homeworkDate) {
+  if (group && homeworkId) {
     const exactHomework = await client.json.get(
-      `homework:${group}`,
-      `$.[?(@.date == '${homeworkDate}')]`,
+      `homework:group${group}`,
+      `$.[?(@.id == "${homeworkId}")]`,
     );
-
     return NextResponse.json(exactHomework);
   }
 

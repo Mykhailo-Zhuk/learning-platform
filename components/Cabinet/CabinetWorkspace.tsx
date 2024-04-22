@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { CaretSortIcon, ChevronDownIcon, DotsHorizontalIcon } from "@radix-ui/react-icons";
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -17,15 +16,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import { Input } from "@/components/ui/input";
 import {
   Table,
@@ -35,9 +26,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useSession } from "next-auth/react";
 import { User } from "./ParentsCabinet";
 import { PersonalHomeworkResults } from "@/store/store";
+import { Badge } from "../ui/badge";
+import ShowExactHomework from "./ShowExactHomework";
 
 export type ColumnData = {
   id: string;
@@ -47,99 +39,96 @@ export type ColumnData = {
   homeworkId: string;
 };
 
-export const columns: ColumnDef<ColumnData>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "isCompleted",
-    header: "Статус",
-    cell: ({ row }) => <div>{row.getValue("isCompleted")}</div>,
-  },
-  {
-    accessorKey: "lessonTitle",
-    header: "Назва домашньої",
-    cell: ({ row }) => {
-      return <div>{row.getValue("lessonTitle")}</div>;
-    },
-  },
-  {
-    accessorKey: "homeworkId",
-    header: () => <div className="text-right">Переглянути домашню</div>,
-    cell: ({ row }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => console.log(row.getValue("homeworkId"))}
-          className="float-right ml-2">
-          Отримати
-        </Button>
-      );
-    },
-  },
-  {
-    accessorKey: "date",
-    header: () => <div className="text-right">Дата</div>,
-    cell: ({ row }) => {
-      return <div className="text-right font-medium">{row.getValue("date")}</div>;
-    },
-  },
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const payment = row.original;
-
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <DotsHorizontalIcon className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(payment.id)}>
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
-    },
-  },
-];
 type CabinetWorkspaceTableProps = {
   user: User;
   userData: PersonalHomeworkResults;
 };
+
 const CabinetWorkspace = ({ user, userData }: CabinetWorkspaceTableProps) => {
   const data = userData.homeworkIsDone;
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+
+  const columns: ColumnDef<ColumnData>[] = [
+    {
+      id: "select",
+      header: ({ table }) => (
+        <Checkbox
+          checked={
+            table.getIsAllPageRowsSelected() ||
+            (table.getIsSomePageRowsSelected() && "indeterminate")
+          }
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Select all"
+        />
+      ),
+      cell: ({ row }) => (
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
+        />
+      ),
+      enableSorting: false,
+      enableHiding: false,
+    },
+    {
+      accessorKey: "isCompleted",
+      header: "Статус",
+      cell: ({ row }) => {
+        if (row.getValue("isCompleted") === "Частково") {
+          return (
+            <div>
+              <Badge variant="secondary">{row.getValue("isCompleted")}</Badge>
+            </div>
+          );
+        } else if (row.getValue("isCompleted") === "Не виконав") {
+          return (
+            <div>
+              <Badge variant="destructive">{row.getValue("isCompleted")}</Badge>
+            </div>
+          );
+        } else {
+          return (
+            <div>
+              <Badge variant="default" className="bg-green-600 hover:bg-green-500">
+                {row.getValue("isCompleted")}
+              </Badge>
+            </div>
+          );
+        }
+      },
+    },
+    {
+      accessorKey: "lessonTitle",
+      header: "Назва домашньої",
+      cell: ({ row }) => {
+        return <div>{row.getValue("lessonTitle")}</div>;
+      },
+    },
+    {
+      accessorKey: "homeworkId",
+      header: () => <div className="text-right">Переглянути домашню</div>,
+      cell: ({ row }) => {
+        return (
+          <ShowExactHomework
+            className="float-right ml-2"
+            user={user}
+            homeworkId={row.getValue("homeworkId")}
+          />
+        );
+      },
+    },
+    {
+      accessorKey: "date",
+      header: () => <div className="text-center">Дата</div>,
+      cell: ({ row }) => {
+        return <div className="text-center font-medium">{row.getValue("date")}</div>;
+      },
+    },
+  ];
 
   const table = useReactTable({
     data,
@@ -164,7 +153,7 @@ const CabinetWorkspace = ({ user, userData }: CabinetWorkspaceTableProps) => {
     <div className="w-full px-5">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter lessonTitles..."
+          placeholder="Фільтрувати за назвою уроку"
           value={(table.getColumn("lessonTitle")?.getFilterValue() as string) ?? ""}
           onChange={(event) => table.getColumn("lessonTitle")?.setFilterValue(event.target.value)}
           className="max-w-sm"
