@@ -27,7 +27,7 @@ const MainResources = ({ isLoading, currentGroup }: MainResourcesProps) => {
       await getTime(currentGroup);
     };
     fetchData();
-  }, []);
+  }, [currentGroup]);
 
   const router = useRouter();
   const code =
@@ -54,17 +54,8 @@ const MainResources = ({ isLoading, currentGroup }: MainResourcesProps) => {
                   </p>
                   <BsFillClockFill size={18} />
                   <p className="inline-flex">
-                    {isLoading ? (
-                      <Skeleton className="w-12 h-5 rounded-lg"/>
-                    ) : (
-                      time?.start_time
-                    )}{" "}
-                    -{" "}
-                    {isLoading ? (
-                      <Skeleton className="w-12 h-5 rounded-lg"/>
-                    ) : (
-                      time?.end_time
-                    )}
+                    {isLoading ? <Skeleton className="w-12 h-5 rounded-lg" /> : time?.start_time} -{" "}
+                    {isLoading ? <Skeleton className="w-12 h-5 rounded-lg" /> : time?.end_time}
                   </p>
                 </div>
               </div>

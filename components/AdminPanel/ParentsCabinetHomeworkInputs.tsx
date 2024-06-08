@@ -225,7 +225,7 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
               name="username"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
-                  <FormLabel className={inputLabel}>Ім'я учасника</FormLabel>
+                  <FormLabel className={inputLabel}>Ім&apos;я учасника</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={arthorSelected ? "Ja_wewykyj" : undefined}>

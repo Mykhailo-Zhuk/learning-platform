@@ -184,7 +184,7 @@ const ParentsCabinetNewUsersInputs: React.FC = () => {
                       name={`usersList.${index}.name`}
                       render={({ field }) => (
                         <FormItem className="flex flex-col">
-                          <FormLabel className={inputLabel}>Ім'я студента</FormLabel>
+                          <FormLabel className={inputLabel}>Ім&apos;я студента</FormLabel>
                           <FormControl>
                             <Input
                               list="users"

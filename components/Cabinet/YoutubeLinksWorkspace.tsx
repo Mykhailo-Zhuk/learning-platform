@@ -26,12 +26,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { YoutubeLinks } from "@/store/store";
+import { LinksData } from "@/store/store";
 import Link from "next/link";
 
-type ColumnData = YoutubeLinks;
+type ColumnData = LinksData;
 
-const YoutubeLinksWorkspace = ({ data }: { data: YoutubeLinks[] }) => {
+const YoutubeLinksWorkspace = ({ data }: { data: LinksData[] }) => {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});

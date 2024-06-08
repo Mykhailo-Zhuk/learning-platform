@@ -133,6 +133,7 @@ export type YoutubeLinks = {
   group: string;
   youtube_links: LinksData[];
 };
+
 export type HomeworkResults = {
   id: string;
   date: Date | number;

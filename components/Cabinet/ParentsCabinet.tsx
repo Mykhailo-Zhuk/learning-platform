@@ -44,7 +44,7 @@ const ParentsCabinet = ({ user }: ParentsCabinetProps) => {
       setLoading(false);
     };
     fetchData();
-  }, [type]);
+  }, [type, user?.group, user?.label]);
 
   let content;
 
@@ -53,7 +53,7 @@ const ParentsCabinet = ({ user }: ParentsCabinetProps) => {
   }
 
   if (type === "recording") {
-    content = <YoutubeLinksWorkspace data={youtubeLinks} />;
+    content = <YoutubeLinksWorkspace data={youtubeLinks.youtube_links} />;
   }
 
   return (

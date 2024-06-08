@@ -38,7 +38,7 @@ const TabsRow = ({ selectedCourse }: TabsRowTypes) => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [selectedCourse]);
 
   return (
     <section className="flex w-full p-1 md:p-5 border-t border-t-slate-200">

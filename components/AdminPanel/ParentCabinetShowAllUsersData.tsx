@@ -32,7 +32,7 @@ const ParentCabinetShowAllUsersData = ({ usersData }: ShowUsersDataProps) => {
       <TableHeader>
         <TableRow>
           <TableHead className="w-[350px]">ID</TableHead>
-          <TableHead>Ім'я</TableHead>
+          <TableHead>Ім&apos;я</TableHead>
           <TableHead>Username</TableHead>
           <TableHead>Група</TableHead>
           <TableHead>Роль</TableHead>
