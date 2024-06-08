@@ -18,52 +18,30 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
 const FormSchema = z.object({
-  date: z
-    .string({ required_error: "Це поле є обов'язковим" })
-    .min(2, { message: "Це поле не заповнене" }),
-  group: z
-    .string({ required_error: "Це поле є обов'язковим" })
-    .min(2, { message: "Це поле не заповнене" }),
-  lessonTitle: z
-    .string({ required_error: "Це поле є обов'язковим" })
-    .min(2, { message: "Це поле не заповнене" }),
+  date: z.string({ required_error: "Це поле є обов'язковим" }),
+  group: z.string({ required_error: "Це поле є обов'язковим" }),
+  lessonTitle: z.string({ required_error: "Це поле є обов'язковим" }),
   reading: z.object({
     id: z.string(),
-    action: z
-      .string({ required_error: "Це поле є обов'язковим" })
-      .min(2, { message: "Це поле не заповнене" }),
+    action: z.string({ required_error: "Це поле є обов'язковим" }),
     listOfThemes: z.array(
       z.object({
         id: z.string(),
-        link: z
-          .string({ required_error: "Це поле є обов'язковим" })
-          .min(2, { message: "Це поле не заповнене" }),
-        title: z
-          .string({ required_error: "Це поле є обов'язковим" })
-          .min(2, { message: "Це поле не заповнене" }),
-        type: z
-          .string({ required_error: "Це поле є обов'язковим" })
-          .min(2, { message: "Це поле не заповнене" }),
+        link: z.string({ required_error: "Це поле є обов'язковим" }),
+        title: z.string({ required_error: "Це поле є обов'язковим" }),
+        type: z.string({ required_error: "Це поле є обов'язковим" }),
       }),
     ),
   }),
   writting: z.object({
     id: z.string(),
-    action: z
-      .string({ required_error: "Це поле є обов'язковим" })
-      .min(2, { message: "Це поле не заповнене" }),
+    action: z.string({ required_error: "Це поле є обов'язковим" }),
     links: z.array(
       z.object({
         id: z.string(),
-        link: z
-          .string({ required_error: "Це поле є обов'язковим" })
-          .min(2, { message: "Це поле не заповнене" }),
-        title: z
-          .string({ required_error: "Це поле є обов'язковим" })
-          .min(2, { message: "Це поле не заповнене" }),
-        type: z
-          .string({ required_error: "Це поле є обов'язковим" })
-          .min(2, { message: "Це поле не заповнене" }),
+        link: z.string({ required_error: "Це поле є обов'язковим" }),
+        title: z.string({ required_error: "Це поле є обов'язковим" }),
+        type: z.string({ required_error: "Це поле є обов'язковим" }),
       }),
     ),
   }),
@@ -128,8 +106,9 @@ const HomeworkInput: React.FC = () => {
   const AppendWrittingListHandler = () => {
     writtingAppend({ id: uuidv4(), link: "", title: "", type: "text" });
   };
-
+  console.log(errors);
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
+    console.log(data);
     try {
       setLoading(true);
       const newHomework = {
@@ -247,7 +226,7 @@ const HomeworkInput: React.FC = () => {
                   })}
                   placeholder="HTML Семантика"
                   className={`${inputError} ${
-                    errors?.reading?.listOfThemes?.[index]
+                    errors?.reading?.listOfThemes?.[index]?.title
                       ? "border-red-500"
                       : "focus:border-accent"
                   }`}
@@ -267,7 +246,7 @@ const HomeworkInput: React.FC = () => {
                   {...register(`reading.listOfThemes.${index}.link`)}
                   placeholder="https://w3schoolsua.github.io/html/html5_semantic_elements.html"
                   className={`${inputError} ${
-                    errors?.reading?.listOfThemes?.[index]
+                    errors?.reading?.listOfThemes?.[index]?.link
                       ? "border-red-500"
                       : "focus:border-accent"
                   }`}
