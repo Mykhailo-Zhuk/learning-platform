@@ -160,7 +160,7 @@ type Store = {
   adminPanelList: AdminList;
   homework: Homework[];
   personalHomeworkResults: PersonalHomeworkResults;
-  youtubeLinks: YoutubeLinks;
+  youtubeLinks: LinksData[];
 
   addListOfThemes: () => void;
   getUsers: () => void;
@@ -184,10 +184,7 @@ export const useStore = create<Store>((set, get) => ({
   },
   adminPanelList: [],
   time: { start_time: "", end_time: "", date: "", completed: false },
-  youtubeLinks: {
-    group: "",
-    youtube_links: [{ id: "", linkToRecording: "", dateOfMeeting: "", lessonTitle: "" }],
-  },
+  youtubeLinks: [{ id: "", linkToRecording: "", dateOfMeeting: "", lessonTitle: "" }],
   users: [],
   tests: [],
   questions: [],
@@ -303,7 +300,7 @@ export const useStore = create<Store>((set, get) => ({
       const response = await fetchPartOfData("youtube", group);
 
       const data = await response.json();
-      console.log(data);
+
       set({ youtubeLinks: data });
     } catch (error) {
       console.log(error);

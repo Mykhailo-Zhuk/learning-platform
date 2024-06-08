@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CabinetNavigation, HomeworksWorkspace, YoutubeLinksWorkspace } from "../index";
-import { PersonalHomeworkResults, YoutubeLinks, useStore } from "@/store/store";
+import { LinksData, PersonalHomeworkResults, useStore } from "@/store/store";
 import Spinner from "../ui/spinner";
 import { useSearchParams } from "next/navigation";
 
@@ -61,13 +61,8 @@ const ParentsCabinet = ({ user }: ParentsCabinetProps) => {
     content = <HomeworksWorkspace user={user} data={personalHomeworkResults?.homeworkIsDone} />;
   }
 
-  if (
-    type === "recording" &&
-    youtubeLinks !== null &&
-    (youtubeLinks as YoutubeLinks)?.youtube_links &&
-    (youtubeLinks as YoutubeLinks)?.youtube_links?.length !== 0
-  ) {
-    content = <YoutubeLinksWorkspace data={youtubeLinks?.youtube_links} />;
+  if (type === "recording" && youtubeLinks !== null && youtubeLinks && youtubeLinks.length !== 0) {
+    content = <YoutubeLinksWorkspace data={youtubeLinks} />;
   }
 
   return (
