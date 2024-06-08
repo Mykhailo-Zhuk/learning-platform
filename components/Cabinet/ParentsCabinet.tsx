@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CabinetNavigation, HomeworksWorkspace, YoutubeLinksWorkspace } from "../index";
-import { useStore } from "@/store/store";
+import { PersonalHomeworkResults, YoutubeLinks, useStore } from "@/store/store";
 import Spinner from "../ui/spinner";
 import { useSearchParams } from "next/navigation";
 
@@ -46,14 +46,28 @@ const ParentsCabinet = ({ user }: ParentsCabinetProps) => {
     fetchData();
   }, [type, user?.group, user?.label]);
 
-  let content;
+  let content = (
+    <p className="text-[0.8rem] font-medium whitespace-nowrap leading-10 text-center text-red-500">
+      Наразі ніяких даних не знайдено
+    </p>
+  );
 
-  if (type === "homeworks") {
-    content = <HomeworksWorkspace user={user} data={personalHomeworkResults.homeworkIsDone} />;
+  if (
+    type === "homeworks" &&
+    personalHomeworkResults !== null &&
+    (personalHomeworkResults as PersonalHomeworkResults)?.homeworkIsDone &&
+    (personalHomeworkResults as PersonalHomeworkResults)?.homeworkIsDone?.length !== 0
+  ) {
+    content = <HomeworksWorkspace user={user} data={personalHomeworkResults?.homeworkIsDone} />;
   }
 
-  if (type === "recording") {
-    content = <YoutubeLinksWorkspace data={youtubeLinks.youtube_links} />;
+  if (
+    type === "recording" &&
+    youtubeLinks !== null &&
+    (youtubeLinks as YoutubeLinks)?.youtube_links &&
+    (youtubeLinks as YoutubeLinks)?.youtube_links?.length !== 0
+  ) {
+    content = <YoutubeLinksWorkspace data={youtubeLinks?.youtube_links} />;
   }
 
   return (

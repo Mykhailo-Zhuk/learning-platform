@@ -31,7 +31,7 @@ const Header = () => {
             </Button>
           )}
           <Login />
-          <Link href={"/cabinet"}>
+          <Link href={"/cabinet?type=homeworks"}>
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>CN</AvatarFallback>
