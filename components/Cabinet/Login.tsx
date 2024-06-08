@@ -5,11 +5,13 @@ import { Button } from "../ui/button";
 
 export default function Login() {
   const { data: session } = useSession();
+
   if (session) {
     return (
       <>
-        Signed in as {session.user!.name} <br />
-        <Button variant="ghost" onClick={() => signOut()}>
+        <span className="text-sm">Signed in as {session.user!.name} </span>
+        <br />
+        <Button variant="ghost" onClick={() => signOut()} className="text-sm">
           Sign out
         </Button>
       </>
@@ -17,8 +19,9 @@ export default function Login() {
   } else {
     return (
       <>
-        Not signed in <br />
-        <Button variant="ghost" onClick={() => signIn()}>
+        <span className="text-sm">Not signed in </span>
+        <br />
+        <Button variant="ghost" onClick={() => signIn()} className="text-sm">
           Sign in
         </Button>
       </>

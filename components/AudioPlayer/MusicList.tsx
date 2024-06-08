@@ -21,7 +21,9 @@ const MusicList: React.FC = () => {
     <div className="flex flex-col space-y-3 items-center md:flex-row md:space-x-3 md:space-y-0">
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <span className="hover:bg-accent rounded-lg py-2 text-center px-3">Обери музику</span>
+          <span className="hover:bg-accent rounded-lg py-3 text-center text-sm px-3 hover:text-accent-foreground">
+            Обери музику
+          </span>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           {tracks.map((track, index) => (

@@ -8,24 +8,32 @@ import { useRouter } from "next/navigation";
 import { Skeleton } from "../ui/skeleton";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import { useStore } from "@/store/store";
+import { Dispatch, SetStateAction, useEffect } from "react";
 
 type MainResourcesProps = {
-  time: {
-    date: string;
-    start_time: string;
-    end_time: string;
-    completed: boolean;
-  };
-  loading: boolean;
+  isLoading: boolean;
+  currentGroup: string;
 };
 
-const MainResources = ({ time, loading }: MainResourcesProps) => {
+const MainResources = ({ isLoading, currentGroup }: MainResourcesProps) => {
   const { data: session, status } = useSession();
+
+  const time = useStore((state) => state.time);
+  const getTime = useStore((state) => state.getTime);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await getTime(currentGroup);
+    };
+    fetchData();
+  }, []);
+
   const router = useRouter();
   const code =
     "https://res.cloudinary.com/dxcpen44g/image/upload/f_auto,q_auto/v1/learning-platform/s1ae3hdnkl4szygfvbqu";
 
-  const isCompleted = time.completed;
+  const isCompleted = time && time?.completed;
 
   return (
     <section className="flex flex-col lg:grid lg:grid-cols-[auto_minmax(200px,_400px)] gap-5 py-5">
@@ -42,20 +50,20 @@ const MainResources = ({ time, loading }: MainResourcesProps) => {
                   <BsFillCalendarCheckFill size={18} />
                   <p className="inline-flex">
                     Сб,{" "}
-                    {loading ? <Skeleton className="w-20 h-5 rounded-lg"></Skeleton> : time.date}
+                    {isLoading ? <Skeleton className="w-20 h-5 rounded-lg"></Skeleton> : time?.date}
                   </p>
                   <BsFillClockFill size={18} />
                   <p className="inline-flex">
-                    {loading ? (
-                      <Skeleton className="w-12 h-5 rounded-lg"></Skeleton>
+                    {isLoading ? (
+                      <Skeleton className="w-12 h-5 rounded-lg"/>
                     ) : (
-                      time.start_time
+                      time?.start_time
                     )}{" "}
                     -{" "}
-                    {loading ? (
-                      <Skeleton className="w-12 h-5 rounded-lg"></Skeleton>
+                    {isLoading ? (
+                      <Skeleton className="w-12 h-5 rounded-lg"/>
                     ) : (
-                      time.end_time
+                      time?.end_time
                     )}
                   </p>
                 </div>
@@ -74,7 +82,7 @@ const MainResources = ({ time, loading }: MainResourcesProps) => {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-slate-950 to-purple-950 font-semibold flex-shrink-0">
-                <Link href="/cabinet">Мій прогрес</Link>
+                <Link href="/cabinet?type=homeworks">Мій прогрес</Link>
               </Button>
             )}
           </div>

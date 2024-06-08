@@ -37,7 +37,7 @@ const ChangeDateForm = () => {
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     try {
       setLoading(true);
-      const response = await fetchToChangeDataOnServer("time", "post", {
+      const response = await fetchToChangeDataOnServer("time", {
         date: format(data.date, "dd.MM.yyyy"),
         group: data.group,
       });
@@ -66,8 +66,8 @@ const ChangeDateForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col space-y-6 max-md:w-full w-1/2 lg:w-2/6 max-[600px]:items-center">
-        <div className="flex max-md:flex-col max-md:space-y-5 md:space-x-6">
+        className="flex flex-col space-y-6 w-full lg:w-2/6 items-center">
+        <div className="flex flex-col space-y-5">
           <FormField
             control={form.control}
             name="date"
@@ -103,26 +103,28 @@ const ChangeDateForm = () => {
               </FormItem>
             )}
           />
+
+          <FormField
+            control={form.control}
+            name="group"
+            render={({ field }) => (
+              <FormItem className="flex flex-col">
+                <FormLabel>Група</FormLabel>
+                <Select onValueChange={field.onChange}>
+                  <SelectTrigger className="w-fit">
+                    <SelectValue placeholder="Виберіть групу" />
+                  </SelectTrigger>
+                  <SelectContent className="min-w-fit">
+                    <SelectItem value="group2">Група 2</SelectItem>
+                    <SelectItem value="group3">Група 3</SelectItem>
+                    <SelectItem value="arthor">Інд. Артур</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
-        <FormField
-          control={form.control}
-          name="group"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>Група</FormLabel>
-              <Select onValueChange={field.onChange}>
-                <SelectTrigger className="w-fit">
-                  <SelectValue placeholder="Виберіть групу" />
-                </SelectTrigger>
-                <SelectContent className="min-w-fit">
-                  <SelectItem value="group1">Група 1</SelectItem>
-                  <SelectItem value="group2">Група 2</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
         <div className="flex items-center">
           <Button type="submit">{loading ? "Виконую..." : "Змінити"}</Button>
         </div>

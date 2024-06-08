@@ -29,9 +29,9 @@ type Time = {
   group?: string;
 };
 
-export const fetchToChangeDataOnServer = (endpoint: string, method = "post", data?: Time) => {
+export const fetchToChangeDataOnServer = (endpoint: string, data?: any) => {
   return fetch(`${baseUrl}api/${endpoint}`, {
-    method,
+    method: "POST",
     body: JSON.stringify(data) ?? null,
   });
 };
@@ -45,5 +45,20 @@ export const fetchPersonalHomework = (group: string, homeworkId: string) => {
 };
 
 export const fetchPersonalHomeworkResults = (username: string) => {
-  return fetch(`${baseUrl}api/users?username=${username}`);
+  return fetch(`${baseUrl}api/user?username=${username}`);
 };
+
+export function formatGroupName(groupName: string): string {
+  // Capitalize the first letter
+  let formattedText = groupName.charAt(0).toUpperCase() + groupName.slice(1);
+
+  // Insert a space before any number
+  formattedText = formattedText.replace(/(\d+)/g, " $1");
+
+  return formattedText;
+}
+
+export function parseDate(dateStr: string): Date {
+  const [day, month, year] = dateStr.split(".").map(Number);
+  return new Date(year, month - 1, day);
+}

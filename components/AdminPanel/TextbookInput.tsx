@@ -251,7 +251,7 @@ const TextbookInput = () => {
     }
     console.log(newSection);
     try {
-      const response = await fetchToChangeDataOnServer("descriptions", "post", newSection);
+      const response = await fetchToChangeDataOnServer("descriptions", newSection);
 
       if (response.ok) {
         toast({

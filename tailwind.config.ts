@@ -55,6 +55,7 @@ module.exports = {
         monserat: ["var(--font-monserat)"],
         spartan: ["var(--font-spartan)"],
         lora: ["var(--font-lora)"],
+        plex: ["var(--font-plex)"],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -14,28 +14,60 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
-type Theme = {
-  id: string;
-  link: string;
-  title: string;
-  type?: string;
-};
-
-type HomeworkItem = {
-  id: number;
-  action: string;
-  listOfThemes?: Theme[];
-  links?: Theme[];
-};
-
-type FormData = {
-  id: string;
-  date: string;
-  reading: HomeworkItem;
-  writting: HomeworkItem;
-  group: string;
-};
+const FormSchema = z.object({
+  date: z
+    .string({ required_error: "Це поле є обов'язковим" })
+    .min(2, { message: "Це поле не заповнене" }),
+  group: z
+    .string({ required_error: "Це поле є обов'язковим" })
+    .min(2, { message: "Це поле не заповнене" }),
+  lessonTitle: z
+    .string({ required_error: "Це поле є обов'язковим" })
+    .min(2, { message: "Це поле не заповнене" }),
+  reading: z.object({
+    id: z.string(),
+    action: z
+      .string({ required_error: "Це поле є обов'язковим" })
+      .min(2, { message: "Це поле не заповнене" }),
+    listOfThemes: z.array(
+      z.object({
+        id: z.string(),
+        link: z
+          .string({ required_error: "Це поле є обов'язковим" })
+          .min(2, { message: "Це поле не заповнене" }),
+        title: z
+          .string({ required_error: "Це поле є обов'язковим" })
+          .min(2, { message: "Це поле не заповнене" }),
+        type: z
+          .string({ required_error: "Це поле є обов'язковим" })
+          .min(2, { message: "Це поле не заповнене" }),
+      }),
+    ),
+  }),
+  writting: z.object({
+    id: z.string(),
+    action: z
+      .string({ required_error: "Це поле є обов'язковим" })
+      .min(2, { message: "Це поле не заповнене" }),
+    links: z.array(
+      z.object({
+        id: z.string(),
+        link: z
+          .string({ required_error: "Це поле є обов'язковим" })
+          .min(2, { message: "Це поле не заповнене" }),
+        title: z
+          .string({ required_error: "Це поле є обов'язковим" })
+          .min(2, { message: "Це поле не заповнене" }),
+        type: z
+          .string({ required_error: "Це поле є обов'язковим" })
+          .min(2, { message: "Це поле не заповнене" }),
+      }),
+    ),
+  }),
+});
 
 const styles = {
   inputContainer: "flex flex-col space-y-2",
@@ -54,17 +86,19 @@ const HomeworkInput: React.FC = () => {
     formState: { errors },
     setValue,
     reset,
-  } = useForm<FormData>({
+  } = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
     defaultValues: {
       date: "",
+      lessonTitle: "",
+      group: "",
       reading: {
-        id: 1,
+        id: "1",
         action: "Прочитати теми: ",
         listOfThemes: [{ id: uuidv4(), link: "", title: "", type: "text" }],
       },
-
       writting: {
-        id: 2,
+        id: "2",
         action: "Ознайомитися із практичними завданнями та тестами по темах: ",
         links: [{ id: uuidv4(), link: "", title: "", type: "text" }],
       },
@@ -95,7 +129,7 @@ const HomeworkInput: React.FC = () => {
     writtingAppend({ id: uuidv4(), link: "", title: "", type: "text" });
   };
 
-  const onSubmit: SubmitHandler<FormData> = async (data) => {
+  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     try {
       setLoading(true);
       const newHomework = {
@@ -107,7 +141,6 @@ const HomeworkInput: React.FC = () => {
 
       const response = await fetchToChangeDataOnServer(
         "homework",
-        "post",
         replacedSingleQuotes(newHomework),
       );
 
@@ -132,12 +165,17 @@ const HomeworkInput: React.FC = () => {
             <p className="mt-2 w-[340px] rounded-md py-4">
               <b>Читання:</b>{" "}
               {data.reading.listOfThemes?.map(
-                (theme, index) => theme.title + (index > 0 ? ", " : ""),
+                (theme, index) =>
+                  theme.title + (data?.reading?.listOfThemes.length - 1 !== index ? ", " : ""),
               )}
               ;
               <br />
               <b>Практичне:</b>{" "}
-              {data.writting.links?.map((link, index) => link.title + (index > 0 ? ", " : ""))};
+              {data.writting.links?.map(
+                (link, index) =>
+                  link.title + (data?.writting?.links.length - 1 !== index ? ", " : ""),
+              )}
+              ;
             </p>
           ),
         });
@@ -153,6 +191,7 @@ const HomeworkInput: React.FC = () => {
   };
 
   const { inputContainer, inputLabel, inputError, spanError } = styles;
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-screen-md mx-auto">
       <div className="space-y-4 p-6 border rounded-lg shadow-md">
@@ -166,6 +205,18 @@ const HomeworkInput: React.FC = () => {
             className={`${inputError} ${errors?.date ? "border-red-500" : "focus:border-accent"}`}
           />
           {errors.date && <span className={spanError}>{errors.date?.message}</span>}
+
+          <label htmlFor="date" className={inputLabel}>
+            Тема:
+          </label>
+          <input
+            placeholder="Lesson 1 HTML: Syntax, Structure, Tags"
+            {...register("lessonTitle", { required: "Це поле є обов'язковим" })}
+            className={`${inputError} ${
+              errors?.lessonTitle ? "border-red-500" : "focus:border-accent"
+            }`}
+          />
+          {errors.lessonTitle && <span className={spanError}>{errors.lessonTitle?.message}</span>}
 
           <label htmlFor="reading.action" className={inputLabel}>
             Читання:
@@ -349,6 +400,8 @@ const HomeworkInput: React.FC = () => {
               <SelectContent className="min-w-fit">
                 <SelectItem value="group1">Група 1</SelectItem>
                 <SelectItem value="group2">Група 2</SelectItem>
+                <SelectItem value="group3">Група 3</SelectItem>
+                <SelectItem value="arthor">Індивід Артур</SelectItem>
               </SelectContent>
             </Select>
             {errors?.group && <span className={spanError}>{errors.group.message}</span>}

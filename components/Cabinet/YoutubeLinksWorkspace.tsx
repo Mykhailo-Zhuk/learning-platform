@@ -26,26 +26,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { User } from "./ParentsCabinet";
-import { PersonalHomeworkResults } from "@/store/store";
-import { Badge } from "../ui/badge";
-import ShowExactHomework from "./ShowExactHomework";
+import { YoutubeLinks } from "@/store/store";
+import Link from "next/link";
 
-export type ColumnData = {
-  id: string;
-  date: string;
-  isCompleted: "Частково" | "Виконав" | "Не виконав";
-  lessonTitle: string;
-  homeworkId: string;
-};
+type ColumnData = YoutubeLinks;
 
-type CabinetWorkspaceTableProps = {
-  user: User;
-  userData: PersonalHomeworkResults;
-};
-
-const CabinetWorkspace = ({ user, userData }: CabinetWorkspaceTableProps) => {
-  const data = userData.homeworkIsDone;
+const YoutubeLinksWorkspace = ({ data }: { data: YoutubeLinks[] }) => {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
@@ -75,57 +61,30 @@ const CabinetWorkspace = ({ user, userData }: CabinetWorkspaceTableProps) => {
       enableHiding: false,
     },
     {
-      accessorKey: "isCompleted",
-      header: "Статус",
-      cell: ({ row }) => {
-        if (row.getValue("isCompleted") === "Частково") {
-          return (
-            <div>
-              <Badge variant="secondary">{row.getValue("isCompleted")}</Badge>
-            </div>
-          );
-        } else if (row.getValue("isCompleted") === "Не виконав") {
-          return (
-            <div>
-              <Badge variant="destructive">{row.getValue("isCompleted")}</Badge>
-            </div>
-          );
-        } else {
-          return (
-            <div>
-              <Badge variant="default" className="bg-green-600 hover:bg-green-500">
-                {row.getValue("isCompleted")}
-              </Badge>
-            </div>
-          );
-        }
-      },
-    },
-    {
       accessorKey: "lessonTitle",
-      header: "Назва домашньої",
+      header: "Тема заняття",
       cell: ({ row }) => {
         return <div>{row.getValue("lessonTitle")}</div>;
       },
     },
     {
-      accessorKey: "homeworkId",
-      header: () => <div className="text-right">Переглянути домашню</div>,
+      accessorKey: "linkToRecording",
+      header: () => <div>Переглянути</div>,
       cell: ({ row }) => {
         return (
-          <ShowExactHomework
-            className="float-right ml-2"
-            user={user}
-            homeworkId={row.getValue("homeworkId")}
-          />
+          <Button asChild variant="ghost">
+            <Link href={row.getValue("linkToRecording")} target="_blank">
+              Силка
+            </Link>
+          </Button>
         );
       },
     },
     {
-      accessorKey: "date",
-      header: () => <div className="text-center">Дата</div>,
+      accessorKey: "dateOfMeeting",
+      header: () => <div className="text-center">Дата запису</div>,
       cell: ({ row }) => {
-        return <div className="text-center font-medium">{row.getValue("date")}</div>;
+        return <div className="text-center font-medium">{row.getValue("dateOfMeeting")}</div>;
       },
     },
   ];
@@ -150,7 +109,7 @@ const CabinetWorkspace = ({ user, userData }: CabinetWorkspaceTableProps) => {
   });
 
   return (
-    <div className="w-full px-5">
+    <div className="w-full px-5 font-lora">
       <div className="flex items-center py-4">
         <Input
           placeholder="Фільтрувати за назвою уроку"
@@ -223,4 +182,4 @@ const CabinetWorkspace = ({ user, userData }: CabinetWorkspaceTableProps) => {
   );
 };
 
-export default CabinetWorkspace;
+export default YoutubeLinksWorkspace;

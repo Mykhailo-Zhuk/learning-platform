@@ -1,43 +1,69 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Homework, MainResources, References } from "./index";
+import {
+  Homework,
+  HomeworkSkeleton,
+  MainResources,
+  MainResourcesSkeleton,
+  References,
+  ReferencesSkeleton,
+} from "./index";
 import { useEffect, useState } from "react";
 import { useStore } from "@/store/store";
+import { formatGroupName } from "@/lib/utils";
 
-const TabsRow = () => {
+type TabsRowTypes = {
+  selectedCourse: string;
+};
+
+type CourseTypes = {
+  [key: string]: string[];
+};
+
+const COURSE: CourseTypes = {
+  frontEnd: ["group2", "group3"],
+  react: ["arthor"],
+};
+
+const TabsRow = ({ selectedCourse }: TabsRowTypes) => {
+  const [loading, setLoading] = useState(true);
+
   const currentGroup = useStore((state) => state.group);
   const getGroup = useStore((state) => state.getGroup);
 
-  const [loading, setLoading] = useState(true);
-  const time = useStore((state) => state.time);
-  const getTime = useStore((state) => state.getTime);
-
   useEffect(() => {
     const fetchData = async () => {
-      await getTime(currentGroup);
+      await getGroup(COURSE[selectedCourse][0]);
       setLoading(false);
     };
     fetchData();
-  }, [currentGroup, getTime]);
+  }, []);
 
   return (
     <section className="flex w-full p-1 md:p-5 border-t border-t-slate-200">
-      <Tabs defaultValue="group1" className="w-full">
+      <Tabs defaultValue={COURSE[selectedCourse][0]} className="w-full">
         <div className="flex max-md:justify-center">
           <TabsList>
-            <TabsTrigger value="group1" onClick={() => getGroup("group1")}>
-              Group 1
-            </TabsTrigger>
-            <TabsTrigger value="group2" onClick={() => getGroup("group2")}>
-              Group 2
-            </TabsTrigger>
+            {COURSE[selectedCourse].map((group: string) => {
+              const formattedGroupName = formatGroupName(group);
+
+              return (
+                <TabsTrigger key={group} value={group} onClick={() => getGroup(group)}>
+                  {formattedGroupName}
+                </TabsTrigger>
+              );
+            })}
           </TabsList>
         </div>
         <TabsContent value={currentGroup} className="flex flex-col">
-          <MainResources time={time} loading={loading} />
-          <References />
-          <Homework />
+          {loading ? (
+            <MainResourcesSkeleton />
+          ) : (
+            <MainResources key={currentGroup} currentGroup={currentGroup} isLoading={loading} />
+          )}
+          {loading ? <ReferencesSkeleton /> : <References />}
+          {loading ? <HomeworkSkeleton /> : <Homework />}
         </TabsContent>
       </Tabs>
     </section>

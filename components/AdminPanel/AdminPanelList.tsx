@@ -27,12 +27,16 @@ const AdminPanelList = () => {
   }
 
   if (loading) {
-    content = Array.from({ length: 5 }, (_, i) => i + 1).map((_, id) => {
-      return <Skeleton key={id} className="w-full h-12 rounded-lg"></Skeleton>;
-    });
+    content = (
+      <div className="flex flex-col space-y-2">
+        {Array.from({ length: 6 }, (_, i) => i + 1).map((_, id) => {
+          return <Skeleton key={id} className="w-full h-12 rounded-lg"></Skeleton>;
+        })}
+      </div>
+    );
   } else {
     content = (
-      <ul className="flex flex-col space-y-3">
+      <ul className="flex flex-col space-y-3 max-w-[440px] mx-auto font-lora">
         {adminPanelList?.map((item) => {
           return (
             <li
@@ -50,7 +54,7 @@ const AdminPanelList = () => {
       </ul>
     );
   }
-  return <div className="flex flex-col space-y-2">{content}</div>;
+  return content;
 };
 
 export default AdminPanelList;

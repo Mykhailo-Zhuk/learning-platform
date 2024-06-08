@@ -15,7 +15,7 @@ const Header = () => {
   const { data: session, status } = useSession();
 
   return (
-    <header className="flex w-full max-w-[1400px] mx-auto bg-white justify-between p-5 sticky z-10 top-0 rounded-sm">
+    <header className="flex w-full max-w-[1400px] mx-auto bg-white justify-between p-5 sticky z-10 top-0 rounded-sm font-lora">
       <div className="flex-shrink-0 flex justify-center items-center">
         <Link href={"/"}>
           <Image src={logo} alt="logo" width={170} height={60} />
@@ -26,7 +26,7 @@ const Header = () => {
         <MusicList />
         <div className="flex justify-center items-center space-x-3 gap-4">
           {status === "authenticated" && session.user.role === "admin" && (
-            <Button asChild variant="ghost">
+            <Button asChild variant="ghost" className="text-sm">
               <Link href="/admin">Admin</Link>
             </Button>
           )}
@@ -47,12 +47,12 @@ const Header = () => {
         />
       </div>
       {isOpen && (
-        <div className="md:hidden absolute top-16 right-0 left-0 bg-white shadow-lg py-3">
+        <div className="md:hidden absolute top-16 right-0 left-0 bg-white shadow-lg py-3 ">
           <div className="flex flex-col items-center space-y-4">
             <MusicList />
             <div className="flex justify-center items-center space-x-3">
               <Login />
-              <Link href={"/cabinet"}>
+              <Link href={"/cabinet?type=homeworks"}>
                 <Avatar>
                   <AvatarImage src="https://github.com/shadcn.png" />
                   <AvatarFallback>CN</AvatarFallback>

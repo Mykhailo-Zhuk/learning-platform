@@ -65,7 +65,7 @@ const ChangeTimeForm = () => {
         group: data.group,
       };
 
-      const response = await fetchToChangeDataOnServer("time", "post", newTime);
+      const response = await fetchToChangeDataOnServer("time", newTime);
 
       if (response.ok) {
         toast({
@@ -88,7 +88,7 @@ const ChangeTimeForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col max-[600px]:items-center w-full lg:w-1/2 space-y-6">
+        className="flex flex-col items-center w-full lg:w-1/2 space-y-6">
         <div className="flex flex-col space-y-5">
           <FormField
             control={form.control}
@@ -133,8 +133,9 @@ const ChangeTimeForm = () => {
                     <SelectValue placeholder="Виберіть групу" />
                   </SelectTrigger>
                   <SelectContent className="min-w-fit">
-                    <SelectItem value="group1">Група 1</SelectItem>
                     <SelectItem value="group2">Група 2</SelectItem>
+                    <SelectItem value="group3">Група 3</SelectItem>
+                    <SelectItem value="arthor">Інд. Артур</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />

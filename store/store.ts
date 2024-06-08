@@ -1,9 +1,31 @@
-import {
-  fetchDataFromNextServer,
-  fetchPartOfData,
-  fetchPersonalHomeworkResults,
-} from "@/lib/utils";
+import { fetchPartOfData, fetchPersonalHomeworkResults } from "@/lib/utils";
 import { create } from "zustand";
+
+export type Members = {
+  [key: string]: string;
+};
+
+export const GROUP_2_MEMBERS: Members[] = [
+  { id: "LEARNING-P-4190122849", username: "B_Dimbrov", firstName: "Богдан" },
+  { id: "LEARNING-P-4526715349", username: "n3ko16", firstName: "Олександр" },
+  { id: "LEARNING-P-4248810698", username: "Kirill01294", firstName: "Кирило" },
+  { id: "LEARNING-P-3618230337", username: "Serrgiychik", firstName: "Сергій" },
+  { id: "LEARNING-P-5934919444", username: "Marishun21", firstName: "Маряна" },
+  { id: "LEARNING-P-0311369915", username: "flight969", firstName: "Микита" },
+  { id: "LEARNING-P-5070308516", username: "tokssi1", firstName: "Дмитро" },
+];
+export const GROUP_3_MEMBERS: Members[] = [
+  { id: "LEARNING-P-2921277120", username: "Kamasentraa", firstName: "Уляна" },
+  { id: "LEARNING-P-2452349806", username: "BestBirdEver", firstName: "Марина" },
+  { id: "LEARNING-P-8518422349", username: "sanyadrug08", firstName: "Влад" },
+  { id: "LEARNING-P-2050830128", username: "Oleksiy251", firstName: "Олексій" },
+  { id: "LEARNING-P-4114772449", username: "maksym", firstName: "Максим" },
+  { id: "LEARNING-P-4378891671", username: "tab_01234678", firstName: "Тая" },
+];
+
+export const INDIVID_ARTHOR: Members[] = [
+  { id: "LEARNING-P-2191581885", username: "Ja_wewykyj", firstName: "Артур" },
+];
 
 type Image = {
   image?: {
@@ -33,7 +55,19 @@ type List = {
   };
 };
 
-type Users = { id: string | number; name: string; password: string; role: "admin" | "student" }[];
+export type UsersDataList = {
+  id: string | number;
+  name: string;
+  label?: string;
+  group?: string;
+  password: string;
+  role: "admin" | "student";
+};
+
+export type Users = {
+  group?: string;
+  usersList: UsersDataList[];
+};
 type Tests = {
   subtitle: string;
   url: string;
@@ -72,13 +106,14 @@ type ListOfThemes = {
   }[];
 }[];
 type AdminList = { id: number | string; title: string; url: string }[];
-type HomeWorkItem = {
+export type HomeWorkItem = {
   id: number | string;
   link: string;
   title: string;
   type: string;
 };
-type Homework = {
+export type Homework = {
+  lessonTitle: string;
   id: number | string;
   date: string;
   homework: {
@@ -87,32 +122,44 @@ type Homework = {
     listOfThemes?: HomeWorkItem[];
     links?: HomeWorkItem[];
   }[];
-}[];
+};
+export type LinksData = {
+  id: string;
+  linkToRecording: string;
+  dateOfMeeting: string;
+  lessonTitle: string;
+};
+export type YoutubeLinks = {
+  group: string;
+  youtube_links: LinksData[];
+};
+export type HomeworkResults = {
+  id: string;
+  date: Date | number;
+  lessonTitle: string;
+  homeworkId: string;
+  isCompleted: "Частково" | "Виконав" | "Не виконав";
+};
 
 export type PersonalHomeworkResults = {
-  name: string;
+  username: string;
   group: string;
   type: string;
-  homeworkIsDone: {
-    id: string;
-    date: string;
-    isCompleted: "Частково" | "Виконав" | "Не виконав";
-    lessonTitle: string;
-    homeworkId: string;
-  }[];
+  homeworkIsDone: HomeworkResults[];
 };
 
 type Store = {
   group: string;
-  users: Users;
+  users: UsersDataList[];
   tests: Tests;
   time: Time;
   questions: Questions;
   descriptions: Description;
   listOfThemes: ListOfThemes;
   adminPanelList: AdminList;
-  homework: Homework;
+  homework: Homework[];
   personalHomeworkResults: PersonalHomeworkResults;
+  youtubeLinks: YoutubeLinks;
 
   addListOfThemes: () => void;
   getUsers: () => void;
@@ -124,24 +171,29 @@ type Store = {
   getTime: (group: string) => void;
   getGroup: (group: string) => void;
   getPersonalHomeworkResults: (username: string) => void;
+  getYoutubeLinks: (group: string) => void;
 };
 
 export const useStore = create<Store>((set, get) => ({
   personalHomeworkResults: {
-    name: "",
+    username: "",
     group: "",
     type: "",
     homeworkIsDone: [],
   },
   adminPanelList: [],
   time: { start_time: "", end_time: "", date: "", completed: false },
+  youtubeLinks: {
+    group: "",
+    youtube_links: [{ id: "", linkToRecording: "", dateOfMeeting: "", lessonTitle: "" }],
+  },
   users: [],
   tests: [],
   questions: [],
   descriptions: [],
   listOfThemes: [],
   homework: [],
-  group: "group1",
+  group: "",
 
   getGroup: async (group) => {
     set({ group });
@@ -241,6 +293,17 @@ export const useStore = create<Store>((set, get) => ({
       const data = await response.json();
 
       set({ personalHomeworkResults: data });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  getYoutubeLinks: async (group) => {
+    try {
+      const response = await fetchPartOfData("youtube", group);
+
+      const data = await response.json();
+      console.log(data);
+      set({ youtubeLinks: data });
     } catch (error) {
       console.log(error);
     }

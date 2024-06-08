@@ -67,7 +67,6 @@ const QuestionsInput = () => {
 
         const response = await fetchToChangeDataOnServer(
           "questions",
-          "post",
           replacedSingleQuotes(newSection),
         );
 
@@ -96,7 +95,7 @@ const QuestionsInput = () => {
   const { inputContainer, inputLabel, inputError, spanError } = styles;
 
   return (
-    <form onSubmit={submitHandler} className="w-full max-w-screen-md mx-auto">
+    <form onSubmit={submitHandler} className="w-full max-w-screen-md mx-auto ">
       <div className="flex flex-col space-y-6 p-6 border rounded-lg shadow-md">
         <div className={inputContainer}>
           <label htmlFor="section" className={inputLabel}>

@@ -65,11 +65,7 @@ const TestsInput = () => {
           },
         };
 
-        const response = await fetchToChangeDataOnServer(
-          "tests",
-          "post",
-          replacedSingleQuotes(newSection),
-        );
+        const response = await fetchToChangeDataOnServer("tests", replacedSingleQuotes(newSection));
 
         if (response.ok) {
           toast({
