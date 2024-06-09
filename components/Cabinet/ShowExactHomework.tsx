@@ -36,6 +36,7 @@ const ShowExactHomework = ({
   const [loading, setLoading] = useState(true);
   const [personalHomework, setPersonalHomework] = useState<Homework>({
     date: "",
+    group: "",
     lessonTitle: "",
     homework: [{ id: "", action: "", listOfThemes: [], links: [] }],
     id: "",
