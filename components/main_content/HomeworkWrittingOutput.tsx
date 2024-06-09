@@ -8,7 +8,7 @@ const HomeworkWrittingOutput = ({ id, type, link, title }: HomeWorkItem) => {
   if (type === "text") {
     return (
       <li key={id} className="mt-2 bg-slate-200 p-1 rounded-lg shadow-lg">
-        {title + " " + link + ", "}
+        {title + link ? `, ${link} ` : ""}
       </li>
     );
   }
