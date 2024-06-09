@@ -116,6 +116,7 @@ export type Homework = {
   lessonTitle: string;
   id: number | string;
   date: string;
+  group: string;
   homework: {
     id: string;
     action: string;

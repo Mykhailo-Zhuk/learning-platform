@@ -1,6 +1,6 @@
 "use client";
 
-import { SubmitHandler, useFieldArray, useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import { BsTrash3Fill } from "react-icons/bs";
 import { useState } from "react";
@@ -22,6 +22,7 @@ import { format } from "date-fns";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { Calendar } from "../ui/calendar";
 import { Input } from "../ui/input";
+import { Homework } from "@/store/store";
 
 const FormSchema = z.object({
   date: z.date({ required_error: "Це поле є обов'язковим" }),
@@ -129,8 +130,9 @@ const HomeworkInput: React.FC = () => {
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     try {
       setLoading(true);
-      const newHomework = {
+      const newHomework: Homework = {
         id: uuidv4(),
+        lessonTitle: data.lessonTitle,
         date: format(data.date, "dd.MM.yyyy"),
         homework: [data.reading, data.writting],
         group: data.group,
