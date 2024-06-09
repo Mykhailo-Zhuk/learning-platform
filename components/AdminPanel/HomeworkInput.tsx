@@ -36,9 +36,7 @@ const FormSchema = z.object({
     listOfThemes: z.array(
       z.object({
         id: z.string(),
-        link: z
-          .string({ required_error: "Це поле є обов'язковим" })
-          .min(2, { message: "Це поле необхідно заповнити" }),
+        link: z.string().optional(),
         title: z
           .string({ required_error: "Це поле є обов'язковим" })
           .min(2, { message: "Це поле необхідно заповнити" }),
@@ -52,9 +50,7 @@ const FormSchema = z.object({
     links: z.array(
       z.object({
         id: z.string(),
-        link: z
-          .string({ required_error: "Це поле є обов'язковим" })
-          .min(2, { message: "Це поле необхідно заповнити" }),
+        link: z.string().optional(),
         title: z
           .string({ required_error: "Це поле є обов'язковим" })
           .min(2, { message: "Це поле необхідно заповнити" }),
@@ -134,7 +130,7 @@ const HomeworkInput: React.FC = () => {
         id: uuidv4(),
         lessonTitle: data.lessonTitle,
         date: format(data.date, "dd.MM.yyyy"),
-        homework: [data.reading, data.writting],
+        homework: [data?.reading, data?.writting],
         group: data.group,
       };
       console.log(newHomework);
@@ -234,6 +230,7 @@ const HomeworkInput: React.FC = () => {
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="lessonTitle"

@@ -108,7 +108,7 @@ type ListOfThemes = {
 type AdminList = { id: number | string; title: string; url: string }[];
 export type HomeWorkItem = {
   id: number | string;
-  link: string;
+  link?: string;
   title: string;
   type: string;
 };
