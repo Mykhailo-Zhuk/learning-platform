@@ -15,7 +15,11 @@ const HomeworkWrittingOutput = ({ id, type, link, title }: HomeWorkItem) => {
 
   if (["link", "a"].includes(type)) {
     return (
-      <Link key={id} href={link} className="text-blue-500 flex-shrink-0 pb-1" target="_blank">
+      <Link
+        key={id}
+        href={link ? link : "#"}
+        className="text-blue-500 flex-shrink-0 pb-1"
+        target="_blank">
         {title + ", "}
       </Link>
     );
@@ -23,11 +27,11 @@ const HomeworkWrittingOutput = ({ id, type, link, title }: HomeWorkItem) => {
 
   if (type === "photo") {
     return (
-      <Link key={id} href={link} className="text-blue-500" target="_blank" download>
+      <Link key={id} href={link ? link : "#"} className="text-blue-500" target="_blank" download>
         <CldImage
           width={60}
           height={20}
-          src={link}
+          src={link ? link : "#"}
           alt={title}
           title={title}
           loading="lazy"

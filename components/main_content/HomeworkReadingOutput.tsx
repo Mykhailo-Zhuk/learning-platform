@@ -12,7 +12,7 @@ const HomeworkReadingOutput = ({ listOfThemes }: { listOfThemes?: HomeWorkItem[]
               return (
                 <Link
                   key={theme?.id}
-                  href={theme?.link}
+                  href={theme?.link ? theme?.link : "#"}
                   className="text-blue-500 flex-shrink-0 pb-1"
                   target="_blank">
                   {theme?.title + ", "}
