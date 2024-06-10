@@ -29,12 +29,12 @@ const Hello = ({ onCourseSelect }: HelloTypes) => {
         <p className="p-2 font-spartan text-4xl">Hello, {guest}</p>
       </div>
       <div>
-        <Select onValueChange={(value) => onCourseSelect(value)} defaultValue="frontEnd">
+        <Select onValueChange={(value) => onCourseSelect(value)} defaultValue="front">
           <SelectTrigger className="w-[180px]">
-            <SelectValue defaultValue="frontEnd" />
+            <SelectValue defaultValue="front" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="frontEnd">Front-end</SelectItem>
+            <SelectItem value="front">Front-end</SelectItem>
             <SelectItem value="react">React</SelectItem>
           </SelectContent>
         </Select>

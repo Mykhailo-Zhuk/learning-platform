@@ -4,7 +4,7 @@ import { Hello, TabsRow } from "@/components/index";
 import { useState } from "react";
 
 export default function Home() {
-  const [courseType, setCourseType] = useState("frontEnd");
+  const [courseType, setCourseType] = useState("front");
 
   const handleCourseType = (courseType: string) => {
     setCourseType(courseType);

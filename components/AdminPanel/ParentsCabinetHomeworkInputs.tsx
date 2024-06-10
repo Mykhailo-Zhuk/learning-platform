@@ -15,7 +15,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { GROUP_2_MEMBERS, GROUP_3_MEMBERS, INDIVID_ARTHOR, Members, useStore } from "@/store/store";
+import {
+  GROUP_2_MEMBERS,
+  GROUP_3_MEMBERS,
+  INDIVID_ARTHOR,
+  Members,
+  PersonalHomeworkResults,
+  useStore,
+} from "@/store/store";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { format } from "date-fns";
@@ -46,6 +53,18 @@ const FormSchema = z.object({
   ),
 });
 
+const defaultValues: Pick<PersonalHomeworkResults, "homeworkIsDone"> = {
+  homeworkIsDone: [
+    {
+      id: uuidv4(),
+      date: new Date(),
+      lessonTitle: "",
+      homeworkId: "",
+      isCompleted: "Не виконав",
+    },
+  ],
+};
+
 const inputLabel = "text-[0.8rem] font-medium";
 
 const ParentsCabinetHomeworkInputs: React.FC = () => {
@@ -58,23 +77,10 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
-    defaultValues: {
-      username: "",
-      group: "",
-      type: "",
-      homeworkIsDone: [
-        {
-          id: uuidv4(),
-          date: new Date(),
-          lessonTitle: "",
-          homeworkId: "",
-          isCompleted: "Не виконав",
-        },
-      ],
-    },
+    defaultValues,
   });
 
-  const { control, reset, watch } = form;
+  const { control, watch } = form;
 
   const subscibeGroup = watch("group");
   const group2Selected = subscibeGroup === "group2";
@@ -149,7 +155,7 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
 
       if (notification?.ok) {
         toast({
-          title: `До користувача ${data.username} додано виконані домашні завдання по наступними темами: `,
+          title: `До користувача ${data.username} додано результати домашніх завдань по наступними темами: `,
           description: (
             <p className="mt-2 w-[340px] rounded-md py-4">
               {newInputData?.homeworkIsDone?.map((homework, index) => (
@@ -170,7 +176,6 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
       });
       console.log(error);
     }
-    reset();
   };
 
   return (
@@ -185,7 +190,7 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
               render={({ field }) => (
                 <FormItem className="flex flex-col">
                   <FormLabel className={inputLabel}>Тип курсу</FormLabel>
-                  <Select onValueChange={field.onChange}>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <SelectTrigger className="w-[200px]">
                       <SelectValue placeholder="Виберіть тип курсу" />
                     </SelectTrigger>
@@ -205,7 +210,7 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
               render={({ field }) => (
                 <FormItem className="flex flex-col">
                   <FormLabel className={inputLabel}>Група</FormLabel>
-                  <Select onValueChange={field.onChange}>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <SelectTrigger className="w-[200px]">
                       <SelectValue placeholder="Виберіть групу" />
                     </SelectTrigger>
@@ -228,7 +233,7 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
                   <FormLabel className={inputLabel}>Ім&apos;я учасника</FormLabel>
                   <Select
                     onValueChange={field.onChange}
-                    defaultValue={arthorSelected ? "Ja_wewykyj" : undefined}>
+                    defaultValue={arthorSelected ? "Ja_wewykyj" : field.value}>
                     <SelectTrigger className="w-[200px]">
                       <SelectValue placeholder="Виберіть ім'я учасника" />
                     </SelectTrigger>
@@ -293,18 +298,12 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
                     render={({ field }) => (
                       <FormItem className="flex flex-col w-[375px]">
                         <FormLabel className={inputLabel}>Тема заняття</FormLabel>
-                        <Select onValueChange={field.onChange}>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <SelectTrigger>
                             <SelectValue placeholder="Lesson #2 ..." />
                           </SelectTrigger>
                           <SelectContent className="min-w-fit">
-                            {allLessonTitles ? (
-                              handleLessonTitleChange(allLessonTitles)
-                            ) : (
-                              <SelectItem value="unknown" disabled>
-                                Оберіть групу
-                              </SelectItem>
-                            )}
+                            {allLessonTitles && handleLessonTitleChange(allLessonTitles)}
                           </SelectContent>
                         </Select>
                         <FormMessage />

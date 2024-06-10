@@ -25,34 +25,48 @@ export async function POST(req: NextRequest) {
   });
 
   const body: PersonalHomeworkResults = await req.json();
-  const onlyHomeworkToMerge = body.homeworkIsDone;
+  const incomingHomeworksList = body.homeworkIsDone;
 
-  if (onlyHomeworkToMerge) {
-    const onlyInitialHomeworkResults = await client.json.get(
-      `user:${body.username}`,
-      "$.homeworkIsDone",
-    );
-
-    const findSameHomework = onlyInitialHomeworkResults[0].findIndex(
-      (homework: HomeworkResults) => homework.homeworkId === onlyHomeworkToMerge[0].homeworkId,
-    );
-
-    if (findSameHomework !== -1) {
-      const deepCloneHomeworkResults = cloneDeep(onlyInitialHomeworkResults)[0];
-
-      deepCloneHomeworkResults[findSameHomework] = onlyHomeworkToMerge[0];
-
-      await client.json.set(`user:${body.username}`, `$.homeworkIsDone`, deepCloneHomeworkResults);
-
-      return NextResponse.json({ ok: true });
-    }
-  }
-
-  await client.json.arrinsert(
+  const existingHomeworksFromDb = await client.json.get(
     `user:${body.username}`,
-    `$.homeworkIsDone`,
-    0,
-    ...onlyHomeworkToMerge,
+    "$.homeworkIsDone",
+  );
+
+  const updateUsersList = (
+    existingHomeworksFromDb: HomeworkResults[],
+    incomingHomeworksList: HomeworkResults[],
+  ) => {
+    // Step 1: Update existing links
+    const updatedUsers = existingHomeworksFromDb.map((existingHomework) => {
+      const userToChange = incomingHomeworksList.find(
+        (currentUser) => currentUser.homeworkId === existingHomework.homeworkId,
+      );
+
+      if (userToChange) {
+        return userToChange;
+      }
+
+      return existingHomework;
+    });
+
+    // Step 2: Add new links that don't exist in current links
+    incomingHomeworksList.forEach((currentUser) => {
+      const existingHomework = existingHomeworksFromDb.find(
+        (existingHomework) => existingHomework.homeworkId === currentUser.homeworkId,
+      );
+
+      if (!existingHomework) {
+        updatedUsers.push(currentUser);
+      }
+    });
+
+    return updatedUsers;
+  };
+
+  await client.json.set(
+    `user:${body.username}`,
+    "$.homeworkIsDone",
+    updateUsersList(existingHomeworksFromDb, incomingHomeworksList),
   );
 
   return NextResponse.json({ ok: true });

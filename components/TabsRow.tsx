@@ -22,27 +22,29 @@ type CourseTypes = {
 };
 
 const COURSE: CourseTypes = {
-  frontEnd: ["group2", "group3"],
+  front: ["group2", "group3"],
   react: ["arthor"],
 };
 
 const TabsRow = ({ selectedCourse }: TabsRowTypes) => {
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState(COURSE[selectedCourse][0]);
 
-  const currentGroup = useStore((state) => state.group);
   const getGroup = useStore((state) => state.getGroup);
 
   useEffect(() => {
     const fetchData = async () => {
-      await getGroup(COURSE[selectedCourse][0]);
+      const initialGroup = COURSE[selectedCourse][0];
+      getGroup(initialGroup);
+      setActiveTab(initialGroup);
       setLoading(false);
     };
     fetchData();
-  }, [selectedCourse]);
+  }, [selectedCourse, getGroup]);
 
   return (
     <section className="flex w-full p-1 md:p-5 border-t border-t-slate-200">
-      <Tabs defaultValue={COURSE[selectedCourse][0]} className="w-full">
+      <Tabs value={activeTab} className="w-full" onValueChange={(value) => setActiveTab(value)}>
         <div className="flex max-md:justify-center">
           <TabsList>
             {COURSE[selectedCourse].map((group: string) => {
@@ -56,11 +58,11 @@ const TabsRow = ({ selectedCourse }: TabsRowTypes) => {
             })}
           </TabsList>
         </div>
-        <TabsContent value={currentGroup} className="flex flex-col">
+        <TabsContent value={activeTab} className="flex flex-col">
           {loading ? (
             <MainResourcesSkeleton />
           ) : (
-            <MainResources key={currentGroup} currentGroup={currentGroup} isLoading={loading} />
+            <MainResources currentGroup={activeTab} isLoading={loading} />
           )}
           {loading ? <ReferencesSkeleton /> : <References />}
           {loading ? <HomeworkSkeleton /> : <Homework />}

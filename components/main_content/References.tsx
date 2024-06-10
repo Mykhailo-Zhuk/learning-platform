@@ -4,14 +4,21 @@ import { AiFillMessage } from "react-icons/ai";
 import { BsTelegram } from "react-icons/bs";
 import { Button } from "../ui/button";
 import { useStore } from "@/store/store";
+import Link from "next/link";
+
+const telegramGroupLinks = [
+  { group: "group3", link: "https://web.telegram.org/a/#-4284472340" },
+  { group: "group2", link: "https://web.telegram.org/a/#-4170575798" },
+  { group: "arthor", link: "https://web.telegram.org/a/#-4137793068" },
+];
 
 const References = () => {
   const currentGroup = useStore((state) => state.group);
 
-  const groupLink =
-    currentGroup === "group1"
-      ? "https://web.telegram.org/a/#-4076222412"
-      : "https://web.telegram.org/a/#-4170575798";
+  const groupLink = () => {
+    const currentTelegram = telegramGroupLinks.find((telegram) => telegram.group === currentGroup);
+    return currentTelegram?.link;
+  };
 
   return (
     <section className="flex space-x-5 border-t border-t-slate-200 py-5">
@@ -25,9 +32,9 @@ const References = () => {
         </div>
 
         <Button asChild className="w-full rounded-lg bg-blue-500">
-          <a href={groupLink} target="_blank" className="flex space-x-3">
+          <Link href={groupLink()! || "#"} target="_blank" className="flex space-x-3">
             <BsTelegram size={18} /> <p>Приєднатись</p>
-          </a>
+          </Link>
         </Button>
       </div>
     </section>
