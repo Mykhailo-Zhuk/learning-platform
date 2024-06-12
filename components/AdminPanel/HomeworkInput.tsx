@@ -472,7 +472,7 @@ const HomeworkInput: React.FC = () => {
                 name="group"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <Select onValueChange={field.onChange} required>
+                    <Select onValueChange={field.onChange} value={field.value} required>
                       <SelectTrigger className="w-fit">
                         <SelectValue placeholder="Виберіть групу" />
                       </SelectTrigger>
