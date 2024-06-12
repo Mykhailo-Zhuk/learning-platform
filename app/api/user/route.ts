@@ -38,25 +38,25 @@ export async function POST(req: NextRequest) {
   ) => {
     // Step 1: Update existing links
     const updatedUsers = existingHomeworksFromDb.map((existingHomework) => {
-      const userToChange = incomingHomeworksList.find(
-        (currentUser) => currentUser.homeworkId === existingHomework.homeworkId,
+      const homeworkToChange = incomingHomeworksList.find(
+        (currentHomework) => currentHomework.homeworkId === existingHomework.homeworkId,
       );
 
-      if (userToChange) {
-        return userToChange;
+      if (homeworkToChange) {
+        return homeworkToChange;
       }
 
       return existingHomework;
     });
 
     // Step 2: Add new links that don't exist in current links
-    incomingHomeworksList.forEach((currentUser) => {
+    incomingHomeworksList.forEach((currentHomework) => {
       const existingHomework = existingHomeworksFromDb.find(
-        (existingHomework) => existingHomework.homeworkId === currentUser.homeworkId,
+        (existingHomework) => existingHomework.homeworkId === currentHomework.homeworkId,
       );
 
       if (!existingHomework) {
-        updatedUsers.push(currentUser);
+        updatedUsers.push(currentHomework);
       }
     });
 
@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
   await client.json.set(
     `user:${body.username}`,
     "$.homeworkIsDone",
-    updateUsersList(existingHomeworksFromDb, incomingHomeworksList),
+    updateUsersList(existingHomeworksFromDb[0], incomingHomeworksList),
   );
 
   return NextResponse.json({ ok: true });

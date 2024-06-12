@@ -80,7 +80,7 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
     defaultValues,
   });
 
-  const { control, watch } = form;
+  const { control, watch, resetField } = form;
 
   const subscibeGroup = watch("group");
   const group2Selected = subscibeGroup === "group2";
@@ -170,6 +170,7 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
       }
 
       setLoading(false);
+      resetField("homeworkIsDone");
     } catch (error) {
       toast({
         title: "Помилка під час надсилання даних",
@@ -298,7 +299,7 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
                     render={({ field }) => (
                       <FormItem className="flex flex-col w-[375px]">
                         <FormLabel className={inputLabel}>Тема заняття</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange}>
                           <SelectTrigger>
                             <SelectValue placeholder="Lesson #2 ..." />
                           </SelectTrigger>
