@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@vercel/kv";
 import { HomeworkResults, PersonalHomeworkResults } from "@/store/store";
-import { cloneDeep } from "lodash";
 
 export async function GET(req: NextRequest) {
   const client = createClient({

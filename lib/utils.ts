@@ -1,7 +1,6 @@
 import { baseUrl } from "@/config";
 import { HomeworkResults } from "@/store/store";
 import { type ClassValue, clsx } from "clsx";
-import { sortBy } from "lodash";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -72,8 +71,8 @@ const parseDateString = (dateString: string): Date => {
 
 export const sortedHomeworkField = (homework: HomeworkResults[]) => {
   const sortedByDate = homework.sort((a, b) => {
-    const dateA = new Date(parseDateString(a.date));
-    const dateB = new Date(parseDateString(b.date));
+    const dateA = new Date(parseDateString(a.date.toDateString()));
+    const dateB = new Date(parseDateString(b.date.toDateString()));
     return dateB.getTime() - dateA.getTime();
   });
   return sortedByDate;
