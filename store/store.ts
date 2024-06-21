@@ -137,7 +137,7 @@ export type YoutubeLinks = {
 
 export type HomeworkResults = {
   id: string;
-  date: Date;
+  date: string;
   lessonTitle: string;
   homeworkId: string;
   isCompleted: "Частково" | "Виконав" | "Не виконав";

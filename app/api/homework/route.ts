@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
 
   if (group && homeworkId) {
     const exactHomework = await client.json.get(
-      `homework:group${group}`,
+      `homework:${group}`,
       `$.[?(@.id == "${homeworkId}")]`,
     );
     return NextResponse.json(exactHomework);
