@@ -71,8 +71,8 @@ const parseDateString = (dateString: string): Date => {
 
 export const sortedHomeworkField = (homework: HomeworkResults[]) => {
   const sortedByDate = homework.sort((a, b) => {
-    const dateA = new Date(parseDateString(a.date.toDateString()));
-    const dateB = new Date(parseDateString(b.date.toDateString()));
+    const dateA = new Date(parseDateString(a.date as any));
+    const dateB = new Date(parseDateString(b.date as any));
     return dateB.getTime() - dateA.getTime();
   });
   return sortedByDate;
