@@ -2,22 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@vercel/kv";
 import { Users, UsersDataList } from "@/store/store";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   const client = createClient({
     url: process.env.kv_REST_API_URL!,
     token: process.env.kv_REST_API_TOKEN!,
   });
 
-  const username = req.nextUrl.searchParams.get("params");
-
-  if (username) {
-    const user = await client.json.get("users", `$.[?(@.name == "${username}")]`);
-
-    return NextResponse.json(user);
-  }
-
   const users = await client.json.get("users");
-
   return NextResponse.json(users);
 }
 

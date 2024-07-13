@@ -2,7 +2,6 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
-import Spinner from "../ui/spinner";
 import {
   ParentsCabineYoutubeInputs,
   ParentsCabinetHomeworkInputs,
@@ -10,8 +9,6 @@ import {
 } from "../index";
 
 const ParentsCabinetFormSwicher = () => {
-  const [loading, setLoading] = useState(true);
-
   return (
     <Tabs defaultValue="homework">
       <TabsList>

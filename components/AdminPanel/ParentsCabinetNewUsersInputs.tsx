@@ -81,7 +81,10 @@ const ParentsCabinetNewUsersInputs: React.FC = () => {
   } = form;
 
   useEffect(() => {
-    getAllUsers();
+    const fetchData = async () => {
+      await getAllUsers();
+    };
+    fetchData();
   }, []);
 
   const { fields, append, remove } = useFieldArray({
