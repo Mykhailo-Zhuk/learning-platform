@@ -141,7 +141,6 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
         };
       }),
     };
-    console.log(newInputData);
 
     try {
       setLoading(true);

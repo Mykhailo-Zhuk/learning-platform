@@ -1,5 +1,5 @@
 import { baseUrl } from "@/config";
-import { HomeworkResults } from "@/store/store";
+import { HomeworkResults, LinksData } from "@/store/store";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -73,6 +73,15 @@ export const sortedHomeworkField = (homework: HomeworkResults[]) => {
   const sortedByDate = homework.sort((a, b) => {
     const dateA = new Date(parseDateString(a.date as any));
     const dateB = new Date(parseDateString(b.date as any));
+    return dateB.getTime() - dateA.getTime();
+  });
+  return sortedByDate;
+};
+
+export const sortedYoutubeField = (youtube: LinksData[]) => {
+  const sortedByDate = youtube.sort((a, b) => {
+    const dateA = new Date(parseDateString(a.dateOfMeeting as any));
+    const dateB = new Date(parseDateString(b.dateOfMeeting as any));
     return dateB.getTime() - dateA.getTime();
   });
   return sortedByDate;

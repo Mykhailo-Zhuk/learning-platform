@@ -5,7 +5,7 @@ import { CabinetNavigation, HomeworksWorkspace, YoutubeLinksWorkspace } from "..
 import { LinksData, PersonalHomeworkResults, useStore } from "@/store/store";
 import Spinner from "../ui/spinner";
 import { useSearchParams } from "next/navigation";
-import { sortedHomeworkField } from "@/lib/utils";
+import { sortedHomeworkField, sortedYoutubeField } from "@/lib/utils";
 
 export type User =
   | {
@@ -68,7 +68,7 @@ const ParentsCabinet = ({ user }: ParentsCabinetProps) => {
   }
 
   if (type === "recording" && youtubeLinks !== null && youtubeLinks && youtubeLinks.length !== 0) {
-    content = <YoutubeLinksWorkspace data={youtubeLinks} />;
+    content = <YoutubeLinksWorkspace data={sortedYoutubeField(youtubeLinks)} />;
   }
 
   return (
