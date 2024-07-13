@@ -143,41 +143,41 @@ const ParentsCabinetHomeworkInputs: React.FC = () => {
     };
     console.log(newInputData);
 
-    // try {
-    //   setLoading(true);
+    try {
+      setLoading(true);
 
-    //   const response: Response = await fetchToChangeDataOnServer("user", newInputData);
+      const response: Response = await fetchToChangeDataOnServer("user", newInputData);
 
-    //   type Notification = {
-    //     ok?: boolean;
-    //   };
+      type Notification = {
+        ok?: boolean;
+      };
 
-    //   const notification: Notification = await response.json();
+      const notification: Notification = await response.json();
 
-    //   if (notification?.ok) {
-    //     toast({
-    //       title: `До користувача ${data.username} додано результати домашніх завдань по наступними темами: `,
-    //       description: (
-    //         <p className="mt-2 w-[340px] rounded-md py-4">
-    //           {newInputData?.homeworkIsDone?.map((homework, index) => (
-    //             <span key={index}>
-    //               {homework.lessonTitle +
-    //                 (newInputData?.homeworkIsDone.length - 1 !== index ? ", " : "")}
-    //             </span>
-    //           ))}
-    //         </p>
-    //       ),
-    //     });
-    //   }
+      if (notification?.ok) {
+        toast({
+          title: `До користувача ${data.username} додано результати домашніх завдань по наступними темами: `,
+          description: (
+            <p className="mt-2 w-[340px] rounded-md py-4">
+              {newInputData?.homeworkIsDone?.map((homework, index) => (
+                <span key={index}>
+                  {homework.lessonTitle +
+                    (newInputData?.homeworkIsDone.length - 1 !== index ? ", " : "")}
+                </span>
+              ))}
+            </p>
+          ),
+        });
+      }
 
-    //   setLoading(false);
-    //   resetField("homeworkIsDone");
-    // } catch (error) {
-    //   toast({
-    //     title: "Помилка під час надсилання даних",
-    //   });
-    //   console.log(error);
-    // }
+      setLoading(false);
+      resetField("homeworkIsDone");
+    } catch (error) {
+      toast({
+        title: "Помилка під час надсилання даних",
+      });
+      console.log(error);
+    }
   };
 
   return (

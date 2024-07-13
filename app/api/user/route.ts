@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
   });
 
   const body: PersonalHomeworkResults = await req.json();
-  const incomingHomeworksList = body.homeworkIsDone;
+  const incomingHomeworkResultsList = [...body.homeworkIsDone];
 
   const existingHomeworksFromDb = await client.json.get(
     `user:${body.username}`,
@@ -33,11 +33,11 @@ export async function POST(req: NextRequest) {
 
   const updateUsersList = (
     existingHomeworksFromDb: HomeworkResults[],
-    incomingHomeworksList: HomeworkResults[],
+    incomingHomeworkResultsList: HomeworkResults[],
   ) => {
-    // Step 1: Update existing links
-    const updatedUsers = existingHomeworksFromDb.map((existingHomework) => {
-      const homeworkToChange = incomingHomeworksList.find(
+    // Step 1: Update existing homework
+    const updatedHomework = existingHomeworksFromDb.map((existingHomework) => {
+      const homeworkToChange = incomingHomeworkResultsList.find(
         (currentHomework) => currentHomework.homeworkId === existingHomework.homeworkId,
       );
 
@@ -48,24 +48,24 @@ export async function POST(req: NextRequest) {
       return existingHomework;
     });
 
-    // Step 2: Add new links that don't exist in current links
-    incomingHomeworksList.forEach((currentHomework) => {
+    // Step 2: Add new homework that don't exist in current homework
+    incomingHomeworkResultsList.forEach((currentHomework) => {
       const existingHomework = existingHomeworksFromDb.find(
         (existingHomework) => existingHomework.homeworkId === currentHomework.homeworkId,
       );
 
       if (!existingHomework) {
-        updatedUsers.push(currentHomework);
+        updatedHomework.push(currentHomework);
       }
     });
 
-    return updatedUsers;
+    return updatedHomework;
   };
 
   await client.json.set(
     `user:${body.username}`,
     "$.homeworkIsDone",
-    updateUsersList(existingHomeworksFromDb[0], incomingHomeworksList),
+    updateUsersList(existingHomeworksFromDb[0], incomingHomeworkResultsList),
   );
 
   return NextResponse.json({ ok: true });

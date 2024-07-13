@@ -112,18 +112,22 @@ export type HomeWorkItem = {
   title: string;
   type: string;
 };
+
+export type HomeworkObject = {
+  id: string;
+  action: string;
+  listOfThemes?: HomeWorkItem[];
+  links?: HomeWorkItem[];
+}[];
+
 export type Homework = {
   lessonTitle: string;
   id: number | string;
   date: string;
   group: string;
-  homework: {
-    id: string;
-    action: string;
-    listOfThemes?: HomeWorkItem[];
-    links?: HomeWorkItem[];
-  }[];
+  homework: HomeworkObject;
 };
+
 export type LinksData = {
   id: string;
   linkToRecording: string;
